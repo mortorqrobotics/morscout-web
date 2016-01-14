@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang = "en">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Report Match</title>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:700,300,400' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Exo+2:100' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/index.css" type="text/css">
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-default navbar-fixed-top">
+    	<div class="container-fluid">
+    		<div class="navbar-header">
+    		  <a class="navbar-brand" href="index.html">MorScout</a>
+    		  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#MorScoutNav" id = "toggle_button">
+    			<span class="icon-bar"></span>
+    			<span class="icon-bar"></span>
+    			<span class="icon-bar"></span>
+    		  </button>
+    		</div>
+    		<div class="collapse navbar-collapse" id="MorScoutNav">
+    		  <ul class="nav navbar-nav">
+    			<li><a href="matches.html"title="List of all matches">All Matches</a></li>
+    			<li><a href="teams.html"title="List of all teams">Team List</a></li>
+    			<li><a href="sync.html"title="Sync with the server" >Sync</a></li>
+    			<li><a href="settings.html" title="Configure the settings">Settings</a></li>
+    		  </ul>
+    		  <ul class="nav navbar-nav navbar-right">
+    			<li><a href="help.html" title="Need help?">Help</a></li>
+    			<li><a href="feedback.html" title="Give team 1515 your feedback!">Feedback</a></li>
+    			<li id="UserDropdown" class="dropdown">
+    				<a href="login.html">Log in</a>
+    			</li>
+    		  </ul>
+    		</div>
+    	</div>
+    </nav>
+
+    <div class="report">
+    	<div class="container-fluid">
+    		<div id="report_title" class="page_title">
+    			<h2>Match </h2>
+    			<h2 id="report_match_num"></h2>
+    			<h2> - </h2>
+    			<h2 id="report_match_time"></h2>
+    			<h2 id="report_instruction">Choose a team to scout or view</h2>
+    		</div>
+    		<div class="row">
+    			<div class = "col-md-12">
+    				<table class="report_table">
+    					<tr>
+    						<th id="rh">Red Teams</th>
+    						<th id="bh">Blue Teams</th>
+    					</tr>
+    					<tr>
+    						<td id="r1"></td>
+    						<td id="b1"></td>
+    					</tr>
+    					<tr>
+    						<td id="r2"></td>
+    						<td id="b2"></td>
+    					</tr>
+    					<tr>
+    						<td id="r3"></td>
+    						<td id="b3"></td>
+    					</tr>
+    				</table>
+    			</div>
+    		</div>
+    		<div class="row">
+    			<div class="col-md-1 col-sm-0 col-xs-0">
+    			</div>
+    			<div class="col-md-10 col-sm-12 col-xs-12">
+    				<ul id="report_tabs" class="nav nav-tabs">
+    				  <li id="scout_tab" class="active"><a href="javascript: void(0);">Scout</a></li>
+    				  <li id="view_tab"><a href="javascript: void(0);">View</a></li>
+    				  <li id="viewMatches_tab"><a href="javascript: void(0);">All Matches</a></li>
+    				</ul>
+    			</div>
+    			<div class="col-md-1 col-sm-0 col-xs-0">
+    			</div>
+    		</div>
+    		<div id="scout_form" class="row">
+    			<div class="col-md-1 col-sm-0 col-xs-0">
+    			</div>
+    			<div class="col-md-5 col-sm-6 col-xs-12">
+    	  	    	<div class="scout_div">
+    	  	    		<h3 class="scout_div_title">Autonomous</h3>
+
+    	  	    		<div class="radio">
+    		  	    		<input class="report_check" type="radio" name="auto" id="nearDrivers"></input>
+    		  	    		<label id="report_text" for="nearDrivers" class="report_radio_check">Started near drivers</label><br/>
+    						<input class="report_check" type="radio" name="auto" id="radio12"></input>
+    						<label id="report_text" for="radio12" class="report_radio_check">Started near landfill</label><br/>
+    					</div>
+
+    	  	    		<input class="report_check" type="checkbox" id="robotMoved"></input>
+    	  	    		<label id="report_text" for="robotMoved" class="report_radio_check">Robot moves to auto zone?</label><br/>
+
+    					<input class="report_check" type="checkbox" id="toteMoved"></input>
+    					<label id="report_text" for="toteMoved" class="report_radio_check">Tote moved to auto zone?</label><br/>
+
+    					<input class="report_check" type="checkbox" id="containerMoved"></input>
+    					<label id="report_text" for="containerMoved" class="report_radio_check">Container set on auto zone?</label><br/>
+
+    					<input class="report_check" type="checkbox" id="toteStacked"></input>
+    					<label id="report_text" for="toteStacked" class="report_radio_check">Single stacked tote set?</label><br/>
+
+    	  	    		<p id="report_text">Highest level tote stacked: </p>
+    	  	    		<input id="report_box_small" class="highestToteAuto" type="number"></input><br/>
+
+    	  	    		<textarea id="autoComments" class="report_area" placeholder="comments"></textarea>
+    	  	    	</div>
+    			</div>
+    			<div class="col-md-5 col-sm-6 col-xs-12">
+    				<div class="scout_div">
+    				    <h3 class="scout_div_title">Teleop</h3>
+
+    					<p id="report_text">Gray tote scored</p>
+    	  	    		<input type="button" id="grayTotesMinus" class="button add_minus_button" value="-"></input>
+    	  	    		<input class="grayTotes" id="report_box_small" type="number" value="0"></input>
+    	  	    		<input type="button" id="grayTotesPlus" class="button add_minus_button" value="+"></input><br/>
+
+    	  	    		<p id="report_text">Container scored</p>
+    	  	    		<input type="button" id="containersMinus" class="button add_minus_button" value="-"></input>
+    	  	    		<input class="containers" id="report_box_small" type="number" value="0"></input>
+    	  	    		<input type="button" id="containersPlus" class="button add_minus_button" value="+"></input><br/>
+
+    	  	    		<p id="report_text">Litter in container</p>
+    	  	    		<input type="button" id="containerLitterMinus" class="button add_minus_button" value="-"></input>
+    	  	    		<input class="containerLitter" id="report_box_small" type="number" value="0"></input>
+    	  	    		<input type="button" id="containerLitterPlus" class="button add_minus_button" value="+"></input><br/>
+
+    	  	    		<p id="report_text">Litter put in landfill</p>
+    	  	    		<input type="button" id="landfillLitterMinus" class="button add_minus_button" value="-"></input
+    	  	    		><input class="landfillLitter" id="report_box_small" type="number" value="0"></input>
+    	  	    		<input type="button" id="landfillLitterPlus" class="button add_minus_button" value="+"></input><br/>
+
+    	  	    		<p id="report_text">Highest level tote stacked: </p>
+    	  	    		<input id="report_box_small" type="number" class="highestToteTeleop"></input><br/>
+
+    	  	    		<input class="report_check" type="checkbox" id="landfillContainer"></input>
+    	  	    		<label id="report_text" for="landfillContainer" class="report_radio_check">Gets container from landfill?</label><br/>
+    	  	    		<div class="radio">
+    		  	    		<input class="report_check" type="radio" id="coopertitionSet" name="coopertition"></input>
+    		  	    		<label id="report_text" for="coopertitionSet" class="report_radio_check">Coopertition set</label><br/>
+    						<input class="report_check" type="radio" id="coopertitionStack" name="coopertition"></input>
+    						<label id="report_text" for="coopertitionStack" class="report_radio_check">Coopertition stack</label><br/>
+    					</div>
+    					<textarea id="teleopComments" class="report_area" placeholder="comments"></textarea>
+    				</div>
+    				<div class="submit_match">
+    					<button id="submit_match_report" class="button">Submit</button>
+    				</div>
+    			</div>
+    			<div class="col-md-1 col-sm-0 col-xs-0">
+    			</div>
+    		</div>
+    		<div id="viewContainer"></div>
+    		<div id="viewMatches_form" class="row">
+    	    	<div class="col-md-1 col-sm-0 col-xs-0">
+    			</div>
+    	    	<div class="col-md-10 col-sm-12 col-xs-12">
+    	    		<div class="scout_div fixed_col_table" id="view_table">
+    	    			<h3 class="scout_div_title view_title fixed_col_table">All Matches for This Team </h3>
+    	    			<table class="viewMatchInTeam" id="matchTable">
+    	    				<!-- table inserted here -->
+    	    			</table>
+    	    		</div>
+    	    	</div>
+    	    	<div class="col-md-1 col-sm-0 col-xs-0">
+    			</div>
+    	    </div>
+    	</div>
+    </div>
+
+  <!-- JAVASCRIPT -->
+
+  <script src="js/jquery-2.1.3.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+
+  <script src="js/reportTable.js"></script>
+  <script src="js/main.js" type="text/javascript"></script>
+
+  <script>
+  function smoothScroll(id){
+      var aTag = $("#"+id);
+      $('html,body').animate({scrollTop: aTag.offset().top}, 300);
+  }
+
+  	$(document).ready(function() {
+
+  		$('.report_table td').hover(function(){
+  			$(this).toggleClass('button_hovered_report')
+  		});
+  		$('.report_table td').click(function(){
+   			$('#scout_form').fadeIn(300);
+  			$('#report_tabs').fadeIn(300);
+  			$('#scout_tab').trigger("click");
+  			smoothScroll('b3');
+  		});
+  		$('#view_tab').click(function(){
+  			$('#view_tab').addClass("active");
+  			$('#scout_tab').removeClass('active');
+  			$('#viewMatches_tab').removeClass('active');
+  			$('#viewMatches_form').hide();
+  			$('#scout_form').hide();
+  			$('.view_form').show();
+  		});
+  		$('#scout_tab').click(function(){
+  			$('#scout_tab').addClass("active");
+  			$('#view_tab').removeClass('active');
+  			$('#viewMatches_tab').removeClass('active');
+  			$('#scout_form').show();
+  			$(".view_form").hide();
+  			$('#viewMatches_form').hide();
+  			$('#submit_match_report').html('Submit');
+  			$('#submit_match_report').prop('disabled', false);
+  			$('#submit_match_report').css({"background-color":"orange","color":"black"});
+  			$('#submit_match_report').addClass('button');
+  			$('#submit_match_report').removeClass('button_disabled');
+  			$('#viewContainer').html('');
+  		});
+  		$('#viewMatches_tab').click(function(){
+  			$('#viewMatches_tab').addClass("active");
+  			$('#scout_tab').removeClass('active');
+  			$('#view_tab').removeClass('active');
+  			$('#viewMatches_form').show();
+  			$('#view_form').hide();
+  			$('#scout_form').hide();
+  			$(".view_form").hide();
+  		})
+
+  		$('#submit_match_report').click(function(){
+
+  				$('#submit_match_report').html('Done!');
+  				$('#submit_match_report').prop('disabled', true);
+  				$('#submit_match_report').removeClass('button_hovered');
+  				$('#submit_match_report').removeClass('button');
+  				$('#submit_match_report').addClass('button_disabled');
+  				$('#submit_match_report').css({"background-color":"black","color":"orange"});
+  				setTimeout(function() {
+  					$('#submit_match_report').html('Submit');
+  					$('#submit_match_report').prop('disabled', false);
+  					$('#submit_match_report').css({"background-color":"orange","color":"black"});
+  					$('#submit_match_report').addClass('button');
+  					$('#submit_match_report').removeClass('button_disabled');
+  				}, 1000);
+
+  		});
+
+  		$('#scout_form').hide();
+  		$('.view_form').hide();
+  		$('#report_tabs').hide();
+  		$('#viewMatches_form').hide();
+
+  	});
+  </script>
+
+  </body>
+</html>

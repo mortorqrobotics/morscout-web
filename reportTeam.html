@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang = "en">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Report Team</title>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:700,300,400' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Exo+2:100' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/index.css" type="text/css">
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-default navbar-fixed-top">
+    	<div class="container-fluid">
+    		<div class="navbar-header">
+    		  <a class="navbar-brand" href="index.html">MorScout</a>
+    		  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#MorScoutNav" id = "toggle_button">
+    			<span class="icon-bar"></span>
+    			<span class="icon-bar"></span>
+    			<span class="icon-bar"></span>
+    		  </button>
+    		</div>
+    		<div class="collapse navbar-collapse" id="MorScoutNav">
+    		  <ul class="nav navbar-nav">
+    			<li><a href="matches.html"title="List of all matches">All Matches</a></li>
+    			<li><a href="teams.html"title="List of all teams">Team List</a></li>
+    			<li><a href="sync.html"title="Sync with the server" >Sync</a></li>
+    			<li><a href="settings.html" title="Configure the settings">Settings</a></li>
+    		  </ul>
+    		  <ul class="nav navbar-nav navbar-right">
+    			<li><a href="help.html" title="Need help?">Help</a></li>
+    			<li><a href="feedback.html" title="Give team 1515 your feedback!">Feedback</a></li>
+    			<li id="UserDropdown" class="dropdown">
+    				<a href="login.html">Log in</a>
+    			</li>
+    		  </ul>
+    		</div>
+    	</div>
+    </nav>
+
+    <div class = "report">
+    	<div class = "container-fluid">
+    		<div id="report_title" class="page_title">
+    			<h2 class="page_title">Team </h2>
+    			<h2 class="page_title" id="report_team_num"></h2>
+    			<h2 id="dash"> - </h2>
+    			<h2 class="page_title" id="report_team_name"></h2>
+    		</div>
+    		<div class="row">
+    			<div class="col-md-1 col-sm-0 col-xs-0">
+    			</div>
+    			<div class="col-md-10 col-sm-12 col-xs-12">
+    				<ul id="report_tabs" class="nav nav-tabs">
+    				  <li id="scout_tab" class="active"><a href="javascript: void(0);">Scout</a></li>
+    				  <li id="view_tab"><a href="javascript: void(0);">View</a></li>
+    				  <li id="viewMatches_tab"><a href="javascript: void(0);">View Matches</a></li>
+    				</ul>
+    			</div>
+    			<div class="col-md-1 col-sm-0 col-xs-0">
+    			</div>
+    		</div>
+    		<div id="scout_form" class="row">
+    			<div class="col-md-1 col-sm-0 col-xs-0">
+    			</div>
+    			<div class="col-md-5 col-sm-6 col-xs-12">
+    	  	    	<div class="scout_div">
+    	  	    		<h3 class="scout_div_title">General</h3>
+    	  	    		<p id="report_text">Drive Train: </p>
+    	  	    		<div class="selectdiv" >
+    				      <select class="selectboxdiv" id="driveTrain">
+    				        <option>choose...</option>
+    				        <option value="Mecanum">Mecanum</option>
+    				        <option value="Swerve">Swerve</option>
+    				        <option value="West Coast">West Coast</option>
+    				        <option value="Octocanum">Octocanum</option>
+    				        <option value="Slide">Slide</option>
+    				        <option value="Crab">Crab</option>
+    				        <option value="Other">Other</option>
+    				      </select>
+    				      <div style="display:inline;" class="out">XCZXCzxcxz</div>
+    				  	</div><br/>
+    				  	<div class="hidden" id="otherDriveTrain">
+    					  	<p id="report_text">Other: </p>
+    			  	    	<input id="report_box_large" type="text" class="otherDrive"></input><br/>
+    			  	    </div>
+    				  	<div class="moveDown">
+    		  	    		<p id="report_text">Cycle time (sec): </p>
+    		  	    		<input id="report_box_small" type="number" class="cycleTime"></input><br/>
+    		  	    		<p id="report_text">Co-op points: </p>
+    		  	    		<input id="report_box_small" type="number" class="coopPoints"></input><br/>
+    		  	    		<p id="report_text">Speed: </p>
+    		  	    		<input id="report_box_small" type="number" class="speed"></input><br/>
+    		  	    		<p id="report_text">Max height: </p>
+    		  	    		<input id="report_box_small" type="number" class="maxHeight"></input><br/>
+    		  	    		<p id="report_text">Field configuration speed (sec): </p>
+    		  	    		<input id="report_box_small" type="number" class="configSpeed"></input><br/>
+    		  	    		<input class="report_check" type="checkbox" id="bumpers"></input>
+    		  	    		<label id="report_text" for="bumpers" class="report_radio_check">Bumpers?</label><br/>
+    		  	    	</div>
+    	  	    	</div>
+    			</div>
+    			<div class="col-md-5 col-sm-6 col-xs-12">
+    	  	    	<div class="scout_div">
+    	  	    		<h3 class="scout_div_title">Manipulators</h3>
+    	  	    		<input class="report_check" type="checkbox" id="elevator"></input>
+    	  	    		<label id="report_text" for="elevator" class="report_radio_check">Elevator</label><br/>
+    	  	    		<input class="report_check" type="checkbox" id="toteGrabber"></input>
+    	  	    		<label id="report_text" for="toteGrabber" class="report_radio_check">Tote grabber</label><br/>
+    	  	    		<input class="report_check" type="checkbox" id="arm"></input>
+    	  	    		<label id="report_text" for="arm" class="report_radio_check">Arm</label><br/>
+    	  	    		<input class="report_check" type="checkbox" id="containerGrabber"></input>
+    	  	    		<label id="report_text" for="containerGrabber" class="report_radio_check">Container grabber</label><br/>
+    	  	    		<input class="report_check" type="checkbox" id="toteHerder"></input>
+    	  	    		<label id="report_text" for="toteHerder" class="report_radio_check">Tote herder</label><br/>
+    	  	    		<p id="report_text" for="stepGrabber" class="report_radio_check">Step container grabber</p>
+    	  	    		<input id="report_box_small" type="number" value="0" class="stepGrabber"></input><br/>
+    	  	    		<input class="report_check" type="checkbox" id="toteBinFlipper"></input>
+    	  	    		<label id="report_text" for="toteBinFlipper" class="report_radio_check">Tote/bin flipper</label><br/>
+    	  	    		<input class="report_check" type="checkbox" id="retainingCage"></input>
+    	  	    		<label id="report_text" for="retainingCage" class="report_radio_check">Retaining cage</label><br/>
+    	  	    		<input class="report_check" type="checkbox" id="conveyorBelt"></input>
+    	  	    		<label id="report_text" for="conveyorBelt" class="report_radio_check">Conveyer belt</label><br/>
+    	  	    		<input class="report_check" type="checkbox" id="litterGrabber"></input>
+    	  	    		<label id="report_text" for="litterGrabber" class="report_radio_check">Litter grabber</label><br/>
+    	  	    		<input class="report_check" type="checkbox" id="humanPlayerTote"></input>
+    	  	    		<label id="report_text" for="humanPlayerTote" class="report_radio_check">Human player tote intake</label><br/>
+    	  	    		<input class="report_check" type="checkbox" id="humanPlayerLitter"></input>
+    	  	    		<label id="report_text" for="humanPlayerLitter" class="report_radio_check">Human player litter intake</label><br/>
+    	  	    		<input class="report_check" type="checkbox" id="singleToteStack"></input>
+    	  	    		<label id="report_text" for="singleToteStack" class="report_radio_check">Single tote stack</label><br/>
+    	  	    	</div>
+    	  	    	<div class="submit_match">
+    					<button id="submit_match_report" class="button">Submit</button>
+    				</div>
+    			</div>
+    			<div class="col-md-1 col-sm-0 col-xs-0">
+    			</div>
+    		</div>
+    		<div id="view_form" class="row">
+    			<div class="col-md-1 col-sm-0 col-xs-0">
+    			</div>
+    			<div class="col-md-5 col-sm-6 col-xs-12">
+    				<div class="scout_div">
+    					<h3 class="scout_div_title view_title">General</h3>
+    					<table id="view_table">
+    						<tr>
+    							<td>Drive Train</td>
+    							<td id="view_driveTrain">No Info</td>
+    						</tr>
+    						<tr>
+    							<td>Cycle Time (seconds)</td>
+    							<td id="view_cycleTime">No Info</td>
+    						</tr>
+    						<tr>
+    							<td>Co-op Points</td>
+    							<td id="view_coopPoints">No Info</td>
+    						</tr>
+    						<tr>
+    							<td>Speed</td>
+    							<td id="view_speed">No Info</td>
+    						</tr>
+    						<tr>
+    							<td>Max height</td>
+    							<td id="view_maxHeight">No Info</td>
+    						</tr>
+    						<tr>
+    							<td>Field config speed (sec)</td>
+    							<td id="view_configSpeed">No Info</td>
+    						</tr>
+    						<tr>
+    							<td>Has bumpers</td>
+    							<td id="view_bumpers">No Info</td>
+    						</tr>
+    					</table>
+    				</div>
+    			</div>
+    			<div class="col-md-5 col-sm-6 col-xs-12">
+    				<div class="scout_div">
+    					<h3 class="scout_div_title view_title">Manipulators</h3>
+    					<table id="view_table">
+    						<tr>
+    							<td>Elevator</td>
+    							<td id="view_elevator">No Info</td>
+    						</tr>
+    						<tr>
+    							<td>Tote grabber</td>
+    							<td id="view_toteGrabber">No Info</td>
+    						</tr>
+    						<tr>
+    							<td>Arm</td>
+    							<td id="view_arm">No Info</td>
+    						</tr>
+    						<tr>
+    							<td>Container grabber</td>
+    							<td id="view_containerGrabber">No Info</td>
+    						</tr>
+    						<tr>
+    							<td>Tote herder</td>
+    							<td id="view_toteHerder">No Info</td>
+    						</tr>
+    						<tr>
+    							<td>Step container grabber</td>
+    							<td id="view_stepGrabber">No Info</td>
+    						</tr>
+    						<tr>
+    							<td>Tote/bin flipper</td>
+    							<td id="view_toteBinFlipper">No Info</td>
+    						</tr>
+    						<tr>
+    							<td>Retaining cage</td>
+    							<td id="view_retainingCage">No Info</td>
+    						</tr>
+    						<tr>
+    							<td>Conveyor belt</td>
+    							<td id="view_conveyorBelt">No Info</td>
+    						</tr>
+    						<tr>
+    							<td>Litter grabber</td>
+    							<td id="view_litterGrabber">No Info</td>
+    						</tr>
+    						<tr>
+    							<td>Human player tote intake</td>
+    							<td id="view_humanPlayerTote">No Info</td>
+    						</tr>
+    						<tr>
+    							<td>Human player litter intake</td>
+    							<td id="view_humanPlayerLitter">No Info</td>
+    						</tr>
+    						<tr>
+    							<td>Single tote stack</td>
+    							<td id="view_singleToteStack">No Info</td>
+    						</tr>
+    					</table>
+    				</div>
+    			</div>
+    			<div class="col-md-1 col-sm-0 col-xs-0">
+    			</div>
+    		</div>
+    	    <div id="viewMatches_form" class="row">
+    	    	<div class="col-md-1 col-sm-0 col-xs-0">
+    			</div>
+    	    	<div class="col-md-10 col-sm-12 col-xs-12">
+    	    		<div class="scout_div fixed_col_table" id="view_table">
+    	    			<h3 class="scout_div_title view_title fixed_col_table">All Matches for This Team </h3>
+    	    			<table class="viewMatchInTeam" id="matchTable">
+    	    				<!-- table inserted here -->
+    	    			</table>
+    	    		</div>
+    	    	</div>
+    	    	<div class="col-md-1 col-sm-0 col-xs-0">
+    			</div>
+    	    </div>
+    	</div>
+    </div>
+
+  <!-- JAVASCRIPT -->
+
+  <script src="js/jquery-2.1.3.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/main.js" type="text/javascript"></script>
+
+  <script>
+  	function urlGet(url) {
+  		var index = url.indexOf("?");
+  		if(!~index) {
+  			return {};
+  		}
+  		else {
+  			return parseQS(url.substring(index + 1));
+  		}
+  	}
+  	$(document).ready(function(){
+  		var data = urlGet(String(location));
+  		if(data.name != undefined){
+  			$('#report_team_num').html(data.team);
+  			$('#report_team_name').html(data.name);
+  		}else{
+  			$('#report_team_num').html(data.team);
+  			$("#dash").hide();
+  		}
+  	});
+  </script>
+
+  <script type="text/javascript">
+  	$(document).ready(function(){
+
+  		$('#view_form').hide();
+  		$('#viewMatches_form').hide();
+
+  		$("select").change(function () {
+  		   var str = "";
+  		   str = $(this).find(":selected").text();
+  		   $(".out").text(str);
+  		   if($(this).find(':selected').text() == 'Other'){
+  		   	$('#otherDriveTrain').fadeIn(300).removeClass('hidden');
+  		   }else{
+  		   	$('#otherDriveTrain').fadeOut(300)
+  		   	setTimeout(function(){
+  		   		$('#otherDriveTrain').addClass('hidden');
+  		   	}, 300)
+  		   }
+  		}).trigger('change');
+
+  		$('#view_tab').click(function(){
+  			$('#view_tab').addClass("active");
+  			$('#scout_tab').removeClass('active');
+  			$('#viewMatches_tab').removeClass('active');
+  			$('#scout_form').hide();
+  			$('#viewMatches_form').hide();
+  			$('#view_form').show();
+  		});
+  		$('#scout_tab').click(function(){
+  			$('#scout_tab').addClass("active");
+  			$('#view_tab').removeClass('active');
+  			$('#viewMatches_tab').removeClass('active');
+  			$('#scout_form').show();
+  			$("#view_form").hide();
+  			$('#viewMatches_form').hide();
+  			$('#submit_match_report').html('Submit');
+  			$('#submit_match_report').prop('disabled', false);
+  			$('#submit_match_report').css({"background-color":"orange","color":"black"});
+  		});
+  		$('#viewMatches_tab').click(function(){
+  			$('#viewMatches_tab').addClass("active");
+  			$('#scout_tab').removeClass('active');
+  			$('#view_tab').removeClass('active');
+  			$('#viewMatches_form').show();
+  			$('#view_form').hide();
+  			$('#scout_form').hide();
+  		})
+
+  		$('#submit_match_report').click(function(){
+
+      )};
+      
+  	});
+  </script>
+
+  </body>
+</html>

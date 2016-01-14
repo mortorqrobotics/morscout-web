@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login Page</title>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:700,300,400' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Exo+2:100' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/index.css" type="text/css">
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" id="morscout">MorScout</a>
+    	  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#MorScoutNav" id="toggle_button">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+    	<div class="collapse navbar-collapse" id="MorScoutNav">
+    		<ul class="nav navbar-nav navbar-right">
+    			<li><a href="settings.html" title="Configure the settings">Settings</a></li>
+    			<li><a href="help.html" title="Need help?">Help</a></li>
+    		</ul>
+    	</div>
+      </div>
+    </nav>
+
+    <div class="login_wrapper">
+      <div class="container">
+    		<form id="login_form" action="javascript:void(0);" >
+    			<div id="username-box">
+    				<input type="text" id="username" placeholder="Username" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Username'" autofocus>
+    			</div>
+    			<div id="password-box">
+    				<input type="password" id="password" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'">
+    			</div>
+    			<div class="check">
+    				<input class="report_check" type="checkbox" id="check_box" checked></input><label id="report_text" for="check_box">Remember me</label><br/>
+    			</div>
+    			<div class="login">
+    			   <input type="submit" class="button" id ="login_button" value="Login" >
+    			</div>
+    		</form>
+    		<p id="login_message" style="text-align: center; margin-top: 0em; width: 18em;margin-left:auto;margin-right:auto; font-size: 2em;">
+          If you don't have an account, get one by following the instructions at <a style="color: DarkOrange;"href="https://github.com/mortorqrobotics/MorScout/#getting-started">our Github page<a/>
+        </p>
+      </div>
+    </div>
+
+  <!-- JAVASCRIPT -->
+
+  <script src="js/jquery-2.1.3.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/login.js" type="text/javascript"></script>
+
+  <script>
+  	$(document).ready(function() {
+  		$('#login_button').hover(function() {
+  			$(this).toggleClass('button_hovered')
+  		});
+  	});
+  </script>
+
+  </body>
+</html>

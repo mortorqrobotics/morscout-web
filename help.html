@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  	<meta charset="utf-8" />
+  	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Help</title>
+  	<link href='http://fonts.googleapis.com/css?family=Open+Sans:700,300,400' rel='stylesheet' type='text/css'>
+  	<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+  	<link href='http://fonts.googleapis.com/css?family=Exo+2:100' rel='stylesheet' type='text/css'>
+  	<link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/index.css" type="text/css">
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+    	  <a class="navbar-brand" href="index.html">MorScout</a>
+           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#MorScoutNav" id = "toggle_button">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <div class="collapse navbar-collapse" id="MorScoutNav">
+          <ul class="nav navbar-nav">
+            <li><a href="matches.html"title="List of all matches">All Matches</a></li>
+            <li><a href="teams.html"title="List of all teams">Team List</a></li>
+            <li><a href="sync.html"title="Sync with the server" >Sync </a></li>
+    	    <li><a href="settings.html" title="Configure the settings">Settings</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li class="active"><a href="help.html" title="Need help?">Help</a></li>
+            <li><a href="feedback.html" title="Give team 1515 your feedback!">Feedback</a></li>
+    		    <li id="UserDropdown" class="dropdown">
+              <a href="login.html">Log in</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="normal_text">
+           <div id="help_container" class="container-fluid">
+              <div class="row">
+                    <div class = "QApair">
+                      <p class='q'>Q. What is MorScout?</p>
+                      <p>A. MorScout is an FRC scouting app used to record match details and team strengths and weaknesses. This helps us form better strategies with the information collected about teams. MorScout was developed by MorTorq!</p>
+                    </div>
+              </div>
+              <div class="row">
+                    <div class = "QApair">
+                      <p class='q'>Q. How can I create an account?</p>
+                      <p>A. To create an account you have to have access to the machine thats running the server, then navigate to the server folder via the terminal or command prompt and type: "node --harmony userManager" (without quotes). now choose a username by typing: "add UsernameHere" (without quotes), then set a password by typing: "changePass UsernameHere PasswordHere" (without quotes).</p>
+                    </div>
+              </div>
+              <div class="row">
+                    <div class = "QApair">
+                      <p class='q'>Q. How can I access the login screen?</p>
+                      <p>A. You can easily access the login screen by clicking on the "Log In" button on the right of the navigation bar. If you see something else, that means your already logged in and you need to log out in the dropdown menu and repeat the steps from this answer.</p>
+                    </div>
+              </div>
+              <div class="row">
+                    <div class = "QApair">
+                      <p class='q'>Q. I can't login, what can I do?</p>
+                      <p>A. Sometimes the root of the problem can be from having a wrong server IP in the settings. Try changing your IP in settings or asking someone to inform you of any server changes. The IP can also be found on the computer that's hosting the server.</p>
+                    </div>
+              </div>
+              <div class="row">
+                    <div class = "QApair">
+                      <p class='q'>Q. What are some server IP's and ports I can try?</p>
+                      <p>A. Maybe if you are running the server locally you can try "localhost" or "127.0.0.1". Otherwise, another common modem IP is "192.168.0.X" and the port will most likely be "8080". Note: X is a number. e.g "2" or "12".</p>
+                    </div>
+              </div>
+              <div class="row">
+                    <div class = "QApair">
+                      <p class='q'>Q. How can I scout a specific team in a match?</p>
+                      <p >A. Sccouting the performance of a team in a specific match is simple. All you have to do is choose a match from the "all matches" page, then select a team from the table shown. Now you can fill in data for autonomous and teleop modes, and view the scouted data by clicking on the "view" tab.</p>
+                    </div>
+              </div>
+              <div class="row">
+                    <div class = "QApair">
+                      <p class='q'>Q. What does the orange highlighted row in the all matches section mean?</p>
+                      <p>A. The highlighted row is, in fact the match that is currently taking place. It is based on time, so it may not be accurate if there were to be delays.</p>
+                    </div>
+              </div>
+              <div class="row">
+                    <div class = "QApair">
+                      <p class='q'>Q. What do all the different colors on the "all matches" table mean?</p>
+                      <p>A. MorScout is designed to help your team make better decisions in scouting. Therefore, we color-coded the teams in the all matches page to help you organize your scouting resources. The team that is highlighted orange is your team. The teams highlighted green are the teams that are going to be allied with you in one or more of the matches that come after that highlighted table cell. The teams highlighted red are the teams that will be on the opposing team in one or more of the matches that come after that particular highlighted table cell. The teams that are highlighted purple are the teams that will be your allies in one or more of the matches after that particular highlighted table cell AND your enemies in one or more of the matches that come after that particular highlighted table cell. aka, scout the highlighted teams.</p>
+                    </div>
+              </div>
+              <div class="row">
+                    <div class = "QApair">
+                      <p class='q'>Q. How do I view my scouted data?</p>
+                      <p>A. In any page that you can scout, whether its the match scouting or pit scouting page, you can also view your data. there are usually two tabs, a "scout" tab and a "view" tab. Select the "view" tab to view your data.</p>
+                    </div>
+              </div>
+              <div class="row">
+                    <div class = "QApair">
+                      <p class='q'>Q. How do I pit scout?</p>
+                      <p>A. To pit scout, choose a team from the team list and then fill in the information. to view the data you scouted, click on the "view" tab.</p>
+                    </div>
+              </div>
+              <div class="row">
+                    <div class = "QApair">
+                      <p class='q'>Q. What does "progress" mean in the "all matches" page?</p>
+                      <p>A. The "progress" column shows you how many of the 6 teams you have scouted, whether it is none, 1 of 6, 5 of 6, or complete. It is meant to help scouters find the matches that they need to put in more effort for scouting.</p>
+                    </div>
+              </div>
+              <div class="row">
+                    <div class = "QApair">
+                      <p class='q'>Q. What is the search bar for in the "all matches" page?</p>
+                      <p>A. The search bar in the "all matches" page can be used to search for specific team numbers, for example, all the matches in which team 1515 is participating, or it can be used to search for progress levels like "none", or "3 of 6" or "complete", and it can be used to search for match times.</p>
+                    </div>
+              </div>
+              <div class="row">
+                    <div class = "QApair">
+                      <p class='q'>Q. What does the "force sync" button do?</p>
+                      <p>A. MorScout intelligently syncs without need for user input. however, for those times that you want to double check, or make sure that something syncs instantly, you can use this button.</p>
+                    </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+    </div>
+
+  <!-- JAVASCRIPT -->
+
+  <script src="js/jquery-2.1.3.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/main.js" type="text/javascript"></script>
+
+  </body>
+
+</html>
