@@ -25,3 +25,13 @@ function parseQS(str) {
 Array.prototype.last = function() {
 	return this[this.length - 1];
 };
+function request(type, url, data, responsecb) {
+    var xhr = new XMLHttpRequest() || new ActiveXObject("Microsoft.XMLHTTP");;
+    xhr.open(type, url, true);
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            responsecb(xhr.responseText);
+        }
+    };
+    xhr.send(data);
+}

@@ -18,8 +18,51 @@
 	-webkit-border-radius: 0px; /* sharp angles for text boxes in safari (not to be changed) */
 }
 
+h2{
+
+	text-align: center;
+	font-family: 'Exo 2', sans-serif;
+
+}
+
+#lastname{
+	height:2.2em;
+	width: 11.15em;
+	text-align: center;
+	font-size: 2.2em;
+	border-bottom: none;
+}
+#teamnumber{
+	height:2.2em;
+	width: 11.15em;
+	text-align: center;
+	font-size: 2.2em;
+	border-bottom: none;
+}
+#teamname{
+	height:2.2em;
+	width: 11.15em;
+	text-align: center;
+	font-size: 2.2em;
+	border-bottom: none;
+}
+
+#teamcode{
+	height:2.2em;
+	width: 11.15em;
+	text-align: center;
+	font-size: 2.2em;
+	border-bottom: none;
+}
+#teamcode_create{
+	height:2.2em;
+	width: 11.15em;
+	text-align: center;
+	font-size: 2.2em;
+}
+
 html{
-	
+
 }
 
 body {
@@ -91,27 +134,27 @@ background-color: #EE7600; /* color of background of selected link in nav bar */
 	/* NAVBAR STYLES FOR MOBILE */
 	  /*
 		.navbar {
-			min-height:38px;   
+			min-height:38px;
 		}
-		.navbar .navbar-brand{ 
-			padding: 0 12px; 
-			line-height: 38px; 
-			height: 38px; 
+		.navbar .navbar-brand{
+			padding: 0 12px;
+			line-height: 38px;
+			height: 38px;
 		}
-		.navbar .navbar-nav > li > a {  
-			padding-top: 0px; 
-			padding-bottom: 0px; 
-			line-height: 38px; 
+		.navbar .navbar-nav > li > a {
+			padding-top: 0px;
+			padding-bottom: 0px;
+			line-height: 38px;
 		}
-		.navbar .navbar-toggle {  
-			margin-top: 3px; 
-			margin-bottom: 0px; 
-			padding: 8px 9px; 
+		.navbar .navbar-toggle {
+			margin-top: 3px;
+			margin-bottom: 0px;
+			padding: 8px 9px;
 		}
 		.navbar-default .container-fluid {
 			padding-top: 15px;
 		}
-	  */	
+	  */
 	/* END OF NAVBAR STYLES FOR MOBILE */
 
 /* END OF NAVIGATION BAR STYLES */
@@ -136,7 +179,7 @@ background-color: #EE7600; /* color of background of selected link in nav bar */
   max-width: 15em;
   margin-left: auto;
   margin-right: auto;
-} 
+}
 
 /* END OF WELCOME PAGE STYLES */
 
@@ -188,14 +231,14 @@ background-color: #EE7600; /* color of background of selected link in nav bar */
 	margin-bottom: 0;
 }
 .delete{
-	background-color: red; 
-	color: white; 
+	background-color: red;
+	color: white;
 	padding: 0.2em;
 	display: inline-block;
 	margin-left: .7em;
 }
 .delete:hover{
-	background-color: #B80000; 
+	background-color: #B80000;
 	color: #CCCCCC;
 }
 .noDataMsg{
@@ -331,6 +374,18 @@ th,td {
 	text-align: center; /* horizontal alignment of the whole login form */
 }
 
+#signup_form {
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 300;
+	text-align: center;
+}
+
+#createteam_form {
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 300;
+	text-align: center;
+}
+
 #login_button {
 	height:2.2em; /* button height */
 	width: 12.3em; /* button width */
@@ -340,12 +395,35 @@ th,td {
 	background-color: orange; /* background color of button */
 	margin-top:.3em; /* top margin of button */
 }
+hr{
+    border-color: orange;
+}
+#signup_button {
+	height:2.2em;
+	width: 12.3em;
+	color: black;
+	text-align: center;
+	font-size: 2em;
+	background-color: orange;
+	margin-top:1.0em;
+}
+
+
+#createteam_button {
+	height:2.2em;
+	width: 12.3em;
+	color: black;
+	text-align: center;
+	font-size: 2em;
+	background-color: orange;
+	margin-top:.0em;
+}s
 
 .check {
 
  /* NOTICE: PLEASE DO NOT CHANGE ANY STYLES FOR THIS ELEMENT, IT WAS CAREFULLY DESIGNED TO CENTER IN THE FORM */
- 
-	
+
+
 	color: orange; /* text color of "remember me" text */
 	margin-top: .4em; /* top margin of "remember me" text */
 	margin-left: auto; /* to center "remember me" text */
@@ -368,7 +446,14 @@ th,td {
 	text-align: center; /* horizontal alignment of text in username text box */
 	font-size: 2.2em; /* font size of text in username text box */
 	border-bottom: none; /* removes bottom border of username text box to create effect of connected text boxes (not to be changed) */
-	
+}
+#firstname{
+	height:2.2em;
+	width: 11.15em;
+	text-align: center;
+	font-size: 2.2em;
+	border-bottom: none;
+	margin-top: 10px;
 }
 
 #password{
@@ -377,22 +462,36 @@ th,td {
 	text-align: center; /* horizontal alignment of text(dots) in password text box*/
 	font-size: 2.2em; /* font size of text(dots) in password text box */
 }
+#password_signup{
+	height:2.2em;
+	width: 11.15em;
+	text-align: center;
+	font-size: 2.2em;
+    border-bottom: none;
+}
 
-::-webkit-input-placeholder { 
+#confirm_password_signup{
+	height:2.2em;
+	width: 11.15em;
+	text-align: center;
+	font-size: 2.2em;
+}
+
+::-webkit-input-placeholder {
     color: rgb(229 , 148 , 0); /* color for place holder text */
 	opacity:0.8; /* opacity of place holder text */
 }
 :-moz-placeholder {
-   color: rgb(229 , 148 , 0); 
-   opacity:0.8; 
+   color: rgb(229 , 148 , 0);
+   opacity:0.8;
 }
-::-moz-placeholder { 
-   color: rgb(229 , 148 , 0); 
-   opacity:0.8; 
+::-moz-placeholder {
+   color: rgb(229 , 148 , 0);
+   opacity:0.8;
 }
 :-ms-input-placeholder {
-   color: rgb(229 , 148 , 0); 
-   opacity:0.8; 
+   color: rgb(229 , 148 , 0);
+   opacity:0.8;
 }
 
 input:focus {
@@ -411,7 +510,7 @@ input:focus {
 }
 
 #login_button:hover{
-	background-color: 
+	background-color:
 }
 
 /* END OF LOGIN PAGE STYLES */
@@ -461,10 +560,10 @@ input:focus {
 	opacity:0.8; /* place holder text opacity of report boxes */
 }
 .report_area:-moz-placeholder {
-	 color: gray; 
-	opacity:0.8; 
+	 color: gray;
+	opacity:0.8;
 }
-.report_area::-moz-placeholder { 
+.report_area::-moz-placeholder {
 	 color: gray;
 	opacity:0.8;
 }
@@ -481,7 +580,7 @@ input:focus {
 	margin-bottom: 3em;
 	margin-top: 0 !important;
 	margin-left: 1em;
-	font-family: 'Exo 2', sans-serif; 
+	font-family: 'Exo 2', sans-serif;
 	margin-top: 3em;
 	padding: 0.7em;
 
@@ -501,7 +600,7 @@ input:focus {
 }
 .report_check{
 	margin: 0.3em !important;
-	font-size: 2em;	
+	font-size: 2em;
 }
 #report_text{
 	font-size: 2em !important;
@@ -514,7 +613,7 @@ input:focus {
 #report_box_small{
 	margin: .3em;
 	width: 2.5em;
-	font-size: 1.6em; 
+	font-size: 1.6em;
 	padding: .1em;
 	padding-top: 0;
 	background-color: #333333;
@@ -527,7 +626,7 @@ input:focus {
 #report_box_large{
 	margin: .3em;
 	width: 5em;
-	font-size: 1.6em; 
+	font-size: 1.6em;
 	padding: .1em;
 	padding-top: 0;
 	background-color: #333333;
@@ -540,7 +639,7 @@ input:focus {
 .select1 select{
 	margin: .3em;
 	width: 7em;
-	font-size: 1.6em; 
+	font-size: 1.6em;
 	padding: .1em;
 	background-color: #333333;
 	color: orange;
@@ -563,75 +662,75 @@ input:focus {
 }
 .scout_div_title{
 	border-bottom: 1px solid gray;
-	padding-bottom: 0.33em; 
+	padding-bottom: 0.33em;
 	margin-top: 1em !important;
 	font-weight: bold !important;
 }
 
-input[type=number]::-webkit-inner-spin-button, 
-input[type=number]::-webkit-outer-spin-button { 
-  -webkit-appearance: none; 
-  margin: 0; 
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 input[type='number'] {
     -moz-appearance:textfield;
 }
 
-label {  
-    display: inline-block;  
-    cursor: pointer;  
-    position: relative;  
-    padding-left: 25px;  
-    margin-right: 15px;   
-}  
-input[type=checkbox] {  
-    display: none;  
-} 
-input[type=radio] {  
-    display: none;  
-}  
-label:before {  
-    border-radius: 3px;  
-} 
-.radio label:before {  
-    border-radius: 1em;  
-}   
-input[type=radio]:checked + label:before {  
-	position: absolute;
-    content: "\2022";  
-    font-size: 2.3em;  
-    color: orange;  
-    text-align: center;  
-    line-height: .130em; 
-    bottom: 0.05em;
-}  
-input[type=checkbox]:checked + label:before {  
-	position: absolute;
-    content: "\2713";  
-    font-size: 15px;  
-    color: orange;  
-    text-align: center;  
-    line-height: 15px;
-    bottom: 0.15em;    
+label {
+    display: inline-block;
+    cursor: pointer;
+    position: relative;
+    padding-left: 25px;
+    margin-right: 15px;
 }
-label:before {  
-    content: "";  
-    display: inline-block;  
-  
-    width: 16px;  
-    height: 16px;  
-  
-    margin-right: 10px;  
-    position: absolute;  
-    left: 0;  
-    bottom: .1em;  
-    background-color: #5C5C5C;  
+input[type=checkbox] {
+    display: none;
+}
+input[type=radio] {
+    display: none;
+}
+label:before {
+    border-radius: 3px;
+}
+.radio label:before {
+    border-radius: 1em;
+}
+input[type=radio]:checked + label:before {
+	position: absolute;
+    content: "\2022";
+    font-size: 2.3em;
+    color: orange;
+    text-align: center;
+    line-height: .130em;
+    bottom: 0.05em;
+}
+input[type=checkbox]:checked + label:before {
+	position: absolute;
+    content: "\2713";
+    font-size: 15px;
+    color: orange;
+    text-align: center;
+    line-height: 15px;
+    bottom: 0.15em;
+}
+label:before {
+    content: "";
+    display: inline-block;
+
+    width: 16px;
+    height: 16px;
+
+    margin-right: 10px;
+    position: absolute;
+    left: 0;
+    bottom: .1em;
+    background-color: #5C5C5C;
 }
 .selectdiv{
 	width:7em;
 	border:1px solid orange;
 	height:1.6em;
-	background:url(http://i59.tinypic.com/2uz5v0g.jpg) no-repeat right center;	
+	background:url(http://i59.tinypic.com/2uz5v0g.jpg) no-repeat right center;
 	border-radius:0;
 	cursor:pointer;
 	background-color: #333333;
@@ -651,7 +750,7 @@ label:before {
 	color: orange;
 	background-color: #333333;
 	font-size: 1.6em;
-	}	
+	}
 .selectdiv div{
 	z-index:-1;
 	border:0px solid #000;
@@ -660,21 +759,21 @@ label:before {
 	padding:1px 0px 0px 5px;
 	cursor:pointer;
 
-	}	
+	}
 .selectboxdiv{
  	height: 23px;
     left: 9.5em;
     margin-top: 0;
     position: absolute;
     width: 7em;
-    z-index: 2;	
+    z-index: 2;
 	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
 	filter: alpha(opacity=0);
 	-khtml-opacity: 0;
 	-moz-opacity: 0;
 	opacity: 0;
 	cursor:pointer;
-}	
+}
 
 .button{
 	font-size: 3em;
@@ -777,7 +876,7 @@ label:before {
 	white-space: nowrap;
 }
 .reg_col{
-	
+
 }
 #viewMatches_form{
 	width:73%;
@@ -815,18 +914,18 @@ label:before {
 	text-align: center; /* horizontal alignment of each setting in its respective column */
 	margin-left: -1.2vw; /* to move the settings to the left (not to be changed) */
 }
-.settings_box::-webkit-input-placeholder { 
+.settings_box::-webkit-input-placeholder {
     color: gray; /* color of place holder text in settings text boxes */
 	opacity:0.8; /* opacity of place holder text in settings text boxes */
 	font-weight: bold; /* weight of place holder text in settings text boxes */
 }
 .settings_box:-moz-placeholder {
-   color: gray; 
-   opacity:0.8; 
-   font-weight: bold; 
+   color: gray;
+   opacity:0.8;
+   font-weight: bold;
 }
-.settings_box::-moz-placeholder { 
-   color: gray; 
+.settings_box::-moz-placeholder {
+   color: gray;
    opacity:0.8;
    font-weight: bold;
 }
@@ -909,18 +1008,18 @@ margin-top: 4em; /* distance of grid of settings from top of page */
 	width: 75%;
 }
 
-#feedback_name::-webkit-input-placeholder { 
+#feedback_name::-webkit-input-placeholder {
     color: gray; /* color of place holder text in settings text boxes */
 	opacity:0.8; /* opacity of place holder text in settings text boxes */
 	font-weight: bold; /* weight of place holder text in settings text boxes */
 }
 #feedback_name:-moz-placeholder {
-   color: gray; 
-   opacity:0.8; 
-   font-weight: bold; 
+   color: gray;
+   opacity:0.8;
+   font-weight: bold;
 }
-#feedback_name::-moz-placeholder { 
-   color: gray; 
+#feedback_name::-moz-placeholder {
+   color: gray;
    opacity:0.8;
    font-weight: bold;
 }
@@ -943,18 +1042,18 @@ margin-top: 4em; /* distance of grid of settings from top of page */
 	width:95%;
 }
 
-#feedback_box::-webkit-input-placeholder { 
+#feedback_box::-webkit-input-placeholder {
     color: gray; /* color of place holder text in settings text boxes */
 	opacity:0.8; /* opacity of place holder text in settings text boxes */
 	font-weight: bold; /* weight of place holder text in settings text boxes */
 }
 #feedback_box:-moz-placeholder {
-   color: gray; 
-   opacity:0.8; 
-   font-weight: bold; 
+   color: gray;
+   opacity:0.8;
+   font-weight: bold;
 }
-#feedback_box::-moz-placeholder { 
-   color: gray; 
+#feedback_box::-moz-placeholder {
+   color: gray;
    opacity:0.8;
    font-weight: bold;
 }
@@ -974,7 +1073,7 @@ margin-top: 4em; /* distance of grid of settings from top of page */
 	}
 	.main_welcome h3 {
 		font-size: 6vw; /* scaling font size for "Welcome to MorScout" text */
-	} 
+	}
 	#report_title{
 		text-align: center; /* horizontal alignment of title of report page */
 	}
@@ -985,10 +1084,10 @@ margin-top: 4em; /* distance of grid of settings from top of page */
 }
 /*
 @media screen and (max-width: 623px){
-	
+
 	.matches_table{
 		font-size: 2vw !important; /* scaling font size for text in all matches table
-		line-height: 4vh; /* larger scaling line height for text in all matches table for easier match selecting on small screens 
+		line-height: 4vh; /* larger scaling line height for text in all matches table for easier match selecting on small screens
 	}
 */
 }
@@ -1009,15 +1108,15 @@ margin-top: 4em; /* distance of grid of settings from top of page */
 		width: 5vw;
 		height: 5vw;
 	}
-	input[type=checkbox]:checked + label:before {  
-	    content: "\2713";  
-	    font-size: 5vw;  
-	    color: orange;  
+	input[type=checkbox]:checked + label:before {
+	    content: "\2713";
+	    font-size: 5vw;
+	    color: orange;
 	    text-align: center;
-	    line-height: 4.5vw;    
+	    line-height: 4.5vw;
 	}
-	input[type=radio]:checked + label:before {    
-	    line-height: 2vw;    
+	input[type=radio]:checked + label:before {
+	    line-height: 2vw;
 	}
 	.report_area{
 		width: 94%; /* width of report boxes */
@@ -1038,8 +1137,7 @@ margin-top: 4em; /* distance of grid of settings from top of page */
 
 @media screen and (max-width: 1199px){
 	.QApair{
-		
-	}
-}	
-/* END OF STYLES FOR SMALLER SCREENS */	
 
+	}
+}
+/* END OF STYLES FOR SMALLER SCREENS */
