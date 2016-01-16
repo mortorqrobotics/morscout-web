@@ -35,3 +35,31 @@ function request(type, url, data, responsecb) {
     };
     xhr.send(data);
 }
+
+if (["/login.html", "/signup.html", "/createteam.html"].indexOf(location.pathname) == -1){
+	$.post("/validateUser", {
+		userID: localStorage.userID
+	}, function(response){
+		if (response != "success"){
+			localStorage.clear();
+			$("#logoutButton").html("Log in");
+			$("#logoutButton").attr("href", "login.html");
+			$("#logoutButton").attr("id", "loginButton");
+			location = "login.html";
+		}
+		else {
+			$("#loginButton").attr("id", "logoutButton");
+			$("#logoutButton").html("Log out");
+		}
+	});
+}
+
+
+$("#logoutButton").on("click", function(){
+	localStorage.clear();
+	$.post("/logout", {}, function(response){//don't make get
+		if (response == "success"){
+			location = "login.html";
+		}
+	});
+});

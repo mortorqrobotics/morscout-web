@@ -1,3 +1,4 @@
+/*
 $(document).ready(function() {
 	if(localStorage.hasSynced == "true"){
 
@@ -91,3 +92,4 @@ $(document).ready(function() {
 	}
 	$('#num_of_teams').html("("+Object.keys(JSON.parse(localStorage.teams)).length+")");
 });
+*/

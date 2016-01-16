@@ -1,10 +1,10 @@
-$(document).ready(function() {
+/*$(document).ready(function() {
   if(localStorage.hasSynced == "true"){
 		var jsonfile = JSON.parse(localStorage.matches);
 		var table = document.createElement('table');
-		
+
 		var header_row = document.createElement('tr');
-		
+
 		var th1 = document.createElement('th');
 		var th2 = document.createElement('th');
 		var th3 = document.createElement('th');
@@ -17,34 +17,34 @@ $(document).ready(function() {
 		$(th5).addClass('matchesTableHide');
 		$(th4).addClass('redTeamHeader');
 		$(th5).addClass('blueTeamHeader');
-	
+
 		var th_text1 = document.createTextNode("#");
 		var th_text2 = document.createTextNode("Time");
 		var th_text3 = document.createTextNode("Progress");
 		var th_text4 = document.createTextNode("Red Teams");
 		var th_text5 = document.createTextNode("Blue Teams");
-		
+
 		th1.appendChild(th_text1);
 		th2.appendChild(th_text2);
 		th3.appendChild(th_text3);
 		th4.appendChild(th_text4);
 		th5.appendChild(th_text5);
-		
+
 		header_row.appendChild(th1);
 		header_row.appendChild(th2);
 		header_row.appendChild(th3);
 		header_row.appendChild(th4);
 		header_row.appendChild(th5);
-		
+
 		table.appendChild(header_row);
-		
+
 		for (match_number = 0 ; match_number < Object.keys(jsonfile).length  ; match_number++) {
-				
+
 				var real_match_number = Object.keys(jsonfile)[match_number];
 				var real_match_number_plus_one = Object.keys(jsonfile)[match_number+1];
-				
+
 				var tr = document.createElement('tr');
-				 
+
 				var td1 = document.createElement('td');
 				var td2 = document.createElement('td');
 				var td3 = document.createElement('td');
@@ -125,7 +125,7 @@ $(document).ready(function() {
                   Minutes = "0" + Minutes;
                 }
                 var text2 = document.createTextNode(Hours+":"+Minutes+" "+suffix);
-	            
+
 	            var start = Date.now();
 				var scouted = 0;
 				var teams = jsonfile[real_match_number].red.concat(jsonfile[real_match_number].blue);
@@ -153,7 +153,7 @@ $(document).ready(function() {
 				td7.appendChild(text7);
 				td8.appendChild(text8);
 				td9.appendChild(text9);
-				
+
 				tr.appendChild(td1);
 				tr.appendChild(td2);
 				tr.appendChild(td3);
@@ -165,7 +165,7 @@ $(document).ready(function() {
 				tr.appendChild(td9);
 
 				table.appendChild(tr);
-				
+
 				var currentTime = new Date().getTime();
 
 				if(real_match_number_plus_one !== undefined){
@@ -182,22 +182,22 @@ $(document).ready(function() {
 					}
 				}
 		}
-		
+
 		document.body.appendChild(table);
-		
+
 		$('#loading').hide();
 		$("tr:odd").addClass("odd_row");
 		$("tr:first").addClass("first_row");
 		$(table).addClass('matches_table')
-		
+
 		$('tr').not(".first_row").mouseenter(function(){
 		    $(this).addClass('table_hover')
 		});
-		
+
 		$('tr').not(".first_row").mouseleave(function(){
 		    $(this).removeClass('table_hover')
 		});
-		
+
 		$('tr').not(".first_row").click(function(){
 			localStorage.match = $(this).children(":first").text();
 			localStorage.time = $(this).children(":first").next().text();
@@ -231,7 +231,7 @@ $(document).ready(function() {
 	setTimeout(function(){
 		location = "login.html";
 	}, 1000)
-  };	
+  };
 
 });
 
@@ -242,4 +242,4 @@ $(window).resize(function() {
 		$('.matchesTableHide').show();
 	}
 });
-
+*/
