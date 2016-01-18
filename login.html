@@ -87,14 +87,14 @@
                     password: password
                 }, function(response){
                     if (response != "fail"){
-                        localStorage.firstName = response.user.firstName;
-                        localStorage.lastName = response.user.lastName;
-                        localStorage.teamCode = response.user.teamCode;
+                        localStorage.firstName = response.firstName;
+                        localStorage.lastName = response.lastName;
+                        localStorage.teamCode = response.teamCode;
                         localStorage.teamName = response.teamName;
                         localStorage.teamNumber = response.teamNumber;
-                        localStorage.admin = response.user.admin;
-                        localStorage.username = response.user.username;
-                        localStorage.userID = response.user._id;
+                        localStorage.admin = response.admin;
+                        localStorage.username = response.username;
+                        localStorage.userID = response._id;
                         location = "/"
                     }
                     else {
