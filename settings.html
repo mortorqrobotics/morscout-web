@@ -47,17 +47,28 @@
     	<div class="row">
     		<div class = "col-md-4 col-sm-6 col-xs-12 settings_option">
     			<div class = "settings_list">
-    				<h1>Change Server IP</h1>
-    				<input id="ip_text" class="settings_box text_input" type="text" placeholder=" Enter desired IP"></input>
-    				<input id="ip_button" class="button button_input" type="submit" value ="change"></input>
+    				<h1>Choose Current Regional</h1>
+    				<!-- <input id="ip_text" class="settings_box text_input" type="text" placeholder=" Enter desired IP"></input>
+    				<input id="ip_button" class="button button_input" type="submit" value ="change"></input> -->
+                    <input id="year_box" class="settings_box text_input" type="text" placeholder="Choose Year"></input>
+                    <!-- <input style="width: 10em;" id="set_year_button" class="button button_input " type="submit" value="Find Regionals"></input> -->
+                    <div class="dropdown">
+                        <button class="btn dropdown-toggle btn-primary regional_dropdown" type="button" data-toggle="dropdown">Choose Regional<span class="caret"></span></button>
+                            <ul class="dropdown-menu regional_options">
+                                <!-- <li><a href="#">HTML</a></li>
+                                <li><a href="#">CSS</a></li>
+                                <li><a href="#">JavaScript</a></li> -->
+                            </ul>
+                    </div>
+                    <input style="width: 10em;" id="set_regional_button" class="button button_input " type="submit" value="Set Regional"></input>
     			</div>
     		</div>
     		<div class = "col-md-4 col-sm-6 col-xs-12 settings_option">
-    			<div class = "settings_list">
+    			<!-- <div class = "settings_list">
     				<h1>Change Port</h1>
     				<input id="port_text" class="settings_box text_input" type="text" placeholder=" Enter desired port"></input>
     				<input id="port_button" class="button button_input" type="submit" value ="change"></input>
-    			</div>
+    			</div> -->
     		</div>
 
     	</div>
@@ -72,35 +83,65 @@
 
   <script>
   $(document).ready(function() {
-  	$('#ip_button').hover(function() {
-  		$(this).toggleClass('button_hovered')
-  	});
-  	$('#ip_button').click(function(){
-  		if(document.getElementById('ip_text').value !== ""){
-  			localStorage.ip = document.getElementById('ip_text').value;
-  			$('#ip_text').attr('placeholder', localStorage.ip);
-  		} else {
-  			alert("IP can not be empty!");
-  		}
-  	});
 
-  	$('#port_button').hover(function() {
-  		$(this).toggleClass('button_hovered')
-  	});
+      var currentRegional = "";
+      $.post("/getCurrentRegionalInfo", function(regionalInfo){
+          if (!regionalInfo.Errors){
+              $("#year_box").val(regionalInfo.year);
+              $(".regional_dropdown").html(regionalInfo.name + " " + regionalInfo.year + " <span class='caret'></span>");
+              currentRegional = regionalInfo.key;
+          }
+      });
 
-  	$('#port_button').click(function(){
-  		if(document.getElementById('port_text').value !== ""){
-  			localStorage.port = document.getElementById('port_text').value;
-  			$('#port_text').attr('placeholder', localStorage.port);
-  		} else {
-  			alert("Port can not be empty!");
-  		}
-  	});
+      function setYear(year){
+          $.post("/getRegionalsForTeam", {year: year}, function(response){
+              $(".regional_options").empty();
+              for (var i = 0; i < response.length; i++){
+                  var li = $(document.createElement("li"));
+                  var a = $(document.createElement("a"));
+                  a.attr("data-key", response[i].key);
+                  a.addClass("regional_item");
+                  a.html(response[i].name + " " + response[i].year);
+                  a.attr("href", "#");
+                  li.append(a);
+                  $(".regional_options").append(li);
+              }
+          });
+      }
+      function setRegional(year){
+          $.post("/chooseCurrentRegional", {
+              eventCode: currentRegional,
+              year: year
+          }, function(response){
+              if (response == "success"){
+                  alert("Regional successfully selected.");
+              }
+              else {
+                  alert("Failed to select regional.");
+              }
+          });
+      }
 
-  	$('#ip_text').val(localStorage.ip);
-  	$('#port_text').val(localStorage.port);
-  	$('#ip_text').attr('placeholder', localStorage.ip);
-  	$('#port_text').attr('placeholder', localStorage.port);
+
+      $(document).on("click", ".regional_item", function(){
+          currentRegional = $(this).attr("data-key");
+          $(".regional_dropdown").html($(this).html() + " <span class='caret'></span>")
+      });
+
+
+      $(".regional_dropdown").on("click", function(){
+          setYear($("#year_box").val());
+      });
+
+      $("#set_regional_button").on("click", function(){
+          if ($("#year_box").val() != ""){
+              var year = $("#year_box").val();
+              setRegional($("#year_box").val());
+          }
+          else {
+              alert("Please enter year.")
+          }
+      });
   });
   </script>
 

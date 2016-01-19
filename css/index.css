@@ -380,6 +380,16 @@ th,td {
 	text-align: center;
 }
 
+.btn-primary.regional_dropdown {
+    color: black !important;
+    background-color: orange !important;
+    border-color: orange !important;
+}
+
+#year_box {
+    margin-bottom: 0.6em;
+}
+
 #createteam_form {
 	font-family: 'Open Sans', sans-serif;
 	font-weight: 300;
@@ -407,6 +417,7 @@ hr{
 	background-color: orange;
 	margin-top:1.0em;
 }
+
 
 
 #createteam_button {

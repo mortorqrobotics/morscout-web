@@ -86,7 +86,7 @@
                     username: username,
                     password: password
                 }, function(response){
-                    if (response != "fail"){
+                    if (response._id){
                         localStorage.firstName = response.firstName;
                         localStorage.lastName = response.lastName;
                         localStorage.teamCode = response.teamCode;
