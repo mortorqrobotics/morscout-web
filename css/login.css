@@ -1,0 +1,155 @@
+#login_form {
+	font-family: 'Open Sans', sans-serif; /* font for login form */
+	font-weight: 300; /* font thickness for login form */
+	text-align: center; /* horizontal alignment of the whole login form */
+}
+
+#signup_form {
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 300;
+	text-align: center;
+}
+
+.btn-primary.regional_dropdown {
+    color: black !important;
+    background-color: orange !important;
+    border-color: orange !important;
+}
+
+#year_box {
+    margin-bottom: 0.6em;
+}
+
+#createteam_form {
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 300;
+	text-align: center;
+}
+
+#login_button {
+	height:2.2em; /* button height */
+	width: 12.3em; /* button width */
+	color: black; /* text color of button */
+	text-align: center; /* horizontal alignment of text of button */
+	font-size: 2em; /* font size of button */
+	background-color: orange; /* background color of button */
+	margin-top:.3em; /* top margin of button */
+}
+hr{
+    border-color: orange;
+}
+#signup_button {
+	height:2.2em;
+	width: 12.3em;
+	color: black;
+	text-align: center;
+	font-size: 2em;
+	background-color: orange;
+	margin-top:1.0em;
+}
+
+
+
+#createteam_button {
+	height:2.2em;
+	width: 12.3em;
+	color: black;
+	text-align: center;
+	font-size: 2em;
+	background-color: orange;
+	margin-top:.0em;
+}s
+
+.check {
+
+ /* NOTICE: PLEASE DO NOT CHANGE ANY STYLES FOR THIS ELEMENT, IT WAS CAREFULLY DESIGNED TO CENTER IN THE FORM */
+
+
+	color: orange; /* text color of "remember me" text */
+	margin-top: .4em; /* top margin of "remember me" text */
+	margin-left: auto; /* to center "remember me" text */
+	margin-right: auto; /* to center "remember me" text */
+	width:25.7em;
+	text-align: left; /* horizontal alignment of "remember me" text */
+	font-family: "Exo 2", sans-serif;
+}
+
+#check_box{
+	height:1.2em; /* height of square check box */
+	width: 1.2em; /* width of square check box */
+	border:none; /* removes border of check box (not to be changed) */
+}
+
+
+#username{
+	height:2.2em; /* height of username text box */
+	width: 11.15em; /* width of username text box */
+	text-align: center; /* horizontal alignment of text in username text box */
+	font-size: 2.2em; /* font size of text in username text box */
+	border-bottom: none; /* removes bottom border of username text box to create effect of connected text boxes (not to be changed) */
+}
+#firstname{
+	height:2.2em;
+	width: 11.15em;
+	text-align: center;
+	font-size: 2.2em;
+	border-bottom: none;
+	margin-top: 10px;
+}
+
+#password{
+	height:2.2em; /* height of password text box */
+	width: 11.15em; /* width of password text box */
+	text-align: center; /* horizontal alignment of text(dots) in password text box*/
+	font-size: 2.2em; /* font size of text(dots) in password text box */
+}
+#password_signup{
+	height:2.2em;
+	width: 11.15em;
+	text-align: center;
+	font-size: 2.2em;
+    border-bottom: none;
+}
+
+#confirm_password_signup{
+	height:2.2em;
+	width: 11.15em;
+	text-align: center;
+	font-size: 2.2em;
+}
+
+::-webkit-input-placeholder {
+    color: rgb(229 , 148 , 0); /* color for place holder text */
+	opacity:0.8; /* opacity of place holder text */
+}
+:-moz-placeholder {
+   color: rgb(229 , 148 , 0);
+   opacity:0.8;
+}
+::-moz-placeholder {
+   color: rgb(229 , 148 , 0);
+   opacity:0.8;
+}
+:-ms-input-placeholder {
+   color: rgb(229 , 148 , 0);
+   opacity:0.8;
+}
+
+input:focus {
+    outline-width: 0; /* removes default browser borders when text box is in focus (not to be changed) */
+}
+
+.login_wrapper{
+	margin-top: 30vh; /* distance of login form from top of page (most likely not to be changed) */
+	color: orange; /* color of [typed] text in username and password text boxes */
+	background-color: black; /* background color of login form */
+}
+
+.login_wrapper input{
+	border: .1em solid orange; /* border width, style, and color of text boxes and login button */
+	background-color: black; /* background color of username and password text boxes */
+}
+
+#login_button:hover{
+	background-color:
+}

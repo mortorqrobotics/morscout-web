@@ -1,0 +1,372 @@
+.report h2 {
+	display: inline; /* makes "Match # - time" text display on one line (not to be changed) */
+	color: orange; /* color of "Match # - time" text */
+	font-family: 'Exo 2', sans-serif; /* font of "Match # - time" text */
+
+}
+
+.report{
+	margin-top: 7em; /* distance of report screen contents from top of page */
+	text-align: center; /* horizontal alignment of text in report screen */
+}
+
+#report_title{
+	margin-left: 0.2em; /* left margin of title of report page */
+	margin-top: 0; /* overrides .page_title class top margin to not have a huge top margin (not to be changed) */
+	text-align: left; /* horizontal alignment of title of report page */
+}
+
+.report_area{
+	margin: 0em; /* margin for report boxes */
+	width: 100%; /* width of report boxes */
+	max-width: 18em;
+	height: 8.1em ; /* height of report boxes */
+	font-size: 2em; /* font size of report boxes */
+	background-color: #C0C0C0; /* background color of report boxes */
+	padding: 0.2em; /* padding(distance of wall of box to text) of report boxes */
+	margin-top: 1.45em; /* top margin of report boxes */
+	margin-bottom: 0.5em; /* bottom margin for report boxes */
+	color: black;
+}
+#team_report_area{
+	width: 20em; /* width of report text box in all teams page */
+	display: block; /* for centering element (not to be changed) */
+	margin-left: auto; /* for centering element (not to be changed) */
+	margin-right: auto; /* for centering element (not to be changed) */
+	margin-bottom: 30em; /* bottom margin of report text box in all teams page  */
+}
+.report_area::-webkit-input-placeholder {
+	 color: gray; /* place holder text color of report boxes */
+	opacity:0.8; /* place holder text opacity of report boxes */
+}
+.report_area:-moz-placeholder {
+	 color: gray;
+	opacity:0.8;
+}
+.report_area::-moz-placeholder {
+	 color: gray;
+	opacity:0.8;
+}
+.report_area:-ms-input-placeholder {
+	 color: gray;
+	opacity:0.8;
+}
+#report_instruction{
+	display: block;
+}
+.scout_div{
+	color: orange;
+	text-align: left;
+	margin-bottom: 3em;
+	margin-top: 0 !important;
+	margin-left: 1em;
+	font-family: 'Exo 2', sans-serif;
+	margin-top: 3em;
+	padding: 0.7em;
+
+	/* background-color: #B0C4DE; */
+}
+.fixed_col_table{
+	overflow-x: scroll;
+}
+.scout_div p{
+	margin-left: .3em;
+	font-size: 1.9em !important;
+}
+.scout_div h3{
+	margin: 0;
+	margin-bottom: .2em;
+	font-size: 2.7em !important;
+}
+.report_check{
+	margin: 0.3em !important;
+	font-size: 2em;
+}
+#report_text{
+	font-size: 2em !important;
+	display: inline;
+	margin: 0.3em;
+	font-weight: normal;
+	margin-bottom: 0.5em;
+
+}
+#report_box_small{
+	margin: .3em;
+	width: 2.5em;
+	font-size: 1.6em;
+	padding: .1em;
+	padding-top: 0;
+	background-color: #333333;
+	border: 1px solid orange;
+	color: orange;
+	font-weight: bold;
+	text-align: center;
+	height: 1.5em;
+}
+#report_box_large{
+	margin: .3em;
+	width: 5em;
+	font-size: 1.6em;
+	padding: .1em;
+	padding-top: 0;
+	background-color: #333333;
+	border: 1px solid orange;
+	color: orange;
+	font-weight: bold;
+	text-align: center;
+	height: 1.5em;
+}
+.select1 select{
+	margin: .3em;
+	width: 7em;
+	font-size: 1.6em;
+	padding: .1em;
+	background-color: #333333;
+	color: orange;
+	font-weight: bold;
+	text-align: center;
+	-webkit-appearance: none;
+	border: 1px solid orange;
+	padding-left: 1px;
+	padding-left: .3em;
+}
+
+.select1{
+	display: inline;
+	overflow: hidden;
+	padding-bottom: 5px;
+	padding-top: 5px;
+}
+#updown{
+	padding-right: 5px;
+}
+.scout_div_title{
+	border-bottom: 1px solid gray;
+	padding-bottom: 0.33em;
+	margin-top: 1em !important;
+	font-weight: bold !important;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type='number'] {
+    -moz-appearance:textfield;
+}
+
+label {
+    display: inline-block;
+    cursor: pointer;
+    position: relative;
+    padding-left: 25px;
+    margin-right: 15px;
+}
+input[type=checkbox] {
+    display: none;
+}
+input[type=radio] {
+    display: none;
+}
+label:before {
+    border-radius: 3px;
+}
+.radio label:before {
+    border-radius: 1em;
+}
+input[type=radio]:checked + label:before {
+	position: absolute;
+    content: "\2022";
+    font-size: 2.3em;
+    color: orange;
+    text-align: center;
+    line-height: .130em;
+    bottom: 0.05em;
+}
+input[type=checkbox]:checked + label:before {
+	position: absolute;
+    content: "\2713";
+    font-size: 15px;
+    color: orange;
+    text-align: center;
+    line-height: 15px;
+    bottom: 0.15em;
+}
+label:before {
+    content: "";
+    display: inline-block;
+
+    width: 16px;
+    height: 16px;
+
+    margin-right: 10px;
+    position: absolute;
+    left: 0;
+    bottom: .1em;
+    background-color: #5C5C5C;
+}
+.selectdiv{
+	width:7em;
+	border:1px solid orange;
+	height:1.6em;
+	background:url(http://i59.tinypic.com/2uz5v0g.jpg) no-repeat right center;
+	border-radius:0;
+	cursor:pointer;
+	background-color: #333333;
+	color: orange;
+	font-size: 1.6em;
+	font-family: 'Exo 2', sans-serif;
+	display: inline-block;
+	margin-bottom: .3em;
+	}
+.selectdiv:hover, .selectdiv:focus {
+	width:7em;
+	border:1px solid orange;
+	height:1.6em;
+	background: url(http://i59.tinypic.com/2uz5v0g.jpg) no-repeat right;
+	border-radius:0;
+	cursor:pointer;
+	color: orange;
+	background-color: #333333;
+	font-size: 1.6em;
+	}
+.selectdiv div{
+	z-index:-1;
+	border:0px solid #000;
+	height:23px;
+	overflow:hidden;
+	padding:1px 0px 0px 5px;
+	cursor:pointer;
+
+	}
+.selectboxdiv{
+ 	height: 23px;
+    left: 9.5em;
+    margin-top: 0;
+    position: absolute;
+    width: 7em;
+    z-index: 2;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+	filter: alpha(opacity=0);
+	-khtml-opacity: 0;
+	-moz-opacity: 0;
+	opacity: 0;
+	cursor:pointer;
+}
+
+.button{
+	font-size: 3em;
+	padding-left: .2em;
+	padding-right: .2em;
+	margin-bottom: 1em;
+	margin-top: 0.5em;
+	border-radius: .2em;
+	background-color: orange;
+	color: black;
+	font-family: 'Exo 2', sans-serif;
+	padding-top: 0.1em;
+	padding-bottom: 0.1em;
+	border-radius: 0;
+}
+.button_disabled{
+	font-size: 3em;
+	padding-left: .2em;
+	padding-right: .2em;
+	margin-bottom: 1em;
+	margin-top: 0.5em;
+	border-radius: .2em;
+	background-color: orange;
+	color: black;
+	font-family: 'Exo 2', sans-serif;
+	padding-top: 0.1em;
+	padding-bottom: 0.1em;
+	border-radius: 0;
+}
+
+.add_minus_button{
+	font-size: 1.8em;
+	padding-left: .2em;
+	padding-right: .2em;
+	border-radius: .2em;
+	background-color: orange;
+	color: black;
+	font-family: 'Exo 2', sans-serif;
+	padding-top:0px;
+	padding-bottom: 0px;
+	width: 1.5em;
+	margin: .1em;
+	font-weight: bold;
+	border-radius: 0;
+}
+
+.submit_match{
+	text-align: right;
+	margin-right: 5em;
+	width: 100%;
+}
+
+#report_tabs a{
+	font-size: 2em;
+	color: orange;
+	font-family: 'Exo 2', sans-serif;
+}
+#report_tabs a:hover{
+	border-radius: 0;
+	color: black;
+}
+#report_tabs .active a{
+	font-size: 2em;
+	color: black;
+	font-family: 'Exo 2', sans-serif;
+	background-color: orange;
+	border-top: none;
+	border-left: none;
+	border-right: none;
+	border-radius: 0;
+}
+#report_tabs{
+	border-bottom: solid 1px gray;
+	margin-top: 3em;
+}
+
+.view_title{
+	border-bottom: none;
+}
+
+#view_table{
+	width: 100%;
+}
+.viewMatchInTeam{
+	display: inline;
+	border: 1px;
+	border-collapse: separate;
+}
+.fixed_col{
+	position: absolute;
+	width:18em;
+	left:0;
+	background-color: black;
+}
+.fixed_col_table{
+	margin-left: 32.9em;
+	width:100% !important;
+}
+.viewMatchInTeam > td{
+	white-space: nowrap;
+}
+.reg_col{
+
+}
+#viewMatches_form{
+	width:73%;
+	text-align: center;
+}
+
+.reportID{
+	font-family: 'Exo 2', sans-serif;
+	color: orange;
+	margin-bottom: 0em;
+	font-size: 2em;
+	margin-top: 1em;
+}

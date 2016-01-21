@@ -1,0 +1,82 @@
+.settings_option{
+	margin-top: 4em; /* top margin of each settings option */
+	margin-bottom: 4em; /* bottom margin of each settings option */
+	color: orange; /* color of text in settings */
+	font-family: 'Exo 2', sans-serif; /* font of text in settings */
+	display: block; /* to make elements appear on new line (not to be changed) */
+	text-align: center; /* horizontal alignment of each setting in its respective column */
+	margin-left: -1.2vw; /* to move the settings to the left (not to be changed) */
+}
+.settings_box::-webkit-input-placeholder {
+    color: gray; /* color of place holder text in settings text boxes */
+	opacity:0.8; /* opacity of place holder text in settings text boxes */
+	font-weight: bold; /* weight of place holder text in settings text boxes */
+}
+.settings_box:-moz-placeholder {
+   color: gray;
+   opacity:0.8;
+   font-weight: bold;
+}
+.settings_box::-moz-placeholder {
+   color: gray;
+   opacity:0.8;
+   font-weight: bold;
+}
+.settings_box:-ms-input-placeholder {
+   color: gray;
+   opacity:0.8;
+   font-weight: bold;
+}
+
+.settings_list > .text_input{
+	color: black; /* color of [typed] text in text boxes */
+	width: 9.5em; /* width of text box */
+	height: 2em; /* height of text box */
+	margin-top: .5em; /* top margin of text box */
+	font-size: 2em; /* font size of text in text box */
+	font-weight: bold; /* font weight of text in text box */
+	background-color: #C0C0C0; /* background color of text box */
+	padding: .2em; /* padding(distance of border of text box to text) of text box */
+}
+
+.text_input{
+	color: black; /* color of [typed] text in text boxes */
+	width: 14em; /* width of text box */
+	height: 2em; /* height of text box */
+	margin-top: .5em; /* top margin of text box */
+	font-size: 2em; /* font size of text in text box */
+	font-weight: bold; /* font weight of text in text box */
+	background-color: #C0C0C0; /* background color of text box */
+	padding: .2em; /* padding(distance of border of text box to text) of text box */
+}
+
+.settings_list > .button_input{
+	color: black; /* color of text in button */
+	width: 4em; /* width of button */
+	height: 2em; /* height of button */
+	margin-top: .5em; /* top margin of button */
+	font-size: 2em; /* font size of button */
+	font-weight: bold; /* font weight of button */
+	background-color: gray; /* background color of button */
+}
+
+.button:hover{
+	background-color: #EE7600 !important; /* background color of button when hovered */
+	border-color: #EE7600 !important;
+	cursor: pointer; /* changes cursor to hand (not to be changed) */
+}
+
+.button_hovered_report{
+	background-color: #C0C0C0 !important; /* background color of hovered table cell in report table */
+	cursor: pointer; /* changes cursor to hand (not to be changed) */
+	color: black; /* text color of hovered table cell in report table */
+}
+.button_selected_report{
+	background-color: white !important; /* background color of hovered table cell in report table */
+	cursor: pointer; /* changes cursor to hand (not to be changed) */
+	color: black; /* text color of hovered table cell in report table */
+}
+
+#settings_grid{
+margin-top: 4em; /* distance of grid of settings from top of page */
+}
