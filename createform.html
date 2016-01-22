@@ -48,12 +48,12 @@
        <div class="row">
          <h3>Create Scouting Form</h3><br>
          <select required class='creator_dropdown'>
+           <option value='text'>Text Box</option>
            <option value='dropdown'>Dropdown List</option>
            <option value='radio'>Radio Button</option>
            <option value='label'>Label</option>
            <option value='number'>Number Box</option>
            <option value='check'>Check Box</option>
-           <option value='text'>Text Box</option>
          </select>
          <input type="text" class="dp-box" id="data_point_name" placeholder="Data Point Name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Data Point Name'"><br>
          <div id="form_options">
@@ -90,11 +90,13 @@
       });
     }
 
+
+
     var boxes = $(".option-box");
 
     //function addData
-
-    $(document).on("click", ".creator_dropdown", function(){
+    $(".creator_dropdown").change(function(){
+    //$(document).on("click", ".creator_dropdown", function(){
       var type = $(this).val();
 
       if (type == "radio" || type == "dropdown"){
@@ -107,26 +109,29 @@
       else if (type == "number"){
         //add min and max text boxes
         $("#form_options").empty();
+
+        var input = $(document.createElement("input"));
+        input.attr("type", "text");
+        input.attr("placeholder", "start");
+        input.addClass('option-box');
+        $("#form_options").append(input);
+
         var input = $(document.createElement("input"));
         input.attr("type", "text");
         input.attr("placeholder", "min");
-        input.addClass('text-box');
+        input.addClass('option-box');
         $("#form_options").append(input);
 
         var input = $(document.createElement("input"));
         input.attr("type", "text");
         input.attr("placeholder", "max");
-        input.addClass('text-box');
+        input.addClass('option-box');
         $("#form_options").append(input);
       }
       else {
-
-        //do nothing
         $("#form_options").empty();
       }
-      $(input).keypress(function() {
 
-      });
 
     });
 
