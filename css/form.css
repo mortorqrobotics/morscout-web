@@ -36,6 +36,30 @@
   margin-bottom: 45px;
 }
 
+.formmakerbutton{
+	font-size: 3em;
+	padding-left: .2em;
+	padding-right: .2em;
+	margin-bottom: 1em;
+	margin-top: 0.5em;
+	border-radius: .2em;
+	background-color: orange;
+	color: black;
+	font-family: 'Exo 2', sans-serif;
+	padding-top: 0.1em;
+	padding-bottom: 0.1em;
+	border-radius: 0;
+}
+
+.remove_dp {
+  color:orange;
+}
+
+.remove_dp:hover {
+  color: red;
+  cursor: pointer;
+}
+
 .option-box, .dp-box{
 	font-family: 'Open Sans', sans-serif;
 	font-weight: 300;

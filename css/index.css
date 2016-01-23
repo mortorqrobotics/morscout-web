@@ -173,7 +173,7 @@ background-color: #EE7600; /* color of background of selected link in nav bar */
 	text-align: center; /* horizontal alignment of large "MorScout" text */
 }
 
-.main_welcome h3 {
+.main_welcome h3, #form-holder h2 {
   text-align:center; /* horizontal alignment of small "Welcome to MorScout" text */
   color: orange; /* sets font color of small "Welcome to MorScout" text */
   max-width: 15em;
@@ -787,20 +787,7 @@ label:before {
 	cursor:pointer;
 }
 
-.formmakerbutton{
-	font-size: 3em;
-	padding-left: .2em;
-	padding-right: .2em;
-	margin-bottom: 1em;
-	margin-top: 0.5em;
-	border-radius: .2em;
-	background-color: orange;
-	color: black;
-	font-family: 'Exo 2', sans-serif;
-	padding-top: 0.1em;
-	padding-bottom: 0.1em;
-	border-radius: 0;
-}
+
 
 .button{
 	font-size: 3em;
