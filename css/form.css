@@ -1,0 +1,62 @@
+.formcreator  {
+  font-family: 'Exo 2', sans-serif;
+  margin-top: 80px;
+	font-weight: 400;
+  text-align: center;
+}
+.formcreator h1 {
+	color: orange;
+	text-align: center;
+  margin-bottom: 40px;
+}
+
+#formbutton  {
+  font-family: 'Exo 2', sans-serif;
+  position: absolute;
+  top: 65px;
+  left: 15px;
+  font-size: 20px;
+  background-color: orange;
+  color: black;
+  padding: 2px 5px 2px 5px;
+  text-align: center;
+}
+#formbutton:hover {
+  background-color: darkOrange;
+}
+
+.creator_dropdown{
+  height: 30px;
+  font-size: 20px;
+  background-color: orange;
+  margin: 0px 7px 7px 0px;
+}
+
+.dp-wrapper {
+  margin-bottom: 45px;
+}
+
+.option-box, .dp-box{
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 300;
+	text-align: center;
+  border: 1px solid orange;
+  background-color: black;
+  height: 30px;
+  font-size: 20px;
+  color: orange;
+}
+
+#data_point_name {
+  color: orange;
+}
+
+#add_data_point_button {
+	height: 22px;
+	width: 123px;
+	color: black;
+	text-align: center;
+	font-size: 20px;
+	background-color: orange;
+	margin-top: 3px;
+}

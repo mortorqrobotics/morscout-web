@@ -167,51 +167,6 @@ background-color: #EE7600; /* color of background of selected link in nav bar */
 	font-weight: 400;
 }
 
-.creator_dropdown{
-  height: 30px;
-  font-size: 20px;
-  background-color: orange;
-  margin-bottom: .5em;
-
-}
-
-.formcreator  {
-	margin-top: -20vh; /* sets welcome message distance from top of page  */
-	font-family: 'Exo 2', sans-serif; /* sets welcome message font */
-	font-weight: 400;
-  text-align: center;
-  padding: 10vh;
-
-}
-
-
-#formbutton  {
-	font-family: 'Exo 2', sans-serif; /* sets welcome message font */
-  margin: 5em;
-  margin-bottom: 0em; !important
-  height:2.2em; /* button height */
-  width: 12.3em; /* button width */
-  font-size: 2em; /* font size of button */
-  background-color: orange; /* background color of button */
-  text-align:left;
-  padding-left: .2em;
-  padding-right: .2em;
-  border-radius: .2em;
-  background-color: orange;
-  color: black;
-  font-family: 'Exo 2', sans-serif;
-  padding-top: 0.1em;
-  padding-bottom: 0.1em;
-  border-radius: 0;
-  text-align: center;
-}
-
-.formcreator h3 {
-	color: orange; /* sets large "MorScout" text color to orange */
-	font-size: 4em; /* sets font size of large "MorScout" text */
-	text-align: center; /* horizontal alignment of large "MorScout" text */
-}
-
 .main_welcome h1 {
 	color: orange; /* sets large "MorScout" text color to orange */
 	font-size: 8em; /* sets font size of large "MorScout" text */
@@ -451,20 +406,6 @@ th,td {
 	margin-top:.3em; /* top margin of button */
 }
 
-#data_point_name {
-  color: orange;!important
-}
-
-#add_data_point_button {
-	height:2.2em; /* button height */
-	width: 12.3em; /* button width */
-	color: black; /* text color of button */
-	text-align: center; /* horizontal alignment of text of button */
-	font-size: 2em; /* font size of button */
-	background-color: orange; /* background color of button */
-	margin-top:.3em; /* top margin of button */
-}
-
 hr{
     border-color: orange;
 }
@@ -578,22 +519,6 @@ input:focus {
 .login_wrapper input{
 	border: .1em solid orange; /* border width, style, and color of text boxes and login button */
 	background-color: black; /* background color of username and password text boxes */
-}
-
-.option-box, .dp-box{
-	font-family: 'Open Sans', sans-serif; /* font for login form */
-	font-weight: 300; /* font thickness for login form */
-	text-align: center; /* horizontal alignment of the whole login form */
-  border: .1em solid orange; /* border width, style, and color of text boxes and login button */
-  background-color: black; /* background color of username and password text boxes */
-  height: 30px;
-  font-size: 20px;
-  color: orange; !important
-  /*margin-bottom: 2em;*/
-}
-
-.dp-wrapper {
-  margin-bottom: 5em;
 }
 
 #login_button:hover {
