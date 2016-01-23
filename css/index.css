@@ -171,15 +171,39 @@ background-color: #EE7600; /* color of background of selected link in nav bar */
   height: 30px;
   font-size: 20px;
   background-color: orange;
+  margin-bottom: .5em;
+
 }
 
 .formcreator  {
-	margin-top: 20vh; /* sets welcome message distance from top of page  */
+	margin-top: -20vh; /* sets welcome message distance from top of page  */
 	font-family: 'Exo 2', sans-serif; /* sets welcome message font */
 	font-weight: 400;
   text-align: center;
-  padding: 0.5em;
+  padding: 10vh;
 
+}
+
+
+#formbutton  {
+	font-family: 'Exo 2', sans-serif; /* sets welcome message font */
+  margin: 5em;
+  margin-bottom: 0em; !important
+  height:2.2em; /* button height */
+  width: 12.3em; /* button width */
+  font-size: 2em; /* font size of button */
+  background-color: orange; /* background color of button */
+  text-align:left;
+  padding-left: .2em;
+  padding-right: .2em;
+  border-radius: .2em;
+  background-color: orange;
+  color: black;
+  font-family: 'Exo 2', sans-serif;
+  padding-top: 0.1em;
+  padding-bottom: 0.1em;
+  border-radius: 0;
+  text-align: center;
 }
 
 .formcreator h3 {
@@ -565,10 +589,14 @@ input:focus {
   height: 30px;
   font-size: 20px;
   color: orange; !important
-  margin: 10px;
+  /*margin-bottom: 2em;*/
 }
 
-#login_button:hover{
+.dp-wrapper {
+  margin-bottom: 5em;
+}
+
+#login_button:hover {
 	background-color:
 }
 
@@ -832,6 +860,21 @@ label:before {
 	-moz-opacity: 0;
 	opacity: 0;
 	cursor:pointer;
+}
+
+.formmakerbutton{
+	font-size: 3em;
+	padding-left: .2em;
+	padding-right: .2em;
+	margin-bottom: 1em;
+	margin-top: 0.5em;
+	border-radius: .2em;
+	background-color: orange;
+	color: black;
+	font-family: 'Exo 2', sans-serif;
+	padding-top: 0.1em;
+	padding-bottom: 0.1em;
+	border-radius: 0;
 }
 
 .button{

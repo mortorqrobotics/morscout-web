@@ -43,11 +43,15 @@
       </div>
     </nav>
 
+<div class="formbutton">
+        <input type="button" class="formmakerbutton" id="formbutton" value="Add Data Point">
+</div>
+
      <div class="formcreator">
       <div class="container">
-       <div class="row">
+       <div class="row" id="form-holder">
          <h3>Create Scouting Form</h3><br>
-         <select required class='creator_dropdown'>
+         <!-- <select required class='creator_dropdown'>
            <option value='text'>Text Box</option>
            <option value='dropdown'>Dropdown List</option>
            <option value='radio'>Radio Button</option>
@@ -57,9 +61,22 @@
          </select>
          <input type="text" class="dp-box" id="data_point_name" placeholder="Data Point Name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Data Point Name'"><br>
          <div id="form_options">
-         </div>
-         <input type="button" class="button" id="add_data_point_button" value="Add Data Point">
-       </div>
+      </div> -->
+    <!--  <br>
+      <select required class='creator_dropdown'>
+        <option value='text'>Text Box</option>
+        <option value='dropdown'>Dropdown List</option>
+        <option value='radio'>Radio Button</option>
+        <option value='label'>Label</option>
+        <option value='number'>Number Box</option>
+        <option value='check'>Check Box</option>
+      </select>
+      <input type="text" class="dp-box" id="data_point_name" placeholder="Data Point Name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Data Point Name'"><br>
+      <div id="form_options">
+   </div> -->
+
+
+      <div id="addForm">
       </div>
      </div>
 
@@ -70,6 +87,43 @@
   <script src="js/main.js" type="text/javascript"></script>
 
   <script>
+
+    function createNewDataPoint() {
+        var divWrapper = $(document.createElement("div"));
+        divWrapper.addClass("dp-wrapper");
+        var dpNum = $("#form-holder").find(".dp-wrapper").length + 1;
+        divWrapper.attr("data-id", dpNum);
+        var select = $(document.createElement("select"));
+        select.addClass("creator_dropdown");
+        select.attr("required", "true");
+        var options = [{value: "text", name:"Text Box"},{value: "dropdown", name:"Dropdown List"},{value: "radio", name:"Radio Button"},{value: "label", name:"Label"},{value: "number", name:"Number Box"},{value: "check", name:"Check Box"}];
+        for (var i = 0; i < options.length; i++){
+          var option = $(document.createElement("option"));
+          option.attr("value", options[i].value);
+          option.html(options[i].name);
+          select.append(option);
+        }
+        var input = $(document.createElement("input"));
+        input.attr("type", "text");
+        input.addClass("dp-box");
+        input.attr("id", "data_point_name");
+        input.attr("placeholder", "Data Point Name");
+        var div = $(document.createElement("div"));
+        div.addClass("form_options");
+        select.attr("data-id", dpNum);
+        input.attr("data-id", dpNum);
+        div.attr("data-id", dpNum);
+        divWrapper.append(select);
+        divWrapper.append(input);
+        divWrapper.append(div);
+        $("#form-holder").append(divWrapper);
+    }
+    createNewDataPoint();
+
+    $("#formbutton").on("click", function(){
+      createNewDataPoint();
+    });
+
     function createDropdownInput(textboxHolder) {
       var input = $(document.createElement("input"));
       input.attr("type", "text");
@@ -90,50 +144,82 @@
       });
     }
 
-
-
     var boxes = $(".option-box");
 
-    //function addData
-    $(".creator_dropdown").change(function(){
-    //$(document).on("click", ".creator_dropdown", function(){
+//    function addData
+      $(document).on("click", ".creator_dropdown", function(){
+
+        var id = $(this).attr("data-id");
+        var options = $(".form_options[data-id='" + id + "']");
+        console.log(options)
+
+     //$(".creator_dropdown").on("click", function(){
       var type = $(this).val();
 
       if (type == "radio" || type == "dropdown"){
         //add options text box
-        $("#form_options").empty();
+        options.empty();
 
-        createDropdownInput($("#form_options"));
+        createDropdownInput(options);
 
       }
       else if (type == "number"){
         //add min and max text boxes
-        $("#form_options").empty();
+
+        options.empty();
 
         var input = $(document.createElement("input"));
         input.attr("type", "text");
         input.attr("placeholder", "start");
         input.addClass('option-box');
-        $("#form_options").append(input);
+        options.append(input);
+
 
         var input = $(document.createElement("input"));
         input.attr("type", "text");
         input.attr("placeholder", "min");
         input.addClass('option-box');
-        $("#form_options").append(input);
+        options.append(input);
 
         var input = $(document.createElement("input"));
         input.attr("type", "text");
         input.attr("placeholder", "max");
         input.addClass('option-box');
-        $("#form_options").append(input);
+        options.append(input);
       }
       else {
-        $("#form_options").empty();
+
+        options.empty();
       }
 
 
     });
+
+    //$("#formbutton").click(function(){
+      //var type = $("creator_dropdown").val();
+
+      //if (type == "radio"){
+
+        //  var input = $(document.createElement("form"));
+          //form.addClass(".creator_dropdown");
+          //$("#addForm").append(form)
+
+          //var input = $(document.createElement("input"));
+          //input.attr("type", "radio");
+          //$(".creator_dropdown").append(input);
+
+            //console.log("working");
+      //}
+
+    //})
+
+    var main = function(){
+
+      $(".formmakerbutton").click(function(){
+        console.log("hello");
+      });
+
+    }
 
   </script>
 
