@@ -25,6 +25,21 @@
   background-color: darkOrange;
 }
 
+#submitformbutton  {
+  font-family: 'Exo 2', sans-serif;
+  position: absolute;
+  top: 65px;
+  right: 15px;
+  font-size: 20px;
+  background-color: orange;
+  color: black;
+  padding: 2px 5px 2px 5px;
+  float: right;
+}
+#submitformbutton:hover {
+  background-color: darkOrange;
+}
+
 .creator_dropdown{
   height: 30px;
   font-size: 20px;
@@ -51,6 +66,7 @@
 	border-radius: 0;
 }
 
+
 .remove_dp {
   color:orange;
 }
@@ -60,7 +76,7 @@
   cursor: pointer;
 }
 
-.option-box, .dp-box{
+.option-box, .dp-box, .start-box, .min-box, .max-box{
 	font-family: 'Open Sans', sans-serif;
 	font-weight: 300;
 	text-align: center;
@@ -71,7 +87,7 @@
   color: orange;
 }
 
-#data_point_name {
+.data_point_name {
   color: orange;
 }
 

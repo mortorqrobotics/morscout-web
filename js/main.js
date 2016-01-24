@@ -36,6 +36,15 @@ function request(type, url, data, responsecb) {
     xhr.send(data);
 }
 
+function areNumbers(nums){
+	for (var i = 0; i < nums.length; i++){
+		if (isNaN(nums[i])){
+			return false;
+		}
+	}
+    return true;
+}
+
 
 
 $.post("/validateUser", {//to change logout/login button
