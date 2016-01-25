@@ -20,7 +20,7 @@
         <div class="container-fluid">
             <div class="navbar-header">
                 <a class="navbar-brand" id="morscout">MorScout</a>
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#MorScoutNav" id="toggle_button">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#MorScoutNav" id="toggle-button">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
@@ -35,9 +35,9 @@
         </div>
     </nav>
 
-    <div class="login_wrapper">
+    <div class="login-wrapper">
         <div class="container">
-            <form id="createteam_form">
+            <form id="createteam-form">
                 <div id="username-box">
                     <!-- change this -->
                     <input type="text" id="teamname" placeholder="Team Name">
@@ -48,10 +48,10 @@
                 </div>
                 <div id="password-box">
                     <!-- change this -->
-                    <input type="text" id="teamcode_create" placeholder="Team Code">
+                    <input type="text" id="teamcode-create" placeholder="Team Code">
                 </div>
                 <div class="login">
-                    <input type="submit" class="button" id="signup_button" value="Create Team">
+                    <input type="submit" class="button" id="signup-button" value="Create Team">
                     <br>
                 </div>
             </form>
@@ -66,7 +66,7 @@
         function submitTeamForm() {
             var teamName = $("#teamname").val();
             var teamNumber = $("#teamnumber").val();
-            var teamCode = $("#teamcode_create").val();
+            var teamCode = $("#teamcode-create").val();
             if (teamName && teamNumber && teamCode) {
                 $.post("/registerTeam", {
                     teamName: teamName,
@@ -88,7 +88,7 @@
 
         }
 
-        $("#createteam_form").submit(function(e) {
+        $("#createteam-form").submit(function(e) {
             e.preventDefault();
             submitTeamForm();
             return false;

@@ -1,8 +1,8 @@
-#feedback_form{
+#feedback-form{
 	margin: 3em;
 }
 
-#feedback_name{
+#feedback-name{
 	font-size: 3em;
 	font-family: 'Exo 2', sans-serif;
 	padding: 3px;
@@ -14,28 +14,28 @@
 	width: 75%;
 }
 
-#feedback_name::-webkit-input-placeholder {
+#feedback-name::-webkit-input-placeholder {
     color: gray; /* color of place holder text in settings text boxes */
 	opacity:0.8; /* opacity of place holder text in settings text boxes */
 	font-weight: bold; /* weight of place holder text in settings text boxes */
 }
-#feedback_name:-moz-placeholder {
+#feedback-name:-moz-placeholder {
    color: gray;
    opacity:0.8;
    font-weight: bold;
 }
-#feedback_name::-moz-placeholder {
+#feedback-name::-moz-placeholder {
    color: gray;
    opacity:0.8;
    font-weight: bold;
 }
-#feedback_name:-ms-input-placeholder {
+#feedback-name:-ms-input-placeholder {
    color: gray;
    opacity:0.8;
    font-weight: bold;
 }
 
-#feedback_box{
+#feedback-box{
 	font-size: 3em;
 	font-family: 'Exo 2', sans-serif;
 	padding: 3px;
@@ -48,22 +48,22 @@
 	width:95%;
 }
 
-#feedback_box::-webkit-input-placeholder {
+#feedback-box::-webkit-input-placeholder {
     color: gray; /* color of place holder text in settings text boxes */
 	opacity:0.8; /* opacity of place holder text in settings text boxes */
 	font-weight: bold; /* weight of place holder text in settings text boxes */
 }
-#feedback_box:-moz-placeholder {
+#feedback-box:-moz-placeholder {
    color: gray;
    opacity:0.8;
    font-weight: bold;
 }
-#feedback_box::-moz-placeholder {
+#feedback-box::-moz-placeholder {
    color: gray;
    opacity:0.8;
    font-weight: bold;
 }
-#feedback_box:-ms-input-placeholder {
+#feedback-box:-ms-input-placeholder {
    color: gray;
    opacity:0.8;
    font-weight: bold;

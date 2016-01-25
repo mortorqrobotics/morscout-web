@@ -10,13 +10,13 @@
 	text-align: center; /* horizontal alignment of text in report screen */
 }
 
-#report_title{
+#report-title{
 	margin-left: 0.2em; /* left margin of title of report page */
-	margin-top: 0; /* overrides .page_title class top margin to not have a huge top margin (not to be changed) */
+	margin-top: 0; /* overrides .page-title class top margin to not have a huge top margin (not to be changed) */
 	text-align: left; /* horizontal alignment of title of report page */
 }
 
-.report_area{
+.report-area{
 	margin: 0em; /* margin for report boxes */
 	width: 100%; /* width of report boxes */
 	max-width: 18em;
@@ -28,33 +28,33 @@
 	margin-bottom: 0.5em; /* bottom margin for report boxes */
 	color: black;
 }
-#team_report_area{
+#team-report-area{
 	width: 20em; /* width of report text box in all teams page */
 	display: block; /* for centering element (not to be changed) */
 	margin-left: auto; /* for centering element (not to be changed) */
 	margin-right: auto; /* for centering element (not to be changed) */
 	margin-bottom: 30em; /* bottom margin of report text box in all teams page  */
 }
-.report_area::-webkit-input-placeholder {
+.report-area::-webkit-input-placeholder {
 	 color: gray; /* place holder text color of report boxes */
 	opacity:0.8; /* place holder text opacity of report boxes */
 }
-.report_area:-moz-placeholder {
+.report-area:-moz-placeholder {
 	 color: gray;
 	opacity:0.8;
 }
-.report_area::-moz-placeholder {
+.report-area::-moz-placeholder {
 	 color: gray;
 	opacity:0.8;
 }
-.report_area:-ms-input-placeholder {
+.report-area:-ms-input-placeholder {
 	 color: gray;
 	opacity:0.8;
 }
-#report_instruction{
+#report-instruction{
 	display: block;
 }
-.scout_div{
+.scout-div{
 	color: orange;
 	text-align: left;
 	margin-bottom: 3em;
@@ -66,30 +66,30 @@
 
 	/* background-color: #B0C4DE; */
 }
-.fixed_col_table{
+.fixed-col-table{
 	overflow-x: scroll;
 }
-.scout_div p{
+.scout-div p{
 	margin-left: .3em;
 	font-size: 1.9em !important;
 }
-.scout_div h3{
+.scout-div h3{
 	margin: 0;
 	margin-bottom: .2em;
 	font-size: 2.7em !important;
 }
-.report_check{
+.report-check{
 	margin: 0.3em !important;
 	font-size: 2em;
 }
-#report_text, .report_text{
+#report-text, .report-text{
 	font-size: 2em !important;
 	display: inline;
 	margin: 0.3em;
 	font-weight: normal;
 	margin-bottom: 0.5em;
 }
-#report_box_small{
+#report-box-small{
 	margin: .3em;
 	width: 2.5em;
 	font-size: 1.6em;
@@ -102,7 +102,7 @@
 	text-align: center;
 	height: 1.5em;
 }
-#report_box_large{
+#report-box-large{
 	margin: .3em;
 	width: 5em;
 	font-size: 1.6em;
@@ -139,7 +139,7 @@
 #updown{
 	padding-right: 5px;
 }
-.scout_div_title{
+.scout-div-title{
 	border-bottom: 1px solid gray;
 	padding-bottom: 0.33em;
 	margin-top: 1em !important;
@@ -268,7 +268,7 @@ label:before {
 	padding-bottom: 0.1em;
 	border-radius: 0;
 }
-.button_disabled{
+.button-disabled{
 	font-size: 3em;
 	padding-left: .2em;
 	padding-right: .2em;
@@ -283,7 +283,7 @@ label:before {
 	border-radius: 0;
 }
 
-.add_minus_button{
+.add-minus-button{
 	font-size: 1.8em;
 	padding-left: .2em;
 	padding-right: .2em;
@@ -299,22 +299,22 @@ label:before {
 	border-radius: 0;
 }
 
-.submit_match{
+.submit-match{
 	text-align: right;
 	margin-right: 5em;
 	width: 100%;
 }
 
-#report_tabs a{
+#report-tabs a{
 	font-size: 2em;
 	color: orange;
 	font-family: 'Exo 2', sans-serif;
 }
-#report_tabs a:hover{
+#report-tabs a:hover{
 	border-radius: 0;
 	color: black;
 }
-#report_tabs .active a{
+#report-tabs .active a{
 	font-size: 2em;
 	color: black;
 	font-family: 'Exo 2', sans-serif;
@@ -324,16 +324,16 @@ label:before {
 	border-right: none;
 	border-radius: 0;
 }
-#report_tabs{
+#report-tabs{
 	border-bottom: solid 1px gray;
 	margin-top: 3em;
 }
 
-.view_title{
+.view-title{
 	border-bottom: none;
 }
 
-#view_table{
+#view-table{
 	width: 100%;
 }
 .viewMatchInTeam{
@@ -341,23 +341,23 @@ label:before {
 	border: 1px;
 	border-collapse: separate;
 }
-.fixed_col{
+.fixed-col{
 	position: absolute;
 	width:18em;
 	left:0;
 	background-color: black;
 }
-.fixed_col_table{
+.fixed-col-table{
 	margin-left: 32.9em;
 	width:100% !important;
 }
 .viewMatchInTeam > td{
 	white-space: nowrap;
 }
-.reg_col{
+.reg-col{
 
 }
-#viewMatches_form{
+#viewMatches-form{
 	width:73%;
 	text-align: center;
 }

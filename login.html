@@ -22,7 +22,7 @@
         <div class="container-fluid">
             <div class="navbar-header">
                 <a class="navbar-brand" id="morscout">MorScout</a>
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#MorScoutNav" id="toggle_button">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#MorScoutNav" id="toggle-button">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
@@ -37,11 +37,11 @@
         </div>
     </nav>
 
-    <div class="login_wrapper">
+    <div class="login-wrapper">
         <div class="container">
             <!-- <h2>Login</h2> -->
             <br/>
-            <form id="login_form" action="javascript:void(0);">
+            <form id="login-form" action="javascript:void(0);">
                 <div id="username-box">
                     <input type="text" id="username" placeholder="Username" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Username'">
                 </div>
@@ -54,12 +54,12 @@
                     <br/>
                 </div> -->
                 <div class="login" style="text-align: center;">
-                    <input type="submit" class="button" id="login_button" value="Login">
+                    <input type="submit" class="button" id="login-button" value="Login">
                     <br>
                     <hr>
-                    <input type="submit" class="button" id="signup_button" value="Sign Up">
+                    <input type="submit" class="button" id="signup-button" value="Sign Up">
                     <br/>
-                    <input type="submit" class="button" id="createteam_button" value="Create New Team">
+                    <input type="submit" class="button" id="createteam-button" value="Create New Team">
                 </div>
             </form>
         </div>
@@ -74,16 +74,16 @@
 
     <script>
         $(document).ready(function() {
-            $('#login_button').hover(function() {
-                $(this).toggleClass('button_hovered')
+            $('#login-button').hover(function() {
+                $(this).toggleClass('button-hovered')
             });
-            $("#signup_button").on("click", function(){
+            $("#signup-button").on("click", function(){
                 location = "signup.html";
             });
-            $("#createteam_button").on("click", function(){
+            $("#createteam-button").on("click", function(){
                 location = "createteam.html";
             });
-            $("#login_button").on("click", function(){
+            $("#login-button").on("click", function(){
                 var username = $("#username").val().trim();
                 var password = $("#password").val();
                 $.post("/login", {

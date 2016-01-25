@@ -22,7 +22,7 @@
     	<div class="container-fluid">
     		<div class="navbar-header">
     		  <a class="navbar-brand" href="index.html">MorScout</a>
-    		  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#MorScoutNav" id = "toggle_button">
+    		  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#MorScoutNav" id = "toggle-button">
     			<span class="icon-bar"></span>
     			<span class="icon-bar"></span>
     			<span class="icon-bar"></span>
@@ -46,31 +46,31 @@
     	</div>
     </nav>
 
-    <div id = "settings_grid" class="container-fluid">
+    <div id = "settings-grid" class="container-fluid">
     	<div class="row">
-    		<div class = "col-md-4 col-sm-6 col-xs-12 settings_option">
-    			<div class = "settings_list">
+    		<div class = "col-md-4 col-sm-6 col-xs-12 settings-option">
+    			<div class = "settings-list">
     				<h1>Choose Current Regional</h1>
-    				<!-- <input id="ip_text" class="settings_box text_input" type="text" placeholder=" Enter desired IP"></input>
-    				<input id="ip_button" class="button button_input" type="submit" value ="change"></input> -->
-                    <input id="year_box" class="settings_box text_input" type="text" placeholder="Choose Year"></input>
-                    <!-- <input style="width: 10em;" id="set_year_button" class="button button_input " type="submit" value="Find Regionals"></input> -->
+    				<!-- <input id="ip-text" class="settings-box text-input" type="text" placeholder=" Enter desired IP"></input>
+    				<input id="ip-button" class="button button-input" type="submit" value ="change"></input> -->
+                    <input id="year-box" class="settings-box text-input" type="text" placeholder="Choose Year"></input>
+                    <!-- <input style="width: 10em;" id="set-year-button" class="button button-input " type="submit" value="Find Regionals"></input> -->
                     <div class="dropdown">
-                        <button class="btn dropdown-toggle btn-primary regional_dropdown" type="button" data-toggle="dropdown">Choose Regional<span class="caret"></span></button>
-                            <ul class="dropdown-menu regional_options">
+                        <button class="btn dropdown-toggle btn-primary regional-dropdown" type="button" data-toggle="dropdown">Choose Regional<span class="caret"></span></button>
+                            <ul class="dropdown-menu regional-options">
                                 <!-- <li><a href="#">HTML</a></li>
                                 <li><a href="#">CSS</a></li>
                                 <li><a href="#">JavaScript</a></li> -->
                             </ul>
                     </div>
-                    <input style="width: 10em;" id="set_regional_button" class="button button_input " type="submit" value="Set Regional"></input>
+                    <input style="width: 10em;" id="set-regional-button" class="button button-input " type="submit" value="Set Regional"></input>
     			</div>
     		</div>
-    		<div class = "col-md-4 col-sm-6 col-xs-12 settings_option">
-    			<!-- <div class = "settings_list">
+    		<div class = "col-md-4 col-sm-6 col-xs-12 settings-option">
+    			<!-- <div class = "settings-list">
     				<h1>Change Port</h1>
-    				<input id="port_text" class="settings_box text_input" type="text" placeholder=" Enter desired port"></input>
-    				<input id="port_button" class="button button_input" type="submit" value ="change"></input>
+    				<input id="port-text" class="settings-box text-input" type="text" placeholder=" Enter desired port"></input>
+    				<input id="port-button" class="button button-input" type="submit" value ="change"></input>
     			</div> -->
     		</div>
 
@@ -90,24 +90,24 @@
       var currentRegional = "";
       $.post("/getCurrentRegionalInfo", function(regionalInfo){
           if (!regionalInfo.Errors){
-              $("#year_box").val(regionalInfo.year);
-              $(".regional_dropdown").html(regionalInfo.name + " " + regionalInfo.year + " <span class='caret'></span>");
+              $("#year-box").val(regionalInfo.year);
+              $(".regional-dropdown").html(regionalInfo.name + " " + regionalInfo.year + " <span class='caret'></span>");
               currentRegional = regionalInfo.key;
           }
       });
 
       function setYear(year){
           $.post("/getRegionalsForTeam", {year: year}, function(response){
-              $(".regional_options").empty();
+              $(".regional-options").empty();
               for (var i = 0; i < response.length; i++){
                   var li = $(document.createElement("li"));
                   var a = $(document.createElement("a"));
                   a.attr("data-key", response[i].key);
-                  a.addClass("regional_item");
+                  a.addClass("regional-item");
                   a.html(response[i].name + " " + response[i].year);
                   a.attr("href", "#");
                   li.append(a);
-                  $(".regional_options").append(li);
+                  $(".regional-options").append(li);
               }
           });
       }
@@ -126,20 +126,20 @@
       }
 
 
-      $(document).on("click", ".regional_item", function(){
+      $(document).on("click", ".regional-item", function(){
           currentRegional = $(this).attr("data-key");
-          $(".regional_dropdown").html($(this).html() + " <span class='caret'></span>")
+          $(".regional-dropdown").html($(this).html() + " <span class='caret'></span>")
       });
 
 
-      $(".regional_dropdown").on("click", function(){
-          setYear($("#year_box").val());
+      $(".regional-dropdown").on("click", function(){
+          setYear($("#year-box").val());
       });
 
-      $("#set_regional_button").on("click", function(){
-          if ($("#year_box").val() != ""){
-              var year = $("#year_box").val();
-              setRegional($("#year_box").val());
+      $("#set-regional-button").on("click", function(){
+          if ($("#year-box").val() != ""){
+              var year = $("#year-box").val();
+              setRegional($("#year-box").val());
           }
           else {
               alert("Please enter year.")

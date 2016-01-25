@@ -54,7 +54,7 @@ h2{
 	font-size: 2.2em;
 	border-bottom: none;
 }
-#teamcode_create{
+#teamcode-create{
 	height:2.2em;
 	width: 11.15em;
 	text-align: center;
@@ -85,7 +85,7 @@ body {
 	border: 0; /* removes thin white line at bottom of the nav bar (not to be changed) */
 }
 
-.navbar-default a:not(#nameD):not(#view_prof):not(#logout) {
+.navbar-default a:not(#nameD):not(#view-prof):not(#logout) {
   text-transform: uppercase; /* changes every link in the nav bar to upper-case except for user profile dropdown menu */
   font-size: 1.1em; /* size of nav bar links except for user profile dropdown menu */
 }
@@ -116,13 +116,13 @@ background-color: #EE7600; /* color of background of selected link in nav bar */
 	text-align: center; /* sets horizontal aligns of links in the hamburger menu */
 }
 
-#toggle_button{
+#toggle-button{
 	background-color: orange; /* sets background color for background of hamburger menu toggle button */
 	border:0; /* removes border of hamburger menu toggle button (most likely not to be changed) */
 	border-radius: 0; /* gives hamburger menu toggle button sharp corners */
 }
 
-#toggle_button:hover{
+#toggle-button:hover{
 	background-color: #EE7600; /* gives background color to hovered hamburger menu toggle button*/
 	border:0; /* removes border of hamburger menu toggle button when hovered (most likely not to be changed) */
 }
@@ -161,19 +161,19 @@ background-color: #EE7600; /* color of background of selected link in nav bar */
 
 /* WELCOME PAGE STYLES */
 
-.main_welcome  {
+.main-welcome  {
 	margin-top: 20vh; /* sets welcome message distance from top of page  */
 	font-family: 'Exo 2', sans-serif; /* sets welcome message font */
 	font-weight: 400;
 }
 
-.main_welcome h1 {
+.main-welcome h1 {
 	color: orange; /* sets large "MorScout" text color to orange */
 	font-size: 8em; /* sets font size of large "MorScout" text */
 	text-align: center; /* horizontal alignment of large "MorScout" text */
 }
 
-.main_welcome h3, #form-holder h2, #form-preview h2, .container h2 {
+.main-welcome h3, #form-holder h2, #form-preview h2, .container h2 {
   text-align:center; /* horizontal alignment of small "Welcome to MorScout" text */
   color: orange; /* sets font color of small "Welcome to MorScout" text */
   max-width: 15em;
@@ -185,7 +185,7 @@ background-color: #EE7600; /* color of background of selected link in nav bar */
 
 /* GENERAL STYLES */
 
-.page_title {
+.page-title {
 	font-family: 'Exo 2', sans-serif; /* font of page title */
 	color: orange; /* font color of page title */
 	margin-top: 5em; /* distance of page title from top */
@@ -201,12 +201,12 @@ background-color: #EE7600; /* color of background of selected link in nav bar */
 	font-family: 'Exo 2', sans-serif; /* font of loading message */
 }
 
-.normal_text p{
+.normal-text p{
 	color: orange; /* color of text for writing anything which isn't of any special section */
 	margin: 1em; /* margin for writing anything which isn't of any special section */
 	font-size: 1.8em; /* font size for writing anything which isn't of any special section */
 }
-.normal_text{
+.normal-text{
 	margin-top: 7em; /* distance of general writing from top of page */
 }
 .QApair{
@@ -218,7 +218,7 @@ background-color: #EE7600; /* color of background of selected link in nav bar */
 	margin-right: auto;
 
 }
-#help_container{
+#help-container{
 	margin: 1em;
 }
 .q{
@@ -226,7 +226,7 @@ background-color: #EE7600; /* color of background of selected link in nav bar */
 	color: #EE7600 !important;
 }
 
-#team_search{
+#team-search{
 	margin-top: 1em;
 	margin-bottom: 0;
 }
@@ -265,18 +265,18 @@ th,td {
     padding: .3em; /* padding(distance of text from borders) of table cells (not to be changed) */
 }
 
-.matches_table, .teams_table{
+.matches-table, .teams-table{
 	color: orange; /* color of text in all matches and all teams tables */
 	width: 90%; /* width of all matches table */
 	margin: 1.4em auto; /* margin of all matches and all teams table */
 	margin-bottom: 2em; /* distance of tables from bottom of page */
 }
 
-.teams_table{
+.teams-table{
 	width: 30em; /* to override the width from the ^ previous styles for the all teams table */
 }
 
-.report_table{
+.report-table{
 	margin-top: 2.2em; /* top margin of report screen table */
 	margin-bottom: 1em; /* bottom margin of report screen table */
 	color: #CCCCCC; /* text color of report screen table */
@@ -288,17 +288,17 @@ th,td {
 	max-width: 35em;
 }
 
-.odd_row {
+.odd-row {
 	background-color: #303030; /* background color of odd rows in tables */
 }
 
-.current_match{
+.current-match{
 	background-color: orange !important; /* background-color of current match row in matches table */
 	color: black !important; /* text color of current match row */
 	line-height: 6vh; /* height of current match row */
 }
 
-.current_match:hover {
+.current-match:hover {
 	background-color: #EE7600; /* background color of current match row when hovered */
 }
 
@@ -324,12 +324,12 @@ th,td {
 	background-color: #001962;
 	color: #CCCCCC;
 }
-.table_hover > td{
+.table-hover > td{
 	background-color: #C0C0C0 !important;
 	color: black !important; /* color of text when any row is hovered over */
 	cursor: pointer !important; /* changes cursor to shape of hand when hovering over rows (not to be changed) */
 }
-.table_head{
+.table-head{
 	background-color: #303030 !important;
 	white-space: nowrap;
 }
@@ -368,35 +368,35 @@ th,td {
 
 /* LOGIN PAGE STYLES */
 
-#login_form {
+#login-form {
 	font-family: 'Open Sans', sans-serif; /* font for login form */
 	font-weight: 300; /* font thickness for login form */
 	text-align: center; /* horizontal alignment of the whole login form */
 }
 
-#signup_form {
+#signup-form {
 	font-family: 'Open Sans', sans-serif;
 	font-weight: 300;
 	text-align: center;
 }
 
-.btn-primary.regional_dropdown {
+.btn-primary.regional-dropdown {
     color: black !important;
     background-color: orange !important;
     border-color: orange !important;
 }
 
-#year_box {
+#year-box {
     margin-bottom: 0.6em;
 }
 
-#createteam_form {
+#createteam-form {
 	font-family: 'Open Sans', sans-serif;
 	font-weight: 300;
 	text-align: center;
 }
 
-#login_button {
+#login-button {
 	height:2.2em; /* button height */
 	width: 12.3em; /* button width */
 	color: black; /* text color of button */
@@ -409,7 +409,7 @@ th,td {
 hr{
     border-color: orange;
 }
-#signup_button {
+#signup-button {
 	height:2.2em;
 	width: 12.3em;
 	color: black;
@@ -421,7 +421,7 @@ hr{
 
 
 
-#createteam_button {
+#createteam-button {
 	height:2.2em;
 	width: 12.3em;
 	color: black;
@@ -445,7 +445,7 @@ hr{
 	font-family: "Exo 2", sans-serif;
 }
 
-#check_box{
+#check-box{
 	height:1.2em; /* height of square check box */
 	width: 1.2em; /* width of square check box */
 	border:none; /* removes border of check box (not to be changed) */
@@ -474,7 +474,7 @@ hr{
 	text-align: center; /* horizontal alignment of text(dots) in password text box*/
 	font-size: 2.2em; /* font size of text(dots) in password text box */
 }
-#password_signup{
+#password-signup{
 	height:2.2em;
 	width: 11.15em;
 	text-align: center;
@@ -482,7 +482,7 @@ hr{
     border-bottom: none;
 }
 
-#confirm_password_signup{
+#confirm-password-signup{
 	height:2.2em;
 	width: 11.15em;
 	text-align: center;
@@ -510,18 +510,18 @@ input:focus {
     outline-width: 0; /* removes default browser borders when text box is in focus (not to be changed) */
 }
 
-.login_wrapper{
+.login-wrapper{
 	margin-top: 30vh; /* distance of login form from top of page (most likely not to be changed) */
 	color: orange; /* color of [typed] text in username and password text boxes */
 	background-color: black; /* background color of login form */
 }
 
-.login_wrapper input{
+.login-wrapper input{
 	border: .1em solid orange; /* border width, style, and color of text boxes and login button */
 	background-color: black; /* background color of username and password text boxes */
 }
 
-#login_button:hover {
+#login-button:hover {
 	background-color:
 }
 
@@ -542,13 +542,13 @@ input:focus {
 	text-align: center; /* horizontal alignment of text in report screen */
 }
 
-#report_title{
+#report-title{
 	margin-left: 0.2em; /* left margin of title of report page */
-	margin-top: 0; /* overrides .page_title class top margin to not have a huge top margin (not to be changed) */
+	margin-top: 0; /* overrides .page-title class top margin to not have a huge top margin (not to be changed) */
 	text-align: left; /* horizontal alignment of title of report page */
 }
 
-.report_area{
+.report-area{
 	margin: 0em; /* margin for report boxes */
 	width: 100%; /* width of report boxes */
 	max-width: 18em;
@@ -560,33 +560,33 @@ input:focus {
 	margin-bottom: 0.5em; /* bottom margin for report boxes */
 	color: black;
 }
-#team_report_area{
+#team-report-area{
 	width: 20em; /* width of report text box in all teams page */
 	display: block; /* for centering element (not to be changed) */
 	margin-left: auto; /* for centering element (not to be changed) */
 	margin-right: auto; /* for centering element (not to be changed) */
 	margin-bottom: 30em; /* bottom margin of report text box in all teams page  */
 }
-.report_area::-webkit-input-placeholder {
+.report-area::-webkit-input-placeholder {
 	 color: gray; /* place holder text color of report boxes */
 	opacity:0.8; /* place holder text opacity of report boxes */
 }
-.report_area:-moz-placeholder {
+.report-area:-moz-placeholder {
 	 color: gray;
 	opacity:0.8;
 }
-.report_area::-moz-placeholder {
+.report-area::-moz-placeholder {
 	 color: gray;
 	opacity:0.8;
 }
-.report_area:-ms-input-placeholder {
+.report-area:-ms-input-placeholder {
 	 color: gray;
 	opacity:0.8;
 }
-#report_instruction{
+#report-instruction{
 	display: block;
 }
-.scout_div{
+.scout-div{
 	color: orange;
 	text-align: left;
 	margin-bottom: 3em;
@@ -598,23 +598,23 @@ input:focus {
 
 	/* background-color: #B0C4DE; */
 }
-.fixed_col_table{
+.fixed-col-table{
 	overflow-x: scroll;
 }
-.scout_div p{
+.scout-div p{
 	margin-left: .3em;
 	font-size: 1.9em !important;
 }
-.scout_div h3{
+.scout-div h3{
 	margin: 0;
 	margin-bottom: .2em;
 	font-size: 2.7em !important;
 }
-.report_check{
+.report-check{
 	margin: 0.3em !important;
 	font-size: 2em;
 }
-#report_text, .report_text{
+#report-text, .report-text{
 	font-size: 2em !important;
 	display: inline;
 	margin: 0.3em;
@@ -622,7 +622,7 @@ input:focus {
 	margin-bottom: 0.5em;
     color: orange;
 }
-#report_box_small, .report_box_small{
+#report-box-small, .report-box-small{
 	margin: .3em;
 	width: 2.5em;
 	font-size: 1.6em;
@@ -635,7 +635,7 @@ input:focus {
 	text-align: center;
 	height: 1.5em;
 }
-#report_box_large{
+#report-box-large{
 	margin: .3em;
 	width: 5em;
 	font-size: 1.6em;
@@ -672,7 +672,7 @@ input:focus {
 #updown{
 	padding-right: 5px;
 }
-.scout_div_title{
+.scout-div-title{
 	border-bottom: 1px solid gray;
 	padding-bottom: 0.33em;
 	margin-top: 1em !important;
@@ -803,7 +803,7 @@ label:before {
 	padding-bottom: 0.1em;
 	border-radius: 0;
 }
-.button_disabled{
+.button-disabled{
 	font-size: 3em;
 	padding-left: .2em;
 	padding-right: .2em;
@@ -818,7 +818,7 @@ label:before {
 	border-radius: 0;
 }
 
-.add_minus_button{
+.add-minus-button{
 	font-size: 1.8em;
 	padding-left: .2em;
 	padding-right: .2em;
@@ -834,22 +834,22 @@ label:before {
 	border-radius: 0;
 }
 
-.submit_match{
+.submit-match{
 	text-align: right;
 	margin-right: 5em;
 	width: 100%;
 }
 
-#report_tabs a{
+#report-tabs a{
 	font-size: 2em;
 	color: orange;
 	font-family: 'Exo 2', sans-serif;
 }
-#report_tabs a:hover{
+#report-tabs a:hover{
 	border-radius: 0;
 	color: black;
 }
-#report_tabs .active a{
+#report-tabs .active a{
 	font-size: 2em;
 	color: black;
 	font-family: 'Exo 2', sans-serif;
@@ -859,16 +859,16 @@ label:before {
 	border-right: none;
 	border-radius: 0;
 }
-#report_tabs{
+#report-tabs{
 	border-bottom: solid 1px gray;
 	margin-top: 3em;
 }
 
-.view_title{
+.view-title{
 	border-bottom: none;
 }
 
-#view_table{
+#view-table{
 	width: 100%;
 }
 .viewMatchInTeam{
@@ -876,23 +876,23 @@ label:before {
 	border: 1px;
 	border-collapse: separate;
 }
-.fixed_col{
+.fixed-col{
 	position: absolute;
 	width:18em;
 	left:0;
 	background-color: black;
 }
-.fixed_col_table{
+.fixed-col-table{
 	margin-left: 32.9em;
 	width:100% !important;
 }
 .viewMatchInTeam > td{
 	white-space: nowrap;
 }
-.reg_col{
+.reg-col{
 
 }
-#viewMatches_form{
+#viewMatches-form{
 	width:73%;
 	text-align: center;
 }
@@ -919,7 +919,7 @@ label:before {
 
 /* SETTINGS SCREEN STYLES */
 
-.settings_option{
+.settings-option{
 	margin-top: 4em; /* top margin of each settings option */
 	margin-bottom: 4em; /* bottom margin of each settings option */
 	color: orange; /* color of text in settings */
@@ -928,28 +928,28 @@ label:before {
 	text-align: center; /* horizontal alignment of each setting in its respective column */
 	margin-left: -1.2vw; /* to move the settings to the left (not to be changed) */
 }
-.settings_box::-webkit-input-placeholder {
+.settings-box::-webkit-input-placeholder {
     color: gray; /* color of place holder text in settings text boxes */
 	opacity:0.8; /* opacity of place holder text in settings text boxes */
 	font-weight: bold; /* weight of place holder text in settings text boxes */
 }
-.settings_box:-moz-placeholder {
+.settings-box:-moz-placeholder {
    color: gray;
    opacity:0.8;
    font-weight: bold;
 }
-.settings_box::-moz-placeholder {
+.settings-box::-moz-placeholder {
    color: gray;
    opacity:0.8;
    font-weight: bold;
 }
-.settings_box:-ms-input-placeholder {
+.settings-box:-ms-input-placeholder {
    color: gray;
    opacity:0.8;
    font-weight: bold;
 }
 
-.settings_list > .text_input{
+.settings-list > .text-input{
 	color: black; /* color of [typed] text in text boxes */
 	width: 9.5em; /* width of text box */
 	height: 2em; /* height of text box */
@@ -960,7 +960,7 @@ label:before {
 	padding: .2em; /* padding(distance of border of text box to text) of text box */
 }
 
-.text_input{
+.text-input{
 	color: black; /* color of [typed] text in text boxes */
 	width: 14em; /* width of text box */
 	height: 2em; /* height of text box */
@@ -971,7 +971,7 @@ label:before {
 	padding: .2em; /* padding(distance of border of text box to text) of text box */
 }
 
-.settings_list > .button_input{
+.settings-list > .button-input{
 	color: black; /* color of text in button */
 	width: 4em; /* width of button */
 	height: 2em; /* height of button */
@@ -987,18 +987,18 @@ label:before {
 	cursor: pointer; /* changes cursor to hand (not to be changed) */
 }
 
-.button_hovered_report{
+.button-hovered-report{
 	background-color: #C0C0C0 !important; /* background color of hovered table cell in report table */
 	cursor: pointer; /* changes cursor to hand (not to be changed) */
 	color: black; /* text color of hovered table cell in report table */
 }
-.button_selected_report{
+.button-selected-report{
 	background-color: white !important; /* background color of hovered table cell in report table */
 	cursor: pointer; /* changes cursor to hand (not to be changed) */
 	color: black; /* text color of hovered table cell in report table */
 }
 
-#settings_grid{
+#settings-grid{
 margin-top: 4em; /* distance of grid of settings from top of page */
 }
 
@@ -1006,11 +1006,11 @@ margin-top: 4em; /* distance of grid of settings from top of page */
 
 /* FEEDBACK PAGE STYLES */
 
-#feedback_form{
+#feedback-form{
 	margin: 3em;
 }
 
-#feedback_name{
+#feedback-name{
 	font-size: 3em;
 	font-family: 'Exo 2', sans-serif;
 	padding: 3px;
@@ -1022,28 +1022,28 @@ margin-top: 4em; /* distance of grid of settings from top of page */
 	width: 75%;
 }
 
-#feedback_name::-webkit-input-placeholder {
+#feedback-name::-webkit-input-placeholder {
     color: gray; /* color of place holder text in settings text boxes */
 	opacity:0.8; /* opacity of place holder text in settings text boxes */
 	font-weight: bold; /* weight of place holder text in settings text boxes */
 }
-#feedback_name:-moz-placeholder {
+#feedback-name:-moz-placeholder {
    color: gray;
    opacity:0.8;
    font-weight: bold;
 }
-#feedback_name::-moz-placeholder {
+#feedback-name::-moz-placeholder {
    color: gray;
    opacity:0.8;
    font-weight: bold;
 }
-#feedback_name:-ms-input-placeholder {
+#feedback-name:-ms-input-placeholder {
    color: gray;
    opacity:0.8;
    font-weight: bold;
 }
 
-#feedback_box{
+#feedback-box{
 	font-size: 3em;
 	font-family: 'Exo 2', sans-serif;
 	padding: 3px;
@@ -1056,22 +1056,22 @@ margin-top: 4em; /* distance of grid of settings from top of page */
 	width:95%;
 }
 
-#feedback_box::-webkit-input-placeholder {
+#feedback-box::-webkit-input-placeholder {
     color: gray; /* color of place holder text in settings text boxes */
 	opacity:0.8; /* opacity of place holder text in settings text boxes */
 	font-weight: bold; /* weight of place holder text in settings text boxes */
 }
-#feedback_box:-moz-placeholder {
+#feedback-box:-moz-placeholder {
    color: gray;
    opacity:0.8;
    font-weight: bold;
 }
-#feedback_box::-moz-placeholder {
+#feedback-box::-moz-placeholder {
    color: gray;
    opacity:0.8;
    font-weight: bold;
 }
-#feedback_box:-ms-input-placeholder {
+#feedback-box:-ms-input-placeholder {
    color: gray;
    opacity:0.8;
    font-weight: bold;
@@ -1082,16 +1082,16 @@ margin-top: 4em; /* distance of grid of settings from top of page */
 /* STYLES FOR SMALLER SCREENS */
 
 @media screen and (max-width: 420px){
-	.main_welcome h1 {
+	.main-welcome h1 {
 		font-size: 19vw; /* scaling font size for "MorScout" text */
 	}
-	.main_welcome h3 {
+	.main-welcome h3 {
 		font-size: 6vw; /* scaling font size for "Welcome to MorScout" text */
 	}
-	#report_title{
+	#report-title{
 		text-align: center; /* horizontal alignment of title of report page */
 	}
-	#team_report_area{
+	#team-report-area{
 		width: 90%; /* scaling width for report box in all teams page */
 	}
 
@@ -1099,23 +1099,23 @@ margin-top: 4em; /* distance of grid of settings from top of page */
 /*
 @media screen and (max-width: 623px){
 
-	.matches_table{
+	.matches-table{
 		font-size: 2vw !important; /* scaling font size for text in all matches table
 		line-height: 4vh; /* larger scaling line height for text in all matches table for easier match selecting on small screens
 	}
 */
 }
 @media screen and (max-width: 991px){
-	.scout_div{
+	.scout-div{
 		margin-bottom: 0 !important;
 	}
 }
 
 @media screen and (max-width: 456px){
-	.teams_table{
+	.teams-table{
 		width: 90% !important; /* scaling width for all teams table */
 	}
-	.scout_div{
+	.scout-div{
 		font-size: 2.5vw;
 	}
 	label:before{
@@ -1132,15 +1132,15 @@ margin-top: 4em; /* distance of grid of settings from top of page */
 	input[type=radio]:checked + label:before {
 	    line-height: 2vw;
 	}
-	.report_area{
+	.report-area{
 		width: 94%; /* width of report boxes */
 	}
-	.submit_match{
+	.submit-match{
 		text-align: right;
 		margin-right: 5em;
 		width: 94%;
 	}
-	.report_radio_check{
+	.report-radio-check{
 		padding-left:1.3em !important;
 	}
 }

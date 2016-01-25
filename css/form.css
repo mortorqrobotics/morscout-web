@@ -40,7 +40,7 @@
   background-color: darkOrange;
 }
 
-.creator_dropdown{
+.creator-dropdown{
   height: 30px;
   font-size: 20px;
   background-color: orange;
@@ -67,11 +67,11 @@
 }
 
 
-.remove_dp {
+.remove-dp {
   color:orange;
 }
 
-.remove_dp:hover {
+.remove-dp:hover {
   color: red;
   cursor: pointer;
 }
@@ -87,11 +87,11 @@
   color: orange;
 }
 
-.data_point_name {
+.data-point-name {
   color: orange;
 }
 
-#add_data_point_button {
+#add-data-point-button {
 	height: 22px;
 	width: 123px;
 	color: black;

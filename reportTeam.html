@@ -21,7 +21,7 @@
     	<div class="container-fluid">
     		<div class="navbar-header">
     		  <a class="navbar-brand" href="index.html">MorScout</a>
-    		  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#MorScoutNav" id = "toggle_button">
+    		  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#MorScoutNav" id = "toggle-button">
     			<span class="icon-bar"></span>
     			<span class="icon-bar"></span>
     			<span class="icon-bar"></span>
@@ -47,32 +47,32 @@
 
     <div class = "report">
     	<div class = "container-fluid">
-    		<div id="report_title" class="page_title">
-    			<h2 class="page_title">Team </h2>
-    			<h2 class="page_title" id="report_team_num"></h2>
+    		<div id="report-title" class="page-title">
+    			<h2 class="page-title">Team </h2>
+    			<h2 class="page-title" id="report-team-num"></h2>
     			<h2 id="dash"> - </h2>
-    			<h2 class="page_title" id="report_team_name"></h2>
+    			<h2 class="page-title" id="report-team-name"></h2>
     		</div>
     		<div class="row">
     			<div class="col-md-1 col-sm-0 col-xs-0">
     			</div>
     			<div class="col-md-10 col-sm-12 col-xs-12">
-    				<ul id="report_tabs" class="nav nav-tabs">
-    				  <li id="scout_tab" class="active"><a href="javascript: void(0);">Scout</a></li>
-    				  <li id="view_tab"><a href="javascript: void(0);">View</a></li>
-    				  <li id="viewMatches_tab"><a href="javascript: void(0);">View Matches</a></li>
+    				<ul id="report-tabs" class="nav nav-tabs">
+    				  <li id="scout-tab" class="active"><a href="javascript: void(0);">Scout</a></li>
+    				  <li id="view-tab"><a href="javascript: void(0);">View</a></li>
+    				  <li id="viewMatches-tab"><a href="javascript: void(0);">View Matches</a></li>
     				</ul>
     			</div>
     			<div class="col-md-1 col-sm-0 col-xs-0">
     			</div>
     		</div>
-    		<div id="scout_form" class="row">
+    		<div id="scout-form" class="row">
     			<div class="col-md-1 col-sm-0 col-xs-0">
     			</div>
     			<div class="col-md-5 col-sm-6 col-xs-12">
-    	  	    	<div class="scout_div">
-    	  	    		<h3 class="scout_div_title">General</h3>
-    	  	    		<p id="report_text">Drive Train: </p>
+    	  	    	<div class="scout-div">
+    	  	    		<h3 class="scout-div-title">General</h3>
+    	  	    		<p id="report-text">Drive Train: </p>
     	  	    		<div class="selectdiv" >
     				      <select class="selectboxdiv" id="driveTrain">
     				        <option>choose...</option>
@@ -87,155 +87,155 @@
     				      <div style="display:inline;" class="out">XCZXCzxcxz</div>
     				  	</div><br/>
     				  	<div class="hidden" id="otherDriveTrain">
-    					  	<p id="report_text">Other: </p>
-    			  	    	<input id="report_box_large" type="text" class="otherDrive"></input><br/>
+    					  	<p id="report-text">Other: </p>
+    			  	    	<input id="report-box-large" type="text" class="otherDrive"></input><br/>
     			  	    </div>
     				  	<div class="moveDown">
-    		  	    		<p id="report_text">Cycle time (sec): </p>
-    		  	    		<input id="report_box_small" type="number" class="cycleTime"></input><br/>
-    		  	    		<p id="report_text">Co-op points: </p>
-    		  	    		<input id="report_box_small" type="number" class="coopPoints"></input><br/>
-    		  	    		<p id="report_text">Speed: </p>
-    		  	    		<input id="report_box_small" type="number" class="speed"></input><br/>
-    		  	    		<p id="report_text">Max height: </p>
-    		  	    		<input id="report_box_small" type="number" class="maxHeight"></input><br/>
-    		  	    		<p id="report_text">Field configuration speed (sec): </p>
-    		  	    		<input id="report_box_small" type="number" class="configSpeed"></input><br/>
-    		  	    		<input class="report_check" type="checkbox" id="bumpers"></input>
-    		  	    		<label id="report_text" for="bumpers" class="report_radio_check">Bumpers?</label><br/>
+    		  	    		<p id="report-text">Cycle time (sec): </p>
+    		  	    		<input id="report-box-small" type="number" class="cycleTime"></input><br/>
+    		  	    		<p id="report-text">Co-op points: </p>
+    		  	    		<input id="report-box-small" type="number" class="coopPoints"></input><br/>
+    		  	    		<p id="report-text">Speed: </p>
+    		  	    		<input id="report-box-small" type="number" class="speed"></input><br/>
+    		  	    		<p id="report-text">Max height: </p>
+    		  	    		<input id="report-box-small" type="number" class="maxHeight"></input><br/>
+    		  	    		<p id="report-text">Field configuration speed (sec): </p>
+    		  	    		<input id="report-box-small" type="number" class="configSpeed"></input><br/>
+    		  	    		<input class="report-check" type="checkbox" id="bumpers"></input>
+    		  	    		<label id="report-text" for="bumpers" class="report-radio-check">Bumpers?</label><br/>
     		  	    	</div>
     	  	    	</div>
     			</div>
     			<div class="col-md-5 col-sm-6 col-xs-12">
-    	  	    	<div class="scout_div">
-    	  	    		<h3 class="scout_div_title">Manipulators</h3>
-    	  	    		<input class="report_check" type="checkbox" id="elevator"></input>
-    	  	    		<label id="report_text" for="elevator" class="report_radio_check">Elevator</label><br/>
-    	  	    		<input class="report_check" type="checkbox" id="toteGrabber"></input>
-    	  	    		<label id="report_text" for="toteGrabber" class="report_radio_check">Tote grabber</label><br/>
-    	  	    		<input class="report_check" type="checkbox" id="arm"></input>
-    	  	    		<label id="report_text" for="arm" class="report_radio_check">Arm</label><br/>
-    	  	    		<input class="report_check" type="checkbox" id="containerGrabber"></input>
-    	  	    		<label id="report_text" for="containerGrabber" class="report_radio_check">Container grabber</label><br/>
-    	  	    		<input class="report_check" type="checkbox" id="toteHerder"></input>
-    	  	    		<label id="report_text" for="toteHerder" class="report_radio_check">Tote herder</label><br/>
-    	  	    		<p id="report_text" for="stepGrabber" class="report_radio_check">Step container grabber</p>
-    	  	    		<input id="report_box_small" type="number" value="0" class="stepGrabber"></input><br/>
-    	  	    		<input class="report_check" type="checkbox" id="toteBinFlipper"></input>
-    	  	    		<label id="report_text" for="toteBinFlipper" class="report_radio_check">Tote/bin flipper</label><br/>
-    	  	    		<input class="report_check" type="checkbox" id="retainingCage"></input>
-    	  	    		<label id="report_text" for="retainingCage" class="report_radio_check">Retaining cage</label><br/>
-    	  	    		<input class="report_check" type="checkbox" id="conveyorBelt"></input>
-    	  	    		<label id="report_text" for="conveyorBelt" class="report_radio_check">Conveyer belt</label><br/>
-    	  	    		<input class="report_check" type="checkbox" id="litterGrabber"></input>
-    	  	    		<label id="report_text" for="litterGrabber" class="report_radio_check">Litter grabber</label><br/>
-    	  	    		<input class="report_check" type="checkbox" id="humanPlayerTote"></input>
-    	  	    		<label id="report_text" for="humanPlayerTote" class="report_radio_check">Human player tote intake</label><br/>
-    	  	    		<input class="report_check" type="checkbox" id="humanPlayerLitter"></input>
-    	  	    		<label id="report_text" for="humanPlayerLitter" class="report_radio_check">Human player litter intake</label><br/>
-    	  	    		<input class="report_check" type="checkbox" id="singleToteStack"></input>
-    	  	    		<label id="report_text" for="singleToteStack" class="report_radio_check">Single tote stack</label><br/>
+    	  	    	<div class="scout-div">
+    	  	    		<h3 class="scout-div-title">Manipulators</h3>
+    	  	    		<input class="report-check" type="checkbox" id="elevator"></input>
+    	  	    		<label id="report-text" for="elevator" class="report-radio-check">Elevator</label><br/>
+    	  	    		<input class="report-check" type="checkbox" id="toteGrabber"></input>
+    	  	    		<label id="report-text" for="toteGrabber" class="report-radio-check">Tote grabber</label><br/>
+    	  	    		<input class="report-check" type="checkbox" id="arm"></input>
+    	  	    		<label id="report-text" for="arm" class="report-radio-check">Arm</label><br/>
+    	  	    		<input class="report-check" type="checkbox" id="containerGrabber"></input>
+    	  	    		<label id="report-text" for="containerGrabber" class="report-radio-check">Container grabber</label><br/>
+    	  	    		<input class="report-check" type="checkbox" id="toteHerder"></input>
+    	  	    		<label id="report-text" for="toteHerder" class="report-radio-check">Tote herder</label><br/>
+    	  	    		<p id="report-text" for="stepGrabber" class="report-radio-check">Step container grabber</p>
+    	  	    		<input id="report-box-small" type="number" value="0" class="stepGrabber"></input><br/>
+    	  	    		<input class="report-check" type="checkbox" id="toteBinFlipper"></input>
+    	  	    		<label id="report-text" for="toteBinFlipper" class="report-radio-check">Tote/bin flipper</label><br/>
+    	  	    		<input class="report-check" type="checkbox" id="retainingCage"></input>
+    	  	    		<label id="report-text" for="retainingCage" class="report-radio-check">Retaining cage</label><br/>
+    	  	    		<input class="report-check" type="checkbox" id="conveyorBelt"></input>
+    	  	    		<label id="report-text" for="conveyorBelt" class="report-radio-check">Conveyer belt</label><br/>
+    	  	    		<input class="report-check" type="checkbox" id="litterGrabber"></input>
+    	  	    		<label id="report-text" for="litterGrabber" class="report-radio-check">Litter grabber</label><br/>
+    	  	    		<input class="report-check" type="checkbox" id="humanPlayerTote"></input>
+    	  	    		<label id="report-text" for="humanPlayerTote" class="report-radio-check">Human player tote intake</label><br/>
+    	  	    		<input class="report-check" type="checkbox" id="humanPlayerLitter"></input>
+    	  	    		<label id="report-text" for="humanPlayerLitter" class="report-radio-check">Human player litter intake</label><br/>
+    	  	    		<input class="report-check" type="checkbox" id="singleToteStack"></input>
+    	  	    		<label id="report-text" for="singleToteStack" class="report-radio-check">Single tote stack</label><br/>
     	  	    	</div>
-    	  	    	<div class="submit_match">
-    					<button id="submit_match_report" class="button">Submit</button>
+    	  	    	<div class="submit-match">
+    					<button id="submit-match-report" class="button">Submit</button>
     				</div>
     			</div>
     			<div class="col-md-1 col-sm-0 col-xs-0">
     			</div>
     		</div>
-    		<div id="view_form" class="row">
+    		<div id="view-form" class="row">
     			<div class="col-md-1 col-sm-0 col-xs-0">
     			</div>
     			<div class="col-md-5 col-sm-6 col-xs-12">
-    				<div class="scout_div">
-    					<h3 class="scout_div_title view_title">General</h3>
-    					<table id="view_table">
+    				<div class="scout-div">
+    					<h3 class="scout-div-title view-title">General</h3>
+    					<table id="view-table">
     						<tr>
     							<td>Drive Train</td>
-    							<td id="view_driveTrain">No Info</td>
+    							<td id="view-driveTrain">No Info</td>
     						</tr>
     						<tr>
     							<td>Cycle Time (seconds)</td>
-    							<td id="view_cycleTime">No Info</td>
+    							<td id="view-cycleTime">No Info</td>
     						</tr>
     						<tr>
     							<td>Co-op Points</td>
-    							<td id="view_coopPoints">No Info</td>
+    							<td id="view-coopPoints">No Info</td>
     						</tr>
     						<tr>
     							<td>Speed</td>
-    							<td id="view_speed">No Info</td>
+    							<td id="view-speed">No Info</td>
     						</tr>
     						<tr>
     							<td>Max height</td>
-    							<td id="view_maxHeight">No Info</td>
+    							<td id="view-maxHeight">No Info</td>
     						</tr>
     						<tr>
     							<td>Field config speed (sec)</td>
-    							<td id="view_configSpeed">No Info</td>
+    							<td id="view-configSpeed">No Info</td>
     						</tr>
     						<tr>
     							<td>Has bumpers</td>
-    							<td id="view_bumpers">No Info</td>
+    							<td id="view-bumpers">No Info</td>
     						</tr>
     					</table>
     				</div>
     			</div>
     			<div class="col-md-5 col-sm-6 col-xs-12">
-    				<div class="scout_div">
-    					<h3 class="scout_div_title view_title">Manipulators</h3>
-    					<table id="view_table">
+    				<div class="scout-div">
+    					<h3 class="scout-div-title view-title">Manipulators</h3>
+    					<table id="view-table">
     						<tr>
     							<td>Elevator</td>
-    							<td id="view_elevator">No Info</td>
+    							<td id="view-elevator">No Info</td>
     						</tr>
     						<tr>
     							<td>Tote grabber</td>
-    							<td id="view_toteGrabber">No Info</td>
+    							<td id="view-toteGrabber">No Info</td>
     						</tr>
     						<tr>
     							<td>Arm</td>
-    							<td id="view_arm">No Info</td>
+    							<td id="view-arm">No Info</td>
     						</tr>
     						<tr>
     							<td>Container grabber</td>
-    							<td id="view_containerGrabber">No Info</td>
+    							<td id="view-containerGrabber">No Info</td>
     						</tr>
     						<tr>
     							<td>Tote herder</td>
-    							<td id="view_toteHerder">No Info</td>
+    							<td id="view-toteHerder">No Info</td>
     						</tr>
     						<tr>
     							<td>Step container grabber</td>
-    							<td id="view_stepGrabber">No Info</td>
+    							<td id="view-stepGrabber">No Info</td>
     						</tr>
     						<tr>
     							<td>Tote/bin flipper</td>
-    							<td id="view_toteBinFlipper">No Info</td>
+    							<td id="view-toteBinFlipper">No Info</td>
     						</tr>
     						<tr>
     							<td>Retaining cage</td>
-    							<td id="view_retainingCage">No Info</td>
+    							<td id="view-retainingCage">No Info</td>
     						</tr>
     						<tr>
     							<td>Conveyor belt</td>
-    							<td id="view_conveyorBelt">No Info</td>
+    							<td id="view-conveyorBelt">No Info</td>
     						</tr>
     						<tr>
     							<td>Litter grabber</td>
-    							<td id="view_litterGrabber">No Info</td>
+    							<td id="view-litterGrabber">No Info</td>
     						</tr>
     						<tr>
     							<td>Human player tote intake</td>
-    							<td id="view_humanPlayerTote">No Info</td>
+    							<td id="view-humanPlayerTote">No Info</td>
     						</tr>
     						<tr>
     							<td>Human player litter intake</td>
-    							<td id="view_humanPlayerLitter">No Info</td>
+    							<td id="view-humanPlayerLitter">No Info</td>
     						</tr>
     						<tr>
     							<td>Single tote stack</td>
-    							<td id="view_singleToteStack">No Info</td>
+    							<td id="view-singleToteStack">No Info</td>
     						</tr>
     					</table>
     				</div>
@@ -243,12 +243,12 @@
     			<div class="col-md-1 col-sm-0 col-xs-0">
     			</div>
     		</div>
-    	    <div id="viewMatches_form" class="row">
+    	    <div id="viewMatches-form" class="row">
     	    	<div class="col-md-1 col-sm-0 col-xs-0">
     			</div>
     	    	<div class="col-md-10 col-sm-12 col-xs-12">
-    	    		<div class="scout_div fixed_col_table" id="view_table">
-    	    			<h3 class="scout_div_title view_title fixed_col_table">All Matches for This Team </h3>
+    	    		<div class="scout-div fixed-col-table" id="view-table">
+    	    			<h3 class="scout-div-title view-title fixed-col-table">All Matches for This Team </h3>
     	    			<table class="viewMatchInTeam" id="matchTable">
     	    				<!-- table inserted here -->
     	    			</table>
@@ -279,10 +279,10 @@
   	$(document).ready(function(){
   		var data = urlGet(String(location));
   		if(data.name != undefined){
-  			$('#report_team_num').html(data.team);
-  			$('#report_team_name').html(data.name);
+  			$('#report-team-num').html(data.team);
+  			$('#report-team-name').html(data.name);
   		}else{
-  			$('#report_team_num').html(data.team);
+  			$('#report-team-num').html(data.team);
   			$("#dash").hide();
   		}
   	});
@@ -291,8 +291,8 @@
   <script type="text/javascript">
   	$(document).ready(function(){
 
-  		$('#view_form').hide();
-  		$('#viewMatches_form').hide();
+  		$('#view-form').hide();
+  		$('#viewMatches-form').hide();
 
   		$("select").change(function () {
   		   var str = "";
@@ -308,35 +308,35 @@
   		   }
   		}).trigger('change');
 
-  		$('#view_tab').click(function(){
-  			$('#view_tab').addClass("active");
-  			$('#scout_tab').removeClass('active');
-  			$('#viewMatches_tab').removeClass('active');
-  			$('#scout_form').hide();
-  			$('#viewMatches_form').hide();
-  			$('#view_form').show();
+  		$('#view-tab').click(function(){
+  			$('#view-tab').addClass("active");
+  			$('#scout-tab').removeClass('active');
+  			$('#viewMatches-tab').removeClass('active');
+  			$('#scout-form').hide();
+  			$('#viewMatches-form').hide();
+  			$('#view-form').show();
   		});
-  		$('#scout_tab').click(function(){
-  			$('#scout_tab').addClass("active");
-  			$('#view_tab').removeClass('active');
-  			$('#viewMatches_tab').removeClass('active');
-  			$('#scout_form').show();
-  			$("#view_form").hide();
-  			$('#viewMatches_form').hide();
-  			$('#submit_match_report').html('Submit');
-  			$('#submit_match_report').prop('disabled', false);
-  			$('#submit_match_report').css({"background-color":"orange","color":"black"});
+  		$('#scout-tab').click(function(){
+  			$('#scout-tab').addClass("active");
+  			$('#view-tab').removeClass('active');
+  			$('#viewMatches-tab').removeClass('active');
+  			$('#scout-form').show();
+  			$("#view-form").hide();
+  			$('#viewMatches-form').hide();
+  			$('#submit-match-report').html('Submit');
+  			$('#submit-match-report').prop('disabled', false);
+  			$('#submit-match-report').css({"background-color":"orange","color":"black"});
   		});
-  		$('#viewMatches_tab').click(function(){
-  			$('#viewMatches_tab').addClass("active");
-  			$('#scout_tab').removeClass('active');
-  			$('#view_tab').removeClass('active');
-  			$('#viewMatches_form').show();
-  			$('#view_form').hide();
-  			$('#scout_form').hide();
+  		$('#viewMatches-tab').click(function(){
+  			$('#viewMatches-tab').addClass("active");
+  			$('#scout-tab').removeClass('active');
+  			$('#view-tab').removeClass('active');
+  			$('#viewMatches-form').show();
+  			$('#view-form').hide();
+  			$('#scout-form').hide();
   		})
 
-  		$('#submit_match_report').click(function(){
+  		$('#submit-match-report').click(function(){
 
       )};
 
