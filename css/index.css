@@ -173,7 +173,7 @@ background-color: #EE7600; /* color of background of selected link in nav bar */
 	text-align: center; /* horizontal alignment of large "MorScout" text */
 }
 
-.main_welcome h3, #form-holder h2 {
+.main_welcome h3, #form-holder h2, #form-preview h2, .container h2 {
   text-align:center; /* horizontal alignment of small "Welcome to MorScout" text */
   color: orange; /* sets font color of small "Welcome to MorScout" text */
   max-width: 15em;
@@ -614,15 +614,15 @@ input:focus {
 	margin: 0.3em !important;
 	font-size: 2em;
 }
-#report_text{
+#report_text, .report_text{
 	font-size: 2em !important;
 	display: inline;
 	margin: 0.3em;
 	font-weight: normal;
 	margin-bottom: 0.5em;
-
+    color: orange;
 }
-#report_box_small{
+#report_box_small, .report_box_small{
 	margin: .3em;
 	width: 2.5em;
 	font-size: 1.6em;

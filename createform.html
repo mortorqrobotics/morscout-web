@@ -92,6 +92,12 @@
 
 
             </div>
+            <h2>Form Preview</h2>
+            <div class="row" id="form-preview">
+
+            </div>
+
+
             <!-- <div id="submit-form">
              <input type="button" id="submit-form-button" value="Submit Form">
      </div> -->
@@ -164,6 +170,107 @@
                     createNewDataPoint();
                 });
 
+                function synthesizeForm(dataPoints) {
+                    $('#form-preview').empty();
+                    for (var i = 0; i < dataPoints.length; i++) {
+                        var dataPoint = dataPoints[i];
+                        var dpName = dataPoint.name;
+                        var dpType = dataPoint.type;
+                        if (dpType == "radio") {
+                            // <div class="radio">
+                            // ass="report_check" type="radio" name="auto" id="nearDrivers"></input>
+                            // ="report_text" for="nearDrivers" class="report_radio_check">Started near drivers</label><br/>
+        					// 	<input class="report_check" type="radio" name="auto" id="radio12"></input>
+        					// 	<label id="report_text" for="radio12" class="report_radio_check">Started near landfill</label><br/>
+        					// </div>
+                            var options = dataPoint.options;
+                            var div = $(document.createElement("div"));
+                            div.addClass("radio");
+                            for (var j = 0; j < options.length; j++) {
+                                var option = options[j];
+                                var input = $(document.createElement("input"));
+                                input.attr("type", "radio");
+                                input.attr("name", dpName);//FIX
+                                input.attr("id", option)
+                                input.addClass("report_check");
+                                var label = $(document.createElement("label"));
+                                label.addClass("report_text report_radio_check");
+                                label.attr("for", option);
+                                label.html(option);
+                                div.append(input);
+                                div.append(label);
+                                div.append("<br/>");
+                            }
+                            console.log($("input[name='1']").val())
+                            $('#form-preview').append(div);
+
+                        } else if (dpType == "dropdown") {
+                            var options = dataPoint.options;
+                            var select = $(document.createElement("select"));
+                            select.addClass("creator_dropdown");
+                            for (var j = 0; j < options.length; j++) {
+                                var optionText = options[j];
+                                var option = $(document.createElement("option"));
+                                option.html(optionText);
+                                select.append(option);
+                            }
+                            var p = $(document.createElement("p"));
+                            p.addClass("report_text");
+                            p.html(dpName);
+
+                            $('#form-preview').append(p);
+                            $('#form-preview').append(select);
+                        } else if (dpType == "number") {
+                            var start = dataPoint.start;
+                            var min = dataPoint.min;
+                            var max = dataPoint.max;
+                            //<h3 class="scout_div_title">Autonomous</h3>
+                            //<input type="button" id="grayTotesMinus" class="button add_minus_button" value="-"></input>
+                            //<input class="grayTotes" id="report_box_small" type="number" value="0"></input>
+                            //<input type="button" id="grayTotesPlus" class="button add_minus_button" value="+"></input><br/>
+
+                            var p = $(document.createElement("p"));
+                            p.addClass("report_text");
+                            p.html(dpName);
+
+                            var inputAdd = $(document.createElement("input"));
+                            inputAdd.attr("type", "button");
+                            inputAdd.addClass("button add_minus_button");
+                            inputAdd.val("+");
+
+                            var inputButton = $(document.createElement("input"));
+                            inputButton.attr("type", "number");
+                            inputButton.addClass("report_box_small");
+                            inputButton.attr("min", min);
+                            inputButton.attr("max", max);
+                            inputButton.val(start)
+
+                            var inputSubtract = $(document.createElement("input"));
+                            inputSubtract.attr("type", "button");
+                            inputSubtract.addClass("button add_minus_button");
+                            inputSubtract.val("-");
+
+                            $('#form-preview').append(p);
+                            $('#form-preview').append(inputAdd);
+                            $('#form-preview').append(inputButton);
+                            $('#form-preview').append(inputSubtract);
+                        } else if (dpType == "check") {
+                            //var input = ;
+
+                            $('#form-preview').append();
+                        } else if (dpType == "label") {
+                            var label = dataPoint.label;
+
+                            $('#form-preview').append(label);
+                        } else if (dpType == "text") {
+                            //  var text = ;
+
+                            $('#form-preview').append(text);
+                        }
+                        $('#form-preview').append("</br>");
+                    }
+                }
+
                 function createDropdownInput(textboxHolder) {
                     var input = $(document.createElement("input"));
                     input.attr("type", "text");
@@ -190,59 +297,54 @@
                     });
                 });
 
-                $("#submitformbutton").on("click", function(){
+                $("#submitformbutton").on("click", function() {
                     var wrappers = $("#form-holder").find(".dp-wrapper");
                     var dataPoints = [];
                     var pointsValid = true;
-                    for (var i = 0; i < wrappers.length; i++){
+                    for (var i = 0; i < wrappers.length; i++) {
                         var dp = $(wrappers[i]);
                         var dataPointInfo = {};
                         var dpType = dp.find(".creator_dropdown").eq(0).val();
                         var dpName = dp.find(".data_point_name").eq(0).val();
-                        if ($.trim(dpName) != "" && $.trim(dpType) != ""){
+                        if ($.trim(dpName) != "" && $.trim(dpType) != "") {
                             dataPointInfo.name = dpName;
                             dataPointInfo.type = dpType;
-                            if (dpType == "radio" || dpType == "dropdown"){
+                            if (dpType == "radio" || dpType == "dropdown") {
                                 var options = [];
                                 var optionBoxes = dp.find(".option-box");
-                                for (var j = 0; j < optionBoxes.length; j++){
+                                for (var j = 0; j < optionBoxes.length; j++) {
                                     var box = $(optionBoxes[j]);
-                                    if ($.trim(box.val()) != ""){
+                                    if ($.trim(box.val()) != "") {
                                         options.push(box.val());
                                     }
                                 }
                                 dataPointInfo.options = options;
-                            }
-                            else if (dpType == "number"){
+                            } else if (dpType == "number") {
                                 var start = dp.find(".start-box").eq(0).val();
                                 var min = dp.find(".min-box").eq(0).val();
                                 var max = dp.find(".max-box").eq(0).val();
-                                if (areNumbers([start, min, max])){
+                                if (areNumbers([start, min, max])) {
                                     dataPointInfo.start = parseInt(start);
                                     dataPointInfo.min = parseInt(min);
                                     dataPointInfo.max = parseInt(max);
-                                }
-                                else {
+                                } else {
                                     pointsValid = false;
                                     break;
                                 }
-                            }
-                            else {
+                            } else {
                                 //use later?
                             }
                             dataPoints.push(dataPointInfo);
-                        }
-                        else {
+                        } else {
                             pointsValid = false;
                             break;
                         }
                     }
-                    if (pointsValid){
+                    if (pointsValid) {
                         alert("Success");
-                        //Send request here
+                        synthesizeForm(dataPoints);
                         //dataPoints is an array of all information
-                    }
-                    else {
+                    } else {
                         alert("Field missing or invalid input");
                     }
                 });
@@ -278,8 +380,6 @@
 
 
                 });
-
-
             </script>
 
 </body>

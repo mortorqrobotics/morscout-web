@@ -82,13 +82,12 @@
 	margin: 0.3em !important;
 	font-size: 2em;
 }
-#report_text{
+#report_text, .report_text{
 	font-size: 2em !important;
 	display: inline;
 	margin: 0.3em;
 	font-weight: normal;
 	margin-bottom: 0.5em;
-
 }
 #report_box_small{
 	margin: .3em;
