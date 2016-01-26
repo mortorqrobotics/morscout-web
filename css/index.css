@@ -677,6 +677,7 @@ input:focus {
 	padding-bottom: 0.33em;
 	margin-top: 1em !important;
 	font-weight: bold !important;
+    color: orange;
 }
 
 input[type=number]::-webkit-inner-spin-button,
