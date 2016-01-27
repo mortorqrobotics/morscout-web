@@ -56,6 +56,23 @@
   <script src="js/matchesTable.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script src="js/main.js" type="text/javascript"></script>
+  <script>
+    function getMatches(){
+        $.post("/getMatchesForCurrentRegional", {}, function(response){
+            var matches = JSON.parse(response);
+            var table = $(document.createElement("table"));
+            table.addClass("matches_table");
+            var firstRow = $(document.createElement("tr"));
+            table.append(firstRow);
+            $(document.body).append(table);s
+            //Complete row
+            for (var i = 0; i < matches.length; i++){
+                //Load matches
+            }
+        });
+    }
+    getMatches();
+  </script>
 
   </body>
 </html>
