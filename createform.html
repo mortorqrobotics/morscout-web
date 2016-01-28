@@ -13,11 +13,9 @@
     <link rel="stylesheet" href="css/index.css" type="text/css">
     <link rel="stylesheet" href="css/form.css" type="text/css">
     <link rel="stylesheet" href="css/login.css" type="text/css">
-    <link rel="stylesheet" href="css/welcome-page.css" type="text/css">
     <link rel="stylesheet" href="css/feedback.css" type="text/css">
     <link rel="stylesheet" href="css/welcome_page.css" type="text/css">
     <link rel="stylesheet" href="css/report_screen.css" type="text/css">
-    <link rel="stylesheet" href="css/welcome_page.css" type="text/css">
     <link rel="stylesheet" href="css/sync.css" type="text/css">
 </head>
 
@@ -172,6 +170,8 @@
 
                 function synthesizeForm(dataPoints) {
                     $('#form-preview').empty();
+                    var form = $('#form-preview');
+                    var oneColumn = true;
                     for (var i = 0; i < dataPoints.length; i++) {
                         var dataPoint = dataPoints[i];
                         var dpName = dataPoint.name;
@@ -180,6 +180,13 @@
                             var options = dataPoint.options;
                             var div = $(document.createElement("div"));
                             div.addClass("radio");
+                            if (oneColumn == true) {
+                              div.addClass('col-md-12');
+                              oneColumn = false;
+                            }
+                            else {
+                              div.addClass('col-md-6');
+                            }
                             for (var j = 0; j < options.length; j++) {
                                 var option = options[j];
                                 var input = $(document.createElement("input"));
@@ -198,9 +205,17 @@
                             var p = $(document.createElement("p"));
                             p.addClass("report-text");
                             p.html(dpName);
-                            $('#form-preview').append(div);
+                            form.append(div);
 
                         } else if (dpType == "dropdown") {
+                            var div2 = $(document.createElement('div'));
+                            if (oneColumn == true) {
+                              div2.addClass('col-md-12');
+                              oneColumn = false;
+                            }
+                            else {
+                              div2.addClass('col-md-6');
+                            }
                             var options = dataPoint.options;
                             var select = $(document.createElement("select"));
                             select.addClass("creator-dropdown");
@@ -214,9 +229,18 @@
                             p.addClass("report-text");
                             p.html(dpName + ": ");
 
-                            $('#form-preview').append(p);
-                            $('#form-preview').append(select);
+                            div2.append(p);
+                            div2.append(select);
+                            form.append(div2)
                         } else if (dpType == "number") {
+                            var div3 = $(document.createElement('div'));
+                            if (oneColumn == true) {
+                              div3.addClass('col-md-12');
+                              oneColumn = false;
+                            }
+                            else {
+                              div3.addClass('col-md-6');
+                            }
                             var start = dataPoint.start;
                             var min = dataPoint.min;
                             var max = dataPoint.max;
@@ -263,11 +287,20 @@
                                 }
                             });
 
-                            $('#form-preview').append(p);
-                            $('#form-preview').append(inputSubtract);
-                            $('#form-preview').append(inputBox);
-                            $('#form-preview').append(inputAdd);
+                            div3.append(p);
+                            div3.append(inputSubtract);
+                            div3.append(inputBox);
+                            div3.append(inputAdd);
+                            form.append(div3);
                         } else if (dpType == "check") {
+                            var div4 = $(document.createElement('div'));
+                            if (oneColumn == true) {
+                              div4.addClass('col-md-12');
+                              oneColumn = false;
+                            }
+                            else {
+                              div4.addClass('col-md-6');
+                            }
                             var input = $(document.createElement("input"));
                             input.attr("type", "checkbox");
                             input.addClass("report-check");
@@ -276,18 +309,37 @@
                             label.attr("for", dpName);
                             label.addClass("report-radio-check report-text");
                             label.html(dpName);
-                            $('#form-preview').append(input);
-                            $('#form-preview').append(label);
+                            div4.append(input);
+                            div4.append(label);
+                            form.append(div4);
                         } else if (dpType == "label") {
+                            var div5 = $(document.createElement('div'));
+                            if (oneColumn == true) {
+                              div5.addClass('col-md-12');
+                              oneColumn = false;
+                            }
+                            else {
+                              div5.addClass('col-md-6');
+                            }
                             var h3 = $(document.createElement("h3"));
                             h3.addClass("scout-div-title");
                             h3.html(dpName);
-                            $('#form-preview').append(h3);
+                            div5.append(h3);
+                            form.append(div5);
                         } else if (dpType == "text") {
+                            var div6 = $(document.createElement('div'));
+                            if (oneColumn == true) {
+                              div6.addClass('col-md-12');
+                              oneColumn = false;
+                            }
+                            else {
+                              div6.addClass('col-md-6');
+                            }
                             var textarea = $(document.createElement("textarea"));
                             textarea.addClass("report-area");
                             textarea.attr("placeholder", dpName);
-                            $('#form-preview').append(textarea);
+                            div6.append(textarea);
+                            form.append(div6);
                         }
                         $('#form-preview').append("</br></br>");
                     }
