@@ -1,102 +1,102 @@
-.formcreator  {
-  font-family: 'Exo 2', sans-serif;
-  margin-top: 80px;
-	font-weight: 400;
-  text-align: center;
+.formcreator {
+    font-family: 'Exo 2', sans-serif;
+    margin-top: 80px;
+    font-weight: 400;
+    text-align: center;
 }
 .formcreator h1 {
-	color: orange;
-	text-align: center;
-  margin-bottom: 40px;
+    color: orange;
+    text-align: center;
+    margin-bottom: 40px;
 }
-
-#formbutton  {
-  font-family: 'Exo 2', sans-serif;
-  position: absolute;
-  top: 65px;
-  left: 15px;
-  font-size: 20px;
-  background-color: orange;
-  color: black;
-  padding: 2px 5px 2px 5px;
-  text-align: center;
+#formbutton {
+    font-family: 'Exo 2', sans-serif;
+    position: absolute;
+    top: 65px;
+    left: 15px;
+    font-size: 20px;
+    background-color: orange;
+    color: black;
+    padding: 2px 5px 2px 5px;
+    text-align: center;
 }
 #formbutton:hover {
-  background-color: darkOrange;
+    background-color: darkOrange;
 }
-
-#submitformbutton  {
-  font-family: 'Exo 2', sans-serif;
-  position: absolute;
-  top: 65px;
-  right: 15px;
-  font-size: 20px;
-  background-color: orange;
-  color: black;
-  padding: 2px 5px 2px 5px;
-  float: right;
+#submitformbutton {
+    font-family: 'Exo 2', sans-serif;
+    position: absolute;
+    top: 65px;
+    right: 15px;
+    font-size: 20px;
+    background-color: orange;
+    color: black;
+    padding: 2px 5px 2px 5px;
+    float: right;
 }
-#submitformbutton:hover {
-  background-color: darkOrange;
+#sendformbutton {
+    font-family: 'Exo 2', sans-serif;
+    /*position: absolute;*/
+    top: 65px;
+    right: 15px;
+    font-size: 20px;
+    background-color: orange;
+    color: black;
+    padding: 2px 5px 2px 5px;
+    /*float: center;*/
 }
-
-.creator-dropdown{
-  height: 30px;
-  font-size: 20px;
-  background-color: orange;
-  margin: 0px 7px 7px 0px;
+#submitformbutton:hover, #sendformbutton:hover {
+    background-color: darkOrange;
 }
-
+.creator-dropdown {
+    height: 30px;
+    font-size: 20px;
+    background-color: orange;
+    margin: 0px 7px 7px 0px;
+}
 .dp-wrapper {
-  margin-bottom: 45px;
+    margin-bottom: 45px;
 }
-
-.formmakerbutton{
-	font-size: 3em;
-	padding-left: .2em;
-	padding-right: .2em;
-	margin-bottom: 1em;
-	margin-top: 0.5em;
-	border-radius: .2em;
-	background-color: orange;
-	color: black;
-	font-family: 'Exo 2', sans-serif;
-	padding-top: 0.1em;
-	padding-bottom: 0.1em;
-	border-radius: 0;
+.formmakerbutton {
+    font-size: 3em;
+    padding-left: .2em;
+    padding-right: .2em;
+    margin-bottom: 1em;
+    margin-top: 0.5em;
+    border-radius: .2em;
+    background-color: orange;
+    color: black;
+    font-family: 'Exo 2', sans-serif;
+    padding-top: 0.1em;
+    padding-bottom: 0.1em;
+    border-radius: 0;
 }
-
-
 .remove-dp {
-  color:orange;
+    color: orange;
 }
-
 .remove-dp:hover {
-  color: red;
-  cursor: pointer;
+    color: red;
+    cursor: pointer;
 }
-
-.option-box, .dp-box, .start-box, .min-box, .max-box{
-	font-family: 'Open Sans', sans-serif;
-	font-weight: 300;
-	text-align: center;
-  border: 1px solid orange;
-  background-color: black;
-  height: 30px;
-  font-size: 20px;
-  color: orange;
+.option-box, .dp-box, .start-box, .min-box, .max-box {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    text-align: center;
+    border: 1px solid orange;
+    background-color: black;
+    height: 30px;
+    font-size: 20px;
+    color: orange;
 }
-
 .data-point-name {
-  color: orange;
+    color: orange;
 }
-
 #add-data-point-button {
-	height: 22px;
-	width: 123px;
-	color: black;
-	text-align: center;
-	font-size: 20px;
-	background-color: orange;
-	margin-top: 3px;
+    height: 22px;
+    width: 123px;
+    color: black;
+    text-align: center;
+    font-size: 20px;
+    background-color: orange;
+    margin-top: 3px;
 }

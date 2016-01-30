@@ -55,13 +55,20 @@
     </div>
 
     <div class="submitbutton">
-        <input type="button" id="submitformbutton" value="Submit Form">
+        <input type="button" id="submitformbutton" value="Preview Form">
     </div>
 
     <div class="formcreator">
         <div class="container">
             <div class="row" id="form-holder">
                 <h2>Create Scouting Form</h2>
+
+                <form class="form-type">
+                    <input class="report-check" type="radio" name="ft" id="match-form" value="match">
+                    <label id="report-text" for="match-form" class="report-radio-check">Match Form</label><br/>
+                    <input class="report-check" type="radio" name="ft" id="pit-form" value="pit">
+                    <label id="report-text" for="pit-form" class="report-radio-check">Pit Form</label><br/>
+                </form>
                 <br>
                 <!-- <select required class='creator_dropdown'>
            <option value='text'>Text Box</option>
@@ -94,6 +101,10 @@
             <div class="row" id="form-preview">
 
             </div>
+            <div class="sendbutton">
+                <input type="button" id="sendformbutton" value="Send Form" hidden>
+            </div>
+
 
 
             <!-- <div id="submit-form">
@@ -168,6 +179,26 @@
                     createNewDataPoint();
                 });
 
+                $("#sendformbutton").on("click", function(){
+                    var formType = $('input:radio[name=ft]:checked').val();
+                    //var allDataPoints = JSON.parse(localStorage.allDataPoints);
+                    console.log(JSON.stringify(allDataPoints));
+                    if (allDataPoints && allDataPoints.length != 0 && formType){
+                        $.post("/setScoutForm", {"dataPoints": allDataPoints, "context": formType}, function(response){
+                            if (response == "success") {
+                                localStorage.removeItem("allDataPoints");
+                                alert("Success");
+                            }
+                            else {
+                                alert("Failed to send form");
+                            }
+                        });
+                    }
+                    else {
+                        alert("Field missing or invalid input");
+                    }
+                });
+
                 function synthesizeForm(dataPoints) {
                     $('#form-preview').empty();
                     var form = $('#form-preview');
@@ -180,13 +211,13 @@
                             var options = dataPoint.options;
                             var div = $(document.createElement("div"));
                             div.addClass("radio");
-                            if (oneColumn == true) {
-                              div.addClass('col-md-12');
-                              oneColumn = false;
-                            }
-                            else {
-                              div.addClass('col-md-6');
-                            }
+                            // if (oneColumn == true) {
+                            //   div.addClass('col-md-12');
+                            //   oneColumn = false;
+                            // }
+                            // else {
+                            //   div.addClass('col-md-6');
+                            // }
                             for (var j = 0; j < options.length; j++) {
                                 var option = options[j];
                                 var input = $(document.createElement("input"));
@@ -208,14 +239,14 @@
                             form.append(div);
 
                         } else if (dpType == "dropdown") {
-                            var div2 = $(document.createElement('div'));
-                            if (oneColumn == true) {
-                              div2.addClass('col-md-12');
-                              oneColumn = false;
-                            }
-                            else {
-                              div2.addClass('col-md-6');
-                            }
+                            var div = $(document.createElement('div'));
+                            // if (oneColumn == true) {
+                            //   div.addClass('col-md-12');
+                            //   oneColumn = false;
+                            // }
+                            // else {
+                            //   div.addClass('col-md-6');
+                            // }
                             var options = dataPoint.options;
                             var select = $(document.createElement("select"));
                             select.addClass("creator-dropdown");
@@ -229,18 +260,18 @@
                             p.addClass("report-text");
                             p.html(dpName + ": ");
 
-                            div2.append(p);
-                            div2.append(select);
-                            form.append(div2)
+                            div.append(p);
+                            div.append(select);
+                            form.append(div)
                         } else if (dpType == "number") {
-                            var div3 = $(document.createElement('div'));
-                            if (oneColumn == true) {
-                              div3.addClass('col-md-12');
-                              oneColumn = false;
-                            }
-                            else {
-                              div3.addClass('col-md-6');
-                            }
+                            var div = $(document.createElement('div'));
+                            // if (oneColumn == true) {
+                            //   div.addClass('col-md-12');
+                            //   oneColumn = false;
+                            // }
+                            // else {
+                            //   div.addClass('col-md-6');
+                            // }
                             var start = dataPoint.start;
                             var min = dataPoint.min;
                             var max = dataPoint.max;
@@ -287,19 +318,19 @@
                                 }
                             });
 
-                            div3.append(p);
-                            div3.append(inputSubtract);
-                            div3.append(inputBox);
-                            div3.append(inputAdd);
-                            form.append(div3);
+                            div.append(p);
+                            div.append(inputSubtract);
+                            div.append(inputBox);
+                            div.append(inputAdd);
+                            form.append(div);
                         } else if (dpType == "check") {
-                            var div4 = $(document.createElement('div'));
+                            var div = $(document.createElement('div'));
                             if (oneColumn == true) {
-                              div4.addClass('col-md-12');
+                              div.addClass('col-md-12');
                               oneColumn = false;
                             }
                             else {
-                              div4.addClass('col-md-6');
+                              div.addClass('col-md-6');
                             }
                             var input = $(document.createElement("input"));
                             input.attr("type", "checkbox");
@@ -309,37 +340,37 @@
                             label.attr("for", dpName);
                             label.addClass("report-radio-check report-text");
                             label.html(dpName);
-                            div4.append(input);
-                            div4.append(label);
-                            form.append(div4);
+                            div.append(input);
+                            div.append(label);
+                            form.append(div);
                         } else if (dpType == "label") {
-                            var div5 = $(document.createElement('div'));
-                            if (oneColumn == true) {
-                              div5.addClass('col-md-12');
-                              oneColumn = false;
-                            }
-                            else {
-                              div5.addClass('col-md-6');
-                            }
+                            var div = $(document.createElement('div'));
+                            // if (oneColumn == true) {
+                            //   div.addClass('col-md-12');
+                            //   oneColumn = false;
+                            // }
+                            // else {
+                            //   div.addClass('col-md-6');
+                            // }
                             var h3 = $(document.createElement("h3"));
                             h3.addClass("scout-div-title");
                             h3.html(dpName);
-                            div5.append(h3);
-                            form.append(div5);
+                            div.append(h3);
+                            form.append(div);
                         } else if (dpType == "text") {
-                            var div6 = $(document.createElement('div'));
-                            if (oneColumn == true) {
-                              div6.addClass('col-md-12');
-                              oneColumn = false;
-                            }
-                            else {
-                              div6.addClass('col-md-6');
-                            }
+                            var div = $(document.createElement('div'));
+                            // if (oneColumn == true) {
+                            //   div.addClass('col-md-12');
+                            //   oneColumn = false;
+                            // }
+                            // else {
+                            //   div.addClass('col-md-6');
+                            // }
                             var textarea = $(document.createElement("textarea"));
                             textarea.addClass("report-area");
                             textarea.attr("placeholder", dpName);
-                            div6.append(textarea);
-                            form.append(div6);
+                            div.append(textarea);
+                            form.append(div);
                         }
                         $('#form-preview').append("</br></br>");
                     }
@@ -375,6 +406,7 @@
                     var wrappers = $("#form-holder").find(".dp-wrapper");
                     var dataPoints = [];
                     var pointsValid = true;
+                    if (wrappers.length == 0) pointsValid = false;
                     for (var i = 0; i < wrappers.length; i++) {
                         var dp = $(wrappers[i]);
                         var dataPointInfo = {};
@@ -414,8 +446,11 @@
                             break;
                         }
                     }
-                    if (pointsValid) {
-                        alert("Success");
+                    if (pointsValid && ($('input:radio[name=ft]:checked').val() == "match" || $('input:radio[name=ft]:checked').val() == "pit")) {
+                        //alert("Success");
+                        $("#sendformbutton").show();
+                        allDataPoints = dataPoints;
+                        localStorage.allDataPoints = JSON.stringify(dataPoints);
                         synthesizeForm(dataPoints);
                         //dataPoints is an array of all information
                     } else {

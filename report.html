@@ -198,6 +198,10 @@
 
   	$(document).ready(function() {
 
+        $.post("/getScoutForm", {context: "match"}, function(response){
+            console.log(response);
+        });
+
   		$('.report-table td').hover(function(){
   			$(this).toggleClass('button-hovered-report')
   		});
