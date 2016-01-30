@@ -50,7 +50,7 @@
             <h1>All Matches</h1>
             <input type="text" id="search" class="settings-box text-input" placeholder="search.."></input>
             <table class="matches-table">
-                <tr>
+                <tr id="first-row">
                     <th>#</th>
                     <th>Time</th>
                     <th>Progress</th>
@@ -102,13 +102,18 @@
                 var matchesTable = $(".matches-table");
                 $("#loading").hide();
                 for (var i = 0; i < matches.length; i++) {
-                    console.log(JSON.stringify(matches[i]));
                     var matchNumber = matches[i].match_number;
                     var time = standardizeTime(matches[i].time);
                     var progress = "none"; //change later obv
                     var blueAlliance = matches[i].alliances.blue.teams;
                     var redAlliance = matches[i].alliances.red.teams;
                     var tr = $(document.createElement("tr"));
+                    tr.mouseenter(function(){
+                        $(this).addClass("table-hover");
+                    });
+                    tr.mouseleave(function(){
+                        $(this).removeClass("table-hover");
+                    });
                     if (i % 2 != 0) tr.addClass("odd-row");
                     var dps = [matchNumber, time, progress];
                     for (var j = 0; j < 3; j++) {
@@ -132,6 +137,19 @@
                 }
             });
         }
+        $('#search').keyup(function() {
+            var rows = $('.matches-table tr');
+    		$('tr').removeClass('odd_row');
+    	    var val = $.trim($(this).val()).replace(/ +/g, ' ').toLowerCase();
+    	    if(val==""){
+    	    	//$("tr:odd").addClass("odd-row");
+    	    }
+    	    rows.show().filter(function() {
+    	        var text = $(this).text().replace(/\s+/g, ' ').toLowerCase();
+    	        return !~text.indexOf(val);
+    	    }).hide();
+    	    $("#first-row").show();
+    	});
         getMatches();
     </script>
 
