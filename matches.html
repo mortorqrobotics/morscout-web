@@ -107,6 +107,7 @@
                     var progress = "none"; //change later obv
                     var blueAlliance = matches[i].alliances.blue.teams;
                     var redAlliance = matches[i].alliances.red.teams;
+                    var allTeams = redAlliance.concat(blueAlliance);
                     var tr = $(document.createElement("tr"));
                     tr.mouseenter(function(){
                         $(this).addClass("table-hover");
@@ -116,6 +117,7 @@
                     });
                     if (i % 2 != 0) tr.addClass("odd-row");
                     var dps = [matchNumber, time, progress];
+                    var tds = [];
                     for (var j = 0; j < 3; j++) {
                         var td = $(document.createElement("td"));
                         td.html(dps[j]);
@@ -124,15 +126,51 @@
                     for (var j = 0; j < redAlliance.length; j++) {
                         var td = $(document.createElement("td"));
                         td.html(redAlliance[j].substring(3));
-                        td.addClass("matchesTableHide redTeamHeader");
-                        tr.append(td);
+                        td.addClass("matchesTableHide");
+                        tds.push(td);
                     }
                     for (var j = 0; j < blueAlliance.length; j++) {
                         var td = $(document.createElement("td"));
                         td.html(blueAlliance[j].substring(3));
-                        td.addClass("matchesTableHide blueTeamHeader");
-                        tr.append(td);
+                        td.addClass("matchesTableHide")
+                        tds.push(td);
                     }
+                    for (var j = 0; j < 6; j++){
+                        var currentTeamNumber = allTeams[j].substring(3);
+                        if (currentTeamNumber == localStorage.teamNumber){
+                            tds[j].addClass("selfTeamHighlight");
+                        }
+                        else {
+                            var ally = false;
+                            var enemy = false;
+                            for (var k = 0; k < matches.length; k++){
+                                var currentMatch = matches[k];
+                                if (currentMatch.match_number > matchNumber){
+                                    var selfRed = ~currentMatch.alliances.red.teams.indexOf("frc" + localStorage.teamNumber);
+                                    var selfBlue = ~currentMatch.alliances.blue.teams.indexOf("frc" + localStorage.teamNumber);
+                                    var otherRed = ~currentMatch.alliances.red.teams.indexOf("frc" + currentTeamNumber);
+                                    var otherBlue = ~currentMatch.alliances.blue.teams.indexOf("frc" + currentTeamNumber);
+                                    if((selfRed && otherRed) || (selfBlue && otherBlue)) {
+      									ally = true;
+      								}
+      								if((selfRed && otherBlue) || (selfBlue && otherRed)) {
+      									enemy = true;
+      								}
+                                }
+                            }
+                            if(ally && enemy) {
+      							tds[j].addClass("frenemyTeamHighlight");
+      						}
+      						else if(ally) {
+      							tds[j].addClass("allyTeamHighlight");
+      						}
+      						else if(enemy) {
+      							tds[j].addClass("enemyTeamHighlight");
+      						}
+                        }
+                        tr.append(tds[j]);
+                    }
+
                     matchesTable.append(tr);
                 }
             });
