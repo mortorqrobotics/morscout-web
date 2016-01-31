@@ -17,3 +17,60 @@
   margin-left: auto;
   margin-right: auto;
 }
+
+.odd-row {
+	background-color: #262626;
+	height: 700px;
+	float: left;
+}
+
+.even-row {
+	background-color: black;
+	height: 700px;
+	float: right;
+}
+
+.main-page-description h1{
+	font-family: 'Exo 2', sans-serif;
+	font-weight: 400;
+	font-size: 4em;
+	color: orange;
+	text-align: center;
+
+}
+
+.main-page-description {
+	margin-top: 300px;
+}
+
+.odd-row-pic{
+	margin-top: 125px;
+	width: 75em;
+	margin-left: -25em;
+	float: left;
+}
+
+.odd-row-text{
+	color: orange;
+	margin: 11% 100px 0px 600px;
+	text-align: center;
+	font-family: 'Exo 2', sans-serif;
+}
+
+.even-row-pic{
+	margin-top: 125px;
+	width: 75em;
+	margin-right: -25em;
+	float: right;
+}
+
+.even-row-text{
+	color: orange;
+	margin: 11% 600px 0px 100px;
+	text-align: center;
+	font-family: 'Exo 2', sans-serif;
+}
+
+.hidden, .hidden2  {
+    display: none; /* hides elements under class "hidden" (not to be changed)  */
+}
