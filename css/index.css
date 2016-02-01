@@ -166,6 +166,9 @@ background-color: #EE7600; /* color of background of selected link in nav bar */
 	font-family: 'Exo 2', sans-serif; /* sets welcome message font */
 	font-weight: 400;
 }
+.row-title-index{
+	float: center;
+}
 
 .main-welcome h1 {
 	color: orange; /* sets large "MorScout" text color to orange */
