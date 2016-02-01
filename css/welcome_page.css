@@ -1,46 +1,13 @@
-.main-welcome  {
-	margin-top: 20vh; /* sets welcome message distance from top of page  */
-	font-family: 'Exo 2', sans-serif; /* sets welcome message font */
-	font-weight: 400;
-}
-
-.main-welcome h1 {
-	color: orange; /* sets large "MorScout" text color to orange */
-	font-size: 8em; /* sets font size of large "MorScout" text */
-	text-align: center; /* horizontal alignment of large "MorScout" text */
-}
-
-.main-welcome h3 {
-  text-align:center; /* horizontal alignment of small "Welcome to MorScout" text */
-  color: orange; /* sets font color of small "Welcome to MorScout" text */
-  max-width: 15em;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.odd-row {
-	background-color: #262626;
+.row{
 	height: 700px;
 	float: left;
+	overflow: hidden;
 }
-
+.odd-row {
+	background-color: #262626;
+}
 .even-row {
-	background-color: black;
-	height: 700px;
-	float: right;
-}
-
-.main-page-description h1{
-	font-family: 'Exo 2', sans-serif;
-	font-weight: 400;
-	font-size: 4em;
-	color: orange;
-	text-align: center;
-
-}
-
-.main-page-description {
-	margin-top: 300px;
+	background-color: #161616;
 }
 
 .odd-row-pic{
@@ -48,15 +15,8 @@
 	width: 75em;
 	margin-left: -25em;
 	float: left;
+	box-shadow: -20px -20px 60px black;
 }
-
-.odd-row-text{
-	color: orange;
-	margin: 11% 100px 0px 600px;
-	text-align: center;
-	font-family: 'Exo 2', sans-serif;
-}
-
 .even-row-pic{
 	margin-top: 125px;
 	width: 75em;
@@ -64,13 +24,32 @@
 	float: right;
 }
 
-.even-row-text{
+.odd-row-text{
 	color: orange;
-	margin: 11% 600px 0px 100px;
+	margin: 0px 100px 0px 600px;
 	text-align: center;
 	font-family: 'Exo 2', sans-serif;
+	font-size: 19px;
+	position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+}
+.even-row-text{
+	color: orange;
+	margin: 0px 600px 0px 100px;
+	text-align: center;
+	font-family: 'Exo 2', sans-serif;
+	font-size: 19px;
+	position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+
 }
 
-.hidden, .hidden2  {
-    display: none; /* hides elements under class "hidden" (not to be changed)  */
+.row-title{
+	display: block;
+	font-size: 60px;
+	padding-bottom: 15px;
 }
