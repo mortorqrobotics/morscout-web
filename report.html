@@ -199,7 +199,23 @@
   	$(document).ready(function() {
 
         $.post("/getScoutForm", {context: "match"}, function(response){
-            console.log(response);
+            //console.log(response);
+        });
+
+        $("#report-match-num").html(qs("match"));
+        $.post("/getMatchesForCurrentRegional", {}, function(response) {//make this to get only one match
+            var matches = JSON.parse(response);
+            for (var i = 0; i < matches.length; i++) {
+                if (matches[i].match_number == parseInt(qs("match")) && matches[i].comp_level == "qm"){
+                    $("#report-match-time").html(standardizeTime(matches[i].time));
+                    var redAlliance = matches[i].alliances.red.teams;
+                    var blueAlliance = matches[i].alliances.blue.teams;
+                    for (var j = 0; j < 3; j++){
+                        $("#r" + (j + 1)).html(redAlliance[j].substring(3));
+                        $("#b" + (j + 1)).html(blueAlliance[j].substring(3));
+                    }
+                }
+            }
         });
 
   		$('.report-table td').hover(function(){

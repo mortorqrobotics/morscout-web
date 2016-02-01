@@ -13,6 +13,18 @@ function getQS(obj) {
 	}
 	return arr.join("&");
 }
+
+function qs(variable) {
+    var query = window.location.search.substring(1);
+    var vars = query.split('&');
+    for (var i = 0; i < vars.length; i++) {
+        var pair = vars[i].split('=');
+        if (decodeURIComponent(pair[0]) == variable) {
+            return decodeURIComponent(pair[1]);
+        }
+    }
+}
+
 function parseQS(str) {
 	var arr = str.split("&");
 	var obj = {};
@@ -43,6 +55,24 @@ function areNumbers(nums){
 		}
 	}
     return true;
+}
+function standardizeTime(ts) {
+	var date = new Date(ts * 1000);
+	var Hours = date.getHours();
+	var suffix;
+	if (parseInt(Hours) > 12) {
+		Hours = (parseInt(Hours) - 12).toString();
+		suffix = "PM";
+	} else if (Hours == "12") {
+		suffix = "PM";
+	} else {
+		suffix = "AM";
+	}
+	var Minutes = date.getMinutes();
+	if (parseInt(Minutes) < 10) {
+		Minutes = "0" + Minutes;
+	}
+	return Hours + ":" + Minutes + " " + suffix;
 }
 
 
