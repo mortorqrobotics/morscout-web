@@ -196,6 +196,7 @@
   }
 
   	$(document).ready(function() {
+        currentMatch = parseInt(qs("match"));
 
 
         $.post("/getScoutForm", {context: "match"}, function(response){
@@ -223,6 +224,7 @@
   			$(this).toggleClass('button-hovered-report')
   		});
   		$('.report-table td').click(function(){
+            currentTeam = $(this).html();
    			$('#scout-form').fadeIn(300);
             $("#scout-form").fadeIn(300);
   			$('#report-tabs').fadeIn(300);

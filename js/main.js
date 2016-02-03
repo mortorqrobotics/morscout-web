@@ -292,37 +292,59 @@ function synthesizeForm(dataPoints) {
 function getScoutFormValues(){
 	var form = $("#form-preview");
 	var inputs = form.find(".inp");
-	var values = {};
+	var values = [];
 	for (var i = 0; i < inputs.length; i++){
 		var inp = $(inputs[i]);
+		var dataPoint = {};
+		var dpName;
+		var value;
+		var isLabel = false;
 		if (inp.hasClass("number")){
-			var dpName = inp.find(".inp-val-box").eq(0).attr("id");
-			var value = parseInt(inp.find(".inp-val-box").eq(0).val());
-			values[dpName] = value;
+			dpName = inp.find(".inp-val-box").eq(0).attr("id");
+			value = parseInt(inp.find(".inp-val-box").eq(0).val());
 		}
 		else if (inp.hasClass("text")){
-			var dpName = inp.find(".report-area").eq(0).attr("placeholder");
-			var value = inp.find(".report-area").eq(0).val();
-			values[dpName] = value;
+			dpName = inp.find(".report-area").eq(0).attr("placeholder");
+			value = inp.find(".report-area").eq(0).val();
 		}
 		else if (inp.hasClass("label")){
-			//do nothing?
+			dpName = inp.find("h3").eq(0).html();
+			isLabel = true;
 		}
 		else if (inp.hasClass("checkbox")){
-			var dpName = inp.find("input").eq(0).attr("id");
-			var value = inp.find("input").prop("checked");
-			values[dpName] = value;
+			dpName = inp.find("input").eq(0).attr("id");
+			value = inp.find("input").prop("checked");
 		}
 		else if (inp.hasClass("radio")){
-			var dpName = inp.attr("data-dpName");
-			var value = $('.report-check[name="'+dpName+'"]:checked').attr("id");//eh but works
-			values[dpName] = value;
+			dpName = inp.attr("data-dpName");
+			value = $('.report-check[name="'+dpName+'"]:checked').attr("id");//eh but works
 		}
 		else if (inp.hasClass("dropdown")){
-			var dpName = inp.find(".creator-dropdown").eq(0).attr("id");
-			var value = inp.find(".creator-dropdown").eq(0).val();
-			values[dpName] = value;
+			dpName = inp.find(".creator-dropdown").eq(0).attr("id");
+			value = inp.find(".creator-dropdown").eq(0).val();
 		}
+		dataPoint.name = dpName;
+		if (!isLabel) dataPoint.value = value;
+		values.push(dataPoint);
 	}
-	//values is the complete object of form values
+	$.post("/submitReport", {data: values, team: currentTeam, context: "match", match: currentMatch}, function(response){
+		if (response == "success"){
+			$('#submit-match-report').html('Done!');
+			$('#submit-match-report').prop('disabled', true);
+			$('#submit-match-report').removeClass('button-hovered');
+			$('#submit-match-report').removeClass('button');
+			$('#submit-match-report').addClass('button-disabled');
+			$('#submit-match-report').css({"background-color":"black","color":"orange"});
+			setTimeout(function() {
+				$('#submit-match-report').html('Submit');
+				$('#submit-match-report').prop('disabled', false);
+				$('#submit-match-report').css({"background-color":"orange","color":"black"});
+				$('#submit-match-report').addClass('button');
+				$('#submit-match-report').removeClass('button-disabled');
+			}, 1000);
+		}
+		else {
+			alert("Invalid input. Failed to send form");
+		}
+	});
 }
