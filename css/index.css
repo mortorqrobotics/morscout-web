@@ -188,6 +188,11 @@ background-color: #EE7600; /* color of background of selected link in nav bar */
 
 /* GENERAL STYLES */
 
+
+#form-preview{
+    font-family: 'Exo 2', sans-serif;
+}
+
 .page-title {
 	font-family: 'Exo 2', sans-serif; /* font of page title */
 	color: orange; /* font color of page title */
@@ -203,7 +208,9 @@ background-color: #EE7600; /* color of background of selected link in nav bar */
 	color: orange; /* text color of loading message */
 	font-family: 'Exo 2', sans-serif; /* font of loading message */
 }
-
+.roww {
+    font-family: 'Exo 2', sans-serif;
+}
 .normal-text p{
 	color: orange; /* color of text for writing anything which isn't of any special section */
 	margin: 1em; /* margin for writing anything which isn't of any special section */
@@ -543,6 +550,10 @@ input:focus {
 .report{
 	margin-top: 7em; /* distance of report screen contents from top of page */
 	text-align: center; /* horizontal alignment of text in report screen */
+    font-family: 'Exo 2', sans-serif;
+}
+body {
+    font-family: 'Exo 2', sans-serif;
 }
 
 #report-title{
@@ -852,6 +863,12 @@ label:before {
 #report-tabs a:hover{
 	border-radius: 0;
 	color: black;
+}
+.creator-dropdown {
+    height: 30px;
+    font-size: 20px;
+    background-color: orange;
+    margin: 0px 7px 7px 0px;
 }
 #report-tabs .active a{
 	font-size: 2em;

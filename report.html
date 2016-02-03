@@ -88,13 +88,12 @@
     			<div class="col-md-1 col-sm-0 col-xs-0">
     			</div>
     		</div>
-    		<div id="scout-form" class="row">
+    		<div id="form-preview" class="row">
     			<div class="col-md-1 col-sm-0 col-xs-0">
     			</div>
     			<div class="col-md-5 col-sm-6 col-xs-12">
     	  	    	<div class="scout-div">
     	  	    		<h3 class="scout-div-title">Autonomous</h3>
-
     	  	    		<div class="radio">
     		  	    		<input class="report-check" type="radio" name="auto" id="nearDrivers"></input>
     		  	    		<label id="report-text" for="nearDrivers" class="report-radio-check">Started near drivers</label><br/>
@@ -157,13 +156,13 @@
     					</div>
     					<textarea id="teleopComments" class="report-area" placeholder="comments"></textarea>
     				</div>
-    				<div class="submit-match">
-    					<button id="submit-match-report" class="button">Submit</button>
-    				</div>
     			</div>
     			<div class="col-md-1 col-sm-0 col-xs-0">
     			</div>
     		</div>
+            <div class="submit-match">
+                <button id="submit-match-report" class="button">Submit</button>
+            </div>
     		<div id="viewContainer"></div>
     		<div id="viewMatches-form" class="row">
     	    	<div class="col-md-1 col-sm-0 col-xs-0">
@@ -198,8 +197,10 @@
 
   	$(document).ready(function() {
 
+
         $.post("/getScoutForm", {context: "match"}, function(response){
-            //console.log(response);
+            var scoutFormDPS = JSON.parse(response);
+            synthesizeForm(scoutFormDPS);
         });
 
         $("#report-match-num").html(qs("match"));
@@ -223,6 +224,7 @@
   		});
   		$('.report-table td').click(function(){
    			$('#scout-form').fadeIn(300);
+            $("#scout-form").fadeIn(300);
   			$('#report-tabs').fadeIn(300);
   			$('#scout-tab').trigger("click");
   			smoothScroll('b3');
@@ -232,14 +234,16 @@
   			$('#scout-tab').removeClass('active');
   			$('#viewMatches-tab').removeClass('active');
   			$('#viewMatches-form').hide();
-  			$('#scout-form').hide();
+            $("#form-preview").hide();
+      		//$('#scout-form').hide();
   			$('.view-form').show();
   		});
   		$('#scout-tab').click(function(){
   			$('#scout-tab').addClass("active");
   			$('#view-tab').removeClass('active');
   			$('#viewMatches-tab').removeClass('active');
-  			$('#scout-form').show();
+  			//$('#scout-form').show();
+            $("#form-preview").show();
   			$(".view-form").hide();
   			$('#viewMatches-form').hide();
   			$('#submit-match-report').html('Submit');
@@ -255,29 +259,32 @@
   			$('#view-tab').removeClass('active');
   			$('#viewMatches-form').show();
   			$('#view-form').hide();
-  			$('#scout-form').hide();
+            $("#form-preview").hide();
+      		//$('#scout-form').hide();
   			$(".view-form").hide();
   		})
 
   		$('#submit-match-report').click(function(){
 
-  				$('#submit-match-report').html('Done!');
-  				$('#submit-match-report').prop('disabled', true);
-  				$('#submit-match-report').removeClass('button-hovered');
-  				$('#submit-match-report').removeClass('button');
-  				$('#submit-match-report').addClass('button-disabled');
-  				$('#submit-match-report').css({"background-color":"black","color":"orange"});
-  				setTimeout(function() {
-  					$('#submit-match-report').html('Submit');
-  					$('#submit-match-report').prop('disabled', false);
-  					$('#submit-match-report').css({"background-color":"orange","color":"black"});
-  					$('#submit-match-report').addClass('button');
-  					$('#submit-match-report').removeClass('button-disabled');
-  				}, 1000);
+  		// 		$('#submit-match-report').html('Done!');
+  		// 		$('#submit-match-report').prop('disabled', true);
+  		// 		$('#submit-match-report').removeClass('button-hovered');
+  		// 		$('#submit-match-report').removeClass('button');
+  		// 		$('#submit-match-report').addClass('button-disabled');
+  		// 		$('#submit-match-report').css({"background-color":"black","color":"orange"});
+  		// 		setTimeout(function() {
+  		// 			$('#submit-match-report').html('Submit');
+  		// 			$('#submit-match-report').prop('disabled', false);
+  		// 			$('#submit-match-report').css({"background-color":"orange","color":"black"});
+  		// 			$('#submit-match-report').addClass('button');
+  		// 			$('#submit-match-report').removeClass('button-disabled');
+  		// 		}, 1000);
+
+            getScoutFormValues();
 
   		});
-
-  		$('#scout-form').hide();
+        $("#form-preview").hide();
+  		//$('#scout-form').hide();
   		$('.view-form').hide();
   		$('#report-tabs').hide();
   		$('#viewMatches-form').hide();
