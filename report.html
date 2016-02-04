@@ -233,13 +233,26 @@
   			smoothScroll('b3');
   		});
   		$('#view-tab').click(function(){
-  			$('#view-tab').addClass("active");
-  			$('#scout-tab').removeClass('active');
-  			$('#viewMatches-tab').removeClass('active');
-  			$('#viewMatches-form').hide();
-            $("#form-preview").hide();
-      		//$('#scout-form').hide();
-  			$('.view-form').show();
+            $.post("/getMatchReports", {team: currentTeam, match: currentMatch}, function(response){
+                var reports = JSON.parse(response);
+                var yourTeam = reports.yourTeam;
+                var otherTeams = reports.otherTeams;
+                yourTeam.forEach(function(yourReport){//keep?
+                    var yourData = yourReport.data;
+                    //do stuff
+                    otherTeams.forEach(function(otherReport){//keep?
+                        var otherData = otherReport.data;
+                        //do more stuff
+                        $('#view-tab').addClass("active");
+              			$('#scout-tab').removeClass('active');
+              			$('#viewMatches-tab').removeClass('active');
+              			$('#viewMatches-form').hide();
+                        $("#form-preview").hide();
+                  		//$('#scout-form').hide();
+              			$('.view-form').show();
+                    });
+                });
+            });
   		});
   		$('#scout-tab').click(function(){
   			$('#scout-tab').addClass("active");
