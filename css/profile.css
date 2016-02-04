@@ -1,0 +1,11 @@
+.left-bar{
+	background-color: #D8D8D8;
+	width: 260px;
+	height: calc(100% - 30px);
+	position: fixed;
+	top:40px;
+	overflow-y: auto;
+	box-shadow: 1px 4px 6px #ababab;
+	z-index: 87;
+	-webkit-overflow-scrolling: touch;
+}
