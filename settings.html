@@ -5,7 +5,7 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Settings</title>
+  <title>MorScout - Settings</title>
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:700,300,400' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Exo+2:100' rel='stylesheet' type='text/css'>
@@ -32,7 +32,6 @@
     		  <ul class="nav navbar-nav">
     			<li><a href="matches.html"title="List of all matches">All Matches</a></li>
     			<li><a href="teams.html"title="List of all teams">Team List</a></li>
-    			<li><a href="sync.html"title="Sync with the server" >Sync</a></li>
     			<li class = "active"><a href="settings.html" title="Configure the settings">Settings</a></li>
     		  </ul>
     		  <ul class="nav navbar-nav navbar-right">
@@ -59,24 +58,47 @@
                     <div class="dropdown">
                         <button class="btn dropdown-toggle btn-primary regional-dropdown" type="button" data-toggle="dropdown">Choose Regional<span class="caret"></span></button>
                             <ul class="dropdown-menu regional-options">
-                                <!-- <li><a href="#">HTML</a></li>
-                                <li><a href="#">CSS</a></li>
-                                <li><a href="#">JavaScript</a></li> -->
+
                             </ul>
                     </div>
                     <input style="width: 10em;" id="set-regional-button" class="button button-input " type="submit" value="Set Regional"></input>
     			</div>
     		</div>
-    		<div class = "col-md-4 col-sm-6 col-xs-12 settings-option">
-    			<!-- <div class = "settings-list">
-    				<h1>Change Port</h1>
-    				<input id="port-text" class="settings-box text-input" type="text" placeholder=" Enter desired port"></input>
-    				<input id="port-button" class="button button-input" type="submit" value ="change"></input>
-    			</div> -->
-    		</div>
+        <div class = "col-md-4 col-sm-6 col-xs-12 settings-option">
+          <div class = "settings-list">
+            <h1>Scouting Data Privacy</h1>
+            <h3>Public scouting data can be viewed by all teams</h3>
 
-    	</div>
+            <div class="radio">
+              <input class="report-check" type="radio" name="auto" id="public-option"></input>
+              <label id="report-text" for="public-option" class="report-radio-check">Public</label><br/>
+              <input class="report-check" type="radio" name="auto" id="private-option"></input>
+              <label id="report-text" for="private-option" class="report-radio-check">Private</label><br/>
+            </div>
+            <input style="width: 10em;" id="set-regional-button" class="button button-input " type="submit" value="Update Privacy"></input>
+          </div>
+        </div>
+        <div class = "col-md-4 col-sm-6 col-xs-12 settings-option">
+          <div class = "settings-list">
+            <h1>Set Scouting Form</h1>
+            <div class="radio">
+                <input class="report-check" type="radio" name="ft" id="match-form" value="match">
+                <label id="report-text" for="match-form" class="report-radio-check">Match Form</label><br/>
+                <input class="report-check" type="radio" name="ft" id="pit-form" value="pit">
+                <label id="report-text" for="pit-form" class="report-radio-check">Pit Form</label><br/>
+            </div>
+            <input style="width: 10em;" id="use-default-form-button" class="button button-input " type="submit" value="Use Deafult Form"></input><br>
+            <input style="width: 15em;" id="custom-form-button" class="button button-input " id="scout-form-creator-button" type="submit" value="Create Custom Scouting Form"></input>
+            <h5>If you want to update your scouting form after reports have been made, you must clear all reports.</h5>
+            <input style="width: 15em;" id="clear-data-button" class="button button-input " type="submit" value="Clear All Scouting Data"></input>
+          </div>
+        </div>
+      </div>
     </div>
+
+
+
+
 
   <!-- JAVASCRIPT -->
 
@@ -86,6 +108,18 @@
   <script src="js/main.js" type="text/javascript"></script>
 
   <script>
+
+  // $(document).on("click", ".remove-dp", function() {
+  //       var id = $(this).attr("data-id");
+  //       $(".dp-wrapper[data-id='" + id + "']").hide('slow', function() {
+  //           $(".dp-wrapper[data-id='" + id + "']").remove();
+  //       });
+  //   });
+
+  $("#custom-form-button").on("click", function(){
+    location = "/createform.html";
+  });
+
   $(document).ready(function() {
 
       var currentRegional = "";

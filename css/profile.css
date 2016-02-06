@@ -42,16 +42,17 @@
 
 .assignments li {
 	font-size: 28px;
+	list-style-type: none;
 }
 
 .stats {
 	background-color: #cccccc;
 	width: 700px;
 	text-align: center;
-	margin-left: 320px;
+	margin-left: 70px;
 	border: 1px solid grey;
 	/*margin-right: 5px;*/
-	margin-top: 20px;
+	margin-top: 70px;
 	height: auto;
 	box-shadow: 0 2px 8px -5px;
 	position: relative;
@@ -61,6 +62,7 @@
 
 .stats li {
 	font-size: 28px;
+	list-style-type: none;
 }
 
 #tasks {

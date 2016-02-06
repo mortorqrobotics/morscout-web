@@ -80,3 +80,11 @@
 #settings-grid{
 margin-top: 4em; /* distance of grid of settings from top of page */
 }
+
+.dropdown-menu{
+	text-align: center;
+}
+
+.dropdown{
+	text-align: center !important;
+}
