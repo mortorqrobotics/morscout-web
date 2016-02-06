@@ -233,27 +233,150 @@
   			smoothScroll('b3');
   		});
   		$('#view-tab').click(function(){
+            $('#view-tab').addClass("active");
+            $('#scout-tab').removeClass('active');
+            $('#viewMatches-tab').removeClass('active');
+            $('#viewMatches-form').hide();
+            $("#form-preview").hide();
+            //$('#scout-form').hide();
+            $(".view-form").show();
+            $('#submit-match-report').hide();
             $.post("/getMatchReports", {team: currentTeam, match: currentMatch}, function(response){
                 var reports = JSON.parse(response);
                 var yourTeam = reports.yourTeam;
                 var otherTeams = reports.otherTeams;
-                yourTeam.forEach(function(yourReport){//keep?
-                    var yourData = yourReport.data;
-                    //do stuff
-                    otherTeams.forEach(function(otherReport){//keep?
-                        var otherData = otherReport.data;
-                        //do more stuff
-                        $('#view-tab').addClass("active");
-              			$('#scout-tab').removeClass('active');
-              			$('#viewMatches-tab').removeClass('active');
-              			$('#viewMatches-form').hide();
-                        $("#form-preview").hide();
-                  		//$('#scout-form').hide();
-              			$('.view-form').show();
-                    });
-                });
+
+                var div = $(document.createElement('div'));
+    			div.addClass("yourReportsView");
+    			var h3 = $(document.createElement("h3"));
+    			h3.addClass("scout-div-title");
+    			h3.html("Your Team");
+    			div.append(h3);
+                $("#viewContainer").append(div);
+
+                var div = $(document.createElement('div'));
+    			div.addClass("otherReportsView");
+    			var h3 = $(document.createElement("h3"));
+    			h3.addClass("scout-div-title");
+    			h3.html("Other Teams");
+    			div.append(h3);
+                $("#viewContainer").append(div);
+
+                for (var i = 0; i < yourTeam.length; i++){
+                    var yourReport = yourTeam[i].data;
+
+                    var viewFormDiv = $(document.createElement('div'));
+        			viewFormDiv.addClass("row view_form");
+
+                    var reportIDDiv = $(document.createElement('div'));
+        			reportIDDiv.addClass("reportID");
+                    reportIDDiv.html("Report #"+(i+1));
+
+                    viewFormDiv.append(reportIDDiv);
+                    $(".yourReportsView").append(viewFormDiv);
+
+
+                    var currentTable;
+                    var labelAdded = false;
+                    for (var j = 0; j < yourReport.length; j++){
+                        var dp = yourReport[j];
+                        var isLabel = !dp.value;
+                        if (isLabel || j == 0){
+                            var colDiv = $(document.createElement('div'));
+                            if (labelAdded) {
+                                colDiv.addClass("col-md-5 col-sm-6 col-xs-12");
+                                currentTable.parent().parent().addClass("col-md-5 col-sm-6 col-xs-12");
+                            }
+                            labelAdded = true;
+
+                            var newSectionDiv = $(document.createElement('div'));
+                            newSectionDiv.addClass("scout-div auto-view");
+
+                            var h3 = $(document.createElement("h3"));
+                            if (isLabel) h3.html(dp.name);
+                            h3.addClass("scout-div-title view-title");
+
+                            var table = $(document.createElement("table"));
+                            table.attr("id", "view-table");
+                            currentTable = table;
+
+                            newSectionDiv.append(h3);
+                            newSectionDiv.append(table);
+                            colDiv.append(newSectionDiv)
+                            viewFormDiv.append(colDiv);
+                        }
+                        if (!isLabel){//NOT else if
+                            var tr = $(document.createElement("tr"));
+                            var key = $(document.createElement("td"));
+                            key.html(dp.name);
+                            var value = $(document.createElement("td"));
+                            value.html(dp.value);
+                            tr.append(key);
+                            tr.append(value);
+                            currentTable.append(tr);
+                        }
+                    }
+                }
+                for (var i = 0; i < otherTeams.length; i++){
+                    var otherReport = otherTeams[i].data;
+
+                    var viewFormDiv = $(document.createElement('div'));
+                    viewFormDiv.addClass("row view_form");
+
+                    var reportIDDiv = $(document.createElement('div'));
+                    reportIDDiv.addClass("reportID");
+                    reportIDDiv.html("Report #"+(i+1));
+
+                    viewFormDiv.append(reportIDDiv);
+                    $(".otherReportsView").append(viewFormDiv);
+
+
+                    var currentTable;
+                    var labelAdded = false;
+                    for (var j = 0; j < otherReport.length; j++){
+                        var dp = otherReport[j];
+                        var isLabel = !dp.value;
+                        if (isLabel){
+                            var colDiv = $(document.createElement('div'));
+                            if (labelAdded) {
+                                colDiv.addClass("col-md-5 col-sm-6 col-xs-12");
+                                currentTable.parent().parent().addClass("col-md-5 col-sm-6 col-xs-12");
+                            }
+                            labelAdded = true;
+
+                            var newSectionDiv = $(document.createElement('div'));
+                            newSectionDiv.addClass("scout-div auto-view");
+
+                            var h3 = $(document.createElement("h3"));
+                            if (isLabel) h3.html(dp.name);
+                            h3.addClass("scout-div-title view-title");
+
+                            var table = $(document.createElement("table"));
+                            table.attr("id", "view-table");
+                            currentTable = table;
+
+                            newSectionDiv.append(h3);
+                            newSectionDiv.append(table);
+                            colDiv.append(newSectionDiv)
+                            viewFormDiv.append(colDiv);
+                        }
+                        else {
+                            var tr = $(document.createElement("tr"));
+                            var key = $(document.createElement("td"));
+                            key.html(dp.name);
+                            var value = $(document.createElement("td"));
+                            value.html(dp.value);
+                            tr.append(key);
+                            tr.append(value);
+                            currentTable.append(tr);
+                        }
+                    }
+
+                }
+
             });
   		});
+        $('#submit-match-report').hide();
   		$('#scout-tab').click(function(){
   			$('#scout-tab').addClass("active");
   			$('#view-tab').removeClass('active');
@@ -268,6 +391,7 @@
   			$('#submit-match-report').addClass('button');
   			$('#submit-match-report').removeClass('button-disabled');
   			$('#viewContainer').html('');
+            $('#submit-match-report').show();
   		});
   		$('#viewMatches-tab').click(function(){
   			$('#viewMatches-tab').addClass("active");
@@ -277,7 +401,7 @@
   			$('#view-form').hide();
             $("#form-preview").hide();
       		//$('#scout-form').hide();
-  			$(".view-form").hide();
+
   		})
 
   		$('#submit-match-report').click(function(){

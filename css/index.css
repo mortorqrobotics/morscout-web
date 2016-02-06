@@ -18,6 +18,7 @@
 	-webkit-border-radius: 0px; /* sharp angles for text boxes in safari (not to be changed) */
 }
 
+
 h2{
 
 	text-align: center;
@@ -916,6 +917,11 @@ label:before {
 #viewMatches-form{
 	width:73%;
 	text-align: center;
+}
+
+#viewContainer {
+    text-align: center;
+    float: center;
 }
 
 .reportID{
