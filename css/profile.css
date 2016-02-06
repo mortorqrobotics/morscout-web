@@ -1,11 +1,68 @@
 .left-bar{
-	background-color: #D8D8D8;
-	width: 260px;
+	background-color: #FFC547;
+	width: 300px;
 	height: calc(100% - 30px);
 	position: fixed;
 	top:40px;
-	overflow-y: auto;
+	overflow-y: auto;s
 	box-shadow: 1px 4px 6px #ababab;
 	z-index: 87;
 	-webkit-overflow-scrolling: touch;
+	text-align: center !important;
+	float: center !important;
+}
+
+#profile-name {
+	padding-top: 20px;
+}
+
+.profile-pic{
+	margin: 24px 54px 0px 54px;
+	width:150px;
+	height: 150px;
+	border: 1px solid gray;
+	object-fit: cover;
+}
+
+.assignments {
+	background-color: #e6e6e6;
+	width: 700px;
+	text-align: center;
+	margin-left: 320px;
+	border: 1px solid grey;
+	/*margin-right: 5px;*/
+	margin-top: 70px;
+	height: auto;
+	box-shadow: 0 2px 8px -5px;
+	position: relative;
+	padding-top: 10px;
+	padding-bottom: 10px;
+
+}
+
+.assignments li {
+	font-size: 28px;
+}
+
+.stats {
+	background-color: #e6e6e6;
+	width: 700px;
+	text-align: center;
+	margin-left: 320px;
+	border: 1px solid grey;
+	/*margin-right: 5px;*/
+	margin-top: 20px;
+	height: auto;
+	box-shadow: 0 2px 8px -5px;
+	position: relative;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.stats li {
+	font-size: 28px;
+}
+
+#tasks {
+	padding-top: 50px;
 }
