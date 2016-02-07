@@ -26,7 +26,7 @@
 
 .assignments {
 	background-color: #cccccc;
-	width: 700px;
+	width: auto;
 	text-align: center;
 	margin-left: 320px;
 	border: 1px solid grey;
@@ -47,7 +47,7 @@
 
 .stats {
 	background-color: #cccccc;
-	width: 700px;
+	width: auto;
 	text-align: center;
 	margin-left: 70px;
 	border: 1px solid grey;

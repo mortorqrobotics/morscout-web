@@ -53,11 +53,11 @@
 
 
     <div class="left-bar">
-      <h1 id="profile-name">John Doe</h1>
+      <h1 id="profile-name"></h1>
       <img class="profile-pic" src="http://www.allegraabbotsford.com/wp-content/uploads/2015/06/generic-profile.png"/>
-      <h1>Team 101</h1>
-      <h1>(555) 555-5555</h1>
-      <h3>johndoe666@gmail.com</h3>
+      <h1 id="team-label"></h1>
+      <h1>[Phone]</h1>
+      <h3>[Email]</h3>
       <input type="button" class="button left-button" value="Edit Profie"></input>
       <input type="button" class="button left-button" value="Change Password"></input>
 
@@ -78,12 +78,29 @@
         <div class="stats">
           <h1>Statistics</h1>
           <ul>
-            <li>Matches Scouted: <span>10</span></li>
-            <li>Pit Forms Filled: <span>3</span></li>
+            <li>Match Reports Made: <span id="matches-scouted-label"></span></li>
+            <li>Pit Reports Made: <span id="pits-scouted-label"></span></li>
+            <li>Unique Teams Scouted: <span id="teams-scouted-label"></span></li>
           </div>
         </div>
 
     </div>
+
+    <script>
+
+        $.post("/getUserStats", {userID: localStorage.userID}, function(response){
+            var stats = JSON.parse(response);
+            id="matches-scouted-label"
+            $("#teams-scouted-label").html(stats.teamsScouted);
+            $("#matches-scouted-label").html(stats.matchesScouted);
+            $("#pits-scouted-label").html(stats.pitsScouted);
+        });
+        $("#team-label").html("Team " + localStorage.teamNumber);
+        $("#profile-name").html(localStorage.firstName + " " + localStorage.lastName);
+
+
+
+    </script>
 
 
 
