@@ -1,10 +1,10 @@
 .left-bar{
 	background-color: #FFC547;
-	width: 300px;
-	height: calc(100% - 30px);
+	width: 30em;
+	height: calc(100% - 3em);
 	position: fixed;
-	top:40px;
-	overflow-y: auto;s
+	top:4em;
+	overflow-y: auto;
 	box-shadow: 1px 4px 6px #ababab;
 	z-index: 87;
 	-webkit-overflow-scrolling: touch;
@@ -13,13 +13,13 @@
 }
 
 #profile-name {
-	padding-top: 20px;
+	padding-top: 2em;
 }
 
 .profile-pic{
-	margin: 24px 54px 0px 54px;
-	width:150px;
-	height: 150px;
+	margin: 2.4em 5.4em 0em 5.4em;
+	width: 15em;
+	height: 15em;
 	border: 1px solid gray;
 	object-fit: cover;
 }
@@ -28,15 +28,15 @@
 	background-color: #cccccc;
 	width: auto;
 	text-align: center;
-	margin-left: 320px;
+	margin-left: 32em;
 	border: 1px solid grey;
 	/*margin-right: 5px;*/
-	margin-top: 70px;
+	margin-top: 7em;
 	height: auto;
 	box-shadow: 0 2px 8px -5px;
 	position: relative;
-	padding-top: 10px;
-	padding-bottom: 10px;
+	padding-top: 1em;
+	padding-bottom: 1em;
 
 }
 
@@ -49,15 +49,15 @@
 	background-color: #cccccc;
 	width: auto;
 	text-align: center;
-	margin-left: 70px;
+	margin-left: 0em;
 	border: 1px solid grey;
 	/*margin-right: 5px;*/
-	margin-top: 70px;
+	margin-top: 7em;
 	height: auto;
 	box-shadow: 0 2px 8px -5px;
 	position: relative;
-	padding-top: 10px;
-	padding-bottom: 10px;
+	padding-top: 1em;
+	padding-bottom: 1em;
 }
 
 .stats li {
@@ -66,5 +66,5 @@
 }
 
 #tasks {
-	padding-top: 50px;
+	padding-top: 5em;
 }
