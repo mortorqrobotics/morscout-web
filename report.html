@@ -244,7 +244,7 @@
                 var reports = JSON.parse(response);
                 var yourTeam = reports.yourTeam;
                 var otherTeams = reports.otherTeams;
-
+                $("#viewContainer").empty();
                 var div = $(document.createElement('div'));
     			div.addClass("yourReportsView");
     			var h3 = $(document.createElement("h3"));

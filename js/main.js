@@ -197,13 +197,15 @@ function synthesizeForm(dataPoints) {
 			inputBox.attr("max", max);
 			inputBox.val(start);
 			inputBox.keyup(function(){
-				if (parseInt(inputBox.val()) < min || inputBox.val().indexOf(".") > -1){
-					inputBox.val(min);
+				if (parseInt($(this).val()) < parseInt($(this).attr("min")) || $(this).val().indexOf(".") > -1){
+					$(this).val($(this).attr("min"));
 				}
-				else if (parseInt(inputBox.val()) > max){
-					inputBox.val(max);
+				else if (parseInt($(this).val()) > parseInt($(this).attr("max"))){
+					$(this).val($(this).attr("max"));
 				}
 			});
+
+			var inputBoxHandler = $
 
 			var inputSubtract = $(document.createElement("input"));
 			inputSubtract.attr("type", "button");
@@ -211,8 +213,9 @@ function synthesizeForm(dataPoints) {
 			inputSubtract.attr("id", dpName);
 			inputSubtract.val("-");
 			inputSubtract.click(function(){
-				if (parseInt(inputBox.val()) > min){
-					inputBox.val(parseInt(inputBox.val()) - 1);
+				var inpBox = $(this).parent().find(".inp-val-box").eq(0);
+				if (parseInt(inpBox.val()) > parseInt(inpBox.attr("min"))){
+					inpBox.val(parseInt(inpBox.val()) - 1);
 				}
 			});
 
@@ -222,11 +225,11 @@ function synthesizeForm(dataPoints) {
 			inputAdd.addClass("button add-minus-button");
 			inputAdd.val("+");
 			inputAdd.click(function(){
-				if (parseInt(inputBox.val()) < max){
-					inputBox.val(parseInt(inputBox.val()) + 1);
+				var inpBox = $(this).parent().find(".inp-val-box").eq(0);
+				if (parseInt(inpBox.val()) < parseInt(inpBox.attr("max"))){
+					inpBox.val(parseInt(inpBox.val()) + 1);
 				}
 			});
-
 			div.append(p);
 			div.append(inputSubtract);
 			div.append(inputBox);
