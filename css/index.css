@@ -136,6 +136,21 @@ background-color: #EE7600; /* color of background of selected link in nav bar */
     background-color: black; /* sets color of the foreground(I know, it's weird) of the hamburger menu toggle button */
 }
 
+.nav-tbox {
+  margin-top: 0.3em;
+  width: 17em;
+  height: 2.5em;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 0.5em;
+  font-size: 16px;
+}
+
+.nav-tbox::-webkit-input-placeholder {
+  color: black !important;
+}
+
+
 	/* NAVBAR STYLES FOR MOBILE */
 	  /*
 		.navbar {
