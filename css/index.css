@@ -11,6 +11,10 @@
     display: none; /* hides elements under class "hidden" (not to be changed)  */
 }
 
+#dropdown-holder{
+    margin: 2em;
+}
+
 *{
 	margin: 0; /* removes default margins of HTML elements (not to be changed) */
 	padding:0; /* removes default paddings of HTML elements (not to be changed) */
