@@ -68,26 +68,40 @@
 
   <script>
 
-    var allTeams = [];
-    var select = $(document.createElement("select"));
-    select.addClass("creator-dropdown sort-drop");
-    select.attr("required", "true");
-    var options = [{
-        value: "teamNumber",
-        name: "Team Number"
-    }, {
-        value: "officialRanking",
-        name: "Official Ranking"
-    }];
-    for (var i = 0; i < options.length; i++) {
-        var option = $(document.createElement("option"));
-        option.attr("value", options[i].value);
-        option.html(options[i].name);
-        select.append(option);
-    }
-    $("#dropdown-holder").append(select);
+    var allTeams = [];//keep
 
-
+    $.post("/getScoutForm", {context: "match"}, function(response){
+        if (response != "fail"){
+            var scoutFormDPS = JSON.parse(response);
+            var select = $(document.createElement("select"));
+            select.addClass("creator-dropdown sort-drop");
+            select.attr("required", "true");
+            var options = [{
+                value: "teamNumber",
+                name: "Team Number"
+            }, {
+                value: "officialRanking",
+                name: "Official Ranking"
+            }];
+            for (var i = 0; i < scoutFormDPS.length; i++){
+                var type = scoutFormDPS[i].type;
+                var name = scoutFormDPS[i].name;
+                if (type == "number"){
+                    options.push({value: name, name: name});
+                }
+            }
+            for (var i = 0; i < options.length; i++) {
+                var option = $(document.createElement("option"));
+                option.attr("value", options[i].value);
+                option.html(options[i].name);
+                select.append(option);
+            }
+            $("#dropdown-holder").append(select);
+        }
+        else {
+            alert("Failed to retrieve team list");
+        }
+    });
 
     function loadByNumber(){
         $.post("/getTeamListForRegional", {}, function(response){
@@ -144,12 +158,15 @@
                 });
                 var table = $(".teams-table");
                 table.empty();
-                var firstRow = $(document.createElement("tr"));
+                var firstRow = $(document.createElement("tr"));//loop later
                 firstRow.addClass("first-row");
                 var th1 = $(document.createElement("th"));
                 th1.html("Team #");
                 var th2 = $(document.createElement("th"));
                 th2.html("Name");
+                var th3 = $(document.createElement("th"));
+                th3.html("Rank");
+                firstRow.append(th3);
                 firstRow.append(th1);
                 firstRow.append(th2);
                 table.append(firstRow);
@@ -166,20 +183,71 @@
                             thNumber.html(teamNumber)
                             var thName = $(document.createElement("th"));
                             thName.html(teamName);
+                            var thRank = $(document.createElement("th"));
+                            thRank.html(i);
+                            tr.append(thRank);
                             tr.append(thNumber);
                             tr.append(thName);
                             table.append(tr);
+                            break;
                         }
                     }
                 }
-
             }
             else {
                 alert("Failed to retrieve teams");
             }
         });
     }
-    $(".sort-drop").on("change", function(){
+    function loadByDataPoint(dpName){
+        $.post("/getSortedTeamAvgs", {sortBy:dpName}, function(response){
+            if (typeof(JSON.parse(response)) == "object"){
+                var teams = JSON.parse(response);
+                var table = $(".teams-table");
+                table.empty();
+                var firstRow = $(document.createElement("tr"));
+                firstRow.addClass("first-row");
+                var th1 = $(document.createElement("th"));
+                th1.html("Team #");
+                var th2 = $(document.createElement("th"));
+                th2.html("Name");
+                var th3 = $(document.createElement("th"));
+                th3.html("Average");
+                firstRow.append(th1);
+                firstRow.append(th2);
+                firstRow.append(th3);
+                table.append(firstRow);
+                $("#loading").hide();
+                for (var i = 0; i < teams.length; i++){
+                    var teamNumber = parseFloat(teams[i].key);
+                    var dpValue = parseFloat(teams[i].value);
+                    for (var j = 0; j < allTeams.length; j++){
+                        if (allTeams[j].team_number == teamNumber){
+                            var teamName = allTeams[j].nickname;
+                            var tr = $(document.createElement("tr"));
+                            if (i%2 != 0) tr.addClass("odd-row");
+                            tr.attr("id", teamNumber);
+                            var thNumber = $(document.createElement("th"));
+                            thNumber.html(teamNumber)
+                            var thName = $(document.createElement("th"));
+                            thName.html(teamName);
+                            var thValue = $(document.createElement("th"));
+                            thValue.html(dpValue);
+                            tr.append(thNumber);
+                            tr.append(thName);
+                            tr.append(thValue);
+                            table.append(tr);
+                            break;
+                        }
+                    }
+                }
+            }
+            else {
+                alert("Failed to retrieve team list");
+            }
+        });
+    }
+    $(document).on("change", ".sort-drop", function(){
         var type = $(this).val();
         if (type == "teamNumber"){
             loadByNumber();
@@ -187,7 +255,11 @@
         else if (type == "officialRanking"){
             loadByRanking();
         }
+        else {
+            loadByDataPoint(type);
+        }
     });
+
     loadByNumber();
 
 

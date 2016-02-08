@@ -108,7 +108,8 @@ function synthesizeForm(dataPoints) {
 	$('#form-preview').empty();
 	var form = $('#form-preview');
 	var oneColumn = true;
-	for (var i = 0; i < dataPoints.length; i++) {
+	for (var index = 0; index < dataPoints.length; index++) (function() {
+		var i = index;
 		var dataPoint = dataPoints[i];
 		var dpName = dataPoint.name;
 		var dpType = dataPoint.type;
@@ -288,7 +289,7 @@ function synthesizeForm(dataPoints) {
 			form.append(div);
 		}
 		$('#form-preview').append("</br></br>");
-	}
+	})();
 }
 
 
@@ -305,10 +306,12 @@ function getScoutFormValues(){
 		if (inp.hasClass("number")){
 			dpName = inp.find(".inp-val-box").eq(0).attr("id");
 			value = parseInt(inp.find(".inp-val-box").eq(0).val());
+			if (!value) value = 0;
 		}
 		else if (inp.hasClass("text")){
 			dpName = inp.find(".report-area").eq(0).attr("placeholder");
 			value = inp.find(".report-area").eq(0).val();
+			if (!value) value = "none";
 		}
 		else if (inp.hasClass("label")){
 			dpName = inp.find("h3").eq(0).html();
