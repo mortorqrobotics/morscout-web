@@ -339,7 +339,7 @@ th,td {
 	background-color: #001962;
 	color: #CCCCCC;
 }
-.table-hover > td{
+.table-hover > th{
 	background-color: #C0C0C0 !important;
 	color: black !important; /* color of text when any row is hovered over */
 	cursor: pointer !important; /* changes cursor to shape of hand when hovering over rows (not to be changed) */
