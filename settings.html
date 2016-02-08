@@ -148,8 +148,7 @@
       }
       function setRegional(year){
           $.post("/chooseCurrentRegional", {
-              eventCode: currentRegional,
-              year: year
+              eventCode: currentRegional
           }, function(response){
               if (response == "success"){
                   alert("Regional successfully selected.");
