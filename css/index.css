@@ -137,9 +137,9 @@ background-color: #EE7600; /* color of background of selected link in nav bar */
 }
 
 .nav-tbox {
-  margin-top: 0.3em;
+  margin-top: 0.5em;
   width: 17em;
-  height: 2.5em;
+  height: 2em;
   border: 1px solid black;
   border-radius: 5px;
   padding: 0.5em;
