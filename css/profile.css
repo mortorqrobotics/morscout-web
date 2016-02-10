@@ -1,5 +1,5 @@
 .left-bar{
-	background-color: #FFC547;
+	background-color: orange;
 	width: 30em;
 	height: calc(100% - 3em);
 	position: fixed;
@@ -25,10 +25,10 @@
 }
 
 .assignments {
-	background-color: #cccccc;
+	background-color: #ffffff;
 	width: auto;
 	text-align: center;
-	margin-left: 32em;
+	margin-left: 40em;
 	border: 1px solid grey;
 	/*margin-right: 5px;*/
 	margin-top: 7em;
@@ -46,10 +46,11 @@
 }
 
 .stats {
-	background-color: #cccccc;
+	background-color: #ffffff;
 	width: auto;
 	text-align: center;
 	margin-left: 0em;
+	margin-right:10em;
 	border: 1px solid grey;
 	/*margin-right: 5px;*/
 	margin-top: 7em;
@@ -67,4 +68,24 @@
 
 #tasks {
 	padding-top: 5em;
+}
+
+#left-bar-button{
+	font-size: 3em;
+	padding-left: 1em;
+	padding-right: 1em;
+	margin-bottom: 1em;
+	margin-top: 0.5em;
+	border-radius: .2em;
+	background-color: #EE7600;
+	color: black;
+	font-family: 'Exo 2', sans-serif;
+	padding-top: 0.1em;
+	padding-bottom: 0.1em;
+	border-radius: 0;
+	text-align: center;
+}
+
+#left-bar-button:hover{
+	color: white;
 }
