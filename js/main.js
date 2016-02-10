@@ -104,6 +104,19 @@ $("#logoutButton").on("click", function(){
 	});
 });
 
+$.post("/getTeammatesInfo", {}, function(response){
+	localStorage.teammates = JSON.stringify(response);
+});
+
+$(".nav-tbox").on("keyup", function(){
+	var text = $(this).val().toLowerCase();
+	var teammates = JSON.parse(JSON.parse(localStorage.teammates));//fix server
+	var filteredTeammates = teammates.filter(function(user){
+		return ~(user.firstName.toLowerCase() + " " + user.lastName.toLowerCase() + " " + user.username.toLowerCase()).indexOf(text);
+	});
+	
+});
+
 function synthesizeForm(dataPoints) {
 	$('#form-preview').empty();
 	var form = $('#form-preview');
