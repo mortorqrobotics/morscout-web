@@ -152,12 +152,12 @@
                         var tr = $(document.createElement("tr"));
                         if (i % 2 != 0) tr.addClass("odd-row");
                         tr.attr("id", teamNumber);
-                        var thNumber = $(document.createElement("th"));
-                        thNumber.html(teamNumber)
-                        var thName = $(document.createElement("th"));
-                        thName.html(teamName);
-                        tr.append(thNumber);
-                        tr.append(thName);
+                        var tdNumber = $(document.createElement("td"));
+                        tdNumber.html(teamNumber)
+                        var tdName = $(document.createElement("td"));
+                        tdName.html(teamName);
+                        tr.append(tdNumber);
+                        tr.append(tdName);
                         table.append(tr);
                     }
                 } else {
@@ -196,15 +196,15 @@
                                 var tr = $(document.createElement("tr"));
                                 if (i % 2 != 0) tr.addClass("odd-row");
                                 tr.attr("id", teamNumber);
-                                var thNumber = $(document.createElement("th"));
-                                thNumber.html(teamNumber)
-                                var thName = $(document.createElement("th"));
-                                thName.html(teamName);
-                                var thRank = $(document.createElement("th"));
-                                thRank.html(i);
-                                tr.append(thRank);
-                                tr.append(thNumber);
-                                tr.append(thName);
+                                var tdNumber = $(document.createElement("td"));
+                                tdNumber.html(teamNumber)
+                                var tdName = $(document.createElement("td"));
+                                tdName.html(teamName);
+                                var tdRank = $(document.createElement("td"));
+                                tdRank.html(i);
+                                tr.append(tdRank);
+                                tr.append(tdNumber);
+                                tr.append(tdName);
                                 table.append(tr);
                                 break;
                             }

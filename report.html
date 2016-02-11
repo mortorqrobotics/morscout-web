@@ -212,18 +212,18 @@
         });
 
         $("#report-match-num").html(qs("match"));
-        $.post("/getMatchesForCurrentRegional", {}, function(response) {//make this to get only one match
-            var matches = JSON.parse(response);
-            for (var i = 0; i < matches.length; i++) {
-                if (matches[i].match_number == parseInt(qs("match")) && matches[i].comp_level == "qm"){
-                    $("#report-match-time").html(standardizeTime(matches[i].time));
-                    var redAlliance = matches[i].alliances.red.teams;
-                    var blueAlliance = matches[i].alliances.blue.teams;
-                    for (var j = 0; j < 3; j++){
-                        $("#r" + (j + 1)).html(redAlliance[j].substring(3));
-                        $("#b" + (j + 1)).html(blueAlliance[j].substring(3));
-                    }
+        $.post("/getMatchInfo", {match: qs("match")}, function(response){
+            if (response != "fail"){
+                var match = JSON.parse(response);
+                var redAlliance = match.alliances.red.teams;
+                var blueAlliance = match.alliances.blue.teams;
+                for (var i = 0; i < 3; i++){
+                    $("#r" + (i + 1)).html(redAlliance[i].substring(3));
+                    $("#b" + (i + 1)).html(blueAlliance[i].substring(3));
                 }
+            }
+            else {
+                alert("Unable to retrieve match info");
             }
         });
 
@@ -232,10 +232,12 @@
   		});
   		$('.report-table td').click(function(){
             currentTeam = $(this).html();
-   			$('#scout-form').fadeIn(300);
-            $("#scout-form").fadeIn(300);
+            $(".report-table td").removeClass("button-selected-report");
+            $(this).addClass("button-selected-report");
+   			$('#form-preview').fadeIn(300);
+            $("#form-preview").fadeIn(300);
   			$('#report-tabs').fadeIn(300);
-  			$('#scout-tab').trigger("click");
+  			$('#form-preview').trigger("click");
   			smoothScroll('b3');
   		});
   		$('#view-tab').click(function(){
