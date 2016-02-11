@@ -136,20 +136,50 @@ background-color: #EE7600; /* color of background of selected link in nav bar */
     background-color: black; /* sets color of the foreground(I know, it's weird) of the hamburger menu toggle button */
 }
 
-.nav-tbox {
-  margin-top: 0.5em;
+.search-drop-list-item{
   width: 17em;
-  height: 2em;
+  position: relative;
+  margin-right: 0;
+}
+
+.search-drop{
+	position: absolute;
+	width: auto;
+	height: auto;
+	background-color: white;
+	display: none;
+	box-shadow: 1px 1px 12px -7px black;
+	border: 1px solid #c9c9c9;
+
+}
+.search-drop > ul > li{
+	list-style: none;
+	height: auto;
+	font-size: 15px;
+	padding: .1em;
+	cursor: pointer;
+	border-bottom: 1px solid #c9c9c9;
+}
+.search-drop > ul > li:hover{
+	background-color: #ffcc80;
+}
+
+.nav-tbox {
+  margin-top: 0.7em;
+  width: 17em;
+  height: 1.5em;
   border: 1px solid black;
   border-radius: 5px;
   padding: 0.5em;
   font-size: 16px;
-  background-color: #eeeeee
+  background-color: #eeeeee;
+	position: relative;
 }
 
 .nav-tbox::-webkit-input-placeholder {
   color: black !important;
 }
+
 
 
 	/* NAVBAR STYLES FOR MOBILE */

@@ -108,14 +108,6 @@ $.post("/getTeammatesInfo", {}, function(response){
 	localStorage.teammates = JSON.stringify(response);
 });
 
-$(".nav-tbox").on("keyup", function(){
-	var text = $(this).val().toLowerCase();
-	var teammates = JSON.parse(JSON.parse(localStorage.teammates));//fix server
-	var filteredTeammates = teammates.filter(function(user){
-		return ~(user.firstName.toLowerCase() + " " + user.lastName.toLowerCase() + " " + user.username.toLowerCase()).indexOf(text);
-	});
-	
-});
 
 function synthesizeForm(dataPoints) {
 	$('#form-preview').empty();
@@ -367,3 +359,31 @@ function getScoutFormValues(){
 		}
 	});
 }
+
+function addUserToDropdown(name) {
+	var search = $('.nav-tbox');
+	var li = $(document.createElement('li'));
+	li.addClass('search-drop-list-item');
+	li.text(name);
+	$('.search-drop-items').append(li);
+}
+
+$('.nav-tbox').keyup(function() {
+	var search = $('.nav-tbox');
+	$('.search-drop-items').empty();
+	if ($.trim(search.val()) != "") {
+		var text = $(this).val().toLowerCase();
+		var teammates = JSON.parse(JSON.parse(localStorage.teammates));//fix server
+		var filteredTeammates = teammates.filter(function(user){
+			return ~(user.firstName.toLowerCase() + " " + user.lastName.toLowerCase() + " " + user.username.toLowerCase()).indexOf(text);
+		});
+		if (filteredTeammates.length != 0) $(".search-drop").show();
+		else $(".search-drop").hide();
+		filteredTeammates.forEach(function(user){
+			addUserToDropdown(user.firstName + " " + user.lastName);
+		});
+	}
+	else {
+		$(".search-drop").hide();
+	}
+});

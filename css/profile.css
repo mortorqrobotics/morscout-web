@@ -25,11 +25,11 @@
 }
 
 .assignments {
-	background-color: #ffffff;
+	background-color: gray;
 	width: auto;
 	text-align: center;
 	margin-left: 40em;
-	border: 1px solid grey;
+	border: 1px solid gray;
 	/*margin-right: 5px;*/
 	margin-top: 7em;
 	height: auto;
@@ -46,12 +46,12 @@
 }
 
 .stats {
-	background-color: #ffffff;
+	background-color: gray;
 	width: auto;
 	text-align: center;
 	margin-left: 0em;
 	margin-right:10em;
-	border: 1px solid grey;
+	border: 1px solid gray;
 	/*margin-right: 5px;*/
 	margin-top: 7em;
 	height: auto;
