@@ -95,7 +95,8 @@
                     if (matches[i].comp_level == "qm"){
                         var matchNumber = matches[i].match_number;
                         var time = standardizeTime(matches[i].time);
-                        var progress = "none"; //change later obv
+                        var progress = matches[i].progress + " of 6"; //change later obv
+                        if (matches[i].progress == "6") progress = "complete";
                         var regional = matches[i].event_key;
                         var blueAlliance = matches[i].alliances.blue.teams;
                         var redAlliance = matches[i].alliances.red.teams;
