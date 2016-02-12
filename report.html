@@ -215,6 +215,7 @@
         $.post("/getMatchInfo", {match: qs("match")}, function(response){
             if (response != "fail"){
                 var match = JSON.parse(response);
+                $("#report-match-time").html(standardizeTime(match.time));
                 var redAlliance = match.alliances.red.teams;
                 var blueAlliance = match.alliances.blue.teams;
                 for (var i = 0; i < 3; i++){
