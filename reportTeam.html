@@ -270,12 +270,29 @@
     			</div>
     	    </div> -->
 
-          <div id="scout-form">Scout</div>
-          <div id="view-pit-reports">Pit Reports</div>
-          <div id="view-match-reports">Match Reports</div>
-          <div id="gallery">Gallery</div>
-          <div id="view-regional-results">Regional Results</div>
-          <div id="view-team-stats">Team Stats</div>
+          <div id="scout-form">
+
+          </div>
+
+          <div id="view-pit-reports">
+
+          </div>
+
+          <div id="view-match-reports">
+
+          </div>
+
+          <div id="gallery">
+
+          </div>
+
+          <div id="view-regional-results">
+
+          </div>
+
+          <div id="view-team-stats">
+
+          </div>
 
     	</div>
     </div>
@@ -335,12 +352,13 @@
   		}).trigger('change');
 
 
-      // <li id="scout-tab" class="active"><a href="javascript: void(0);">Scout</a></li>
-      // <li id="view-tab"><a href="javascript: void(0);">View Pit Reports</a></li>
-      // <li id="viewMatches-tab"><a href="javascript: void(0);">View Match Reports</a></li>
-      // <li id="gallery-tab"><a href="javascript: void(0);">Gallery</a></li>
-      // <li id="regional-tab"><a href="javascript: void(0);">View Regional Results</a></li>
-      // <li id="stats-tab"><a href="javascript: void(0);">View Team Stats</a></li>
+      var scoutLoaded = false;
+      var pitLoaded = false;
+      var matchLoaded = false;
+      var galleryLoaded = false;
+      var regionalLoaded = false;
+      var statsLoaded = false;
+
 
       $('#scout-tab').click(function() {
         $('#view-pit-reports').hide();
@@ -355,6 +373,10 @@
         $('#stats-tab').removeClass('active');
         $('#scout-form').show();
         $('#scout-tab').addClass('active');
+        if (scoutLoaded == false) {  // Ensures that the function is only called once
+          loadPitForm();
+          scoutLoaded = true;
+        }
       });
       $('#view-tab').click(function() {
         $('#scout-form').hide();
@@ -369,6 +391,10 @@
         $('#stats-tab').removeClass('active');
         $('#view-pit-reports').show();
         $('#view-tab').addClass('active');
+        if (pitLoaded == false) {
+          loadPitReports();
+          pitLoaded = true;
+        }
       });
       $('#viewMatches-tab').click(function() {
         $('#view-pit-reports').hide();
@@ -383,6 +409,10 @@
         $('#stats-tab').removeClass('active');
         $('#view-match-reports').show();
         $('#viewMatches-tab').addClass('active');
+        if (matchLoaded == false) {
+          loadMatchReports();
+          matchLoaded = true;
+        }
       });
       $('#gallery-tab').click(function() {
         $('#view-pit-reports').hide();
@@ -392,11 +422,15 @@
         $('#view-team-stats').hide();
         $('#scout-tab').removeClass('active');
         $('#view-tab').removeClass('active');
-        $('#viewMatches-tab-tab').removeClass('active');
+        $('#viewMatches-tab').removeClass('active');
         $('#regional-tab').removeClass('active');
         $('#stats-tab').removeClass('active');
         $('#gallery').show();
         $('#gallery-tab').addClass('active');
+        if (galleryLoaded == false) {
+          loadGallery();
+          galleryLoaded = true;
+        }
       });
       $('#regional-tab').click(function() {
         $('#view-pit-reports').hide();
@@ -411,6 +445,10 @@
         $('#stats-tab').removeClass('active');
         $('#view-regional-results').show();
         $('#regional-tab').addClass('active');
+        if (regionalLoaded == false) {
+          loadRegionalResults();
+          regionalLoaded = true;
+        }
       });
       $('#stats-tab').click(function() {
         $('#view-pit-reports').hide();
@@ -425,7 +463,36 @@
         $('#regional-tab').removeClass('active');
         $('#view-team-stats').show();
         $('#stats-tab').addClass('active');
+        if (statsLoaded == false) {
+          loadTeamStats();
+          statsLoaded = true;
+        }
       });
+
+      function loadPitForm () {
+
+      }
+
+      function loadPitReports() {
+
+      }
+
+      function loadMatchReports () {
+
+      }
+
+      function loadGallery () {
+
+      }
+
+      function loadRegionalResults () {
+
+      }
+
+      function loadTeamStats () {
+
+      }
+
       //
   		// $('#view-tab').click(function(){
   		// 	$('#view-tab').addClass("active");
