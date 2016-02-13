@@ -11,6 +11,7 @@
     <link href='http://fonts.googleapis.com/css?family=Exo+2:100' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/index.css" type="text/css">
+    <link rel="stylesheet" href="css/team.css" type="text/css">
     <link rel="stylesheet" href="css/report_screen.css" type="text/css">
 
   </head>
@@ -66,14 +67,18 @@
     			<div class="col-md-10 col-sm-12 col-xs-12">
     				<ul id="report-tabs" class="nav nav-tabs">
     				  <li id="scout-tab" class="active"><a href="javascript: void(0);">Scout</a></li>
-    				  <li id="view-tab"><a href="javascript: void(0);">View</a></li>
-    				  <li id="viewMatches-tab"><a href="javascript: void(0);">View Matches</a></li>
+    				  <li id="view-tab"><a href="javascript: void(0);">View Pit Reports</a></li>
+    				  <li id="viewMatches-tab"><a href="javascript: void(0);">View Match Reports</a></li>
+              <li id="gallery-tab"><a href="javascript: void(0);">Gallery</a></li>
+              <li id="regional-tab"><a href="javascript: void(0);">View Regional Results</a></li>
+              <li id="stats-tab"><a href="javascript: void(0);">View Team Stats</a></li>
+
     				</ul>
     			</div>
     			<div class="col-md-1 col-sm-0 col-xs-0">
     			</div>
     		</div>
-    		<div id="scout-form" class="row">
+    		<!-- <div id="scout-form" class="row">
     			<div class="col-md-1 col-sm-0 col-xs-0">
     			</div>
     			<div class="col-md-5 col-sm-6 col-xs-12">
@@ -257,13 +262,21 @@
     	    		<div class="scout-div fixed-col-table" id="view-table">
     	    			<h3 class="scout-div-title view-title fixed-col-table">All Matches for This Team </h3>
     	    			<table class="viewMatchInTeam" id="matchTable">
-    	    				<!-- table inserted here -->
-    	    			</table>
+                --> <!-- table inserted here -->
+    	    		<!--	</table>
     	    		</div>
     	    	</div>
     	    	<div class="col-md-1 col-sm-0 col-xs-0">
     			</div>
-    	    </div>
+    	    </div> -->
+
+          <div id="scout-form">Scout</div>
+          <div id="view-pit-reports">Pit Reports</div>
+          <div id="view-match-reports">Match Reports</div>
+          <div id="gallery">Gallery</div>
+          <div id="view-regional-results">Regional Results</div>
+          <div id="view-team-stats">Team Stats</div>
+
     	</div>
     </div>
 
@@ -296,6 +309,12 @@
   </script>
 
   <script type="text/javascript">
+
+    $('#view-pit-reports').hide();
+    $('#view-match-reports').hide();
+    $('#gallery').hide();
+    $('#view-regional-results').hide();
+    $('#view-team-stats').hide();
   	$(document).ready(function(){
 
   		$('#view-form').hide();
@@ -315,37 +334,130 @@
   		   }
   		}).trigger('change');
 
-  		$('#view-tab').click(function(){
-  			$('#view-tab').addClass("active");
-  			$('#scout-tab').removeClass('active');
-  			$('#viewMatches-tab').removeClass('active');
-  			$('#scout-form').hide();
-  			$('#viewMatches-form').hide();
-  			$('#view-form').show();
-  		});
-  		$('#scout-tab').click(function(){
-  			$('#scout-tab').addClass("active");
-  			$('#view-tab').removeClass('active');
-  			$('#viewMatches-tab').removeClass('active');
-  			$('#scout-form').show();
-  			$("#view-form").hide();
-  			$('#viewMatches-form').hide();
-  			$('#submit-match-report').html('Submit');
-  			$('#submit-match-report').prop('disabled', false);
-  			$('#submit-match-report').css({"background-color":"orange","color":"black"});
-  		});
-  		$('#viewMatches-tab').click(function(){
-  			$('#viewMatches-tab').addClass("active");
-  			$('#scout-tab').removeClass('active');
-  			$('#view-tab').removeClass('active');
-  			$('#viewMatches-form').show();
-  			$('#view-form').hide();
-  			$('#scout-form').hide();
-  		})
 
-  		$('#submit-match-report').click(function(){
+      // <li id="scout-tab" class="active"><a href="javascript: void(0);">Scout</a></li>
+      // <li id="view-tab"><a href="javascript: void(0);">View Pit Reports</a></li>
+      // <li id="viewMatches-tab"><a href="javascript: void(0);">View Match Reports</a></li>
+      // <li id="gallery-tab"><a href="javascript: void(0);">Gallery</a></li>
+      // <li id="regional-tab"><a href="javascript: void(0);">View Regional Results</a></li>
+      // <li id="stats-tab"><a href="javascript: void(0);">View Team Stats</a></li>
 
-      )};
+      $('#scout-tab').click(function() {
+        $('#view-pit-reports').hide();
+        $('#view-match-reports').hide();
+        $('#gallery').hide();
+        $('#view-regional-results').hide();
+        $('#view-team-stats').hide();
+        $('#view-tab').removeClass('active');
+        $('#viewMatches-tab').removeClass('active');
+        $('#gallery-tab').removeClass('active');
+        $('#regional-tab').removeClass('active');
+        $('#stats-tab').removeClass('active');
+        $('#scout-form').show();
+        $('#scout-tab').addClass('active');
+      });
+      $('#view-tab').click(function() {
+        $('#scout-form').hide();
+        $('#view-match-reports').hide();
+        $('#gallery').hide();
+        $('#view-regional-results').hide();
+        $('#view-team-stats').hide();
+        $('#scout-tab').removeClass('active');
+        $('#viewMatches-tab').removeClass('active');
+        $('#gallery-tab').removeClass('active');
+        $('#regional-tab').removeClass('active');
+        $('#stats-tab').removeClass('active');
+        $('#view-pit-reports').show();
+        $('#view-tab').addClass('active');
+      });
+      $('#viewMatches-tab').click(function() {
+        $('#view-pit-reports').hide();
+        $('#scout-form').hide();
+        $('#gallery').hide();
+        $('#view-regional-results').hide();
+        $('#view-team-stats').hide();
+        $('#scout-tab').removeClass('active');
+        $('#view-tab').removeClass('active');
+        $('#gallery-tab').removeClass('active');
+        $('#regional-tab').removeClass('active');
+        $('#stats-tab').removeClass('active');
+        $('#view-match-reports').show();
+        $('#viewMatches-tab').addClass('active');
+      });
+      $('#gallery-tab').click(function() {
+        $('#view-pit-reports').hide();
+        $('#view-match-reports').hide();
+        $('#scout-form').hide();
+        $('#view-regional-results').hide();
+        $('#view-team-stats').hide();
+        $('#scout-tab').removeClass('active');
+        $('#view-tab').removeClass('active');
+        $('#viewMatches-tab-tab').removeClass('active');
+        $('#regional-tab').removeClass('active');
+        $('#stats-tab').removeClass('active');
+        $('#gallery').show();
+        $('#gallery-tab').addClass('active');
+      });
+      $('#regional-tab').click(function() {
+        $('#view-pit-reports').hide();
+        $('#view-match-reports').hide();
+        $('#gallery').hide();
+        $('#scout-form').hide();
+        $('#view-team-stats').hide();
+        $('#scout-tab').removeClass('active');
+        $('#view-tab').removeClass('active');
+        $('#viewMatches-tab').removeClass('active');
+        $('#gallery-tab').removeClass('active');
+        $('#stats-tab').removeClass('active');
+        $('#view-regional-results').show();
+        $('#regional-tab').addClass('active');
+      });
+      $('#stats-tab').click(function() {
+        $('#view-pit-reports').hide();
+        $('#view-match-reports').hide();
+        $('#gallery').hide();
+        $('#view-regional-results').hide();
+        $('#scout-form').hide();
+        $('#scout-tab').removeClass('active');
+        $('#view-tab').removeClass('active');
+        $('#viewMatches-tab').removeClass('active');
+        $('#gallery-tab').removeClass('active');
+        $('#regional-tab').removeClass('active');
+        $('#view-team-stats').show();
+        $('#stats-tab').addClass('active');
+      });
+      //
+  		// $('#view-tab').click(function(){
+  		// 	$('#view-tab').addClass("active");
+  		// 	$('#scout-tab').removeClass('active');
+  		// 	$('#viewMatches-tab').removeClass('active');
+  		// 	$('#scout-form').hide();
+  		// 	$('#viewMatches-form').hide();
+  		// 	$('#view-form').show();
+  		// });
+  		// $('#scout-tab').click(function(){
+  		// 	$('#scout-tab').addClass("active");
+  		// 	$('#view-tab').removeClass('active');
+  		// 	$('#viewMatches-tab').removeClass('active');
+  		// 	$('#scout-form').show();
+  		// 	$("#view-form").hide();
+  		// 	$('#viewMatches-form').hide();
+  		// 	$('#submit-match-report').html('Submit');
+  		// 	$('#submit-match-report').prop('disabled', false);
+  		// 	$('#submit-match-report').css({"background-color":"orange","color":"black"});
+  		// });
+  		// $('#viewMatches-tab').click(function(){
+  		// 	$('#viewMatches-tab').addClass("active");
+  		// 	$('#scout-tab').removeClass('active');
+  		// 	$('#view-tab').removeClass('active');
+  		// 	$('#viewMatches-form').show();
+  		// 	$('#view-form').hide();
+  		// 	$('#scout-form').hide();
+  		// })
+
+  		// $('#submit-match-report').click(function(){
+      //
+      // )};
 
   	});
   </script>

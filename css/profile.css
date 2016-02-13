@@ -14,6 +14,7 @@
 
 #profile-name {
 	padding-top: 2em;
+	font-size: 3em;
 }
 
 .profile-pic{
@@ -71,7 +72,7 @@
 }
 
 #left-bar-button{
-	font-size: 3em;
+	font-size: 2em;
 	padding-left: 1em;
 	padding-right: 1em;
 	margin-bottom: 1em;
