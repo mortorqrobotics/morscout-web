@@ -153,8 +153,10 @@
                         if (i % 2 != 0) tr.addClass("odd-row");
                         tr.attr("id", teamNumber);
                         var tdNumber = $(document.createElement("td"));
+                        tdNumber.addClass("number");
                         tdNumber.html(teamNumber)
                         var tdName = $(document.createElement("td"));
+                        tdName.addClass("name");
                         tdName.html(teamName);
                         tr.append(tdNumber);
                         tr.append(tdName);
@@ -197,8 +199,10 @@
                                 if (i % 2 != 0) tr.addClass("odd-row");
                                 tr.attr("id", teamNumber);
                                 var tdNumber = $(document.createElement("td"));
-                                tdNumber.html(teamNumber)
+                                tdNumber.html(teamNumber);
+                                tdNumber.addClass("number");
                                 var tdName = $(document.createElement("td"));
+                                tdName.addClass("name");
                                 tdName.html(teamName);
                                 var tdRank = $(document.createElement("td"));
                                 tdRank.html(i);
@@ -247,8 +251,10 @@
                                 if (i % 2 != 0) tr.addClass("odd-row");
                                 tr.attr("id", teamNumber);
                                 var thNumber = $(document.createElement("th"));
+                                thNumber.addClass("number");
                                 thNumber.html(teamNumber)
                                 var thName = $(document.createElement("th"));
+                                thName.addClass("name");
                                 thName.html(teamName);
                                 var thValue = $(document.createElement("th"));
                                 thValue.html(dpValue);
@@ -288,9 +294,10 @@
 
         $(document).on("click","tr:not(.first-row)", function(){
             localStorage.pitTeam = $(this).children(":first").text();
+          
             location = "reportTeam.html?" + getQS({
-                "team": $(this).children(":first").text(),
-                "name": $(this).children(":first").next().text()
+                "team": $(this).find(".number").eq(0).html(),
+                "name": $(this).find(".name").eq(0).html()
             });
         });
 
