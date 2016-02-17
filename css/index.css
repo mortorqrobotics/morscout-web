@@ -318,11 +318,20 @@ background-color: #EE7600; /* color of background of selected link in nav bar */
 /* TABLE STYLES */
 
 table, th, td {
-  border: 1px solid black; /* sets border width, style, and color for all table cells */
-	border-collapse: collapse; /* collapses cell borders (not to be changed) */
+	 /* collapses cell borders (not to be changed) */
 	font-size: 1.4em; /* sets font size of text in table cells */
 	text-align: center; /* horizontal alignment of text in table cells */
-  background-color: white;
+    /*background-color: white;*/
+}
+
+table {
+     border: 1px solid black;
+     border-collapse: collapse;
+}
+
+th, td {
+     border: 1px solid black;
+     border-collapse: collapse;
 }
 
 th,td {
@@ -353,7 +362,8 @@ th,td {
 }
 
 .odd-row {
-	background-color: #FFC547; /* background color of odd rows in tables */
+	/*background-color: /*#FFC547*/; /* background color of odd rows in tables */
+    background-color: #cccccc !important;
 }
 
 .current-match{

@@ -61,8 +61,8 @@
                     <th>#</th>
                     <th>Time</th>
                     <th>Progress</th>
-                    <th colspan="3" class="matchesTableHide redTeamHeader">Red Teams</th>
-                    <th colspan="3" class="matchesTableHide blueTeamHeader">Blue Teams</th>
+                    <th colspan="3" style="color: red;" class="matchesTableHide ">Red Teams</th>
+                    <th colspan="3" style="color: blue;" class="matchesTableHide ">Blue Teams</th>
                 </tr>
             </table>
         </div>
@@ -158,13 +158,16 @@
                                     }
                                 }
                                 if(ally && enemy) {
-          							tds[j].addClass("frenemyTeamHighlight");
+          							//tds[j].addClass("frenemyTeamHighlight");
+                                    tds[j].attr("style" , "color: purple;");
           						}
           						else if(ally) {
-          							tds[j].addClass("allyTeamHighlight");
+          							//tds[j].addClass("allyTeamHighlight");
+                                    tds[j].attr("style" , "color: green;");
           						}
           						else if(enemy) {
-          							tds[j].addClass("enemyTeamHighlight");
+          							//tds[j].addClass("enemyTeamHighlight");
+                                    tds[j].attr("style" , "color: red;");
           						}
                             }
                             tr.append(tds[j]);
