@@ -311,6 +311,9 @@ background-color: #EE7600; /* color of background of selected link in nav bar */
 	background-color: orange !important;
 	color: black;
 }
+.underline {
+  text-decoration: underline;
+}
 /* END OF GENERAL STYLES */
 
 /* TABLE STYLES */

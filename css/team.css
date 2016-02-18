@@ -21,3 +21,18 @@
 #view-team-stats {
 
 }
+
+.subtitle {
+  font-family: 'Exo 2', sans-serif;
+  color: orange;
+  text-align: center !important;
+  margin-top: 0.5em;
+}
+
+#first-subtitle {
+  margin-top: 1.5em;
+}
+
+#matches-table{
+  width: auto;
+}

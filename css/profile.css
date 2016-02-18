@@ -90,3 +90,34 @@
 #left-bar-button:hover{
 	color: white;
 }
+
+.scout-div-title {
+	font-family: 'Exo 2', sans-serif !important;
+	color: orange;
+	margin-left: 5em;
+	text-align: center !important;
+}
+
+#assign-task-box {
+	margin-left: 20em;
+	height: 6em;
+	width: 30em;
+	font-family: 'Exo 2', sans-serif;
+	font-size: 3em;
+	background-color: #c0c0c0;
+	color: black;
+	padding: 0.2em;
+}
+
+#assign-task-box::-webkit-input-placeholder {
+  color: grey !important;
+}
+
+#assign-button {
+	margin-top: 1em;
+	margin-left: 32.5em;
+}
+
+.assign-task-div {
+
+}
