@@ -62,10 +62,11 @@
     			<h2 class="page-title" id="report-team-name"></h2>
     		</div>
         <div>
-\         <h4 class="subtitle" id="first-subtitle">Team Number: ISIS</h4>
-\\        <h4 class="subtitle">Team Locatiomn: Los Angeles</h4>
-\\        <h4 class="subtitle">School: ISIS School</h4>
-\       </div>
+        <h4 class="subtitle" id="team-website"></h4>
+        <h4 class="subtitle" id="team-location"></h4>
+        <h4 class="subtitle" id="team-school"></h4>
+        <h4 class="subtitle" id="team-info"></h4>
+       </div>
     		<div class="row">
     			<div class="col-md-1 col-sm-0 col-xs-0">
     			</div>
@@ -345,6 +346,18 @@
   			$('#report-team-num').html(data.team);
   			$("#dash").hide();
   		}
+
+        $.post("/getTeamInfo", {teamNumber: data.team}, function(response){
+            var data = JSON.parse(response);
+            var website = data.website;
+            if (website.substring(0, 7) != "http://") website = "http://" + website;
+            var link = $(document.createElement("a"));
+            link.attr("href", website);
+            link.html(website);
+            $("#team-website").append(link);
+            $("#team-location").html(data.location);
+            $("#team-info").html(data.name);
+        });
   	});
   </script>
 
