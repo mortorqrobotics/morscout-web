@@ -22,6 +22,7 @@
 
 }
 
+
 .subtitle {
   font-family: 'Exo 2', sans-serif;
   color: orange;
@@ -33,6 +34,6 @@
   margin-top: 1.5em;
 }
 
-#matches-table{
+#matches-table, .matches-table{
   width: auto;
 }

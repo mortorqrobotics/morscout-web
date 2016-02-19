@@ -329,7 +329,7 @@ label:before {
 #report-tabs{
 	border-bottom: solid 1px gray;
 	margin-top: 3em;
-	padding-left: 30em;
+	/*padding-left: 30em;*/
 }
 
 .view-title{
