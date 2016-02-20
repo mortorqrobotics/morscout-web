@@ -37,3 +37,15 @@
 #matches-table, .matches-table{
   width: auto;
 }
+
+#match-table {
+	border: 1px;
+	border-collapse: separate;
+  width: auto;
+  overflow-x:scroll;
+  width:80em;
+  display:block;
+}
+#match-table-holder {
+  height: 10em;
+}
