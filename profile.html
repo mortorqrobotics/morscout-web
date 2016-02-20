@@ -75,20 +75,20 @@
 
       <div class="col-md-6">
         <div class="assignments">
-          <h1>Assignments</h1>
+          <h1 class="scout-div-title profile-div-title">Assignments</h1>
           <ul>
-            <li>None</li>
+            <li class="profile-orange">None</li>
           </ul>
         </div>
       </div>
 
       <div class="col-md-6">
         <div class="stats">
-          <h1>Statistics</h1>
+          <h1 class="scout-div-title profile-div-title">Statistics</h1>
           <ul>
-            <li>Match Reports Made: <span id="matches-scouted-label"></span></li>
-            <li>Pit Reports Made: <span id="pits-scouted-label"></span></li>
-            <li>Unique Teams Scouted: <span id="teams-scouted-label"></span></li>
+            <li class="profile-orange">Match Reports Made: <span id="matches-scouted-label"></span></li>
+            <li class="profile-orange">Pit Reports Made: <span id="pits-scouted-label"></span></li>
+            <li class="profile-orange">Unique Teams Scouted: <span id="teams-scouted-label"></span></li>
           </div>
         </div>
 
@@ -97,8 +97,20 @@
     <div class="assign-task">
       <h1 class="scout-div-title">Assign Task</h1>
       <div class="assign-task-div">
-          <input type="text" value="1"></input>
-        </div>
+        <h3 class="page-title task-heading task-inline task">From Match</h3>
+        <input type="number" class="report-box-small inp-val-box task-tbox task-inline" min="1" placeholder="1">
+        <h3 class="page-title task-heading task-inline" id="task-second-word">To</h3>
+        <input type="number" class="report-box-small inp-val-box task-tbox task-inline" min="1" placeholder="1">
+        <select class="task-inline creator-dropdown task-dropdown">
+          <option value="red">Red Alliance</option>
+          <option value="blue">Blue Alliance</option>
+        </select>
+        <h3 class="page-title task-heading task-inline" id="task-second-word">Team</h3>
+        <select class="task-inline creator-dropdown task-dropdown">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+        </select>
       </div>
       <input type="button" class="button" id="assign-button" value="Assign"></input>
     </div>

@@ -26,11 +26,9 @@
 }
 
 .assignments {
-	background-color: gray;
 	width: auto;
 	text-align: center;
 	margin-left: 40em;
-	border: 1px solid gray;
 	/*margin-right: 5px;*/
 	margin-top: 7em;
 	height: auto;
@@ -47,12 +45,10 @@
 }
 
 .stats {
-	background-color: gray;
 	width: auto;
 	text-align: center;
 	margin-left: 0em;
 	margin-right:10em;
-	border: 1px solid gray;
 	/*margin-right: 5px;*/
 	margin-top: 7em;
 	height: auto;
@@ -119,5 +115,37 @@
 }
 
 .assign-task-div {
+	margin-left: 22em;
+}
 
+.task-tbox {
+	margin-left: 1em;
+	font-size: 1.7em;
+	margin-top: 1em;
+	width: 5em;
+}
+
+.task-heading {
+	margin-top: 1em;
+	margin-left: 20em;
+}
+
+.task-inline {
+	display: inline-block;
+}
+
+#task-second-word {
+	margin-left: 0.5em;
+}
+
+.task-dropdown {
+	margin-left: 1em;
+}
+
+.profile-div-title {
+	margin-left: 0em;
+}
+
+.profile-orange {
+	color: orange !important;
 }
