@@ -111,11 +111,15 @@
 
 #assign-button {
 	margin-top: 1em;
-	margin-left: 32.5em;
+	/*margin-left: 32.5em;*/
 }
 
 .assign-task-div {
-	margin-left: 22em;
+	/*margin-left: 22em;*/
+}
+
+.assign-task {
+	text-align: center;
 }
 
 .task-tbox {

@@ -98,15 +98,15 @@
       <h1 class="scout-div-title">Assign Task</h1>
       <div class="assign-task-div">
         <h3 class="page-title task-heading task-inline task">From Match</h3>
-        <input type="number" class="report-box-small inp-val-box task-tbox task-inline" min="1" placeholder="1">
+        <input id="start-match-box" type="number" class="report-box-small inp-val-box task-tbox task-inline" min="1" placeholder="#">
         <h3 class="page-title task-heading task-inline" id="task-second-word">To</h3>
-        <input type="number" class="report-box-small inp-val-box task-tbox task-inline" min="1" placeholder="1">
-        <select class="task-inline creator-dropdown task-dropdown">
+        <input id="end-match-box" type="number" class="report-box-small inp-val-box task-tbox task-inline" min="1" placeholder="#">
+        <select id="alliance-drop" class="task-inline creator-dropdown task-dropdown">
           <option value="red">Red Alliance</option>
           <option value="blue">Blue Alliance</option>
         </select>
-        <h3 class="page-title task-heading task-inline" id="task-second-word">Team</h3>
-        <select class="task-inline creator-dropdown task-dropdown">
+        <h3 class="page-title task-heading task-inline" id="task-second-word">Team:</h3>
+        <select id="sect-drop" class="task-inline creator-dropdown task-dropdown">
           <option value="1">1</option>
           <option value="2">2</option>
           <option value="3">3</option>
@@ -119,17 +119,42 @@
 
     <script>
 
-        $.post("/getUserStats", {userID: localStorage.userID}, function(response){
-            var stats = JSON.parse(response);
-            id="matches-scouted-label"
-            $("#teams-scouted-label").html(stats.teamsScouted);
-            $("#matches-scouted-label").html(stats.matchesScouted);
-            $("#pits-scouted-label").html(stats.pitsScouted);
+    var userID = qs("id");
+    if (!userID){
+        userID = localStorage.userID;
+    }
+    if (localStorage.admin != "true"){//server is still protected
+        $(".assign-task").hide();
+    }
+
+    $.post("/getUserStats", {userID: userID}, function(response){
+        var stats = JSON.parse(response);
+        id="matches-scouted-label"
+        $("#teams-scouted-label").html(stats.teamsScouted);
+        $("#matches-scouted-label").html(stats.matchesScouted);
+        $("#pits-scouted-label").html(stats.pitsScouted);
+    });
+    $("#team-label").html("Team " + localStorage.teamNumber);
+    $("#profile-name").html(localStorage.firstName + " " + localStorage.lastName);
+
+    loadTasks();
+    $("#assign-button").on("click", function(){
+        $.post("/assignTask", {
+            startMatch: $("#start-match-box").val(),
+            endMatch: $("#end-match-box").val(),
+            alliance: $("#alliance-drop").val(),
+            teamSection: $("#sect-drop").val(),
+            scoutID: userID
+        }, function(response){
+            loadTasks();
+            alert(response);
         });
-        $("#team-label").html("Team " + localStorage.teamNumber);
-        $("#profile-name").html(localStorage.firstName + " " + localStorage.lastName);
+    });
 
-
+    function loadTasks(){
+        $.post("/showTasks", {scoutID: userID}, function(response){
+        });
+    }
 
     </script>
 
