@@ -65,7 +65,7 @@
           <div class="col-md-8 col-sm-12 col-xs-12">
             <h3 id="strategy-heading">Strategy</h1>
             <div id="strategy-holder">
-              <h3 class="orange" id="strategy-placeholder">Insert Strategy Here</h3>
+              <h3 class="orange" id="strategy-text">None</h3>
             </div>
           </div>
           <div class="col-md-2 col-sm-0 col-xs-0"></div>
@@ -230,6 +230,12 @@
             synthesizeForm(scoutFormDPS);
         });
 
+
+        $("#strategy-holder").hide();
+        $("#strategy-heading").hide();
+        $('#editStrategy-tab').hide();
+        $("#eidtStrategy-form").hide();
+
         $("#report-match-num").html(qs("match"));
         $.post("/getMatchInfo", {match: qs("match")}, function(response){
             if (response != "fail"){
@@ -237,14 +243,52 @@
                 $("#report-match-time").html(standardizeTime(match.time));
                 var redAlliance = match.alliances.red.teams;
                 var blueAlliance = match.alliances.blue.teams;
+                var ourMatch = false;
                 for (var i = 0; i < 3; i++){
+                    if (redAlliance[i].substring(3) == localStorage.teamNumber || blueAlliance[i].substring(3) == localStorage.teamNumber){
+                        ourMatch = true;
+                    }
                     $("#r" + (i + 1)).html(redAlliance[i].substring(3));
                     $("#b" + (i + 1)).html(blueAlliance[i].substring(3));
+                }
+                if (ourMatch){
+                    $("#strategy-holder").show();
+                    $("#strategy-heading").show();
+                    $('#editStrategy-tab').show();
+                    $("#eidtStrategy-form").show();
+                    loadStrategy();
                 }
             }
             else {
                 alert("Unable to retrieve match info");
             }
+        });
+
+        function loadStrategy(){
+            $.post("/getMatchStrategy", {match: qs("match")}, function(response){
+                if (response != "fail" && (JSON.parse(response) !== null)){
+                    var strategy = JSON.parse(response).strategy;
+                    $("#strategy-text").html(strategy);
+                    $("#strategy-box").val(strategy.split("&lt;").join("<").split("&gt;").join(">"));//works, quick fix
+                }
+                else {
+                    $("#strategy-text").html("None");
+                    $("#strategy-box").val("");
+                }
+            });
+        }
+        $("#update-button").on("click", function(){
+            var strategy = $("#strategy-box").val();
+            var match = qs("match");
+            $.post("/setMatchStrategy", {match: match, strategy: strategy}, function(response){
+                if (response == "success"){
+                    alert("Success");
+                    loadStrategy();
+                }
+                else {
+                    alert("Failed to set strategy");
+                }
+            });
         });
 
   		$('.report-table td').hover(function(){
@@ -267,7 +311,7 @@
             $('#editStrategy-tab').removeClass('active');
             $('#viewMatches-form').hide();
             $("#form-preview").hide();
-            $("#eidtStrategy-form").hide();
+            $("#editStrategy-form").hide();
             //$('#scout-form').hide();
             $(".view-form").show();
             $('#submit-match-report').hide();
@@ -427,6 +471,7 @@
             $('#submit-match-report').show();
   		});
   		$('#viewMatches-tab').click(function(){
+            $('#viewContainer').html('');
   			$('#viewMatches-tab').addClass("active");
   			$('#scout-tab').removeClass('active');
   			$('#view-tab').removeClass('active');
@@ -440,6 +485,7 @@
 
   		})
       $('#editStrategy-tab').click(function(){
+          $('#viewContainer').html('');
         $('#editStrategy-tab').addClass("active");
         $('#scout-tab').removeClass('active');
         $('#view-tab').removeClass('active');
