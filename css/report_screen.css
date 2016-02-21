@@ -423,5 +423,9 @@ label:before {
 	padding-bottom: 0.33em;
 	margin-top: 1em !important;
 	color: orange;
-	font-size: 3em;
+	font-size: 2.3em;
+}
+
+#strategy-placeholder {
+	font-size: 1.5em;
 }
