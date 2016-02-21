@@ -239,7 +239,9 @@ background-color: #EE7600; /* color of background of selected link in nav bar */
 
 /* GENERAL STYLES */
 
-
+.orange {
+  color: orange;
+}
 #form-preview{
     font-family: 'Exo 2', sans-serif;
 }

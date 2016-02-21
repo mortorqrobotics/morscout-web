@@ -379,3 +379,49 @@ label:before {
 	margin-top: 1em;
 	text-align: center;
 }
+
+#strategy-box{
+	font-size: 3em;
+	font-family: 'Exo 2', sans-serif;
+	padding: 0.2em;
+	background-color: #c0c0c0;
+	color: black;
+	margin-top: 0.5em;
+	margin-bottom: 2em;
+	max-width: 18em;
+	height:7em;
+	width:95%;
+}
+
+#strategy-box::-webkit-input-placeholder {
+    color: gray; /* color of place holder text in settings text boxes */
+	opacity:0.8; /* opacity of place holder text in settings text boxes */
+	font-weight: bold; /* weight of place holder text in settings text boxes */
+}
+#strategy-box:-moz-placeholder {
+   color: gray;
+   opacity:0.8;
+   font-weight: bold;
+}
+#strategy-box::-moz-placeholder {
+   color: gray;
+   opacity:0.8;
+   font-weight: bold;
+}
+#strategy-box:-ms-input-placeholder {
+   color: gray;
+   opacity:0.8;
+   font-weight: bold;
+}
+
+#update-button {
+	margin-top: 0em;
+}
+
+#strategy-heading{
+	border-bottom: 1px solid gray;
+	padding-bottom: 0.33em;
+	margin-top: 1em !important;
+	color: orange;
+	font-size: 3em;
+}

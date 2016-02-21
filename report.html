@@ -60,6 +60,16 @@
     			<h2 id="report-match-time"></h2>
     			<h2 id="report-instruction">Choose a team to scout or view</h2>
     		</div>
+        <div class="row">
+          <div class="col-md-2 col-sm-0 col-xs-0"></div>
+          <div class="col-md-8 col-sm-12 col-xs-12">
+            <h3 id="strategy-heading">Strategy</h1>
+            <div id="strategy-holder">
+              <h3 class="orange">Insert Strategy Here</h3>
+            </div>
+          </div>
+          <div class="col-md-2 col-sm-0 col-xs-0"></div>
+        </div>
     		<div class="row">
     			<div class = "col-md-12">
     				<table class="report-table">
@@ -90,6 +100,7 @@
     				  <li id="scout-tab" class="active"><a href="javascript: void(0);">Scout</a></li>
     				  <li id="view-tab"><a href="javascript: void(0);">View</a></li>
     				  <li id="viewMatches-tab"><a href="javascript: void(0);">All Matches</a></li>
+              <li id="editStrategy-tab"><a href="javascript: void(0);">Edit Strategy</a></li>
     				</ul>
     			</div>
     			<div class="col-md-1 col-sm-0 col-xs-0">
@@ -186,6 +197,14 @@
     			</div>
     	    </div>
     	</div>
+      <div id="editStrategy-form" class="row">
+        <div class="col-md-1 col-sm-0 col-xs-0"></div>
+        <div class="col-md-10 col-sm-12 col-xs-12">
+          <textarea id="strategy-box" placeholder="Edit Strategy"></textarea>
+          <input type="button" id="update-button" class="button" value="Update"></input>
+        </div>
+        <div class="col-md-1 col-sm-0 col-xs-0"></div>
+      </div>
     </div>
 
   <!-- JAVASCRIPT -->
@@ -245,8 +264,10 @@
             $('#view-tab').addClass("active");
             $('#scout-tab').removeClass('active');
             $('#viewMatches-tab').removeClass('active');
+            $('#editStrategy-tab').removeClass('active');
             $('#viewMatches-form').hide();
             $("#form-preview").hide();
+            $("#eidtStrategy-form").hide();
             //$('#scout-form').hide();
             $(".view-form").show();
             $('#submit-match-report').hide();
@@ -391,10 +412,12 @@
   			$('#scout-tab').addClass("active");
   			$('#view-tab').removeClass('active');
   			$('#viewMatches-tab').removeClass('active');
+        $('#editStrategy-tab').removeClass('active');
   			//$('#scout-form').show();
             $("#form-preview").show();
   			$(".view-form").hide();
   			$('#viewMatches-form').hide();
+        $('#editStrategy-form').hide();
   			$('#submit-match-report').html('Submit');
   			$('#submit-match-report').prop('disabled', false);
   			$('#submit-match-report').css({"background-color":"orange","color":"black"});
@@ -407,12 +430,28 @@
   			$('#viewMatches-tab').addClass("active");
   			$('#scout-tab').removeClass('active');
   			$('#view-tab').removeClass('active');
+        $('#editStrategy-tab').removeClass('active');
   			$('#viewMatches-form').show();
   			$('#view-form').hide();
-            $("#form-preview").hide();
+        $('#editStrategy-form').hide();
+        $("#form-preview").hide();
+        $('#submit-match-report').hide();
       		//$('#scout-form').hide();
 
   		})
+      $('#editStrategy-tab').click(function(){
+        $('#editStrategy-tab').addClass("active");
+        $('#scout-tab').removeClass('active');
+        $('#view-tab').removeClass('active');
+        $('#viewMatches-tab').removeClass('active');
+        $('#editStrategy-form').show();
+        $('#view-form').hide();
+        $("#form-preview").hide();
+        $('#viewMatches-form').hide();
+        $('#submit-match-report').hide();
+          //$('#scout-form').hide();
+
+      })
 
   		$('#submit-match-report').click(function(){
 
@@ -438,6 +477,7 @@
   		$('.view-form').hide();
   		$('#report-tabs').hide();
   		$('#viewMatches-form').hide();
+      $("#editStrategy-form").hide();
 
   	});
   </script>
