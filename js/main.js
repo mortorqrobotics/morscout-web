@@ -298,7 +298,7 @@ function synthesizeForm(dataPoints) {
 }
 
 
-function getScoutFormValues(){
+function getScoutFormValues(context){
 	var form = $("#form-preview");
 	var inputs = form.find(".inp");
 	var values = [];
@@ -338,7 +338,14 @@ function getScoutFormValues(){
 		if (!isLabel) dataPoint.value = value;
 		values.push(dataPoint);
 	}
-	$.post("/submitReport", {data: values, team: currentTeam, context: "match", match: currentMatch}, function(response){
+	var send = {};
+	if (context == "match"){
+		send = {data: values, team: currentTeam, context: context, match: currentMatch}
+	}
+	else {
+		send = {data: values, team: qs("team"), context: context}
+	}
+	$.post("/submitReport", send, function(response){
 		if (response == "success"){
 			$('#submit-match-report').html('Done!');
 			$('#submit-match-report').prop('disabled', true);
@@ -387,3 +394,137 @@ $('.nav-tbox').keyup(function() {
 		$(".search-drop").hide();
 	}
 });
+
+function loadDataViewer(selector, reports){
+	var yourTeam = reports.yourTeam;
+	var otherTeams = reports.otherTeams;
+	$(selector).empty();
+	var div = $(document.createElement('div'));
+	div.addClass("yourReportsView");
+	var h3 = $(document.createElement("h3"));
+	h3.addClass("scout-div-title");
+	h3.html("Your Team");
+	div.append(h3);
+	$(selector).append(div);
+
+	var div = $(document.createElement('div'));
+	div.addClass("otherReportsView");
+	var h3 = $(document.createElement("h3"));
+	h3.addClass("scout-div-title");
+	h3.html("Other Teams");
+	div.append(h3);
+	$(selector).append(div);
+
+	for (var i = 0; i < yourTeam.length; i++){
+		var yourReport = yourTeam[i].data;
+
+		var viewFormDiv = $(document.createElement('div'));
+		viewFormDiv.addClass("row view_form");
+
+		var reportIDDiv = $(document.createElement('div'));
+		reportIDDiv.addClass("reportID");
+		reportIDDiv.html("Report #"+(i+1));
+
+		viewFormDiv.append(reportIDDiv);
+		$(".yourReportsView").append(viewFormDiv);
+
+
+		var currentTable;
+		var labelAdded = false;
+		for (var j = 0; j < yourReport.length; j++){
+			var dp = yourReport[j];
+			var isLabel = !dp.value;
+			if (isLabel || j == 0){
+				var colDiv = $(document.createElement('div'));
+				if (labelAdded) {
+					colDiv.addClass("col-md-5 col-sm-6 col-xs-12");
+					currentTable.parent().parent().addClass("col-md-5 col-sm-6 col-xs-12");
+				}
+				labelAdded = true;
+
+				var newSectionDiv = $(document.createElement('div'));
+				newSectionDiv.addClass("scout-div auto-view");
+
+				var h3 = $(document.createElement("h3"));
+				if (isLabel) h3.html(dp.name);
+				h3.addClass("scout-div-title view-title");
+
+				var table = $(document.createElement("table"));
+				table.attr("id", "view-table");
+				table.css("width: auto;");
+				currentTable = table;
+
+				newSectionDiv.append(h3);
+				newSectionDiv.append(table);
+				colDiv.append(newSectionDiv)
+				viewFormDiv.append(colDiv);
+			}
+			if (!isLabel){//NOT else if
+				var tr = $(document.createElement("tr"));
+				var key = $(document.createElement("td"));
+				key.html(dp.name);
+				var value = $(document.createElement("td"));
+				value.html(dp.value);
+				tr.append(key);
+				tr.append(value);
+				currentTable.append(tr);
+			}
+		}
+	}
+	for (var i = 0; i < otherTeams.length; i++){
+		var otherReport = otherTeams[i].data;
+
+		var viewFormDiv = $(document.createElement('div'));
+		viewFormDiv.addClass("row view_form");
+
+		var reportIDDiv = $(document.createElement('div'));
+		reportIDDiv.addClass("reportID");
+		reportIDDiv.html("Report #"+(i+1));
+
+		viewFormDiv.append(reportIDDiv);
+		$(".otherReportsView").append(viewFormDiv);
+
+
+		var currentTable;
+		var labelAdded = false;
+		for (var j = 0; j < otherReport.length; j++){
+			var dp = otherReport[j];
+			var isLabel = !dp.value;
+			if (isLabel){
+				var colDiv = $(document.createElement('div'));
+				if (labelAdded) {
+					colDiv.addClass("col-md-5 col-sm-6 col-xs-12");
+					currentTable.parent().parent().addClass("col-md-5 col-sm-6 col-xs-12");
+				}
+				labelAdded = true;
+
+				var newSectionDiv = $(document.createElement('div'));
+				newSectionDiv.addClass("scout-div auto-view");
+
+				var h3 = $(document.createElement("h3"));
+				if (isLabel) h3.html(dp.name);
+				h3.addClass("scout-div-title view-title");
+
+				var table = $(document.createElement("table"));
+				table.attr("id", "view-table");
+				currentTable = table;
+
+				newSectionDiv.append(h3);
+				newSectionDiv.append(table);
+				colDiv.append(newSectionDiv)
+				viewFormDiv.append(colDiv);
+			}
+			else {
+				var tr = $(document.createElement("tr"));
+				var key = $(document.createElement("td"));
+				key.html(dp.name);
+				var value = $(document.createElement("td"));
+				value.html(dp.value);
+				tr.append(key);
+				tr.append(value);
+				currentTable.append(tr);
+			}
+		}
+
+	}
+}

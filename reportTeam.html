@@ -277,8 +277,11 @@
     			</div>
     	    </div> -->
 
-            <div id="scout-form">
+            <div id="form-preview">
 
+            </div>
+            <div class="submit-match">
+                <button id="submit-match-report" class="button">Submit</button>
             </div>
 
             <div id="view-pit-reports">
@@ -635,7 +638,7 @@
             }
         }
         $(document).ready(function() {
-            var data = urlGet(String(location));
+            data = urlGet(String(location));
             if (data.name != undefined) {
                 $('#report-team-num').html(data.team);
                 $('#report-team-name').html(data.name);
@@ -643,6 +646,19 @@
                 $('#report-team-num').html(data.team);
                 $("#dash").hide();
             }
+
+            $.post("/getScoutForm", {context: "pit"}, function(response){
+                if (response != "fail"){
+                    synthesizeForm(JSON.parse(response));
+                }
+                else {
+                    alert("Failed to retrieve scout form");
+                }
+            });
+
+            $("#submit-match-report").on("click", function(){
+                getScoutFormValues("pit");
+            });
 
             $.post("/getTeamInfo", {
                 teamNumber: data.team
@@ -661,7 +677,6 @@
             $.post("/getTeamPrevEventStats", {
                 teamNumber: data.team
             }, function(response) {
-                console.log(response);
                 var regionals = JSON.parse(response);
                 var statArea = $("#view-team-stats");
                 var regionalNames = Object.keys(regionals);
@@ -748,7 +763,8 @@
                 $('#gallery-tab').removeClass('active');
                 $('#regional-tab').removeClass('active');
                 $('#stats-tab').removeClass('active');
-                $('#scout-form').show();
+                $('#form-preview').show();
+                $('.submit-match').show();
                 $('#scout-tab').addClass('active');
                 if (scoutLoaded == false) { // Ensures that the function is only called once
                     loadPitForm();
@@ -756,7 +772,12 @@
                 }
             });
             $('#view-tab').click(function() {
-                $('#scout-form').hide();
+                $.post("/getTeamReports", {teamNumber: data.team, reportContext: "pit"}, function(response){
+                    var reports = JSON.parse(response);
+                    loadDataViewer("#view-pit-reports", reports);
+                });
+                $('#form-preview').hide();
+                $('.submit-match').hide();
                 $('#view-match-reports').hide();
                 $('#gallery').hide();
                 $('#view-regional-results').hide();
@@ -775,7 +796,8 @@
             });
             $('#viewMatches-tab').click(function() {
                 $('#view-pit-reports').hide();
-                $('#scout-form').hide();
+                $('#form-preview').hide();
+                $('.submit-match').hide();
                 $('#gallery').hide();
                 $('#view-regional-results').hide();
                 $('#view-team-stats').hide();
@@ -794,7 +816,8 @@
             $('#gallery-tab').click(function() {
                 $('#view-pit-reports').hide();
                 $('#view-match-reports').hide();
-                $('#scout-form').hide();
+                $('#form-preview').hide();
+                $('.submit-match').hide();
                 $('#view-regional-results').hide();
                 $('#view-team-stats').hide();
                 $('#scout-tab').removeClass('active');
@@ -813,7 +836,8 @@
                 $('#view-pit-reports').hide();
                 $('#view-match-reports').hide();
                 $('#gallery').hide();
-                $('#scout-form').hide();
+                $('#form-preview').hide();
+                $('.submit-match').hide();
                 $('#view-team-stats').hide();
                 $('#scout-tab').removeClass('active');
                 $('#view-tab').removeClass('active');
@@ -832,7 +856,8 @@
                 $('#view-match-reports').hide();
                 $('#gallery').hide();
                 $('#view-regional-results').hide();
-                $('#scout-form').hide();
+                $('#form-preview').hide();
+                $('.submit-match').hide();
                 $('#scout-tab').removeClass('active');
                 $('#view-tab').removeClass('active');
                 $('#viewMatches-tab').removeClass('active');
