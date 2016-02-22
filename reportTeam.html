@@ -76,7 +76,7 @@
                         <li id="view-tab"><a href="javascript: void(0);">View Pit Reports</a></li>
                         <li id="viewMatches-tab"><a href="javascript: void(0);">View Match Reports</a></li>
                         <li id="gallery-tab"><a href="javascript: void(0);">Gallery</a></li>
-                        <li id="regional-tab"><a href="javascript: void(0);">View Regional Results</a></li>
+                        <li id="regional-tab"><a href="javascript: void(0);">View Event Awards</a></li>
                         <li id="stats-tab"><a href="javascript: void(0);">View Team Stats</a></li>
 
                     </ul>
@@ -594,8 +594,8 @@
             </div>
 
             <div id="view-regional-results">
-                <h3 class="page-title">Los Angeles Regional</h3>
-                <table class="matches-table" id="matches-table">
+                <h3 class="page-title loading-results">Loading...</h3>
+                <!-- <table class="matches-table" id="matches-table">
                     <tr>
                         <th>Stat</th>
                         <th>Data Value</th>
@@ -612,7 +612,7 @@
                         <td>Points Scored Overall</td>
                         <td>1200</td>
                     </tr>
-                </table>
+                </table> -->
             </div>
 
             <div id="view-team-stats">
@@ -658,6 +658,46 @@
 
             $("#submit-match-report").on("click", function(){
                 getScoutFormValues("pit");
+            });
+
+            $.post("/getPastRegionalResults", {teamNumber: data.team}, function(response){
+                var awards = JSON.parse(response);
+                $(".loading-results").hide();
+                var div = $("#view-regional-results");
+                div.empty();
+                var noAwards = 0;
+                for (var event in awards){
+                    if (awards[event].length > 0){
+                        // var h3 = $(document.createElement("h3"));
+                        // h3.addClass("page-title");
+                        // h3.html(event);
+                        var table = $(document.createElement("table"));
+                        table.addClass("matches-table");
+                        var tr = $(document.createElement("tr"));
+                        var th = $(document.createElement("th"));
+                        th.html(event);
+                        tr.append(th);
+                        table.append(tr);
+                        for (var i = 0; i < awards[event].length; i++){
+                            var tr = $(document.createElement("tr"));
+                            var td = $(document.createElement("td"));
+                            td.html(awards[event][i]);
+                            tr.append(td);
+                            table.append(tr);
+                        }
+                        div.append(h3);
+                        div.append(table);
+                    }
+                    else {
+                        noAwards++;
+                        if (noAwards == Object.keys(awards).length){
+                            var h3 = $(document.createElement("h3"));
+                            h3.addClass("page-title");
+                            h3.html("This team has won no awards this year");
+                            div.append(h3);
+                        }
+                    }
+                }
             });
 
             $.post("/getTeamInfo", {
