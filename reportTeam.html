@@ -668,7 +668,7 @@
                 var tr = $(document.createElement("tr"));
                 tr.attr("id", "first-matches-row");
                 var th = $(document.createElement("th"));
-                th.html("Data Points");
+                //th.html("Data Points");
                 tr.append(th);
                 table.append(tr);
                 $("#first-matches-row").append(th);
@@ -720,7 +720,6 @@
                         if (!found){
                             td.html("--");
                         }
-                        console.log($("tr[data-name='" + allDataPoints[i].name + "']"))
                         $("tr[data-name='" + allDataPoints[i] + "']").append(td);
                     }
                 }
