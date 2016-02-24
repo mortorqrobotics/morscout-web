@@ -112,7 +112,10 @@ $.post("/getTeammatesInfo", {}, function(response){
 function synthesizeForm(dataPoints) {
 	$('#form-preview').empty();
 	var form = $('#form-preview');
-	var oneColumn = true;
+	var colNum = 1;
+	var colHolder = $(document.createElement('div'));
+	colHolder.addClass('col-md-12');
+	form.append(colHolder);
 	for (var index = 0; index < dataPoints.length; index++) (function() {
 		var i = index;
 		var dataPoint = dataPoints[i];
@@ -149,7 +152,7 @@ function synthesizeForm(dataPoints) {
 			var p = $(document.createElement("p"));
 			p.addClass("report-text");
 			p.html(dpName);
-			form.append(div);
+			colHolder.append(div);
 
 		} else if (dpType == "dropdown") {
 			var div = $(document.createElement('div'));
@@ -176,7 +179,7 @@ function synthesizeForm(dataPoints) {
 			p.html(dpName + ": ");
 			div.append(p);
 			div.append(select);
-			form.append(div)
+			colHolder.append(div)
 		} else if (dpType == "number") {
 			var div = $(document.createElement('div'));
 			div.addClass("number inp");
@@ -240,7 +243,7 @@ function synthesizeForm(dataPoints) {
 			div.append(inputSubtract);
 			div.append(inputBox);
 			div.append(inputAdd);
-			form.append(div);
+			colHolder.append(div);
 		} else if (dpType == "checkbox") {
 			var div = $(document.createElement('div'));
 			div.addClass("checkbox inp");
@@ -261,22 +264,18 @@ function synthesizeForm(dataPoints) {
 			label.html(dpName);
 			div.append(input);
 			div.append(label);
-			form.append(div);
+			colHolder.append(div);
 		} else if (dpType == "label") {
 			var div = $(document.createElement('div'));
-			div.addClass("label inp");
-			// if (oneColumn == true) {
-			//   div.addClass('col-md-12');
-			//   oneColumn = false;
-			// }
-			// else {
-			//   div.addClass('col-md-6');
-			// }
+			colHolder = $(document.createElement('div'));
+			colHolder.addClass('col-md-6');
+			colNum++;
+			form.append(colHolder);
 			var h3 = $(document.createElement("h3"));
 			h3.addClass("scout-div-title");
 			h3.html(dpName);
 			div.append(h3);
-			form.append(div);
+			colHolder.append(div);
 		} else if (dpType == "text") {
 			var div = $(document.createElement('div'));
 			div.addClass("text inp");
@@ -291,9 +290,9 @@ function synthesizeForm(dataPoints) {
 			textarea.addClass("report-area");
 			textarea.attr("placeholder", dpName);
 			div.append(textarea);
-			form.append(div);
+			colHolder.append(div);
 		}
-		$('#form-preview').append("</br></br>");
+		// $('#form-preview').append("</br></br>");
 	})();
 }
 
