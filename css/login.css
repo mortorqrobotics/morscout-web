@@ -65,7 +65,7 @@ hr{
  /* NOTICE: PLEASE DO NOT CHANGE ANY STYLES FOR THIS ELEMENT, IT WAS CAREFULLY DESIGNED TO CENTER IN THE FORM */
 
 
-	color: #FFC547; /* text color of "remember me" text */
+	color: black; /* text color of "remember me" text */
 	margin-top: .4em; /* top margin of "remember me" text */
 	margin-left: auto; /* to center "remember me" text */
 	margin-right: auto; /* to center "remember me" text */
@@ -141,7 +141,7 @@ input:focus {
 
 .login-wrapper{
 	margin-top: 30vh; /* distance of login form from top of page (most likely not to be changed) */
-	color: #FFC547; /* color of [typed] text in username and password text boxes */
+	color: black; /* color of [typed] text in username and password text boxes */
 }
 
 .login-wrapper input{

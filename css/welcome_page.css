@@ -28,7 +28,7 @@
 }
 
 .odd-row-text{
-	color: #FFC547;
+	color: black;
 	margin: 0px 100px 0px 600px;
 	text-align: center;
 	font-family: 'Exo 2', sans-serif;
@@ -39,7 +39,7 @@
   -webkit-transform: translateY(-50%);
 }
 .even-row-text{
-	color: #FFC547;
+	color: black;
 	margin: 0px 600px 0px 100px;
 	text-align: center;
 	font-family: 'Exo 2', sans-serif;

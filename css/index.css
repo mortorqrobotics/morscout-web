@@ -133,7 +133,7 @@ background-color: #EE7600; /* color of background of selected link in nav bar */
 }
 
 .navbar-default .navbar-toggle .icon-bar {
-    background-color: black; /* sets color of the foreground(I know, it's weird) of the hamburger menu toggle button */
+    background-color: #FFC547; /* sets color of the foreground(I know, it's weird) of the hamburger menu toggle button */
 }
 
 .search-drop-list-item{
@@ -222,14 +222,14 @@ background-color: #EE7600; /* color of background of selected link in nav bar */
 }
 
 .main-welcome h1 {
-	color: #FFC547; /* sets large "MorScout" text color to #FFC547 */
+	color: black; /* sets large "MorScout" text color to #FFC547 */
 	font-size: 8em; /* sets font size of large "MorScout" text */
 	text-align: center; /* horizontal alignment of large "MorScout" text */
 }
 
 .main-welcome h3, #form-holder h2, #form-preview h2, .container h2 {
   text-align:center; /* horizontal alignment of small "Welcome to MorScout" text */
-  color: #FFC547; /* sets font color of small "Welcome to MorScout" text */
+  color: black; /* sets font color of small "Welcome to MorScout" text */
   max-width: 15em;
   margin-left: auto;
   margin-right: auto;
@@ -255,7 +255,7 @@ background-color: #EE7600; /* color of background of selected link in nav bar */
 	position: fixed; /* position of loading message is static (not to be changed) */
 	top: 45%; /* distance from top of loading message */
 	text-align: center; /* horizontal alignment of loading message */
-	color: #FFC547; /* text color of loading message */
+	color: black; /* text color of loading message */
 	font-family: 'Exo 2', sans-serif; /* font of loading message */
 }
 .roww {
@@ -272,7 +272,7 @@ background-color: #EE7600; /* color of background of selected link in nav bar */
 .QApair{
 	margin: 1em; /* margin of question and answer pair on help page */
 	margin-bottom: 3em; /* bottom margin of question and answer pair on help page */
-	border: 0.1em solid #FFC547; /* border of question and answer pair on help page */
+	border: 0.1em solid black; /* border of question and answer pair on help page */
 	max-width: 55em;
 	margin-left: auto;
 	margin-right: auto;
@@ -304,7 +304,7 @@ background-color: #EE7600; /* color of background of selected link in nav bar */
 .noDataMsg{
 	font-size: 3.6em;
 	font-family: 'Exo 2', sans-serif;
-	color: #FFC547;
+	color: black;
 }
 .pitScouted{
 	background-color: #FFC547 !important;
@@ -318,10 +318,11 @@ background-color: #EE7600; /* color of background of selected link in nav bar */
 /* TABLE STYLES */
 
 table, th, td {
-    border: 1px solid black; /* sets border width, style, and color for all table cells */
+  border: 1px solid black; /* sets border width, style, and color for all table cells */
 	border-collapse: collapse; /* collapses cell borders (not to be changed) */
 	font-size: 1.4em; /* sets font size of text in table cells */
 	text-align: center; /* horizontal alignment of text in table cells */
+  background-color: white;
 }
 
 th,td {
@@ -499,7 +500,7 @@ hr{
  /* NOTICE: PLEASE DO NOT CHANGE ANY STYLES FOR THIS ELEMENT, IT WAS CAREFULLY DESIGNED TO CENTER IN THE FORM */
 
 
-	color: #FFC547; /* text color of "remember me" text */
+	color: black; /* text color of "remember me" text */
 	margin-top: .4em; /* top margin of "remember me" text */
 	margin-left: auto; /* to center "remember me" text */
 	margin-right: auto; /* to center "remember me" text */
@@ -575,13 +576,13 @@ input:focus {
 
 .login-wrapper{
 	margin-top: 30vh; /* distance of login form from top of page (most likely not to be changed) */
-	color: #FFC547; /* color of [typed] text in username and password text boxes */
-	background-color: black; /* background color of login form */
+	color: black; /* color of [typed] text in username and password text boxes */
+	background-color: #FFC547; /* background color of login form */
 }
 
 .login-wrapper input{
 	border: .1em solid #FFC547; /* border width, style, and color of text boxes and login button */
-	background-color: black; /* background color of username and password text boxes */
+	background-color: #FFC547; /* background color of username and password text boxes */
 }
 
 #login-button:hover {
@@ -595,7 +596,7 @@ input:focus {
 
 .report h2 {
 	display: inline; /* makes "Match # - time" text display on one line (not to be changed) */
-	color: #FFC547; /* color of "Match # - time" text */
+	color: black; /* color of "Match # - time" text */
 	font-family: 'Exo 2', sans-serif; /* font of "Match # - time" text */
 
 }
@@ -654,7 +655,7 @@ body {
 	display: block;
 }
 .scout-div{
-	color: #FFC547;
+	color: black;
 	text-align: left;
 	margin-bottom: 3em;
 	margin-top: 0 !important;
@@ -687,7 +688,7 @@ body {
 	margin: 0.3em;
 	font-weight: normal;
 	margin-bottom: 0.5em;
-    color: #FFC547;
+    color: black;
 }
 #report-box-small, .report-box-small{
 	margin: .3em;
@@ -697,7 +698,7 @@ body {
 	padding-top: 0;
 	background-color: #333333;
 	border: 1px solid #FFC547;
-	color: #FFC547;
+	color: black;
 	font-weight: bold;
 	text-align: center;
 	height: 1.5em;
@@ -710,7 +711,7 @@ body {
 	padding-top: 0;
 	background-color: #333333;
 	border: 1px solid #FFC547;
-	color: #FFC547;
+	color: black;
 	font-weight: bold;
 	text-align: center;
 	height: 1.5em;
@@ -721,7 +722,7 @@ body {
 	font-size: 1.6em;
 	padding: .1em;
 	background-color: #333333;
-	color: #FFC547;
+	color: black;
 	font-weight: bold;
 	text-align: center;
 	-webkit-appearance: none;
@@ -744,7 +745,7 @@ body {
 	padding-bottom: 0.33em;
 	margin-top: 1em !important;
 	font-weight: bold !important;
-    color: #FFC547;
+    color: black;
 }
 
 input[type=number]::-webkit-inner-spin-button,
@@ -779,7 +780,7 @@ input[type=radio]:checked + label:before {
 	position: absolute;
     content: "\2022";
     font-size: 2.3em;
-    color: #FFC547;
+    color: black;
     text-align: center;
     line-height: .130em;
     bottom: 0.05em;
@@ -788,7 +789,7 @@ input[type=checkbox]:checked + label:before {
 	position: absolute;
     content: "\2713";
     font-size: 15px;
-    color: #FFC547;
+    color: black;
     text-align: center;
     line-height: 15px;
     bottom: 0.15em;
@@ -814,7 +815,7 @@ label:before {
 	border-radius:0;
 	cursor:pointer;
 	background-color: #333333;
-	color: #FFC547;
+	color: black;
 	font-size: 1.6em;
 	font-family: 'Exo 2', sans-serif;
 	display: inline-block;
@@ -827,7 +828,7 @@ label:before {
 	background: url(http://i59.tinypic.com/2uz5v0g.jpg) no-repeat right;
 	border-radius:0;
 	cursor:pointer;
-	color: #FFC547;
+	color: black;
 	background-color: #333333;
 	font-size: 1.6em;
 	}
@@ -910,7 +911,7 @@ label:before {
 
 #report-tabs a{
 	font-size: 2em;
-	color: #FFC547;
+	color: black;
 	font-family: 'Exo 2', sans-serif;
 }
 #report-tabs a:hover{
@@ -954,7 +955,7 @@ label:before {
 	position: absolute;
 	width:18em;
 	left:0;
-	background-color: black;
+	background-color: #FFC547;
 }
 .fixed-col-table{
 	margin-left: 32.9em;
@@ -978,7 +979,7 @@ label:before {
 
 .reportID{
 	font-family: 'Exo 2', sans-serif;
-	color: #FFC547;
+	color: black;
 	margin-bottom: 0em;
 	font-size: 2em;
 	margin-top: 1em;
@@ -1001,7 +1002,7 @@ label:before {
 .settings-option{
 	margin-top: 4em; /* top margin of each settings option */
 	margin-bottom: 4em; /* bottom margin of each settings option */
-	color: #FFC547; /* color of text in settings */
+	color: black; /* color of text in settings */
 	font-family: 'Exo 2', sans-serif; /* font of text in settings */
 	display: block; /* to make elements appear on new line (not to be changed) */
 	text-align: center; /* horizontal alignment of each setting in its respective column */
@@ -1204,7 +1205,7 @@ margin-top: 4em; /* distance of grid of settings from top of page */
 	input[type=checkbox]:checked + label:before {
 	    content: "\2713";
 	    font-size: 5vw;
-	    color: #FFC547;
+	    color: black;
 	    text-align: center;
 	    line-height: 4.5vw;
 	}

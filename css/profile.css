@@ -88,7 +88,7 @@
 
 .scout-div-title {
 	font-family: 'Exo 2', sans-serif !important;
-	color: #FFC547;
+	color: black;
 	margin-left: 5em;
 	text-align: center !important;
 }
@@ -155,10 +155,6 @@
 	margin-left: 0em;
 	font-size: 2.5em;
 	font-size:2em;
-}
-
-.profile-#FFC547 {
-	color: #FFC547 !important;
 }
 
 #first-word{
