@@ -12,8 +12,8 @@
 
 .btn-primary.regional-dropdown {
     color: black !important;
-    background-color: orange !important;
-    border-color: orange !important;
+    background-color: #FFC547 !important;
+    border-color: #FFC547 !important;
 }
 
 #year-box {
@@ -32,11 +32,11 @@
 	color: black; /* text color of button */
 	text-align: center; /* horizontal alignment of text of button */
 	font-size: 2em; /* font size of button */
-	background-color: orange; /* background color of button */
+	background-color: #FFC547; /* background color of button */
 	margin-top:.3em; /* top margin of button */
 }
 hr{
-    border-color: orange;
+    border-color: #FFC547;
 }
 #signup-button {
 	height:2.2em;
@@ -44,7 +44,7 @@ hr{
 	color: black;
 	text-align: center;
 	font-size: 2em;
-	background-color: orange;
+	background-color: #FFC547;
 	margin-top:1.0em;
 }
 
@@ -56,7 +56,7 @@ hr{
 	color: black;
 	text-align: center;
 	font-size: 2em;
-	background-color: orange;
+	background-color: #FFC547;
 	margin-top:.0em;
 }s
 
@@ -65,7 +65,7 @@ hr{
  /* NOTICE: PLEASE DO NOT CHANGE ANY STYLES FOR THIS ELEMENT, IT WAS CAREFULLY DESIGNED TO CENTER IN THE FORM */
 
 
-	color: orange; /* text color of "remember me" text */
+	color: #FFC547; /* text color of "remember me" text */
 	margin-top: .4em; /* top margin of "remember me" text */
 	margin-left: auto; /* to center "remember me" text */
 	margin-right: auto; /* to center "remember me" text */
@@ -141,13 +141,11 @@ input:focus {
 
 .login-wrapper{
 	margin-top: 30vh; /* distance of login form from top of page (most likely not to be changed) */
-	color: orange; /* color of [typed] text in username and password text boxes */
-	background-color: black; /* background color of login form */
+	color: #FFC547; /* color of [typed] text in username and password text boxes */
 }
 
 .login-wrapper input{
-	border: .1em solid orange; /* border width, style, and color of text boxes and login button */
-	background-color: black; /* background color of username and password text boxes */
+	border: .1em solid #FFC547; /* border width, style, and color of text boxes and login button */
 }
 
 #login-button:hover{

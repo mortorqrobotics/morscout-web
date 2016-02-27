@@ -77,7 +77,7 @@
         <div class="assignments">
           <h1 class="scout-div-title profile-div-title">Assignments</h1>
           <ul id="task-list">
-            <!-- <li class="profile-orange profile-li-font">From Match 1 to 10, Red Alliance, Team 2</li> -->
+            <!-- <li class="profile- profile-li-font">From Match 1 to 10, Red Alliance, Team 2</li> -->
           </ul>
         </div>
       </div>
@@ -86,12 +86,12 @@
         <div class="stats">
           <h1 class="scout-div-title profile-div-title">Statistics</h1>
           <ul>
-            <li class="orange profile-li-font">Match Reports Made: <span id="matches-scouted-label"></span></li>
-            <li class="orange profile-li-font">Pit Reports Made: <span id="pits-scouted-label"></span></li>
-            <li class="orange profile-li-font">Unique Teams Scouted: <span id="teams-scouted-label"></span></li>
-            <li class="orange profile-li-font">Assigned Matches Completed: <span id="complete-matches-label"></span></li>
-            <li class="orange profile-li-font">Assigned Matches Not Completed: <span id="not-complete-matches-label"></span></li>
-            <li class="orange profile-li-font">Assignment Completion: <span id="completion-label"></span></li>
+            <li class="profile-li-font">Match Reports Made: <span id="matches-scouted-label"></span></li>
+            <li class="profile-li-font">Pit Reports Made: <span id="pits-scouted-label"></span></li>
+            <li class="profile-li-font">Unique Teams Scouted: <span id="teams-scouted-label"></span></li>
+            <li class="profile-li-font">Assigned Matches Completed: <span id="complete-matches-label"></span></li>
+            <li class="profile-li-font">Assigned Matches Not Completed: <span id="not-complete-matches-label"></span></li>
+            <li class="profile-li-font">Assignment Completion: <span id="completion-label"></span></li>
           </div>
         </div>
 
@@ -162,7 +162,7 @@
             for (var i = 0; i < tasks.assignments.length; i++){
                 var task = tasks.assignments[i];
                 var li = $(document.createElement("li"));
-                li.addClass("profile-orange profile-li-font");
+                li.addClass("profile- profile-li-font");
                 li.html("From match " + task.startMatch + " to " + task.endMatch + ", " + task.alliance.substring(0, 1).toUpperCase() + task.alliance.substring(1) + " Alliance, Team " + task.teamSection)
                 taskList.append(li);
             }

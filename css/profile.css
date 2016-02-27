@@ -1,5 +1,5 @@
 .left-bar{
-	background-color: orange;
+	background-color: #FFC547;
 	width: 30em;
 	height: calc(100% - 3em);
 	position: fixed;
@@ -88,7 +88,7 @@
 
 .scout-div-title {
 	font-family: 'Exo 2', sans-serif !important;
-	color: orange;
+	color: #FFC547;
 	margin-left: 5em;
 	text-align: center !important;
 }
@@ -147,7 +147,7 @@
 .task-dropdown {
     height: 1.6em;
     font-size: 1.5em;
-    background-color: orange;
+    background-color: #FFC547;
     margin: 0px 7px 7px 1em;
 }
 
@@ -157,8 +157,8 @@
 	font-size:2em;
 }
 
-.profile-orange {
-	color: orange !important;
+.profile-#FFC547 {
+	color: #FFC547 !important;
 }
 
 #first-word{
@@ -175,5 +175,5 @@
 }
 
 .profile-li-font:before {
-	color:orange;
+	color:#FFC547;
 }

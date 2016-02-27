@@ -71,7 +71,7 @@ html{
 }
 
 body {
-    background: #000000; /* background color */
+    background: #E9E9E9; /* background color */
 	font-size: 100%; /* makes default px size of elements equal to 1em (not to be changed) */
 }
 
@@ -81,7 +81,7 @@ body {
 }
 
 .navbar-default .container-fluid {
-  background-color: orange; /* color of nav bar */
+  background-color: #FFC547; /* color of nav bar */
   font-family: 'Open Sans', sans-serif; /* font of nav bar links */
   width: 100%; /* width of nav bar (not to be changed) */
 }
@@ -122,7 +122,7 @@ background-color: #EE7600; /* color of background of selected link in nav bar */
 }
 
 #toggle-button{
-	background-color: orange; /* sets background color for background of hamburger menu toggle button */
+	background-color: #FFC547; /* sets background color for background of hamburger menu toggle button */
 	border:0; /* removes border of hamburger menu toggle button (most likely not to be changed) */
 	border-radius: 0; /* gives hamburger menu toggle button sharp corners */
 }
@@ -222,14 +222,14 @@ background-color: #EE7600; /* color of background of selected link in nav bar */
 }
 
 .main-welcome h1 {
-	color: orange; /* sets large "MorScout" text color to orange */
+	color: #FFC547; /* sets large "MorScout" text color to #FFC547 */
 	font-size: 8em; /* sets font size of large "MorScout" text */
 	text-align: center; /* horizontal alignment of large "MorScout" text */
 }
 
 .main-welcome h3, #form-holder h2, #form-preview h2, .container h2 {
   text-align:center; /* horizontal alignment of small "Welcome to MorScout" text */
-  color: orange; /* sets font color of small "Welcome to MorScout" text */
+  color: #FFC547; /* sets font color of small "Welcome to MorScout" text */
   max-width: 15em;
   margin-left: auto;
   margin-right: auto;
@@ -239,16 +239,13 @@ background-color: #EE7600; /* color of background of selected link in nav bar */
 
 /* GENERAL STYLES */
 
-.orange {
-  color: orange;
-}
 #form-preview{
     font-family: 'Exo 2', sans-serif;
 }
 
 .page-title {
 	font-family: 'Exo 2', sans-serif; /* font of page title */
-	color: orange; /* font color of page title */
+	color: black; /* font color of page title */
 	margin-top: 5em; /* distance of page title from top */
 	text-align: center !important; /* aligns page title to center */
 }
@@ -258,14 +255,14 @@ background-color: #EE7600; /* color of background of selected link in nav bar */
 	position: fixed; /* position of loading message is static (not to be changed) */
 	top: 45%; /* distance from top of loading message */
 	text-align: center; /* horizontal alignment of loading message */
-	color: orange; /* text color of loading message */
+	color: #FFC547; /* text color of loading message */
 	font-family: 'Exo 2', sans-serif; /* font of loading message */
 }
 .roww {
     font-family: 'Exo 2', sans-serif;
 }
 .normal-text p{
-	color: orange; /* color of text for writing anything which isn't of any special section */
+	color: black; /* color of text for writing anything which isn't of any special section */
 	margin: 1em; /* margin for writing anything which isn't of any special section */
 	font-size: 1.8em; /* font size for writing anything which isn't of any special section */
 }
@@ -275,7 +272,7 @@ background-color: #EE7600; /* color of background of selected link in nav bar */
 .QApair{
 	margin: 1em; /* margin of question and answer pair on help page */
 	margin-bottom: 3em; /* bottom margin of question and answer pair on help page */
-	border: 0.1em solid orange; /* border of question and answer pair on help page */
+	border: 0.1em solid #FFC547; /* border of question and answer pair on help page */
 	max-width: 55em;
 	margin-left: auto;
 	margin-right: auto;
@@ -307,10 +304,10 @@ background-color: #EE7600; /* color of background of selected link in nav bar */
 .noDataMsg{
 	font-size: 3.6em;
 	font-family: 'Exo 2', sans-serif;
-	color: orange;
+	color: #FFC547;
 }
 .pitScouted{
-	background-color: orange !important;
+	background-color: #FFC547 !important;
 	color: black;
 }
 .underline {
@@ -321,7 +318,7 @@ background-color: #EE7600; /* color of background of selected link in nav bar */
 /* TABLE STYLES */
 
 table, th, td {
-    border: 1px solid white; /* sets border width, style, and color for all table cells */
+    border: 1px solid black; /* sets border width, style, and color for all table cells */
 	border-collapse: collapse; /* collapses cell borders (not to be changed) */
 	font-size: 1.4em; /* sets font size of text in table cells */
 	text-align: center; /* horizontal alignment of text in table cells */
@@ -332,7 +329,7 @@ th,td {
 }
 
 .matches-table, .teams-table{
-	color: orange; /* color of text in all matches and all teams tables */
+	color: black; /* color of text in all matches and all teams tables */
 	width: 90%; /* width of all matches table */
 	margin: 1.4em auto; /* margin of all matches and all teams table */
 	margin-bottom: 2em; /* distance of tables from bottom of page */
@@ -355,11 +352,11 @@ th,td {
 }
 
 .odd-row {
-	background-color: #303030; /* background color of odd rows in tables */
+	background-color: #FFC547; /* background color of odd rows in tables */
 }
 
 .current-match{
-	background-color: orange !important; /* background-color of current match row in matches table */
+	background-color: #FFC547 !important; /* background-color of current match row in matches table */
 	color: black !important; /* text color of current match row */
 	line-height: 6vh; /* height of current match row */
 }
@@ -421,7 +418,7 @@ th,td {
 	color: #CCCCCC;
 }
 .selfTeamHighlight{
-	background-color: DarkOrange;
+	background-color: Dark#FFC547;
 	color: black;
 }
 
@@ -448,8 +445,8 @@ th,td {
 
 .btn-primary.regional-dropdown {
     color: black !important;
-    background-color: orange !important;
-    border-color: orange !important;
+    background-color: #FFC547 !important;
+    border-color: #FFC547 !important;
 }
 
 #year-box {
@@ -468,12 +465,12 @@ th,td {
 	color: black; /* text color of button */
 	text-align: center; /* horizontal alignment of text of button */
 	font-size: 2em; /* font size of button */
-	background-color: orange; /* background color of button */
+	background-color: #FFC547; /* background color of button */
 	margin-top:.3em; /* top margin of button */
 }
 
 hr{
-    border-color: orange;
+    border-color: #FFC547;
 }
 #signup-button {
 	height:2.2em;
@@ -481,7 +478,7 @@ hr{
 	color: black;
 	text-align: center;
 	font-size: 2em;
-	background-color: orange;
+	background-color: #FFC547;
 	margin-top:1.0em;
 }
 
@@ -493,7 +490,7 @@ hr{
 	color: black;
 	text-align: center;
 	font-size: 2em;
-	background-color: orange;
+	background-color: #FFC547;
 	margin-top:.0em;
 }s
 
@@ -502,7 +499,7 @@ hr{
  /* NOTICE: PLEASE DO NOT CHANGE ANY STYLES FOR THIS ELEMENT, IT WAS CAREFULLY DESIGNED TO CENTER IN THE FORM */
 
 
-	color: orange; /* text color of "remember me" text */
+	color: #FFC547; /* text color of "remember me" text */
 	margin-top: .4em; /* top margin of "remember me" text */
 	margin-left: auto; /* to center "remember me" text */
 	margin-right: auto; /* to center "remember me" text */
@@ -578,12 +575,12 @@ input:focus {
 
 .login-wrapper{
 	margin-top: 30vh; /* distance of login form from top of page (most likely not to be changed) */
-	color: orange; /* color of [typed] text in username and password text boxes */
+	color: #FFC547; /* color of [typed] text in username and password text boxes */
 	background-color: black; /* background color of login form */
 }
 
 .login-wrapper input{
-	border: .1em solid orange; /* border width, style, and color of text boxes and login button */
+	border: .1em solid #FFC547; /* border width, style, and color of text boxes and login button */
 	background-color: black; /* background color of username and password text boxes */
 }
 
@@ -598,7 +595,7 @@ input:focus {
 
 .report h2 {
 	display: inline; /* makes "Match # - time" text display on one line (not to be changed) */
-	color: orange; /* color of "Match # - time" text */
+	color: #FFC547; /* color of "Match # - time" text */
 	font-family: 'Exo 2', sans-serif; /* font of "Match # - time" text */
 
 }
@@ -657,7 +654,7 @@ body {
 	display: block;
 }
 .scout-div{
-	color: orange;
+	color: #FFC547;
 	text-align: left;
 	margin-bottom: 3em;
 	margin-top: 0 !important;
@@ -690,7 +687,7 @@ body {
 	margin: 0.3em;
 	font-weight: normal;
 	margin-bottom: 0.5em;
-    color: orange;
+    color: #FFC547;
 }
 #report-box-small, .report-box-small{
 	margin: .3em;
@@ -699,8 +696,8 @@ body {
 	padding: .1em;
 	padding-top: 0;
 	background-color: #333333;
-	border: 1px solid orange;
-	color: orange;
+	border: 1px solid #FFC547;
+	color: #FFC547;
 	font-weight: bold;
 	text-align: center;
 	height: 1.5em;
@@ -712,8 +709,8 @@ body {
 	padding: .1em;
 	padding-top: 0;
 	background-color: #333333;
-	border: 1px solid orange;
-	color: orange;
+	border: 1px solid #FFC547;
+	color: #FFC547;
 	font-weight: bold;
 	text-align: center;
 	height: 1.5em;
@@ -724,11 +721,11 @@ body {
 	font-size: 1.6em;
 	padding: .1em;
 	background-color: #333333;
-	color: orange;
+	color: #FFC547;
 	font-weight: bold;
 	text-align: center;
 	-webkit-appearance: none;
-	border: 1px solid orange;
+	border: 1px solid #FFC547;
 	padding-left: 1px;
 	padding-left: .3em;
 }
@@ -747,7 +744,7 @@ body {
 	padding-bottom: 0.33em;
 	margin-top: 1em !important;
 	font-weight: bold !important;
-    color: orange;
+    color: #FFC547;
 }
 
 input[type=number]::-webkit-inner-spin-button,
@@ -782,7 +779,7 @@ input[type=radio]:checked + label:before {
 	position: absolute;
     content: "\2022";
     font-size: 2.3em;
-    color: orange;
+    color: #FFC547;
     text-align: center;
     line-height: .130em;
     bottom: 0.05em;
@@ -791,7 +788,7 @@ input[type=checkbox]:checked + label:before {
 	position: absolute;
     content: "\2713";
     font-size: 15px;
-    color: orange;
+    color: #FFC547;
     text-align: center;
     line-height: 15px;
     bottom: 0.15em;
@@ -811,13 +808,13 @@ label:before {
 }
 .selectdiv{
 	width:7em;
-	border:1px solid orange;
+	border:1px solid #FFC547;
 	height:1.6em;
 	background:url(http://i59.tinypic.com/2uz5v0g.jpg) no-repeat right center;
 	border-radius:0;
 	cursor:pointer;
 	background-color: #333333;
-	color: orange;
+	color: #FFC547;
 	font-size: 1.6em;
 	font-family: 'Exo 2', sans-serif;
 	display: inline-block;
@@ -825,12 +822,12 @@ label:before {
 	}
 .selectdiv:hover, .selectdiv:focus {
 	width:7em;
-	border:1px solid orange;
+	border:1px solid #FFC547;
 	height:1.6em;
 	background: url(http://i59.tinypic.com/2uz5v0g.jpg) no-repeat right;
 	border-radius:0;
 	cursor:pointer;
-	color: orange;
+	color: #FFC547;
 	background-color: #333333;
 	font-size: 1.6em;
 	}
@@ -867,7 +864,7 @@ label:before {
 	margin-bottom: 1em;
 	margin-top: 0.5em;
 	border-radius: .2em;
-	background-color: orange;
+	background-color: #FFC547;
 	color: black;
 	font-family: 'Exo 2', sans-serif;
 	padding-top: 0.1em;
@@ -881,7 +878,7 @@ label:before {
 	margin-bottom: 1em;
 	margin-top: 0.5em;
 	border-radius: .2em;
-	background-color: orange;
+	background-color: #FFC547;
 	color: black;
 	font-family: 'Exo 2', sans-serif;
 	padding-top: 0.1em;
@@ -894,7 +891,7 @@ label:before {
 	padding-left: .2em;
 	padding-right: .2em;
 	border-radius: .2em;
-	background-color: orange;
+	background-color: #FFC547;
 	color: black;
 	font-family: 'Exo 2', sans-serif;
 	padding-top:0px;
@@ -913,7 +910,7 @@ label:before {
 
 #report-tabs a{
 	font-size: 2em;
-	color: orange;
+	color: #FFC547;
 	font-family: 'Exo 2', sans-serif;
 }
 #report-tabs a:hover{
@@ -923,14 +920,14 @@ label:before {
 .creator-dropdown {
     height: 30px;
     font-size: 20px;
-    background-color: orange;
+    background-color: #FFC547;
     margin: 0px 7px 7px 0px;
 }
 #report-tabs .active a{
 	font-size: 2em;
 	color: black;
 	font-family: 'Exo 2', sans-serif;
-	background-color: orange;
+	background-color: #FFC547;
 	border-top: none;
 	border-left: none;
 	border-right: none;
@@ -981,7 +978,7 @@ label:before {
 
 .reportID{
 	font-family: 'Exo 2', sans-serif;
-	color: orange;
+	color: #FFC547;
 	margin-bottom: 0em;
 	font-size: 2em;
 	margin-top: 1em;
@@ -1004,7 +1001,7 @@ label:before {
 .settings-option{
 	margin-top: 4em; /* top margin of each settings option */
 	margin-bottom: 4em; /* bottom margin of each settings option */
-	color: orange; /* color of text in settings */
+	color: #FFC547; /* color of text in settings */
 	font-family: 'Exo 2', sans-serif; /* font of text in settings */
 	display: block; /* to make elements appear on new line (not to be changed) */
 	text-align: center; /* horizontal alignment of each setting in its respective column */
@@ -1207,7 +1204,7 @@ margin-top: 4em; /* distance of grid of settings from top of page */
 	input[type=checkbox]:checked + label:before {
 	    content: "\2713";
 	    font-size: 5vw;
-	    color: orange;
+	    color: #FFC547;
 	    text-align: center;
 	    line-height: 4.5vw;
 	}

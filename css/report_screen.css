@@ -1,6 +1,6 @@
 .report h2 {
 	display: inline; /* makes "Match # - time" text display on one line (not to be changed) */
-	color: orange; /* color of "Match # - time" text */
+	color: #FFC547; /* color of "Match # - time" text */
 	font-family: 'Exo 2', sans-serif; /* font of "Match # - time" text */
 
 }
@@ -55,7 +55,7 @@
 	display: block;
 }
 .scout-div{
-	color: orange;
+	color: #FFC547;
 	text-align: left;
 	margin-bottom: 3em;
 	margin-top: 0 !important;
@@ -96,8 +96,8 @@
 	padding: .1em;
 	padding-top: 0;
 	background-color: #333333;
-	border: 1px solid orange;
-	color: orange;
+	border: 1px solid #FFC547;
+	color: #FFC547;
 	font-weight: bold;
 	text-align: center;
 	height: 1.5em;
@@ -109,8 +109,8 @@
 	padding: .1em;
 	padding-top: 0;
 	background-color: #333333;
-	border: 1px solid orange;
-	color: orange;
+	border: 1px solid #FFC547;
+	color: #FFC547;
 	font-weight: bold;
 	text-align: center;
 	height: 1.5em;
@@ -121,11 +121,11 @@
 	font-size: 1.6em;
 	padding: .1em;
 	background-color: #333333;
-	color: orange;
+	color: #FFC547;
 	font-weight: bold;
 	text-align: center;
 	-webkit-appearance: none;
-	border: 1px solid orange;
+	border: 1px solid #FFC547;
 	padding-left: 1px;
 	padding-left: .3em;
 }
@@ -178,7 +178,7 @@ input[type=radio]:checked + label:before {
 	position: absolute;
     content: "\2022";
     font-size: 2.3em;
-    color: orange;
+    color: #FFC547;
     text-align: center;
     line-height: .130em;
     bottom: 0.05em;
@@ -187,7 +187,7 @@ input[type=checkbox]:checked + label:before {
 	position: absolute;
     content: "\2713";
     font-size: 15px;
-    color: orange;
+    color: #FFC547;
     text-align: center;
     line-height: 15px;
     bottom: 0.15em;
@@ -207,13 +207,13 @@ label:before {
 }
 .selectdiv{
 	width:7em;
-	border:1px solid orange;
+	border:1px solid #FFC547;
 	height:1.6em;
 	background:url(http://i59.tinypic.com/2uz5v0g.jpg) no-repeat right center;
 	border-radius:0;
 	cursor:pointer;
 	background-color: #333333;
-	color: orange;
+	color: #FFC547;
 	font-size: 1.6em;
 	font-family: 'Exo 2', sans-serif;
 	display: inline-block;
@@ -221,12 +221,12 @@ label:before {
 	}
 .selectdiv:hover, .selectdiv:focus {
 	width:7em;
-	border:1px solid orange;
+	border:1px solid #FFC547;
 	height:1.6em;
 	background: url(http://i59.tinypic.com/2uz5v0g.jpg) no-repeat right;
 	border-radius:0;
 	cursor:pointer;
-	color: orange;
+	color: #FFC547;
 	background-color: #333333;
 	font-size: 1.6em;
 	}
@@ -261,7 +261,7 @@ label:before {
 	margin-bottom: 1em;
 	margin-top: 0.5em;
 	border-radius: .2em;
-	background-color: orange;
+	background-color: #FFC547;
 	color: black;
 	font-family: 'Exo 2', sans-serif;
 	padding-top: 0.1em;
@@ -275,7 +275,7 @@ label:before {
 	margin-bottom: 1em;
 	margin-top: 0.5em;
 	border-radius: .2em;
-	background-color: orange;
+	background-color: #FFC547;
 	color: black;
 	font-family: 'Exo 2', sans-serif;
 	padding-top: 0.1em;
@@ -288,7 +288,7 @@ label:before {
 	padding-left: .2em;
 	padding-right: .2em;
 	border-radius: .2em;
-	background-color: orange;
+	background-color: #FFC547;
 	color: black;
 	font-family: 'Exo 2', sans-serif;
 	padding-top:0px;
@@ -309,7 +309,7 @@ label:before {
 
 #report-tabs a{
 	font-size: 2em;
-	color: orange;
+	color: #FFC547;
 	font-family: 'Exo 2', sans-serif;
 }
 #report-tabs a:hover{
@@ -320,7 +320,7 @@ label:before {
 	font-size: 2em;
 	color: black;
 	font-family: 'Exo 2', sans-serif;
-	background-color: orange;
+	background-color: #FFC547;
 	border-top: none;
 	border-left: none;
 	border-right: none;
@@ -367,7 +367,7 @@ label:before {
 
 .reportID{
 	font-family: 'Exo 2', sans-serif;
-	color: orange;
+	color: #FFC547;
 	margin-bottom: 0em;
 	font-size: 2em;
 	margin-top: 1em;
@@ -375,7 +375,7 @@ label:before {
 
 .page-title {
 	font-family: 'Exo 2', sans-serif;
-	color: orange;
+	color: #FFC547;
 	margin-top: 1em;
 	text-align: center;
 }
@@ -422,7 +422,7 @@ label:before {
 	border-bottom: 1px solid gray;
 	padding-bottom: 0.33em;
 	margin-top: 1em !important;
-	color: orange;
+	color: #FFC547;
 	font-size: 2.3em;
 }
 

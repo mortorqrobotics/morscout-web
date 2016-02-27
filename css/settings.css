@@ -1,7 +1,7 @@
 .settings-option{
 	margin-top: 4em; /* top margin of each settings option */
 	margin-bottom: 4em; /* bottom margin of each settings option */
-	color: orange; /* color of text in settings */
+	color: #FFC547; /* color of text in settings */
 	font-family: 'Exo 2', sans-serif; /* font of text in settings */
 	display: block; /* to make elements appear on new line (not to be changed) */
 	text-align: center; /* horizontal alignment of each setting in its respective column */
