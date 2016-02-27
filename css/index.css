@@ -122,7 +122,7 @@ background-color: #EE7600; /* color of background of selected link in nav bar */
 }
 
 #toggle-button{
-	background-color: #FFC547; /* sets background color for background of hamburger menu toggle button */
+	background-color: black; /* sets background color for background of hamburger menu toggle button */
 	border:0; /* removes border of hamburger menu toggle button (most likely not to be changed) */
 	border-radius: 0; /* gives hamburger menu toggle button sharp corners */
 }
@@ -1058,7 +1058,7 @@ label:before {
 	margin-top: .5em; /* top margin of button */
 	font-size: 2em; /* font size of button */
 	font-weight: bold; /* font weight of button */
-	background-color: gray; /* background color of button */
+	background-color: #FFC547 !important; /* background color of button */
 }
 
 .button:hover{
