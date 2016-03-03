@@ -322,6 +322,7 @@ table, th, td {
 	font-size: 1.4em; /* sets font size of text in table cells */
 	text-align: center; /* horizontal alignment of text in table cells */
     /*background-color: white;*/
+  width: auto;
 }
 
 table {
@@ -340,7 +341,7 @@ th,td {
 
 .matches-table, .teams-table{
 	color: black; /* color of text in all matches and all teams tables */
-	width: 90%; /* width of all matches table */
+	width: auto; /* width of all matches table */
 	margin: 1.4em auto; /* margin of all matches and all teams table */
 	margin-bottom: 2em; /* distance of tables from bottom of page */
 }
@@ -353,7 +354,7 @@ th,td {
 	margin-top: 2.2em; /* top margin of report screen table */
 	margin-bottom: 1em; /* bottom margin of report screen table */
 	color: #CCCCCC; /* text color of report screen table */
-	width: 90%; /* width of report screen table */
+	width: auto; /* width of report screen table */
 	margin-left: auto; /* auto aligns report screen table */
 	margin-right: auto; /* auto aligns report screen table */
 	height:12.3em;
@@ -564,19 +565,19 @@ hr{
 }
 
 ::-webkit-input-placeholder {
-    color: rgb(229 , 148 , 0); /* color for place holder text */
+    color: black; /* color for place holder text */
 	opacity:0.8; /* opacity of place holder text */
 }
 :-moz-placeholder {
-   color: rgb(229 , 148 , 0);
+   color: black;
    opacity:0.8;
 }
 ::-moz-placeholder {
-   color: rgb(229 , 148 , 0);
+   color: black;
    opacity:0.8;
 }
 :-ms-input-placeholder {
-   color: rgb(229 , 148 , 0);
+   color: black;
    opacity:0.8;
 }
 
@@ -587,12 +588,12 @@ input:focus {
 .login-wrapper{
 	margin-top: 30vh; /* distance of login form from top of page (most likely not to be changed) */
 	color: black; /* color of [typed] text in username and password text boxes */
-	background-color: #FFC547; /* background color of login form */
+	background-color: #E9E9E9; /* background color of login form */
 }
 
 .login-wrapper input{
 	border: .1em solid #FFC547; /* border width, style, and color of text boxes and login button */
-	background-color: #FFC547; /* background color of username and password text boxes */
+	background-color: #E9E9E9; /* background color of username and password text boxes */
 }
 
 #login-button:hover {
