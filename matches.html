@@ -79,6 +79,7 @@
 
         function getMatches() {
             $.post("/getMatchesForCurrentRegional", {}, function(response) {
+                //localStorage.allMatches = response;
                 var matches = JSON.parse(response);
                 matches.sort(function (a, b) {
                   if (a.time > b.time) {

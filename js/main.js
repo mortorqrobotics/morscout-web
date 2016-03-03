@@ -13,7 +13,25 @@ function getQS(obj) {
 	}
 	return arr.join("&");
 }
+function doesConnectionExist() {
+    var xhr = new XMLHttpRequest();
+    var file = "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png";
+    var randomNum = Math.round(Math.random() * 10000);
 
+    xhr.open('HEAD', file + "?rand=" + randomNum, false);
+
+    try {
+        xhr.send();
+
+        if (xhr.status >= 200 && xhr.status < 304) {
+            return true;
+        } else {
+            return false;
+        }
+    } catch (e) {
+        return false;
+    }
+}
 function qs(variable) {
     var query = window.location.search.substring(1);
     var vars = query.split('&');
@@ -267,6 +285,7 @@ function synthesizeForm(dataPoints) {
 			colHolder.append(div);
 		} else if (dpType == "label") {
 			var div = $(document.createElement('div'));
+			div.addClass("label inp");
 			colHolder = $(document.createElement('div'));
 			colHolder.addClass('col-md-6');
 			colNum++;
@@ -338,6 +357,7 @@ function getScoutFormValues(context){
 		values.push(dataPoint);
 	}
 	var send = {};
+	console.log(values)
 	if (context == "match"){
 		send = {data: values, team: currentTeam, context: context, match: currentMatch}
 	}
