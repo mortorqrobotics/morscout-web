@@ -394,8 +394,8 @@ function getScoutFormValues(context) {
             $('#submit-match-report').removeClass('button');
             $('#submit-match-report').addClass('button-disabled');
             $('#submit-match-report').css({
-                "background-color": "black",
-                "color": "orange"
+                "background-color": "#e9e9e9",
+                "color": "black"
             });
             setTimeout(function() {
                 $('#submit-match-report').html('Submit');
