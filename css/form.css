@@ -32,6 +32,7 @@
     background-color: #FFC547;
     color: black;
     padding: 2px 5px 2px 5px;
+    position: fixed !important;
     /*float: right;*/
 }
 #sendformbutton {
@@ -70,6 +71,7 @@
     padding-top: 0.1em;
     padding-bottom: 0.1em;
     border-radius: 0;
+    position: fixed !important;
 }
 .remove-dp {
     color: black;
