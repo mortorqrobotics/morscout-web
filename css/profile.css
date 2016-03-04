@@ -5,7 +5,6 @@
 	position: fixed;
 	top:4em;
 	overflow-y: auto;
-	box-shadow: 1px 4px 6px #ababab;
 	z-index: 87;
 	-webkit-overflow-scrolling: touch;
 	text-align: center !important;
@@ -71,7 +70,7 @@
 	margin-bottom: 1em;
 	margin-top: 0.5em;
 	border-radius: .2em;
-	background-color: #EE7600;
+	background-color: orange;
 	color: black;
 	font-family: 'Exo 2', sans-serif;
 	padding-top: 0.1em;

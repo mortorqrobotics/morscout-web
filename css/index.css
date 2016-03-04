@@ -110,7 +110,7 @@ body {
 
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
 color: black; /* color of text of selected link in nav bar */
-background-color: #EE7600; /* color of background of selected link in nav bar */
+background-color: orange; /* color of background of selected link in nav bar */
 }
 
 .navbar-default div.navbar-collapse {
@@ -321,7 +321,6 @@ table, th, td {
 	 /* collapses cell borders (not to be changed) */
 	font-size: 1.4em; /* sets font size of text in table cells */
 	text-align: center; /* horizontal alignment of text in table cells */
-  background-color: #cccccc;
 }
 
 table {
