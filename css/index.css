@@ -397,7 +397,7 @@ th,td {
 }
 
 .redTeamHeader{
-	background-color: #ff8080;
+	background-color: #ff4d4d;
 	color: #000000;
 }
 .blueTeamHeader{
@@ -423,19 +423,23 @@ th,td {
 	color: #CCCCCC;
 }
 .frenemyTeamHighlight{
-	background-color: purple;
+	background-color: #b84dff;
+    /*opacity: 0.5;*/
 	color: #CCCCCC;
 }
 .allyTeamHighlight{
-	background-color: green;
+	background-color: #009933;
+    /*opacity: 0.5;*/
 	color: #CCCCCC;
 }
 .enemyTeamHighlight{
-	background-color: #BB0000;
+	background-color: #ff4d4d;
+    /*opacity: 0.5;*/
 	color: #CCCCCC;
 }
 .selfTeamHighlight{
-	background-color: Dark#FFC547;
+	background-color: #ffa64d;
+    /*opacity: 0.5;*/
 	color: black;
 }
 
