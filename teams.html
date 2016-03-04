@@ -152,7 +152,7 @@
                         var teamNumber = teams[i].team_number;
                         var teamName = teams[i].nickname;
                         var tr = $(document.createElement("tr"));
-                        if (i % 2 != 0) tr.addClass("odd-row");
+                        if (i % 2 == 0) tr.addClass("odd-row");
                         tr.attr("id", teamNumber);
                         var tdNumber = $(document.createElement("td"));
                         tdNumber.addClass("number");

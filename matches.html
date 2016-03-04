@@ -112,7 +112,7 @@
                         var newURL = "report.html?match=" + subtds.eq(0).html();
                         location = newURL;
                     });
-                    if (i % 2 != 0) tr.addClass("odd-row");
+                    if (i % 2 == 0) tr.addClass("odd-row");
                     var dps = [matchNumber, time, progress];
                     var tds = [];
                     for (var j = 0; j < 3; j++) {
