@@ -87,6 +87,8 @@
             }, function(responsePit) {
                 if (responseMatches != "fail" && responsePit != "fail") {
                     var scoutFormDPS = JSON.parse(responseMatches).concat(JSON.parse(responsePit));
+                    //localStorage.pitForm = responsePit;
+                    //localStorage.matchForm = responseMatches;
                     var select = $(document.createElement("select"));
                     select.addClass("creator-dropdown sort-drop");
                     select.attr("required", "true");

@@ -78,7 +78,7 @@
 
           <input class="report-check" type="checkbox" name="auto" id="public-option"></input>
           <label id="report-text" for="public-option" class="report-radio-check">Share scouting data with other teams</label><br/>
-            <input style="width: 10em;" id="set-regional-button" class="button button-input " type="submit" value="Update Privacy"></input>
+            <input style="width: 10em;" id="set-status-button" class="button button-input " type="submit" value="Update Privacy"></input>
           </div>
         </div>
         <div class = "col-md-4 col-sm-6 col-xs-12 settings-option">
@@ -131,6 +131,18 @@
           }
       });
 
+      $.post("/getDataStatus", function(status){
+          if (status != "fail"){
+              if (status == "false"){
+                  $("#public-option").attr("checked", "true");
+              }
+          }
+          else {
+              alert("Failed to get data status");
+          }
+      });
+
+
       function setYear(year){
           $.post("/getRegionalsForTeam", {year: year}, function(response){
               $(".regional-options").empty();
@@ -168,6 +180,21 @@
 
       $(".regional-dropdown").on("click", function(){
           setYear($("#year-box").val());
+      });
+
+      $("#set-status-button").on("click", function(){
+          var status = "private";
+          if ($("#public-option").is(":checked")){
+              status = "public";
+          }
+          $.post("/setDataStatus", {status: status}, function(response){
+              if (response == "success"){
+                  alert("Success");
+              }
+              else {
+                  alert("Failed to set data status");
+              }
+          });
       });
 
       $("#set-regional-button").on("click", function(){
