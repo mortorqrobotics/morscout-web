@@ -128,6 +128,10 @@ $.post("/validateUser", { //to change logout/login button
     }
 });
 
+if (localStorage.admin != "true"){//settings are still secure on the server
+	$("a[href='settings.html']").hide();
+}
+
 
 $("#logoutButton").on("click", function() {
     localStorage.clear();
