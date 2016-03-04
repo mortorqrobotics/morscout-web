@@ -413,13 +413,19 @@ function getScoutFormValues(context) {
     });
 }
 
-function addUserToDropdown(name) {
+function addUserToDropdown(name, id) {
     var search = $('.nav-tbox');
     var li = $(document.createElement('li'));
+	li.attr("data-id", id);
     li.addClass('search-drop-list-item');
     li.text(name);
     $('.search-drop-items').append(li);
 }
+
+
+$(document).on("click", ".search-drop-list-item", function(){
+	location = "/profile.html?id=" + $(this).attr("data-id");
+});
 
 $('.nav-tbox').keyup(function() {
     var search = $('.nav-tbox');
@@ -427,13 +433,14 @@ $('.nav-tbox').keyup(function() {
     if ($.trim(search.val()) != "") {
         var text = $(this).val().toLowerCase();
         var teammates = JSON.parse(JSON.parse(localStorage.teammates)); //fix server
+		console.log(teammates)
         var filteredTeammates = teammates.filter(function(user) {
             return ~(user.firstName.toLowerCase() + " " + user.lastName.toLowerCase() + " " + user.username.toLowerCase()).indexOf(text);
         });
         if (filteredTeammates.length != 0) $(".search-drop").show();
         else $(".search-drop").hide();
         filteredTeammates.forEach(function(user) {
-            addUserToDropdown(user.firstName + " " + user.lastName);
+            addUserToDropdown(user.firstName + " " + user.lastName, user._id);
         });
     } else {
         $(".search-drop").hide();
