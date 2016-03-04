@@ -41,8 +41,8 @@
                   </div>
                 </div>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="help.html" title="Need help?">Help</a></li>
-                    <li><a href="feedback.html" title="Give team 1515 your feedback!">Feedback</a></li>
+                    <!-- <li><a href="help.html" title="Need help?">Help</a></li>
+                    <li><a href="feedback.html" title="Give team 1515 your feedback!">Feedback</a></li> -->
                     <li><a href="profile.html" title="User Profile">Profile</a></li>
                     <li id="UserDropdown" class="dropdown">
                         <a id="logoutButton" href="login.html">Log in</a>
@@ -294,7 +294,7 @@
 
         $(document).on("click","tr:not(.first-row)", function(){
             localStorage.pitTeam = $(this).children(":first").text();
-          
+
             location = "reportTeam.html?" + getQS({
                 "team": $(this).find(".number").eq(0).html(),
                 "name": $(this).find(".name").eq(0).html()
