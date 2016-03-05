@@ -589,12 +589,12 @@ input:focus {
 .login-wrapper{
 	margin-top: 30vh; /* distance of login form from top of page (most likely not to be changed) */
 	color: black; /* color of [typed] text in username and password text boxes */
-	background-color: #FFC547; /* background color of login form */
+	background-color: #e9e9e9; /* background color of login form */
 }
 
 .login-wrapper input{
 	border: .1em solid #FFC547; /* border width, style, and color of text boxes and login button */
-	background-color: #FFC547; /* background color of username and password text boxes */
+	background-color: #e9e9e9; /* background color of username and password text boxes */
 }
 
 #login-button:hover {
