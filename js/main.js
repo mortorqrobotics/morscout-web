@@ -14,7 +14,7 @@ function getQS(obj) {
     return arr.join("&");
 }
 
-function connectionExists() {
+function testConnection(next) {
     // var xhr = new XMLHttpRequest();
     var file = "http://localhost:8080/favicon.ico";
     // var randomNum = Math.round(Math.random() * 10000);
@@ -35,16 +35,14 @@ function connectionExists() {
     jQuery.ajaxSetup({
         async: false
     });
-    re = "";
     r = Math.round(Math.random() * 10000);
     $.get(file, {
         subins: r
     }, function(d) {
-        re = true;
+        next(false);
     }).error(function() {
-        re = false;
+        next(false);
     });
-    return re;
 }
 
 function qs(variable) {

@@ -176,16 +176,18 @@
             }
         }
         function getMatches(cb) {
-            if (connectionExists()){
-                $.post("/getMatchesForCurrentRegional", {}, function(response) {
-                    localStorage.allMatches = response;
-                    cb(response);
-                });
-            }
-            else {
-                if (localStorage.allMatches) cb(localStorage.allMatches);
-                else cb("{}");
-            }
+            testConnection(function(connectionExists) {
+				if(connectionExists) {
+                	$.post("/getMatchesForCurrentRegional", {}, function(response) {
+                    	localStorage.allMatches = response;
+                    	cb(response);
+                	});
+				}
+				else {
+                	if (localStorage.allMatches) cb(localStorage.allMatches);
+                	else cb("{}");
+				}
+            });
         }
         $('#search').keyup(function() {
             var rows = $('.matches-table tr');
