@@ -16,7 +16,7 @@ function getQS(obj) {
 
 function testConnection(next) {
     // var xhr = new XMLHttpRequest();
-    var file = "http://localhost:8080/favicon.ico";
+    var file = "/favicon.ico";
     // var randomNum = Math.round(Math.random() * 10000);
     //
     // xhr.open('HEAD', file + "?rand=" + randomNum, false);
@@ -39,7 +39,7 @@ function testConnection(next) {
     $.get(file, {
         subins: r
     }, function(d) {
-        next(false);
+        next(true);
     }).error(function() {
         next(false);
     });
