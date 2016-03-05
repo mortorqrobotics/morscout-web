@@ -110,7 +110,7 @@ body {
 
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
 color: black; /* color of text of selected link in nav bar */
-background-color: orange; /* color of background of selected link in nav bar */
+background-color: #EE7600; /* color of background of selected link in nav bar */
 }
 
 .navbar-default div.navbar-collapse {
@@ -165,9 +165,9 @@ background-color: orange; /* color of background of selected link in nav bar */
 }
 
 .nav-tbox {
-  margin-top: 0.2em;
+  margin-top: 0.5em;
   width: 17em;
-  height: 2.7em;
+  height: 2em;
   border: 1px solid black;
   border-radius: 5px;
   padding: 0.5em;
@@ -321,6 +321,7 @@ table, th, td {
 	 /* collapses cell borders (not to be changed) */
 	font-size: 1.4em; /* sets font size of text in table cells */
 	text-align: center; /* horizontal alignment of text in table cells */
+    /*background-color: white;*/
 }
 
 table {
@@ -352,7 +353,7 @@ th,td {
 	margin-top: 2.2em; /* top margin of report screen table */
 	margin-bottom: 1em; /* bottom margin of report screen table */
 	color: #CCCCCC; /* text color of report screen table */
-	width: auto; /* width of report screen table */
+	width: 90%; /* width of report screen table */
 	margin-left: auto; /* auto aligns report screen table */
 	margin-right: auto; /* auto aligns report screen table */
 	height:12.3em;
@@ -377,32 +378,27 @@ th,td {
 
 
 #r1, #r2, #r3{
-	background-color: #ff8080 ; /* background color of table cells of red teams */
-  color: black;
+	background-color: #B80000 ; /* background color of table cells of red teams */
 }
 #rh {
-	background-color: #ff4d4d; /* background color of table header cell of red teams */
-  color: black;
-
+	background-color: #760000; /* background color of table header cell of red teams */
 }
 #b1, #b2, #b3{
-	background-color: #8080ff; /* background color of table cells of blue teams */
-  color: black;
-
+	background-color: #0029A3; /* background color of table cells of blue teams */
 }
 #bh {
-	background-color: #4d4dff; /* background color of table header cell of blue teams */
-  color: black;
-
+	background-color: #001962; /* background color of table header cell of blue teams */
 }
 
 .redTeamHeader{
-	background-color: #ff4d4d;
-	color: #000000;
+	background-color: #ff0000;
+	color: #CCCCCC;
+  opacity: 0.6;
 }
 .blueTeamHeader{
-	background-color: #8080ff;
-	color: #000000;
+	background-color: #007dff;
+	color: #CCCCCC;
+  opacity: 0.6;
 }
 .table-hover > th, .table-hover > td {
 	background-color: #C0C0C0 !important;
@@ -423,23 +419,19 @@ th,td {
 	color: #CCCCCC;
 }
 .frenemyTeamHighlight{
-	background-color: #b84dff;
-    /*opacity: 0.5;*/
+	background-color: purple;
 	color: #CCCCCC;
 }
 .allyTeamHighlight{
-	background-color: #009933;
-    /*opacity: 0.5;*/
+	background-color: green;
 	color: #CCCCCC;
 }
 .enemyTeamHighlight{
-	background-color: #ff4d4d;
-    /*opacity: 0.5;*/
+	background-color: #BB0000;
 	color: #CCCCCC;
 }
 .selfTeamHighlight{
-	background-color: #ffa64d;
-    /*opacity: 0.5;*/
+	background-color: Dark#FFC547;
 	color: black;
 }
 
@@ -574,19 +566,19 @@ hr{
 }
 
 ::-webkit-input-placeholder {
-    color: black; /* color for place holder text */
+    color: rgb(229 , 148 , 0); /* color for place holder text */
 	opacity:0.8; /* opacity of place holder text */
 }
 :-moz-placeholder {
-   color: black;
+   color: rgb(229 , 148 , 0);
    opacity:0.8;
 }
 ::-moz-placeholder {
-   color: black;
+   color: rgb(229 , 148 , 0);
    opacity:0.8;
 }
 :-ms-input-placeholder {
-   color: black;
+   color: rgb(229 , 148 , 0);
    opacity:0.8;
 }
 
@@ -597,12 +589,12 @@ input:focus {
 .login-wrapper{
 	margin-top: 30vh; /* distance of login form from top of page (most likely not to be changed) */
 	color: black; /* color of [typed] text in username and password text boxes */
-	background-color: #E9E9E9; /* background color of login form */
+	background-color: #FFC547; /* background color of login form */
 }
 
 .login-wrapper input{
 	border: .1em solid #FFC547; /* border width, style, and color of text boxes and login button */
-	background-color: #E9E9E9; /* background color of username and password text boxes */
+	background-color: #FFC547; /* background color of username and password text boxes */
 }
 
 #login-button:hover {
@@ -701,7 +693,6 @@ body {
 .report-check{
 	margin: 0.3em !important;
 	font-size: 2em;
-  background-color: #e9e9e9;
 }
 #report-text, .report-text{
 	font-size: 2em !important;
@@ -717,7 +708,7 @@ body {
 	font-size: 1.6em;
 	padding: .1em;
 	padding-top: 0;
-	background-color: #e9e9e9;
+	background-color: #333333;
 	border: 1px solid #FFC547;
 	color: black;
 	font-weight: bold;
@@ -784,6 +775,7 @@ label {
     position: relative;
     padding-left: 25px;
     margin-right: 15px;
+    color: orange;
 }
 input[type=checkbox] {
     display: none;
@@ -801,7 +793,7 @@ input[type=radio]:checked + label:before {
 	position: absolute;
     content: "\2022";
     font-size: 2.3em;
-    color: black;
+    color: orange;
     text-align: center;
     line-height: .130em;
     bottom: 0.05em;
@@ -810,7 +802,7 @@ input[type=checkbox]:checked + label:before {
 	position: absolute;
     content: "\2713";
     font-size: 15px;
-    color: black;
+    color: orange;
     text-align: center;
     line-height: 15px;
     bottom: 0.15em;
@@ -826,7 +818,7 @@ label:before {
     position: absolute;
     left: 0;
     bottom: .1em;
-    background-color: #5C5C5C;
+    background-color: #e9e9e9;
 }
 .selectdiv{
 	width:7em;
@@ -1226,7 +1218,6 @@ margin-top: 4em; /* distance of grid of settings from top of page */
 	input[type=checkbox]:checked + label:before {
 	    content: "\2713";
 	    font-size: 5vw;
-	    color: black;
 	    text-align: center;
 	    line-height: 4.5vw;
 	}
@@ -1245,6 +1236,9 @@ margin-top: 4em; /* distance of grid of settings from top of page */
 		padding-left:1.3em !important;
 	}
 }
+/*input[type=checkbox]:checked {
+  color: orange;
+}*/
 
 @media only screen (height: 736px) and (width: 414px) {
 	/* insert here css styles that apply to iPhone 6 plus */

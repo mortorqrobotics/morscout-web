@@ -178,16 +178,16 @@ input[type=radio]:checked + label:before {
 	position: absolute;
     content: "\2022";
     font-size: 2.3em;
-    color: black;
+    color: #ffc547;
     text-align: center;
     line-height: .130em;
     bottom: 0.05em;
 }
 input[type=checkbox]:checked + label:before {
 	position: absolute;
-    content: "\2713";
+    content: "\2714";
     font-size: 15px;
-    color: black;
+    color: #ffc547;
     text-align: center;
     line-height: 15px;
     bottom: 0.15em;
@@ -203,7 +203,7 @@ label:before {
     position: absolute;
     left: 0;
     bottom: .1em;
-    background-color: #5C5C5C;
+    background-color: #a9a9a9;
 }
 .selectdiv{
 	width:7em;
