@@ -265,7 +265,7 @@ function synthesizeForm(dataPoints) {
             colHolder.append(div);
         } else if (dpType == "checkbox") {
             var div = $(document.createElement('div'));
-            div.addClass("checkbox inp");
+            div.addClass("checkbox inp orangeBack");
             // if (oneColumn == true) {
             //   div.addClass('col-md-12');
             //   oneColumn = false;
