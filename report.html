@@ -224,56 +224,92 @@
   	$(document).ready(function() {
         currentMatch = parseInt(qs("match"));
 
-
-        $.post("/getScoutForm", {context: "match"}, function(response){
-            var scoutFormDPS = JSON.parse(response);
-            synthesizeForm(scoutFormDPS);
-        });
-
+        getScoutForm("match");
 
         $("#strategy-holder").hide();
         $("#strategy-heading").hide();
         $('#editStrategy-tab').hide();
-        $("#eidtStrategy-form").hide();
+        $("#editStrategy-form").hide();
 
         $("#report-match-num").html(qs("match"));
-        $.post("/getMatchInfo", {match: qs("match")}, function(response){
-            if (response != "fail"){
-                var match = JSON.parse(response);
-                $("#report-match-time").html(standardizeTime(match.time));
-                var redAlliance = match.alliances.red.teams;
-                var blueAlliance = match.alliances.blue.teams;
-                var ourMatch = false;
-                for (var i = 0; i < 3; i++){
-                    if (redAlliance[i].substring(3) == localStorage.teamNumber || blueAlliance[i].substring(3) == localStorage.teamNumber){
-                        ourMatch = true;
+
+        function getMatchInfo(cb){
+            testConnection(function(exists){
+                if (exists){
+                    $.post("/getMatchInfo", {match: qs("match")}, function(response){
+                        if (response != "fail"){
+                            cb(JSON.parse(response));
+                        }
+                        else {
+                            alert("Unable to retrieve match info");
+                        }
+                    });
+                }
+                else {
+                    var matches = JSON.parse(localStorage.allMatches);
+                    for (var i = 0; i < matches.length; i++){
+                        if (matches[i].comp_level == "qm" && matches[i].match_number == currentMatch){
+                            cb(matches[i]);
+                            break;
+                        }
                     }
-                    $("#r" + (i + 1)).html(redAlliance[i].substring(3));
-                    $("#b" + (i + 1)).html(blueAlliance[i].substring(3));
                 }
-                if (ourMatch){
-                    $("#strategy-holder").show();
-                    $("#strategy-heading").show();
-                    $('#editStrategy-tab').show();
-                    $("#eidtStrategy-form").show();
-                    loadStrategy();
+            });
+        }
+
+        getMatchInfo(function(match){
+            $("#report-match-time").html(standardizeTime(match.time));
+            var redAlliance = match.alliances.red.teams;
+            var blueAlliance = match.alliances.blue.teams;
+            var ourMatch = false;
+            for (var i = 0; i < 3; i++){
+                if (redAlliance[i].substring(3) == localStorage.teamNumber || blueAlliance[i].substring(3) == localStorage.teamNumber){
+                    ourMatch = true;
                 }
+                $("#r" + (i + 1)).html(redAlliance[i].substring(3));
+                $("#b" + (i + 1)).html(blueAlliance[i].substring(3));
             }
-            else {
-                alert("Unable to retrieve match info");
+            if (ourMatch){
+                $("#strategy-holder").show();
+                $("#strategy-heading").show();
+                $('#editStrategy-tab').show();
+                $("#eidtStrategy-form").show();
+                loadStrategy();
             }
         });
 
         function loadStrategy(){
-            $.post("/getMatchStrategy", {match: qs("match")}, function(response){
-                if (response != "fail" && (JSON.parse(response) !== null)){
-                    var strategy = JSON.parse(response).strategy;
-                    $("#strategy-text").html(strategy);
-                    $("#strategy-box").val(strategy.split("&lt;").join("<").split("&gt;").join(">"));//works, quick fix
+            getStrategies(function(strategies){
+                var found = false;
+                for (var i = 0; i < strategies.length; i++){
+                    if (strategies[i].matchNumber == parseInt(qs("match"))){
+                        found = true;
+                        $("#strategy-text").html(strategies[i].strategy);
+                        $("#strategy-box").val(strategies[i].strategy.split("&lt;").join("<").split("&gt;").join(">"));
+                    }
                 }
-                else {
+                if (!found){
                     $("#strategy-text").html("None");
                     $("#strategy-box").val("");
+                }
+            });
+        }
+
+        function getStrategies(cb){
+            testConnection(function(exists){
+                if (exists){
+                    $.post("/getAllMatchStrategies", {}, function(response){
+                        if (response != "fail"){
+                            localStorage.strategies = response;
+                            cb(JSON.parse(response));
+                        }
+                        else {
+                            alert("Failed to get match strategies");
+                        }
+                    });
+                }
+                else {
+                    cb(JSON.parse(localStorage.strategies));
                 }
             });
         }
@@ -315,9 +351,23 @@
             //$('#scout-form').hide();
             $(".view-form").show();
             $('#submit-match-report').hide();
-            $.post("/getMatchReports", {team: currentTeam, match: currentMatch}, function(response){
-                var reports = JSON.parse(response);
-                loadDataViewer("#viewContainer", reports);
+            testConnection(function(exists){
+                if (exists){
+                    $.post("/getMatchReports", {team: currentTeam, match: currentMatch}, function(response){
+                        var reports = JSON.parse(response);
+                        loadDataViewer("#viewContainer", reports);
+                    });
+                }
+                else {
+                    var allReports = JSON.parse(localStorage.allReports);
+                    var relevantReports = [];
+                    for (var i  = 0; i < allReports.length; i++){
+                        if (allReports[i].team == parseInt(currentTeam) && allReports[i].context == "match" && allReports[i].match == parseInt(currentMatch)){
+                            relevantReports.push(allReports[i]);
+                        }
+                    }
+                    loadDataViewer("#viewContainer", {yourTeam: relevantReports, otherTeams: []});
+                }
             });
   		});
         $('#submit-match-report').hide();

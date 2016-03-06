@@ -647,14 +647,7 @@
                 $("#dash").hide();
             }
 
-            $.post("/getScoutForm", {context: "pit"}, function(response){
-                if (response != "fail"){
-                    synthesizeForm(JSON.parse(response));
-                }
-                else {
-                    alert("Failed to retrieve scout form");
-                }
-            });
+            getScoutForm("pit");
 
             $("#submit-match-report").on("click", function(){
                 getScoutFormValues("pit");
@@ -874,9 +867,24 @@
                 }
             });
             $('#view-tab').click(function() {
-                $.post("/getTeamReports", {teamNumber: data.team, reportContext: "pit"}, function(response){
-                    var reports = JSON.parse(response);
-                    loadDataViewer("#view-pit-reports", reports);
+                testConnection(function(exists){
+                    if (exists){
+                        $.post("/getTeamReports", {teamNumber: data.team, reportContext: "pit"}, function(response){
+                            var reports = JSON.parse(response);
+                            loadDataViewer("#view-pit-reports", reports);
+                        });
+                    }
+                    else {
+                        var allReports = JSON.parse(localStorage.allReports);
+                        var relevantReports = [];
+                        for (var i  = 0; i < allReports.length; i++){
+                            if (allReports[i].team == parseInt(data.team) && allReports[i].context == "pit"){
+                                console.log("here")
+                                relevantReports.push(allReports[i]);
+                            }
+                        }
+                        loadDataViewer("#view-pit-reports", {yourTeam: relevantReports, otherTeams: []});
+                    }
                 });
                 $('#form-preview').hide();
                 $('.submit-match').hide();

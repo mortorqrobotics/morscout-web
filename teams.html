@@ -79,48 +79,65 @@
     <script>
         var allTeams = []; //keep
 
-        $.post("/getScoutForm", {
-            context: "match"
-        }, function(responseMatches) {
-            $.post("/getScoutForm", {
-                context: "pit"
-            }, function(responsePit) {
-                if (responseMatches != "fail" && responsePit != "fail") {
-                    var scoutFormDPS = JSON.parse(responseMatches).concat(JSON.parse(responsePit));
-                    //localStorage.pitForm = responsePit;
-                    //localStorage.matchForm = responseMatches;
-                    var select = $(document.createElement("select"));
-                    select.addClass("creator-dropdown sort-drop");
-                    select.attr("required", "true");
-                    var options = [{
-                        value: "teamNumber",
-                        name: "Team Number"
-                    }, {
-                        value: "officialRanking",
-                        name: "Official Ranking"
-                    }];
-                    for (var i = 0; i < scoutFormDPS.length; i++) {
-                        var type = scoutFormDPS[i].type;
-                        var name = scoutFormDPS[i].name;
-                        if (type == "number") {
-                            options.push({
-                                value: name,
-                                name: name
-                            });
-                        }
-                    }
-                    for (var i = 0; i < options.length; i++) {
-                        var option = $(document.createElement("option"));
-                        option.attr("value", options[i].value);
-                        option.html(options[i].name);
-                        select.append(option);
-                    }
-                    $("#dropdown-holder").append(select);
-                } else {
-                    alert("Failed to retrieve team list");
+
+        function getScoutFormDPS(cb){
+            testConnection(function(exists){
+                if (exists){
+                    $.post("/getScoutForm", {
+                        context: "match"
+                    }, function(responseMatches) {
+                        $.post("/getScoutForm", {
+                            context: "pit"
+                        }, function(responsePit) {
+                            if (responseMatches != "fail" && responsePit != "fail") {
+                                localStorage.pitForm = responsePit;
+                                localStorage.matchForm = responseMatches;
+                                cb(JSON.parse(responseMatches).concat(JSON.parse(responsePit)));
+                            }
+                            else {
+                                cb([]);
+                            }
+                        });
+                    });
                 }
-            })
+                else {
+                    cb(JSON.parse(localStorage.matchForm).concat(JSON.parse(localStorage.pitForm)));
+                }
+            });
+        }
+
+
+        getScoutFormDPS(function(scoutFormDPS){
+            var select = $(document.createElement("select"));
+            select.addClass("creator-dropdown sort-drop");
+            select.attr("required", "true");
+            var options = [{
+                value: "teamNumber",
+                name: "Team Number"
+            }, {
+                value: "officialRanking",
+                name: "Official Ranking"
+            }];
+            for (var i = 0; i < scoutFormDPS.length; i++) {
+                var type = scoutFormDPS[i].type;
+                var name = scoutFormDPS[i].name;
+                if (type == "number") {
+                    options.push({
+                        value: name,
+                        name: name
+                    });
+                }
+            }
+            for (var i = 0; i < options.length; i++) {
+                var option = $(document.createElement("option"));
+                option.attr("value", options[i].value);
+                option.html(options[i].name);
+                select.append(option);
+            }
+            $("#dropdown-holder").append(select);
         });
+
+
 
         function loadByNumber() {
             $.post("/getTeamListForRegional", {}, function(response) {
@@ -170,54 +187,71 @@
             });
         }
 
-        function loadByRanking() {
-            $.post("/getRankingsForRegional", {}, function(response) {
-                if (response != "fail") {
-                    var teams = JSON.parse(response);
-                    teams.sort(function(a, b) {
-                        return (parseInt(a[0]) - parseInt(b[0]));
+        function getRankingSort(cb){
+            testConnection(function(exists){
+                if (exists){
+                    $.post("/getRankingsForRegional", {}, function(response) {
+                        if (response != "fail"){
+                            localStorage.rankSort = response;
+                            cb(JSON.parse(response));
+                        }
+                        else {
+                            alert("Failed to retrieve rankings");
+                            localStorage.rankSort = "[]";
+                            cb([]);
+                        }
                     });
-                    var table = $(".teams-table");
-                    table.empty();
-                    var firstRow = $(document.createElement("tr")); //loop later
-                    firstRow.addClass("first-row");
-                    var th1 = $(document.createElement("th"));
-                    th1.html("Team #");
-                    var th2 = $(document.createElement("th"));
-                    th2.html("Name");
-                    var th3 = $(document.createElement("th"));
-                    th3.html("Rank");
-                    firstRow.append(th3);
-                    firstRow.append(th1);
-                    firstRow.append(th2);
-                    table.append(firstRow);
-                    $("#loading").hide();
-                    for (var i = 1; i < teams.length; i++) {
-                        var teamNumber = parseInt(teams[i][1]);
-                        for (var j = 0; j < allTeams.length; j++) {
-                            if (allTeams[j].team_number == teamNumber) {
-                                var teamName = allTeams[j].nickname;
-                                var tr = $(document.createElement("tr"));
-                                if (i % 2 == 0) tr.addClass("odd-row");
-                                tr.attr("id", teamNumber);
-                                var tdNumber = $(document.createElement("td"));
-                                tdNumber.html(teamNumber);
-                                tdNumber.addClass("number");
-                                var tdName = $(document.createElement("td"));
-                                tdName.addClass("name");
-                                tdName.html(teamName);
-                                var tdRank = $(document.createElement("td"));
-                                tdRank.html(i);
-                                tr.append(tdRank);
-                                tr.append(tdNumber);
-                                tr.append(tdName);
-                                table.append(tr);
-                                break;
-                            }
+                }
+                else {
+                    cb(JSON.parse(localStorage.rankSort));
+                }
+            });
+        }
+
+
+        function loadByRanking() {
+            getRankingSort(function(teams){
+                teams.sort(function(a, b) {
+                    return (parseInt(a[0]) - parseInt(b[0]));
+                });
+                var table = $(".teams-table");
+                table.empty();
+                var firstRow = $(document.createElement("tr")); //loop later
+                firstRow.addClass("first-row");
+                var th1 = $(document.createElement("th"));
+                th1.html("Team #");
+                var th2 = $(document.createElement("th"));
+                th2.html("Name");
+                var th3 = $(document.createElement("th"));
+                th3.html("Rank");
+                firstRow.append(th3);
+                firstRow.append(th1);
+                firstRow.append(th2);
+                table.append(firstRow);
+                $("#loading").hide();
+                for (var i = 1; i < teams.length; i++) {
+                    var teamNumber = parseInt(teams[i][1]);
+                    for (var j = 0; j < allTeams.length; j++) {
+                        if (allTeams[j].team_number == teamNumber) {
+                            var teamName = allTeams[j].nickname;
+                            var tr = $(document.createElement("tr"));
+                            if (i % 2 == 0) tr.addClass("odd-row");
+                            tr.attr("id", teamNumber);
+                            var tdNumber = $(document.createElement("td"));
+                            tdNumber.html(teamNumber);
+                            tdNumber.addClass("number");
+                            var tdName = $(document.createElement("td"));
+                            tdName.addClass("name");
+                            tdName.html(teamName);
+                            var tdRank = $(document.createElement("td"));
+                            tdRank.html(i);
+                            tr.append(tdRank);
+                            tr.append(tdNumber);
+                            tr.append(tdName);
+                            table.append(tr);
+                            break;
                         }
                     }
-                } else {
-                    alert("Failed to retrieve teams");
                 }
             });
         }

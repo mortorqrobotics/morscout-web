@@ -14,37 +14,19 @@ function getQS(obj) {
     return arr.join("&");
 }
 
-function connectionExists() {
-    // var xhr = new XMLHttpRequest();
-    var file = "http://localhost:8080/favicon.ico";
-    // var randomNum = Math.round(Math.random() * 10000);
-    //
-    // xhr.open('HEAD', file + "?rand=" + randomNum, false);
-    //
-    // try {
-    //     xhr.send();
-    //
-    //     if (xhr.status >= 200 && xhr.status < 304) {
-    //         return true;
-    //     } else {
-    //         return false;
-    //     }
-    // } catch (e) {
-    //     return false;
-    // }
+function testConnection(next) {
+    var file = "/favicon.ico";
     jQuery.ajaxSetup({
         async: false
     });
-    re = "";
     r = Math.round(Math.random() * 10000);
     $.get(file, {
         subins: r
     }, function(d) {
-        re = true;
+        next(true);
     }).error(function() {
-        re = false;
+        next(false);
     });
-    return re;
 }
 
 function qs(variable) {
@@ -371,23 +353,91 @@ function getScoutFormValues(context) {
         values.push(dataPoint);
     }
     var send = {};
-    console.log(values)
+    var regional = JSON.parse(localStorage.allMatches)[0].key.split("_")[0];
     if (context == "match") {
         send = {
             data: values,
             team: currentTeam,
             context: context,
-            match: currentMatch
+            match: currentMatch,
+            regional: regional
         }
     } else {
         send = {
             data: values,
             team: qs("team"),
-            context: context
+            context: context,
+            regional: regional
         }
     }
-    $.post("/submitReport", send, function(response) {
-        if (response == "success") {
+    sendReport(send);
+}
+
+function getScoutForm(context){
+    testConnection(function(exists){
+        if (exists){
+            $.post("/getScoutForm", {context: context}, function(response){
+                if (response != "fail"){
+                    var scoutFormDPS = JSON.parse(response);
+                    if (context == "match") localStorage.matchForm = response;
+                    else if (context == "pit") localStorage.pitForm = response
+                    synthesizeForm(scoutFormDPS);
+                }
+                else {
+                    alert("Failed to retrieve scout form");
+                }
+            });
+        }
+        else {
+            if (context == "match") synthesizeForm(JSON.parse(localStorage.matchForm));
+            else if(context == "pit") synthesizeForm(JSON.parse(localStorage.pitForm));
+        }
+    });
+}
+
+testConnection(function(exists){
+    if (exists){
+        if (localStorage.pendingReports){
+            var pendingReports = JSON.parse(localStorage.pendingReports);
+            for (var i = 0; i < pendingReports.length; i++)(function(){
+                sendReport(pendingReports[i]);
+            })();
+            localStorage.pendingReports = "[]";
+        }
+    }
+});
+
+function sendReport(send){
+    testConnection(function(exists){
+        if (exists){
+            $.post("/submitReport", send, function(response) {
+                if (response == "success") {
+                    $('#submit-match-report').html('Done!');
+                    $('#submit-match-report').prop('disabled', true);
+                    $('#submit-match-report').removeClass('button-hovered');
+                    $('#submit-match-report').removeClass('button');
+                    $('#submit-match-report').addClass('button-disabled');
+                    $('#submit-match-report').css({
+                        "background-color": "#e9e9e9",
+                        "color": "black"
+                    });
+                    setTimeout(function() {
+                        $('#submit-match-report').html('Submit');
+                        $('#submit-match-report').prop('disabled', false);
+                        $('#submit-match-report').css({
+                            "background-color": "orange",
+                            "color": "black"
+                        });
+                        $('#submit-match-report').addClass('button');
+                        $('#submit-match-report').removeClass('button-disabled');
+                    }, 2500);
+                    getAllMatchReports();
+                } else {
+                    alert("Invalid input. Failed to send form");
+                }
+            });
+        }
+        else {
             $('#submit-match-report').html('Done!');
             $('#submit-match-report').prop('disabled', true);
             $('#submit-match-report').removeClass('button-hovered');
@@ -406,12 +456,37 @@ function getScoutFormValues(context) {
                 });
                 $('#submit-match-report').addClass('button');
                 $('#submit-match-report').removeClass('button-disabled');
-            }, 1000);
-        } else {
-            alert("Invalid input. Failed to send form");
+            }, 2500);
+            var pendingReports = [];
+            if (localStorage.pendingReports){
+                pendingReports = JSON.parse(localStorage.pendingReports);
+            }
+            pendingReports.push(send);
+            localStorage.pendingReports = JSON.stringify(pendingReports);
         }
     });
 }
+
+function getAllReports(){
+    testConnection(function(exists){
+        if (exists){
+            $.post("/getAllReports", {}, function(response){
+                if (response != "fail"){
+                    localStorage.allReports = response;
+                    //cb(JSON.parse(response));
+                }
+                else {
+                    alert("Unable to get all reports");
+                }
+            });
+        }
+        else {
+            //cb(localStorage.allReports);
+        }
+    });
+}
+getAllReports();
+
 
 function addUserToDropdown(name, id) {
     var search = $('.nav-tbox');
