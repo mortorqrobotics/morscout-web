@@ -126,6 +126,7 @@
     if (!userID){
         userID = localStorage.userID;
     }
+
     if (localStorage.admin != "true"){//server is still protected
         $(".assign-task").hide();
     }
@@ -136,9 +137,23 @@
         $("#teams-scouted-label").html(stats.teamsScouted);
         $("#matches-scouted-label").html(stats.matchesScouted);
         $("#pits-scouted-label").html(stats.pitsScouted);
+        var teammates = JSON.parse(JSON.parse(localStorage.teammates));//
+        var firstName =localStorage.firstName;
+        var lastName = localStorage.lastName;
+        var teamNumber = localStorage.teamNumber;
+        if (userID != localStorage.userID){
+            for (var i = 0; i < teammates.length; i++){
+                if (teammates[i]._id == userID){
+                    firstName = teammates[i].firstName;
+                    lastName = teammates[i].lastName;
+                    break;
+                }
+            }
+        }
+        $("#team-label").html("Team " + teamNumber);
+        $("#profile-name").html(firstName + " " + lastName);
     });
-    $("#team-label").html("Team " + localStorage.teamNumber);
-    $("#profile-name").html(localStorage.firstName + " " + localStorage.lastName);
+
 
     loadTasks();
     $("#assign-button").on("click", function(){

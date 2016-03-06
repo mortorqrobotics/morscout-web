@@ -485,7 +485,7 @@ function getAllReports(){
         }
     });
 }
-getAllReports();
+if (localStorage.userID) getAllReports();
 
 
 function addUserToDropdown(name, id) {
@@ -508,7 +508,6 @@ $('.nav-tbox').keyup(function() {
     if ($.trim(search.val()) != "") {
         var text = $(this).val().toLowerCase();
         var teammates = JSON.parse(JSON.parse(localStorage.teammates)); //fix server
-		console.log(teammates)
         var filteredTeammates = teammates.filter(function(user) {
             return ~(user.firstName.toLowerCase() + " " + user.lastName.toLowerCase() + " " + user.username.toLowerCase()).indexOf(text);
         });
