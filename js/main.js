@@ -488,7 +488,7 @@ function getScoutFormValues(context) {
     sendReport(send);
 }
 
-function getScoutForm(context, loadOnly){
+function getScoutForm(context){
     testConnection(function(exists){
         if (exists){
             $.post("/getScoutForm", {context: context}, function(response){
@@ -777,4 +777,72 @@ function loadDataViewer(selector, reports) {
         }
 
     }
+}
+
+function loadAllMatchesTable(team){
+    $.post("/getTeamReports", {teamNumber: team, reportContext: "match"}, function(response){
+        var reports = JSON.parse(response).yourTeam;
+        var allDataPoints = [];
+        var table = $("#match-table");
+        table.empty();
+        var tr = $(document.createElement("tr"));
+        tr.attr("id", "first-matches-row");
+        var th = $(document.createElement("th"));
+        //th.html("Data Points");
+        tr.append(th);
+        table.append(tr);
+        $("#first-matches-row").append(th);
+        var allReports = [];
+        reports.sort(function(a, b) {
+            return a.match - b.match;
+        });
+        for (var i = 0; i < reports.length; i++){
+            var reportObj = {};
+            reportObj.match = reports[i].match;
+            reportObj.data = reports[i].data;
+            allReports.push(reportObj);
+            var th = $(document.createElement("th"));
+            th.html("Match " + reports[i].match);
+            $("#first-matches-row").append(th);
+            var isOdd = true;
+            for (var j = 0; j < reports[i].data.length; j++){
+                if (reports[i].data[j].value && allDataPoints.indexOf(reports[i].data[j].name) < 0){
+                    allDataPoints.push(reports[i].data[j].name);
+                    var tr = $(document.createElement("tr"));
+                    //tr.addClass(reports[i].data[j].name);
+                    tr.attr("data-name", reports[i].data[j].name);
+                    if (isOdd) {
+                        tr.addClass("odd-row");
+                        isOdd = false;
+                    }
+                    else {
+                        isOdd = true;
+                    }
+                    var td = $(document.createElement("td"));
+                    td.html(reports[i].data[j].name);
+                    tr.append(td);
+                    table.append(tr);
+                }
+            }
+        }
+        for (var i = 0; i < allDataPoints.length; i++){
+            for (var j = 0; j < allReports.length; j++){
+                var td = $(document.createElement("td"));
+                for (var k = 0; k < allReports[j].data.length; k++){
+                    var found = false;
+                    if (allReports[j].data[k].name == allDataPoints[i]){
+                        td.html(allReports[j].data[k].value);
+                        $("tr[data-name='" + allReports[j].data[k].name + "']").append(td);
+                        found = true;
+                        break;
+                    }
+                }
+                if (!found){
+                    td.html("--");
+                }
+                $("tr[data-name='" + allDataPoints[i] + "']").append(td);
+            }
+        }
+    });
+
 }

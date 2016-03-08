@@ -10,6 +10,19 @@
 	text-align: center; /* horizontal alignment of text in report screen */
 }
 
+#matches-table, .matches-table{
+  width: auto;
+}
+
+#match-table {
+	border: 1px;
+	border-collapse: separate;
+  width: auto;
+  overflow-x:scroll;
+  width:80em;
+  display:block;
+}
+
 #report-title{
 	margin-left: 0.2em; /* left margin of title of report page */
 	margin-top: 0; /* overrides .page-title class top margin to not have a huge top margin (not to be changed) */
