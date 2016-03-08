@@ -132,16 +132,15 @@
       });
 
       $.post("/getDataStatus", function(status){
-          if (status != "fail"){
-              if (status == "false"){
-                  $("#public-option").attr("checked", "true");
-              }
-          }
-          else {
-              alert("Failed to get data status");
-          }
-      });
-
+         if (status != "fail"){
+             if (status == "false"){
+                 $("#public-option").attr("checked", "true");
+             }
+         }
+         else {
+             alert("Failed to get data status");
+         }
+     });
 
       function setYear(year){
           $.post("/getRegionalsForTeam", {year: year}, function(response){

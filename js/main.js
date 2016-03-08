@@ -556,7 +556,7 @@ function sendReport(send){
                         $('#submit-match-report').addClass('button');
                         $('#submit-match-report').removeClass('button-disabled');
                     }, 2500);
-                    getAllMatchReports();
+                    getAllReports();
                 } else {
                     alert("Invalid input. Failed to send form");
                 }
