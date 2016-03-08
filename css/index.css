@@ -168,7 +168,7 @@ background-color: orange; /* color of background of selected link in nav bar */
   margin-top: 0.5em;
   width: 17em;
   height: 2em;
-  border: 1px solid black;
+  /*border: 1px solid black;*/
   border-radius: 5px;
   padding: 0.5em;
   font-size: 16px;
@@ -177,7 +177,7 @@ background-color: orange; /* color of background of selected link in nav bar */
 }
 
 .nav-tbox::-webkit-input-placeholder {
-  color: black !important;
+  color: #A8A8A8 !important;
 }
 
 
