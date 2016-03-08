@@ -68,8 +68,8 @@
             <div class="roww" id="form-holder"> <!--TODO-->
                 <h2>Create Scouting Form</h2>
 
-                <div class="radio">
-                    <input class="report-check" type="radio" name="ft" id="match-form" value="match">
+                <div class="radio form-choice">
+                    <input class="report-check" type="radio" name="ft" id="match-form" value="match" checked="true">
                     <label id="report-text" for="match-form" class="report-radio-check">Match Form</label><br/>
                     <input class="report-check" type="radio" name="ft" id="pit-form" value="pit">
                     <label id="report-text" for="pit-form" class="report-radio-check">Pit Form</label><br/>
@@ -109,7 +109,7 @@
 
             </div>
             <div class="sendbutton">
-                <input type="button" id="sendformbutton" value="Send Form" hidden>
+                <input type="button" id="sendformbutton" value="Update Form" hidden>
             </div>
 
 
@@ -125,66 +125,21 @@
             <script src="js/main.js" type="text/javascript"></script>
 
             <script>
-                function createNewDataPoint() {
-                    var divWrapper = $(document.createElement("div"));
-                    divWrapper.addClass("dp-wrapper");
-                    var wrappers = $("#form-holder").find(".dp-wrapper");
-                    var dpNum = "1";
-                    if (wrappers.length != 0) {
-                        dpNum = parseInt($(wrappers[wrappers.length - 1]).attr("data-id")) + 1 + "";
-                    }
-                    divWrapper.attr("data-id", dpNum);
-                    var select = $(document.createElement("select"));
-                    select.addClass("creator-dropdown");
-                    select.attr("required", "true");
-                    var options = [{
-                        value: "text",
-                        name: "Text Box"
-                    }, {
-                        value: "dropdown",
-                        name: "Dropdown List"
-                    }, {
-                        value: "radio",
-                        name: "Radio Button"
-                    }, {
-                        value: "label",
-                        name: "Label"
-                    }, {
-                        value: "number",
-                        name: "Number Box"
-                    }, {
-                        value: "checkbox",
-                        name: "Check Box"
-                    }];
-                    for (var i = 0; i < options.length; i++) {
-                        var option = $(document.createElement("option"));
-                        option.attr("value", options[i].value);
-                        option.html(options[i].name);
-                        select.append(option);
-                    }
-                    var input = $(document.createElement("input"));
-                    input.attr("type", "text");
-                    input.addClass("dp-box data-point-name");
-                    input.attr("placeholder", "Data Point Name");
-                    var span = $(document.createElement("span"));
-                    span.addClass("glyphicon glyphicon-remove remove-dp btn-lg");
-                    var div = $(document.createElement("div"));
-                    div.addClass("form-options");
-                    span.attr("data-id", dpNum);
-                    select.attr("data-id", dpNum);
-                    input.attr("data-id", dpNum);
-                    div.attr("data-id", dpNum);
-                    divWrapper.append(select);
-                    divWrapper.append(input);
-                    divWrapper.append(span);
-                    divWrapper.append(div);
-                    $("#form-holder").append(divWrapper);
-                }
-                createNewDataPoint();
+            $(document).ready(function(){
+
+                $(".form-choice").on("change", function(){
+                    $(".dp-wrapper").remove();
+                    var formType = $('input:radio[name=ft]:checked').val();
+                    if (formType == "match") loadCurrentForm(JSON.parse(localStorage.matchForm));
+                    else loadCurrentForm(JSON.parse(localStorage.pitForm));
+                });
 
                 $("#formbutton").on("click", function() {
                     createNewDataPoint();
                 });
+
+                if (localStorage.matchForm != "[]") loadCurrentForm(JSON.parse(localStorage.matchForm));
+                else createNewDataPoint();
 
                 $("#sendformbutton").on("click", function(){
                     var formType = $('input:radio[name=ft]:checked').val();
@@ -194,6 +149,7 @@
                             if (response == "success") {
                                 localStorage.removeItem("allDataPoints");
                                 alert("Success");
+                                loadForms();
                             }
                             else {
                                 alert("Failed to send form");
@@ -204,26 +160,6 @@
                         alert("Field missing or invalid input");
                     }
                 });
-
-
-                function createDropdownInput(textboxHolder) {
-                    var input = $(document.createElement("input"));
-                    input.attr("type", "text");
-                    input.attr("placeholder", "Option");
-                    input.addClass("option-box");
-                    textboxHolder.append(input);
-                    var added = false;
-                    input.keyup(function() {
-                        if ($.trim(input.val()) != "") {
-                            if (!added) {
-                                createDropdownInput(textboxHolder);
-                                added = true;
-                            }
-                        } else if (added) {
-                            input.remove();
-                        }
-                    });
-                }
 
               $(document).on("click", ".remove-dp", function() {
                     var id = $(this).attr("data-id");
@@ -319,6 +255,7 @@
 
 
                 });
+            });
             </script>
 
 </body>

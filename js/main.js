@@ -316,6 +316,121 @@ function synthesizeForm(dataPoints) {
     })();
 }
 
+function createDropdownInput(textboxHolder, name) {
+    var input = $(document.createElement("input"));
+    input.attr("type", "text");
+    input.attr("placeholder", "Option");
+    if (name) input.val(name);
+    input.addClass("option-box");
+    textboxHolder.append(input);
+    var added = false;
+    input.keyup(function() {
+        if ($.trim(input.val()) != "") {
+            if (!added) {
+                createDropdownInput(textboxHolder);
+                added = true;
+            }
+        } else if (added) {
+            input.remove();
+        }
+    });
+}
+
+function createNewDataPoint(dp) {
+    var divWrapper = $(document.createElement("div"));
+    divWrapper.addClass("dp-wrapper");
+    var wrappers = $("#form-holder").find(".dp-wrapper");
+    var dpNum = "1";
+    if (wrappers.length != 0) {
+        dpNum = parseInt($(wrappers[wrappers.length - 1]).attr("data-id")) + 1 + "";
+    }
+    divWrapper.attr("data-id", dpNum);
+    var select = $(document.createElement("select"));
+    select.addClass("creator-dropdown");
+    select.attr("required", "true");
+    var options = [{
+        value: "label",
+        name: "Section Title"
+    }, {
+        value: "text",
+        name: "Text Box"
+    }, {
+        value: "dropdown",
+        name: "Dropdown List"
+    }, {
+        value: "radio",
+        name: "Radio Button"
+    }, {
+        value: "number",
+        name: "Number Box"
+    }, {
+        value: "checkbox",
+        name: "Check Box"
+    }];
+    for (var i = 0; i < options.length; i++) {
+        var option = $(document.createElement("option"));
+        option.attr("value", options[i].value);
+        option.addClass("select-option");
+        option.html(options[i].name);
+        select.append(option);
+    }
+    if(dp){
+        select.find(".select-option[value='"+dp.type+"']").eq(0).attr("selected", "true");
+    }
+    var inputMain = $(document.createElement("input"));
+    inputMain.attr("type", "text");
+    if(dp) inputMain.val(dp.name);
+    inputMain.addClass("dp-box data-point-name");
+    inputMain.attr("placeholder", "Data Point Name");
+    var span = $(document.createElement("span"));
+    span.addClass("glyphicon glyphicon-remove remove-dp btn-lg");
+    var div = $(document.createElement("div"));
+    div.addClass("form-options");
+    if (dp && (dp.type == "radio" || dp.type == "dropdown")){
+        for (var i = 0; i < dp.options.length; i++){
+            createDropdownInput(div, dp.options[i]);
+        }
+        createDropdownInput(div);
+    }
+    else if (dp && dp.type == "number"){
+        var input = $(document.createElement("input"));
+        input.attr("type", "number");
+        input.attr("placeholder", "start");
+        input.addClass('start-box');
+        input.val(dp.start);
+        div.append(input);
+
+        var input = $(document.createElement("input"));
+        input.attr("type", "number");
+        input.attr("placeholder", "min");
+        input.addClass('min-box');
+        input.val(dp.min);
+        div.append(input);
+
+        var input = $(document.createElement("input"));
+        input.attr("type", "number");
+        input.attr("placeholder", "max");
+        input.addClass('max-box');
+        input.val(dp.max);
+        div.append(input);
+    }
+    span.attr("data-id", dpNum);
+    select.attr("data-id", dpNum);
+    inputMain.attr("data-id", dpNum);
+    div.attr("data-id", dpNum);
+    divWrapper.append(select);
+    divWrapper.append(inputMain);
+    divWrapper.append(span);
+    divWrapper.append(div);
+    $("#form-holder").append(divWrapper);
+}
+
+function loadCurrentForm(dataPoints){
+    for (var i = 0; i < dataPoints.length; i++)(function(){
+        var dataPoint = dataPoints[i];
+        createNewDataPoint(dataPoint);
+    })();
+}
 
 function getScoutFormValues(context) {
     var form = $("#form-preview");
@@ -373,7 +488,7 @@ function getScoutFormValues(context) {
     sendReport(send);
 }
 
-function getScoutForm(context){
+function getScoutForm(context, loadOnly){
     testConnection(function(exists){
         if (exists){
             $.post("/getScoutForm", {context: context}, function(response){
@@ -394,6 +509,16 @@ function getScoutForm(context){
         }
     });
 }
+
+function loadForms(){
+    $.post("/getScoutForm", {context: "match"}, function(responseMatch){
+        $.post("/getScoutForm", {context: "pit"}, function(responsePit){
+            localStorage.matchForm = responseMatch;
+            localStorage.pitForm = responsePit;
+        });
+    });
+}
+loadForms();
 
 testConnection(function(exists){
     if (exists){
