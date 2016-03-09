@@ -110,7 +110,7 @@ $.post("/validateUser", { //to change logout/login button
     }
 });
 
-if (localStorage.admin != "true"){//settings are still secure on the server
+if (localStorage.c_team_position != "admin"){//settings are still secure on the server
 	$("a[href='settings.html']").hide();
 }
 

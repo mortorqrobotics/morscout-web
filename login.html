@@ -83,29 +83,29 @@
             $("#createteam-button").on("click", function(){
                 location = "createteam.html";
             });
-            $("#login-button").on("click", function(){
-                var username = $("#username").val().trim();
-                var password = $("#password").val();
-                $.post("/login", {
-                    username: username,
-                    password: password
-                }, function(response){
-                    if (response._id){
-                        localStorage.firstName = response.firstName;
-                        localStorage.lastName = response.lastName;
-                        localStorage.teamCode = response.teamCode;
-                        localStorage.teamName = response.teamName;
-                        localStorage.teamNumber = response.teamNumber;
-                        localStorage.admin = response.admin;
-                        localStorage.username = response.username;
-                        localStorage.userID = response._id;
-                        location = "/"
-                    }
-                    else {
-                        alert("Invalid login");
-                    }
-                });
-            });
+            // $("#login-button").on("click", function(){
+            //     var username = $("#username").val().trim();
+            //     var password = $("#password").val();
+            //     $.post("/login", {
+            //         username: username,
+            //         password: password
+            //     }, function(response){
+            //         if (response._id){
+            //             localStorage.firstname = response.firstname;
+            //             localStorage.lastname = response.lastname;
+            //             localStorage.teamCode = response.current_team.id;
+            //             localStorage.teamName = response.teamName;
+            //             localStorage.teamNumber = response.teamNumber;
+            //             localStorage.position = response.current_team.position;
+            //             localStorage.username = response.username;
+            //             localStorage.userID = response._id;
+            //             location = "/"
+            //         }
+            //         else {
+            //             alert("Invalid login");
+            //         }
+            //     });
+            // });
         });
     </script>
 
