@@ -432,6 +432,15 @@ function loadCurrentForm(dataPoints){
     })();
 }
 
+function loadCurrentRegional(){
+    $.post("/getCurrentRegionalInfo", function(regionalInfo){
+        if (!regionalInfo.Errors){
+            localStorage.currentRegional = regionalInfo.key;
+        }
+    });
+}
+loadCurrentRegional();
+
 function getScoutFormValues(context) {
     var form = $("#form-preview");
     var inputs = form.find(".inp");
@@ -468,7 +477,7 @@ function getScoutFormValues(context) {
         values.push(dataPoint);
     }
     var send = {};
-    var regional = JSON.parse(localStorage.allMatches)[0].key.split("_")[0];
+    var regional = localStorage.currentRegional;
     if (context == "match") {
         send = {
             data: values,
