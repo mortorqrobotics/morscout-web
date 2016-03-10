@@ -111,21 +111,21 @@ function standardizeTime(ts) {
 
 
 
-$.post("/validateUser", { //to change logout/login button
-    userID: localStorage.userID
-}, function(response) {
-    if (response != "success") {
-        localStorage.clear();
-        $("#logoutButton").html("Log in");
-        $("#logoutButton").attr("href", "login.html");
-        $("#logoutButton").attr("id", "loginButton");
-        //location = "login.html";
-    } else {
-        $("#loginButton").attr("id", "logoutButton");
-        $("#logoutButton").attr("href", "#");
-        $("#logoutButton").html("Log out");
-    }
-});
+// $.post("/validateUser", { //to change logout/login button
+//     userID: localStorage.userID
+// }, function(response) {
+//     if (response != "success") {
+//         localStorage.clear();
+//         $("#logoutButton").html("Log in");
+//         $("#logoutButton").attr("href", "http://morteam.com/login");
+//         $("#logoutButton").attr("id", "loginButton");
+//         //location = "login.html";
+//     } else {
+//         $("#loginButton").attr("id", "logoutButton");
+//         $("#logoutButton").attr("href", "http://morteam.com/login");
+//         $("#logoutButton").html("Log out");
+//     }
+// });
 
 if (localStorage.position != "admin"){//settings are still secure on the server
 	$("a[href='settings.html']").hide();
