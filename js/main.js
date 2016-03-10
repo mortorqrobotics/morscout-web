@@ -17,7 +17,7 @@ function getQS(obj) {
 function testConnection(next) {
     var file = "/favicon.ico";
     jQuery.ajaxSetup({
-        async: false
+        async: true
     });
     r = Math.round(Math.random() * 10000);
     $.get(file, {
@@ -39,6 +39,23 @@ function qs(variable) {
         }
     }
 }
+
+function loadStorage(){
+    $.post("/getInfo", {}, function(response){
+        var user = JSON.parse(response).user;
+        var team = JSON.parse(response).team;
+        localStorage.firstname = user.firstname;
+        localStorage.lastname = user.lastname;
+        localStorage.teamCode = user.current_team.id;
+        localStorage.teamName = team.name;
+        localStorage.teamNumber = team.number;
+        localStorage.position = user.current_team.position;
+        localStorage.username = user.username;
+        localStorage.userID = user._id;
+        localStorage.hasLoaded = "true";
+    });
+}
+if (localStorage.hasLoaded != "true") loadStorage();
 
 function parseQS(str) {
     var arr = str.split("&");
@@ -110,7 +127,7 @@ $.post("/validateUser", { //to change logout/login button
     }
 });
 
-if (localStorage.c_team_position != "admin"){//settings are still secure on the server
+if (localStorage.position != "admin"){//settings are still secure on the server
 	$("a[href='settings.html']").hide();
 }
 
@@ -643,12 +660,12 @@ $('.nav-tbox').keyup(function() {
         var text = $(this).val().toLowerCase();
         var teammates = JSON.parse(JSON.parse(localStorage.teammates)); //fix server
         var filteredTeammates = teammates.filter(function(user) {
-            return ~(user.firstName.toLowerCase() + " " + user.lastName.toLowerCase() + " " + user.username.toLowerCase()).indexOf(text);
+            return ~(user.firstname.toLowerCase() + " " + user.lastname.toLowerCase() + " " + user.username.toLowerCase()).indexOf(text);
         });
         if (filteredTeammates.length != 0) $(".search-drop").show();
         else $(".search-drop").hide();
         filteredTeammates.forEach(function(user) {
-            addUserToDropdown(user.firstName + " " + user.lastName, user._id);
+            addUserToDropdown(user.firstname + " " + user.lastname, user._id);
         });
     } else {
         $(".search-drop").hide();

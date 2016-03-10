@@ -12,8 +12,8 @@
     <link href='http://fonts.googleapis.com/css?family=Titillium+Web' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
-    <link href="../jbox/jBox.css" rel="stylesheet">
-    <link href="../jbox/themes/TooltipDark.css" rel="stylesheet">
+    <!-- <link href="../jbox/jBox.css" rel="stylesheet">
+    <link href="../jbox/themes/TooltipDark.css" rel="stylesheet"> -->
     <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/index.css" type="text/css">
@@ -127,7 +127,7 @@
         userID = localStorage.userID;
     }
 
-    if (localStorage.c_team_position != "admin"){//server is still protected
+    if (localStorage.position != "admin"){//server is still protected
         $(".assign-task").hide();
     }
 
@@ -144,8 +144,8 @@
         if (userID != localStorage.userID){
             for (var i = 0; i < teammates.length; i++){
                 if (teammates[i]._id == userID){
-                    firstName = teammates[i].firstName;
-                    lastName = teammates[i].lastName;
+                    firstName = teammates[i].firstname;
+                    lastName = teammates[i].lastname;
                     break;
                 }
             }
