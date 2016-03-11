@@ -127,7 +127,7 @@ function standardizeTime(ts) {
 //     }
 // });
 
-if (localStorage.position != "admin"){//settings are still secure on the server
+if (localStorage.position == "member"){//settings are still secure on the server
 	$("a[href='settings.html']").hide();
 }
 

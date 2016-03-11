@@ -127,7 +127,7 @@
         userID = localStorage.userID;
     }
 
-    if (localStorage.position != "admin"){//server is still protected
+    if (localStorage.position == "member"){//server is still protected
         $(".assign-task").hide();
     }
 
