@@ -49,6 +49,7 @@ function loadStorage(){
         localStorage.teamCode = user.current_team.id;
         localStorage.teamName = team.name;
         localStorage.teamNumber = team.number;
+        localStorage.scoutCaptain = user.current_team.scoutCaptain;
         localStorage.position = user.current_team.position;
         localStorage.username = user.username;
         localStorage.userID = user._id;
@@ -127,7 +128,7 @@ function standardizeTime(ts) {
 //     }
 // });
 
-if (localStorage.position == "member"){//settings are still secure on the server
+if (localStorage.position != "admin" && localStorage.scoutCaptain != "true"){//settings are still secure on the server
 	$("a[href='settings.html']").hide();
 }
 
