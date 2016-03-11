@@ -64,6 +64,10 @@
       <h1 id="profile-name"></h1>
       <img class="profile-pic" src="http://www.allegraabbotsford.com/wp-content/uploads/2015/06/generic-profile.png"/>
       <h3 id="team-label"></h3>
+      <div id="sc-div" hidden>
+          <input class="report-check sc-check" type="checkbox" id="sc"></input>
+          <label id="report-text" for="sc" class="report-radio-check">Scout Captain</label><br/>
+      </div>
       <!-- <h3>[Phone]</h3>
       <h3>[Email]</h3> -->
       <!-- <input type="button" class="button left-button" id="left-bar-button" value="Edit Profie"></input>
@@ -130,6 +134,27 @@
     if (localStorage.position != "admin" && localStorage.scoutCaptain != "true"){//server is still protected
         $(".assign-task").hide();
     }
+    else {
+        $("#sc-div").show();
+        $.post("/getSC", {userID: userID}, function(response){
+            $("#sc").prop("checked", (response == "true"));
+        });
+    }
+
+    $("#sc").on("change", function(){
+        var isChecked = $(this).is(":checked");
+        var send = "false";
+        if (isChecked) send = "true";
+        if (window.confirm("Are you sure?")){
+            $.post("/setSC", {isSC: send, userID: userID}, function(response){
+                if (response == "fail") alert("Failed to set status");
+            });
+        }
+        else {
+            $(this).prop("checked", !isChecked);
+        }
+    });
+
 
     $.post("/getUserStats", {userID: userID}, function(response){
         var stats = JSON.parse(response);

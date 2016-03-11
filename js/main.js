@@ -56,7 +56,7 @@ function loadStorage(){
         localStorage.hasLoaded = "true";
     });
 }
-if (localStorage.hasLoaded != "true") loadStorage();
+loadStorage();
 
 function parseQS(str) {
     var arr = str.split("&");
