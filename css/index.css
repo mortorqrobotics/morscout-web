@@ -343,6 +343,7 @@ th,td {
 	width: 90%; /* width of all matches table */
 	margin: 1.4em auto; /* margin of all matches and all teams table */
 	margin-bottom: 2em; /* distance of tables from bottom of page */
+	font-family: 'Exo 2', sans-serif !important;
 }
 
 .teams-table{
@@ -378,27 +379,35 @@ th,td {
 
 
 #r1, #r2, #r3{
-	background-color: #B80000 ; /* background color of table cells of red teams */
+	background-color: #ff0000;
+	color: #CCCCCC;
+	opacity: 0.4;
 }
 #rh {
-	background-color: #760000; /* background color of table header cell of red teams */
+	background-color: #ff0000;
+	color: #CCCCCC;
+	opacity: 0.6;
 }
 #b1, #b2, #b3{
-	background-color: #0029A3; /* background color of table cells of blue teams */
+	background-color: #007dff;
+	color: #CCCCCC;
+	opacity: 0.4;
 }
 #bh {
-	background-color: #001962; /* background color of table header cell of blue teams */
+	background-color: #007dff;
+	color: #CCCCCC;
+	opacity: 0.6;
 }
 
 .redTeamHeader{
 	background-color: #ff0000;
 	color: #CCCCCC;
-  opacity: 0.6;
+	opacity: 0.6;
 }
 .blueTeamHeader{
 	background-color: #007dff;
 	color: #CCCCCC;
-  opacity: 0.6;
+	opacity: 0.6;
 }
 .table-hover > th, .table-hover > td {
 	background-color: #C0C0C0 !important;
