@@ -1096,7 +1096,7 @@ label:before {
 .button-hovered-report{
 	background-color: #C0C0C0 !important; /* background color of hovered table cell in report table */
 	cursor: pointer; /* changes cursor to hand (not to be changed) */
-	color: black; /* text color of hovered table cell in report table */
+	color: black !important; /* text color of hovered table cell in report table */
 }
 .button-selected-report{
 	background-color: white !important; /* background color of hovered table cell in report table */
