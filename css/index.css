@@ -1101,7 +1101,7 @@ label:before {
 .button-selected-report{
 	background-color: white !important; /* background color of hovered table cell in report table */
 	cursor: pointer; /* changes cursor to hand (not to be changed) */
-	color: black; /* text color of hovered table cell in report table */
+	color: black !important; /* text color of hovered table cell in report table */
 }
 
 #settings-grid{

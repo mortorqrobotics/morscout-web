@@ -287,17 +287,17 @@
                                 var tr = $(document.createElement("tr"));
                                 if (i % 2 != 0) tr.addClass("odd-row");
                                 tr.attr("id", teamNumber);
-                                var thNumber = $(document.createElement("th"));
-                                thNumber.addClass("number");
-                                thNumber.html(teamNumber)
-                                var thName = $(document.createElement("th"));
-                                thName.addClass("name");
-                                thName.html(teamName);
-                                var thValue = $(document.createElement("th"));
-                                thValue.html(dpValue);
-                                tr.append(thNumber);
-                                tr.append(thName);
-                                tr.append(thValue);
+                                var tdNumber = $(document.createElement("td"));
+                                tdNumber.addClass("number");
+                                tdNumber.html(teamNumber)
+                                var tdName = $(document.createElement("td"));
+                                tdName.addClass("name");
+                                tdName.html(teamName);
+                                var tdValue = $(document.createElement("td"));
+                                tdValue.html(dpValue);
+                                tr.append(tdNumber);
+                                tr.append(tdName);
+                                tr.append(tdValue);
                                 table.append(tr);
                                 break;
                             }
