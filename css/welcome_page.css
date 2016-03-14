@@ -16,14 +16,14 @@
 .odd-row-pic{
 	margin-top: 125px;
 	width: 75em;
-	margin-left: -25em;
+	margin-left: -20em;
 	float: left;
 	box-shadow: -2px -2px 10px black;
 }
 .even-row-pic{
 	margin-top: 125px;
 	width: 75em;
-	margin-right: -25em;
+	margin-right: -20em;
 	float: right;
 	box-shadow: 0px -2px 10px black;
 }
