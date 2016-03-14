@@ -163,6 +163,7 @@
               eventCode: currentRegional
           }, function(response){
               if (response == "success"){
+                  localStorage.currentRegional = currentRegional;
                   alert("Regional successfully selected.");
               }
               else {

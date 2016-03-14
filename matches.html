@@ -177,18 +177,33 @@
             }
         }
         function getMatches(cb) {
-            testConnection(function(exists){
-                if (exists){
-                    $.post("/getMatchesForCurrentRegional", {}, function(response) {
-                        localStorage.allMatches = response;
-                        cb(response);
-                    });
-                }
-                else {
-                    if (localStorage.allMatches) cb(localStorage.allMatches);
-                    else cb("{}");
-                }
-            });
+            var matchesStored = JSON.parse(localStorage.allMatches);
+            if (!matchesStored || (localStorage.currentRegional != matchesStored[0].key.split("_")[0])){
+                $.post("/getMatchesForCurrentRegional", {}, function(response) {
+                    var matches = JSON.parse(response);
+                    var matchCount = matches.filter(function(match){
+                        if (match.comp_level == "qm"){
+                            return true;
+                        }
+                        return false;
+                    }).length;
+                    localStorage.numMatches = matchCount;
+                    localStorage.allMatches = response;
+                    cb(response);
+                });
+            }
+            else {
+                $.post("/getProgressForMatches", {matchesLength: localStorage.numMatches}, function(response) {
+                    var matches = JSON.parse(localStorage.allMatches);
+                    var progress = JSON.parse(response);
+                    for (var i = 0; i < matches.length; i++){
+                        matches[i].progress = progress[matches[i].match_number];
+                    }
+                    localStorage.allMatches = JSON.stringify(matches);
+                    localStorage.numMatches = matches.length;
+                    cb(localStorage.allMatches);
+                });
+            }
         }
         $('#search').keyup(function() {
             var rows = $('.matches-table tr');
