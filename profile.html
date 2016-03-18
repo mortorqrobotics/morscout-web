@@ -167,15 +167,18 @@
         var firstName =localStorage.firstname;
         var lastName = localStorage.lastname;
         var teamNumber = localStorage.teamNumber;
+        var pp = "/pp/" + localStorage.username + "-300";
         if (userID != localStorage.userID){
             for (var i = 0; i < teammates.length; i++){
                 if (teammates[i]._id == userID){
                     firstName = teammates[i].firstname;
                     lastName = teammates[i].lastname;
+                    pp = "/pp/" + teammates[i].username + "-300";
                     break;
                 }
             }
         }
+        $(".profile-pic").attr("src", "http://www.morteam.com" + pp);
         $("#team-label").html("Team " + teamNumber);
         $("#profile-name").html(firstName + " " + lastName);
     });
