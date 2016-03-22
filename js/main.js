@@ -477,7 +477,7 @@ function getScoutFormValues(context) {
         } else if (inp.hasClass("text")) {
             dpName = inp.find(".report-area").eq(0).attr("placeholder");
             value = inp.find(".report-area").eq(0).val();
-            if (!value) value = " ";
+            if (!value) value = "";
         } else if (inp.hasClass("label")) {
             dpName = inp.find("h3").eq(0).html();
             isLabel = true;
@@ -743,7 +743,7 @@ function loadDataViewer(selector, reports) {
                 var key = $(document.createElement("td"));
                 key.html(dp.name);
                 var value = $(document.createElement("td"));
-                if (dp.value == " ") dp.value = "N/A";
+                if (dp.value == "") dp.value = "N/A";
                 value.html(dp.value);
                 tr.append(key);
                 tr.append(value);
