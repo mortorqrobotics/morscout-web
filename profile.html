@@ -167,13 +167,13 @@
         var firstName =localStorage.firstname;
         var lastName = localStorage.lastname;
         var teamNumber = localStorage.teamNumber;
-        var pp = "/pp/" + localStorage.username + "-300";
+        var pp = localStorage.profpicpath + "-300";
         if (userID != localStorage.userID){
             for (var i = 0; i < teammates.length; i++){
                 if (teammates[i]._id == userID){
                     firstName = teammates[i].firstname;
                     lastName = teammates[i].lastname;
-                    pp = "/pp/" + teammates[i].username + "-300";
+                    pp = teammates[i].profpicpath + "-300";
                     break;
                 }
             }

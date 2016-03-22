@@ -46,6 +46,7 @@ function loadStorage(){
         var team = JSON.parse(response).team;
         localStorage.firstname = user.firstname;
         localStorage.lastname = user.lastname;
+        localStorage.profpicpath = user.profpicpath;
         localStorage.teamCode = user.current_team.id;
         localStorage.teamName = team.name;
         localStorage.teamNumber = team.number;
