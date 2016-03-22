@@ -700,6 +700,7 @@
                 var data = JSON.parse(response);
                 var website = data.website;
                 if (website.substring(0, 7) != "http://") website = "http://" + website;
+                website = website.replace(/^http:\/\/\//g, "http://");
                 var link = $(document.createElement("a"));
                 link.attr("href", website);
                 link.html(website);
