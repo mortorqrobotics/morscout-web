@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/index.css" type="text/css">
     <link rel="stylesheet" href="css/profile.css" type="text/css">
+    <link rel="stylesheet" href="css/form.css" type="text/css">
     <link rel="stylesheet" href="css/login.css" type="text/css">
 
 
@@ -206,8 +207,13 @@
             for (var i = 0; i < tasks.assignments.length; i++){
                 var task = tasks.assignments[i];
                 var li = $(document.createElement("li"));
-                li.addClass("profile- profile-li-font");
+                li.attr("data-id", task._id);
+                li.addClass("profile- profile-li-font task-item");
                 li.html("From match " + task.startMatch + " to " + task.endMatch + ", " + task.alliance.substring(0, 1).toUpperCase() + task.alliance.substring(1) + " Alliance, Team " + task.teamSection)
+                var span = $(document.createElement("span"));
+                span.addClass("glyphicon glyphicon-remove remove-task btn-sm");
+                span.attr("data-id", task._id);
+                li.append(span);
                 taskList.append(li);
             }
             $("#complete-matches-label").html(tasks.matchesDone.join(", "));
@@ -215,6 +221,20 @@
             $("#completion-label").html(tasks.matchesDone.length + "/" + (tasks.matchesDone.length + tasks.matchesNotDone.length));
         });
     }
+
+    $(document).on("click", ".remove-task", function() {
+      var id = $(this).attr("data-id");
+      $.post("/removeTask", {id: id}, function(response){
+          if (response == "success"){
+              $(".task-item[data-id='" + id + "']").hide('slow', function() {
+                  $(".task-item[data-id='" + id + "']").remove();
+              });
+          }
+          else {
+              alert("Failed to remove task");
+          }
+      });
+    });
 
     </script>
 
