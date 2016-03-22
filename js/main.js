@@ -477,7 +477,7 @@ function getScoutFormValues(context) {
         } else if (inp.hasClass("text")) {
             dpName = inp.find(".report-area").eq(0).attr("placeholder");
             value = inp.find(".report-area").eq(0).val();
-            if (!value) value = "none";
+            if (!value) value = " ";
         } else if (inp.hasClass("label")) {
             dpName = inp.find("h3").eq(0).html();
             isLabel = true;
@@ -743,6 +743,7 @@ function loadDataViewer(selector, reports) {
                 var key = $(document.createElement("td"));
                 key.html(dp.name);
                 var value = $(document.createElement("td"));
+                if (dp.value == " ") dp.value = "N/A";
                 value.html(dp.value);
                 tr.append(key);
                 tr.append(value);
@@ -859,6 +860,7 @@ function loadAllMatchesTable(team){
                 for (var k = 0; k < allReports[j].data.length; k++){
                     var found = false;
                     if (allReports[j].data[k].name == allDataPoints[i]){
+                        if (allReports[j].data[k].value == " ") allReports[j].data[k].value = "N/A";
                         td.html(allReports[j].data[k].value);
                         $("tr[data-name='" + allReports[j].data[k].name + "']").append(td);
                         found = true;
