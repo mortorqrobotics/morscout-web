@@ -788,7 +788,7 @@ function loadDataViewer(selector, reports) {
         var labelAdded = false;
         for (var j = 0; j < otherReport.length; j++) {
             var dp = otherReport[j];
-            var isLabel = !dp.value;
+            var isLabel = !(dp.value || dp.value == "");
             if (isLabel) {
                 var colDiv = $(document.createElement('div'));
                 if (labelAdded) {
