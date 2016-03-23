@@ -73,10 +73,10 @@
     border-radius: 0;
     position: fixed !important;
 }
-.remove-dp, .remove-task {
+.remove-dp, .remove-task, .remove-report {
     color: black;
 }
-.remove-dp:hover, .remove-task:hover {
+.remove-dp:hover, .remove-task:hover, .remove-report:hover {
     color: red;
     cursor: pointer;
 }

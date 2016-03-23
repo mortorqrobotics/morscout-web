@@ -674,6 +674,20 @@ $('.nav-tbox').keyup(function() {
     }
 });
 
+$(document).on("click", ".remove-report", function(){
+    var id = $(this).attr("data-id");
+    if (window.confirm("Are you sure?")){
+        $.post("/deleteReport", {id: id}, function(response){
+            if (response == "success"){
+                $("#view-tab").trigger("click");
+            }
+            else {
+                alert("Failed to delete report");
+            }
+        });
+    }
+});
+
 function loadDataViewer(selector, reports) {
     var yourTeam = reports.yourTeam;
     var otherTeams = reports.otherTeams;
@@ -703,6 +717,11 @@ function loadDataViewer(selector, reports) {
         var reportIDDiv = $(document.createElement('div'));
         reportIDDiv.addClass("reportID");
         reportIDDiv.html("Report #" + (i + 1));
+
+        var span = $(document.createElement("span"));
+        span.addClass("glyphicon glyphicon-remove remove-report btn-sm");
+        span.attr("data-id", yourTeam[i]._id);
+        if (localStorage.position == "admin" || localStorage.scoutCaptain == "true") reportIDDiv.append(span);
 
         viewFormDiv.append(reportIDDiv);
         $(".yourReportsView").append(viewFormDiv);
