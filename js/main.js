@@ -355,13 +355,21 @@ function createDropdownInput(textboxHolder, name) {
     });
 }
 
-function createNewDataPoint(dp) {
+function createNewDataPoint(dp, afterNum) {
     var divWrapper = $(document.createElement("div"));
     divWrapper.addClass("dp-wrapper");
     var wrappers = $("#form-holder").find(".dp-wrapper");
-    var dpNum = "1";
+    var dpNum = 1;
     if (wrappers.length != 0) {
-        dpNum = parseInt($(wrappers[wrappers.length - 1]).attr("data-id")) + 1 + "";
+        //dpNum = parseInt($(wrappers[wrappers.length - 1]).attr("data-id")) + 1 + "";
+        for (var i = 0; i < wrappers.length; i++){//only way it seems
+            var wrapper = wrappers.eq(i);
+            var wrapperNum = parseInt(wrapper.attr("data-id"));
+            if (wrapperNum > dpNum){
+                dpNum = wrapperNum;
+            }
+        }
+        dpNum++;
     }
     divWrapper.attr("data-id", dpNum);
     var select = $(document.createElement("select"));
@@ -403,6 +411,9 @@ function createNewDataPoint(dp) {
     inputMain.attr("placeholder", "Data Point Name");
     var span = $(document.createElement("span"));
     span.addClass("glyphicon glyphicon-remove remove-dp btn-lg");
+    var spanPlus = $(document.createElement("span"));
+    spanPlus.addClass("glyphicon glyphicon-plus insert-dp btn-lg");
+    spanPlus.attr("data-dpNum", dpNum);
     var div = $(document.createElement("div"));
     div.addClass("form-options");
     if (dp && (dp.type == "radio" || dp.type == "dropdown")){
@@ -440,8 +451,11 @@ function createNewDataPoint(dp) {
     divWrapper.append(select);
     divWrapper.append(inputMain);
     divWrapper.append(span);
+    divWrapper.append(spanPlus);
     divWrapper.append(div);
-    $("#form-holder").append(divWrapper);
+    divWrapper.append(spanPlus);
+    if (afterNum) divWrapper.insertAfter(".dp-wrapper[data-id='"+afterNum+"']");
+    else $("#form-holder").append(divWrapper)
 }
 
 function loadCurrentForm(dataPoints){

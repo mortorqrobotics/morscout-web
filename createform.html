@@ -100,9 +100,9 @@
       <div id="form_options">
    </div> -->
 
-            <div class="formbutton">
+            <!-- <div class="formbutton">
               <input type="button" class="formmakerbutton" id="formbutton" value="Add Data Point">
-            </div>
+            </div> -->
 
             </div>
             <h2>Form Preview</h2>
@@ -135,8 +135,12 @@
                     else loadCurrentForm(JSON.parse(localStorage.pitForm));
                 });
 
-                $("#formbutton").on("click", function() {
-                    createNewDataPoint();
+                // $("#formbutton").on("click", function() {
+                //     createNewDataPoint();
+                // });
+
+                $(document).on("click", ".insert-dp", function(){
+                    createNewDataPoint(null, parseInt($(this).attr("data-dpNum")));
                 });
 
                 if (localStorage.matchForm != "[]") loadCurrentForm(JSON.parse(localStorage.matchForm));
@@ -168,6 +172,8 @@
                         $(".dp-wrapper[data-id='" + id + "']").remove();
                     });
                 });
+
+
 
                 $("#submitformbutton").on("click", function() {
                     var wrappers = $("#form-holder").find(".dp-wrapper");

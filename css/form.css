@@ -76,6 +76,10 @@
 .remove-dp, .remove-task, .remove-report {
     color: black;
 }
+.insert-dp:hover {
+    color: green;
+    cursor: pointer;
+}
 .remove-dp:hover, .remove-task:hover, .remove-report:hover {
     color: red;
     cursor: pointer;
