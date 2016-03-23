@@ -817,6 +817,7 @@ function loadDataViewer(selector, reports) {
                 var key = $(document.createElement("td"));
                 key.html(dp.name);
                 var value = $(document.createElement("td"));
+                if (dp.value == "") dp.value = "N/A";
                 value.html(dp.value);
                 tr.append(key);
                 tr.append(value);
