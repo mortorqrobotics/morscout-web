@@ -197,16 +197,32 @@
             }
             else {
                 var matchesStored = JSON.parse(localStorage.allMatches);
-                $.post("/getProgressForMatches", {matchesLength: localStorage.numMatches}, function(response) {
-                    var matches = JSON.parse(localStorage.allMatches);
-                    var progress = JSON.parse(response);
-                    for (var i = 0; i < matches.length; i++){
-                        matches[i].progress = progress[matches[i].match_number];
+                testConnection(function(exists){
+                    if (exists){
+                        $.post("/getProgressForMatches", {matchesLength: localStorage.numMatches}, function(response) {
+                            var matches = JSON.parse(localStorage.allMatches);
+                            localStorage.progress = response;
+                            var progress = JSON.parse(response);
+                            for (var i = 0; i < matches.length; i++){
+                                matches[i].progress = progress[matches[i].match_number];
+                            }
+                            localStorage.allMatches = JSON.stringify(matches);
+                            localStorage.numMatches = matches.length;
+                            console.log("Fast: " + ((Date.now() - startTime)/1000));
+                            cb(localStorage.allMatches);
+                        });
                     }
-                    localStorage.allMatches = JSON.stringify(matches);
-                    localStorage.numMatches = matches.length;
-                    console.log("Fast: " + ((Date.now() - startTime)/1000));
-                    cb(localStorage.allMatches);
+                    else {
+                        var matches = JSON.parse(localStorage.allMatches);
+                        var progress = JSON.parse(localStorage.progress);
+                        for (var i = 0; i < matches.length; i++){
+                            matches[i].progress = progress[matches[i].match_number];
+                        }
+                        localStorage.allMatches = JSON.stringify(matches);
+                        localStorage.numMatches = matches.length;
+                        console.log("Fast: " + ((Date.now() - startTime)/1000));
+                        cb(localStorage.allMatches);
+                    }
                 });
             }
         }

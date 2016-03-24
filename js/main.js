@@ -1,40 +1,3 @@
-function makeRequest(url, data, next) {
-	if(!next) {
-		next = data;
-		data = null;
-	}
-	$.ajax({
-		url: url,
-		data: data,
-		type: "POST",
-		xhrFields: {
-			withCredentials: true
-		},
-		// beforeSend: function(xhr) {
-		// 	if (localStorage.sessionKey) {
-		// 		xhr.setRequestHeader("Cookie", localStorage.sessionKey);
-		// 	}
-		// },
-		success: function(data, status, xhr) {
-			// var cookie = xhr.getResponseHeader("Set-Cookie");
-			// console.log(cookie);
-			// if (cookie) {
-			// 	localStorage.sessionKey = cookie.substring(
-			// 		cookie.indexOf("=") + 1,
-			// 		cookie.indexOf(";")
-			// 	);
-			// }
-			next(data);
-		}
-	});
-}
-$.post = function(path, data, next) {
-	makeRequest("http://www.scout.morteam.com" + path, data, next);
-};
-function morteamRequest(path, data, next) {
-	makeRequest("http://www.morteam.com" + path, data, next);
-}
-
 function parseJSON(str) {
     try {
         return JSON.parse(str);
@@ -52,7 +15,7 @@ function getQS(obj) {
 }
 
 function testConnection(next) {
-    var file = "http://www.morteam.com/favicon.ico";
+    var file = "/favicon.ico";
     jQuery.ajaxSetup({
         async: true
     });
