@@ -368,12 +368,11 @@
                     } else {
                         var allReports = JSON.parse(localStorage.allReports);
                         var relevantReports = [];
-                        relevantReports = allReports.filter(function(report){
-                            if (report.team == parseInt(currentTeam) && report.match == parseInt(currentMatch)){
-                                return true;
+                        for (var i = 0; i < allReports.length; i++) {
+                            if (allReports[i].team == parseInt(currentTeam) && allReports[i].context == "match" && allReports[i].match == parseInt(currentMatch)) {
+                                relevantReports.push(allReports[i]);
                             }
-                            return false;
-                        });
+                        }
                         loadDataViewer("#viewContainer", {
                             yourTeam: relevantReports,
                             otherTeams: []

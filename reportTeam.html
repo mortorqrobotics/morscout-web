@@ -817,12 +817,11 @@
                     else {
                         var allReports = JSON.parse(localStorage.allReports);
                         var relevantReports = [];
-                        relevantReports = allReports.filter(function(report){
-                            if (report.team == parseInt(data.team) && report.context == "pit"){
-                                return true;
+                        for (var i  = 0; i < allReports.length; i++){
+                            if (allReports[i].team == parseInt(data.team) && allReports[i].context == "pit"){
+                                relevantReports.push(allReports[i]);
                             }
-                            return false;
-                        });
+                        }
                         loadDataViewer("#view-pit-reports", {yourTeam: relevantReports, otherTeams: []});
                     }
                 });

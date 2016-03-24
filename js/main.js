@@ -46,6 +46,7 @@ function loadStorage(){
         var team = JSON.parse(response).team;
         localStorage.firstname = user.firstname;
         localStorage.lastname = user.lastname;
+        localStorage.profpicpath = user.profpicpath;
         localStorage.teamCode = user.current_team.id;
         localStorage.teamName = team.name;
         localStorage.teamNumber = team.number;
@@ -354,13 +355,21 @@ function createDropdownInput(textboxHolder, name) {
     });
 }
 
-function createNewDataPoint(dp) {
+function createNewDataPoint(dp, afterNum) {
     var divWrapper = $(document.createElement("div"));
     divWrapper.addClass("dp-wrapper");
     var wrappers = $("#form-holder").find(".dp-wrapper");
-    var dpNum = "1";
+    var dpNum = 1;
     if (wrappers.length != 0) {
-        dpNum = parseInt($(wrappers[wrappers.length - 1]).attr("data-id")) + 1 + "";
+        //dpNum = parseInt($(wrappers[wrappers.length - 1]).attr("data-id")) + 1 + "";
+        for (var i = 0; i < wrappers.length; i++){//only way it seems
+            var wrapper = wrappers.eq(i);
+            var wrapperNum = parseInt(wrapper.attr("data-id"));
+            if (wrapperNum > dpNum){
+                dpNum = wrapperNum;
+            }
+        }
+        dpNum++;
     }
     divWrapper.attr("data-id", dpNum);
     var select = $(document.createElement("select"));
@@ -402,6 +411,9 @@ function createNewDataPoint(dp) {
     inputMain.attr("placeholder", "Data Point Name");
     var span = $(document.createElement("span"));
     span.addClass("glyphicon glyphicon-remove remove-dp btn-lg");
+    var spanPlus = $(document.createElement("span"));
+    spanPlus.addClass("glyphicon glyphicon-plus insert-dp btn-lg");
+    spanPlus.attr("data-dpNum", dpNum);
     var div = $(document.createElement("div"));
     div.addClass("form-options");
     if (dp && (dp.type == "radio" || dp.type == "dropdown")){
@@ -439,8 +451,11 @@ function createNewDataPoint(dp) {
     divWrapper.append(select);
     divWrapper.append(inputMain);
     divWrapper.append(span);
+    divWrapper.append(spanPlus);
     divWrapper.append(div);
-    $("#form-holder").append(divWrapper);
+    divWrapper.append(spanPlus);
+    if (afterNum) divWrapper.insertAfter(".dp-wrapper[data-id='"+afterNum+"']");
+    else $("#form-holder").append(divWrapper)
 }
 
 function loadCurrentForm(dataPoints){
@@ -476,7 +491,7 @@ function getScoutFormValues(context) {
         } else if (inp.hasClass("text")) {
             dpName = inp.find(".report-area").eq(0).attr("placeholder");
             value = inp.find(".report-area").eq(0).val();
-            if (!value) value = "none";
+            if (!value) value = "";
         } else if (inp.hasClass("label")) {
             dpName = inp.find("h3").eq(0).html();
             isLabel = true;
@@ -673,6 +688,20 @@ $('.nav-tbox').keyup(function() {
     }
 });
 
+$(document).on("click", ".remove-report", function(){
+    var id = $(this).attr("data-id");
+    if (window.confirm("Are you sure?")){
+        $.post("/deleteReport", {id: id}, function(response){
+            if (response == "success"){
+                $("#view-tab").trigger("click");
+            }
+            else {
+                alert("Failed to delete report");
+            }
+        });
+    }
+});
+
 function loadDataViewer(selector, reports) {
     var yourTeam = reports.yourTeam;
     var otherTeams = reports.otherTeams;
@@ -702,6 +731,11 @@ function loadDataViewer(selector, reports) {
         var reportIDDiv = $(document.createElement('div'));
         reportIDDiv.addClass("reportID");
         reportIDDiv.html("Report #" + (i + 1));
+
+        var span = $(document.createElement("span"));
+        span.addClass("glyphicon glyphicon-remove remove-report btn-sm");
+        span.attr("data-id", yourTeam[i]._id);
+        if (localStorage.position == "admin" || localStorage.scoutCaptain == "true") reportIDDiv.append(span);
 
         viewFormDiv.append(reportIDDiv);
         $(".yourReportsView").append(viewFormDiv);
@@ -742,6 +776,7 @@ function loadDataViewer(selector, reports) {
                 var key = $(document.createElement("td"));
                 key.html(dp.name);
                 var value = $(document.createElement("td"));
+                if (dp.value == "") dp.value = "N/A";
                 value.html(dp.value);
                 tr.append(key);
                 tr.append(value);
@@ -767,7 +802,7 @@ function loadDataViewer(selector, reports) {
         var labelAdded = false;
         for (var j = 0; j < otherReport.length; j++) {
             var dp = otherReport[j];
-            var isLabel = !dp.value;
+            var isLabel = !(dp.value || dp.value == "");
             if (isLabel) {
                 var colDiv = $(document.createElement('div'));
                 if (labelAdded) {
@@ -796,6 +831,7 @@ function loadDataViewer(selector, reports) {
                 var key = $(document.createElement("td"));
                 key.html(dp.name);
                 var value = $(document.createElement("td"));
+                if (dp.value == "") dp.value = "N/A";
                 value.html(dp.value);
                 tr.append(key);
                 tr.append(value);
@@ -858,6 +894,7 @@ function loadAllMatchesTable(team){
                 for (var k = 0; k < allReports[j].data.length; k++){
                     var found = false;
                     if (allReports[j].data[k].name == allDataPoints[i]){
+                        if (allReports[j].data[k].value == " ") allReports[j].data[k].value = "N/A";
                         td.html(allReports[j].data[k].value);
                         $("tr[data-name='" + allReports[j].data[k].name + "']").append(td);
                         found = true;

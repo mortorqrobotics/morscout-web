@@ -140,70 +140,53 @@
 
 
 
-        function getAllTeams(cb){
-            testConnection(function(exists){
-                if (exists){
-                    $.post("/getTeamListForRegional", {}, function(response) {
-                        if (response != "fail") {
-                            localStorage.allTeams = response;
-                            cb(JSON.parse(response));
+        function loadByNumber() {
+            $.post("/getTeamListForRegional", {}, function(response) {
+                if (response != "fail") {
+                    var teams = JSON.parse(response);
+                    allTeams = teams;
+                    teams.sort(function(a, b) {
+                        if (a.team_number > b.team_number) {
+                            return 1;
                         }
-                        else {
-                            alert("Failed to retrieve team list");
+                        if (a.team_number < b.team_number) {
+                            return -1;
                         }
+                        return 0;
                     });
-                }
-                else {
-                    cb(JSON.parse(localStorage.allTeams));
+                    $("#loading").hide();
+                    var table = $(".teams-table");
+                    table.empty();
+                    var firstRow = $(document.createElement("tr"));
+                    firstRow.addClass("first-row");
+                    var th1 = $(document.createElement("th"));
+                    th1.html("Team #");
+                    var th2 = $(document.createElement("th"));
+                    th2.html("Name");
+                    firstRow.append(th1);
+                    firstRow.append(th2);
+                    table.append(firstRow);
+                    for (var i = 0; i < teams.length; i++) {
+                        var teamNumber = teams[i].team_number;
+                        var teamName = teams[i].nickname;
+                        var tr = $(document.createElement("tr"));
+                        if (i % 2 == 0) tr.addClass("odd-row");
+                        tr.attr("id", teamNumber);
+                        var tdNumber = $(document.createElement("td"));
+                        tdNumber.addClass("number");
+                        tdNumber.html(teamNumber)
+                        var tdName = $(document.createElement("td"));
+                        tdName.addClass("name");
+                        tdName.html(teamName);
+                        tr.append(tdNumber);
+                        tr.append(tdName);
+                        table.append(tr);
+                    }
+                } else {
+                    alert("Failed to retrieve team list");
                 }
             });
         }
-
-
-        function loadByNumber(){
-            getAllTeams(function(teams){
-                allTeams = teams;//what
-                teams.sort(function(a, b) {
-                    if (a.team_number > b.team_number) {
-                        return 1;
-                    }
-                    if (a.team_number < b.team_number) {
-                        return -1;
-                    }
-                    return 0;
-                });
-                $("#loading").hide();
-                var table = $(".teams-table");
-                table.empty();
-                var firstRow = $(document.createElement("tr"));
-                firstRow.addClass("first-row");
-                var th1 = $(document.createElement("th"));
-                th1.html("Team #");
-                var th2 = $(document.createElement("th"));
-                th2.html("Name");
-                firstRow.append(th1);
-                firstRow.append(th2);
-                table.append(firstRow);
-                for (var i = 0; i < teams.length; i++) {
-                    var teamNumber = teams[i].team_number;
-                    var teamName = teams[i].nickname;
-                    var tr = $(document.createElement("tr"));
-                    if (i % 2 == 0) tr.addClass("odd-row");
-                    tr.attr("id", teamNumber);
-                    var tdNumber = $(document.createElement("td"));
-                    tdNumber.addClass("number");
-                    tdNumber.html(teamNumber)
-                    var tdName = $(document.createElement("td"));
-                    tdName.addClass("name");
-                    tdName.html(teamName);
-                    tr.append(tdNumber);
-                    tr.append(tdName);
-                    table.append(tr);
-                }
-            });
-        }
-
-
 
         function getRankingSort(cb){
             testConnection(function(exists){
@@ -221,7 +204,6 @@
                     });
                 }
                 else {
-                    console.log("here");
                     cb(JSON.parse(localStorage.rankSort));
                 }
             });
