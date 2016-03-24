@@ -108,6 +108,21 @@
         }
 
 
+        function getProgress(cb){
+            testConnection(function(exists){
+                if (exists){
+                    $.post("/getProgressForPit", {}, function(response){
+                        localStorage.progessPit = response;
+                        cb(JSON.parse(response));
+                    });
+                }
+                else {
+                    cb(JSON.parse(localStorage.progressPit));
+                }
+            });
+        }
+
+
         getScoutFormDPS(function(scoutFormDPS){
             var select = $(document.createElement("select"));
             select.addClass("creator-dropdown sort-drop");
@@ -142,7 +157,7 @@
 
         function getAllTeams(cb){
             testConnection(function(exists){
-                if (exists){
+                if (exists || (localStorage.allTeams && localStorage.allTeams)){
                     $.post("/getTeamListForRegional", {}, function(response) {
                         if (response != "fail") {
                             localStorage.allTeams = response;
@@ -172,7 +187,6 @@
                     }
                     return 0;
                 });
-                $("#loading").hide();
                 var table = $(".teams-table");
                 table.empty();
                 var firstRow = $(document.createElement("tr"));
@@ -181,25 +195,35 @@
                 th1.html("Team #");
                 var th2 = $(document.createElement("th"));
                 th2.html("Name");
+                var th3 = $(document.createElement("th"));
+                th3.html("Progress");
                 firstRow.append(th1);
                 firstRow.append(th2);
-                table.append(firstRow);
-                for (var i = 0; i < teams.length; i++) {
-                    var teamNumber = teams[i].team_number;
-                    var teamName = teams[i].nickname;
-                    var tr = $(document.createElement("tr"));
-                    if (i % 2 == 0) tr.addClass("odd-row");
-                    tr.attr("id", teamNumber);
-                    var tdNumber = $(document.createElement("td"));
-                    tdNumber.addClass("number");
-                    tdNumber.html(teamNumber)
-                    var tdName = $(document.createElement("td"));
-                    tdName.addClass("name");
-                    tdName.html(teamName);
-                    tr.append(tdNumber);
-                    tr.append(tdName);
-                    table.append(tr);
-                }
+                firstRow.append(th3);
+                getProgress(function(progress){
+                    table.append(firstRow);
+                    $("#loading").hide();
+                    for (var i = 0; i < teams.length; i++) {
+                        var teamNumber = teams[i].team_number;
+                        var teamName = teams[i].nickname;
+                        var tr = $(document.createElement("tr"));
+                        if (i % 2 == 0) tr.addClass("odd-row");
+                        tr.attr("id", teamNumber);
+                        var tdNumber = $(document.createElement("td"));
+                        tdNumber.addClass("number");
+                        tdNumber.html(teamNumber)
+                        var tdName = $(document.createElement("td"));
+                        tdName.addClass("name");
+                        tdName.html(teamName);
+                        var tdProgress = $(document.createElement("td"));
+                        tdProgress.addClass("name");//who knows
+                        tdProgress.html(progress[teamNumber]);
+                        tr.append(tdNumber);
+                        tr.append(tdName);
+                        tr.append(tdProgress);
+                        table.append(tr);
+                    }
+                });
             });
         }
 
