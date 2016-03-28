@@ -841,7 +841,9 @@ function loadDataViewer(selector, reports) {
 
     }
 }
-
+function isDef(v){
+    return (v !== null && typeof(v) != "undefined");
+}
 function loadAllMatchesTable(team){
     $.post("/getTeamReports", {teamNumber: team, reportContext: "match"}, function(response){
         var reports = JSON.parse(response).yourTeam;
@@ -869,7 +871,7 @@ function loadAllMatchesTable(team){
             $("#first-matches-row").append(th);
             var isOdd = true;
             for (var j = 0; j < reports[i].data.length; j++){
-                if (reports[i].data[j].value && allDataPoints.indexOf(reports[i].data[j].name) < 0){
+                if (isDef(reports[i].data[j].value) && allDataPoints.indexOf(reports[i].data[j].name) < 0){
                     allDataPoints.push(reports[i].data[j].name);
                     var tr = $(document.createElement("tr"));
                     //tr.addClass(reports[i].data[j].name);
@@ -894,7 +896,7 @@ function loadAllMatchesTable(team){
                 for (var k = 0; k < allReports[j].data.length; k++){
                     var found = false;
                     if (allReports[j].data[k].name == allDataPoints[i]){
-                        if (allReports[j].data[k].value == " ") allReports[j].data[k].value = "N/A";
+                        if (allReports[j].data[k].value.trim() == "") allReports[j].data[k].value = "N/A";
                         td.html(allReports[j].data[k].value);
                         $("tr[data-name='" + allReports[j].data[k].name + "']").append(td);
                         found = true;
