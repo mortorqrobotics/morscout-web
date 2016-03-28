@@ -690,10 +690,13 @@ $('.nav-tbox').keyup(function() {
 
 $(document).on("click", ".remove-report", function(){
     var id = $(this).attr("data-id");
+    var isTable = $(this).hasClass("is-table");
     if (window.confirm("Are you sure?")){
         $.post("/deleteReport", {id: id}, function(response){
             if (response == "success"){
-                $("#view-tab").trigger("click");
+                if (isTable) $("#viewMatches-tab").trigger("click");
+                else $("#view-tab").trigger("click");
+
             }
             else {
                 alert("Failed to delete report");
@@ -868,6 +871,10 @@ function loadAllMatchesTable(team){
             allReports.push(reportObj);
             var th = $(document.createElement("th"));
             th.html("Match " + reports[i].match);
+            var span = $(document.createElement("span"));
+            span.addClass("glyphicon glyphicon-remove remove-report is-table btn-sm");
+            span.attr("data-id", reports[i]._id);
+            if (localStorage.position == "admin" || localStorage.scoutCaptain == "true") th.append(span);
             $("#first-matches-row").append(th);
             var isOdd = true;
             for (var j = 0; j < reports[i].data.length; j++){
