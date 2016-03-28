@@ -730,7 +730,7 @@ function loadDataViewer(selector, reports) {
 
         var reportIDDiv = $(document.createElement('div'));
         reportIDDiv.addClass("reportID");
-        reportIDDiv.html("Report #" + (i + 1));
+        reportIDDiv.html("Report #" + (i + 1) + " by " + yourTeam[i].scout.firstname + " " + yourTeam[i].scout.lastname);
 
         var span = $(document.createElement("span"));
         span.addClass("glyphicon glyphicon-remove remove-report btn-sm");
