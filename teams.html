@@ -133,6 +133,9 @@
             }, {
                 value: "officialRanking",
                 name: "Official Ranking"
+            }, {
+                value: "opr",
+                name: "OPR"
             }];
             for (var i = 0; i < scoutFormDPS.length; i++) {
                 var type = scoutFormDPS[i].type;
@@ -228,6 +231,26 @@
         }
 
 
+        function getOPRSort(cb){
+            testConnection(function(exists){
+                if (exists){
+                    $.post("/getOPRSort", {}, function(response){
+                        if (response != "fail"){
+                            localStorage.oprSort = response;
+                            cb(JSON.parse(response));
+                        }
+                        else {
+                            alert("Failed to retrieve OPR stats");
+                            localStorage.rankSort = "[]";
+                            cb([]);
+                        }
+                    });
+                }
+                else {
+                    cb(JSON.parse(localStorage.oprSort));
+                }
+            });
+        }
 
         function getRankingSort(cb){
             testConnection(function(exists){
@@ -245,7 +268,6 @@
                     });
                 }
                 else {
-                    console.log("here");
                     cb(JSON.parse(localStorage.rankSort));
                 }
             });
@@ -295,6 +317,57 @@
                             break;
                         }
                     }
+                }
+            });
+        }
+
+        function loadByOPR(){
+            getOPRSort(function(stats){
+                if (typeof(stats) == "object"){
+                    var teams = stats;
+                    var table = $(".teams-table");
+                    table.empty();
+                    var firstRow = $(document.createElement("tr"));
+                    firstRow.addClass("first-row");
+                    var th1 = $(document.createElement("th"));
+                    th1.html("Team #");
+                    var th2 = $(document.createElement("th"));
+                    th2.html("Name");
+                    var th3 = $(document.createElement("th"));
+                    th3.html("OPR");
+                    firstRow.append(th1);
+                    firstRow.append(th2);
+                    firstRow.append(th3);
+                    table.append(firstRow);
+                    $("#loading").hide();
+                    for (var i = 0; i < stats.length; i++){
+                        var teamNumber = parseFloat(stats[i].key);
+                        var opr = parseFloat(stats[i].value);
+                        for (var j = 0; j < allTeams.length; j++) {
+                            if (allTeams[j].team_number == teamNumber) {
+                                var teamName = allTeams[j].nickname;
+                                var tr = $(document.createElement("tr"));
+                                if (i % 2 != 0) tr.addClass("odd-row");
+                                tr.attr("id", teamNumber);
+                                var tdNumber = $(document.createElement("td"));
+                                tdNumber.addClass("number");
+                                tdNumber.html(teamNumber)
+                                var tdName = $(document.createElement("td"));
+                                tdName.addClass("name");
+                                tdName.html(teamName);
+                                var tdValue = $(document.createElement("td"));
+                                tdValue.html(opr);
+                                tr.append(tdNumber);
+                                tr.append(tdName);
+                                tr.append(tdValue);
+                                table.append(tr);
+                                break;
+                            }
+                        }
+                    }
+                }
+                else {
+                    alert("Failed to load OPR sort");
                 }
             });
         }
@@ -356,6 +429,8 @@
                 loadByNumber();
             } else if (type == "officialRanking") {
                 loadByRanking();
+            } else if (type == "opr"){
+                loadByOPR();
             } else {
                 loadByDataPoint(type);
             }
