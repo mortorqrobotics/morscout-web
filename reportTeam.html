@@ -68,7 +68,7 @@
                 <h4 class="subtitle" id="team-school"></h4>
                 <h4 class="subtitle" id="team-info"></h4>
             </div>
-            <img id="ba-img" hidden="hidden">
+            <img id="ba-img" style="object-fit: contain;" hidden="hidden" height="300em" width="300em">
             <div class="row">
                 <div class="col-md-1 col-sm-0 col-xs-0">
                 </div>
@@ -659,7 +659,6 @@
             loadAllMatchesTable(data.team);
 
             $.post("/getBAImageLinks", {teamNumber:data.team}, function(response){
-                console.log(response)
                 var links = JSON.parse(response);
                 if (links.length != 0){
                     $("#ba-img").attr("src", links[0]);
