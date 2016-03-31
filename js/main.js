@@ -795,7 +795,7 @@ function loadDataViewer(selector, reports) {
 
         var reportIDDiv = $(document.createElement('div'));
         reportIDDiv.addClass("reportID");
-        reportIDDiv.html("Report #" + (i + 1));
+        reportIDDiv.html("Report #" + (i + 1) + " by team " + otherTeams[i].scoutTeamCode);
 
         viewFormDiv.append(reportIDDiv);
         $(".otherReportsView").append(viewFormDiv);
