@@ -56,7 +56,26 @@
     <div class="page-title">
         <div class="container">
             <h1>All Matches</h1>
-            <input type="text" id="search" class="settings-box text-input" placeholder="search.."></input>
+            <input type="text" id="search" class="settings-box text-input" placeholder="search.."></input><div id="legend-wrapper">
+              <div class="matches-legend">
+                <div class="row">
+                  <div class="legend-color legend-row-item" id="legend-green"></div>
+                  <h6 class="legend-row-item" id="text-green">Future Allies</h6>
+                </div>
+                <div class="row">
+                  <div class="legend-color legend-row-item" id="legend-red"></div>
+                  <h6 class="legend-row-item" id="text-red">Future Enemies</h6>
+                </div>
+                <div class="row">
+                  <div class="legend-color legend-row-item" id="legend-purple"></div>
+                  <h6 class="legend-row-item" id="text-purple">Future Allies and Enemies</h6>
+                </div>
+                <div class="row">
+                  <div class="legend-color legend-row-item" id="legend-orange"></div>
+                  <h6 class="legend-row-item" id="text-orange">Your Team</h6>
+                </div>
+              </div>
+            </div>
             <table class="matches-table">
                 <tr id="first-row">
                     <th>#</th>

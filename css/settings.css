@@ -88,3 +88,69 @@ margin-top: 4em; /* distance of grid of settings from top of page */
 .dropdown{
 	text-align: center !important;
 }
+
+.matches-legend {
+  text-align: left;
+  border: 1px solid black;
+  width: 30em;
+  padding-left: 5em;
+	margin-left: 120em;
+	margin-top: -10em;
+	position: fixed;
+	height:13em;
+}
+
+
+#legend-green {
+  background-color: #009933;
+}
+
+#legend-red {
+  background-color: #ff4d4d;
+
+}
+
+#legend-purple {
+  background-color: #b84dff;
+
+}
+
+#legend-orange {
+  background-color: #ffa64d;
+
+}
+
+.legend-color {
+  width: 4em;
+  height: 2em;
+  margin-right: 2em;
+  margin-top: 1em;
+}
+
+.legend-row-item {
+  /*display: inline-block;*/
+}
+
+#text-red{
+	position: fixed;
+	top: 103px;
+	padding-left: 50px;
+}
+
+#text-green{
+	position: fixed;
+	top: 73px;
+	padding-left: 50px;
+}
+
+#text-orange{
+	position: fixed;
+	top: 163px;
+	padding-left: 50px;
+}
+
+#text-purple{
+	position: fixed;
+	top: 133px;
+	padding-left: 50px;
+}
