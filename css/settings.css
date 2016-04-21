@@ -89,6 +89,7 @@ margin-top: 4em; /* distance of grid of settings from top of page */
 	text-align: center !important;
 }
 
+/* legend stuff begins */
 .matches-legend {
   text-align: left;
   border: 1px solid black;
@@ -133,24 +134,30 @@ margin-top: 4em; /* distance of grid of settings from top of page */
 
 #text-red{
 	position: fixed;
-	top: 103px;
-	padding-left: 50px;
+	top: 8.6em;
+	padding-left: 4.2em;
 }
 
 #text-green{
 	position: fixed;
-	top: 73px;
-	padding-left: 50px;
+	top: 6.1em;
+	padding-left: 4.2em;
 }
 
 #text-orange{
 	position: fixed;
-	top: 163px;
-	padding-left: 50px;
+	top: 13.6em;
+	padding-left: 4.2em;
 }
 
 #text-purple{
 	position: fixed;
-	top: 133px;
-	padding-left: 50px;
+	top: 11.1em;
+	padding-left: 4.2em;
 }
+
+@media screen and (max-width: 1858px) {
+	.matches-legend{
+		display: none;
+	}
+/* legend stuff ends */
