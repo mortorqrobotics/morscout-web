@@ -133,7 +133,7 @@
         userID = localStorage.userID;
     }
 
-    if (localStorage.position != "admin" && localStorage.scoutCaptain != "true"){//server is still protected
+    if (localStorage.position != "leader" || localStorage.position != "mentor" && localStorage.scoutCaptain != "true"){//server is still protected
         $(".assign-task").hide();
     }
     else {
@@ -213,7 +213,7 @@
                 var span = $(document.createElement("span"));
                 span.addClass("glyphicon glyphicon-remove remove-task btn-sm");
                 span.attr("data-id", task._id);
-                if (localStorage.position == "admin" || localStorage.scoutCaptain == "true") li.append(span);
+                if (localStorage.position == "leader" || localStorage.position == "mentor" || localStorage.scoutCaptain == "true") li.append(span);
                 taskList.append(li);
             }
             $("#complete-matches-label").html(tasks.matchesDone.join(", "));

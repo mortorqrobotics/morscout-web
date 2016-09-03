@@ -738,7 +738,7 @@ function loadDataViewer(selector, reports) {
         var span = $(document.createElement("span"));
         span.addClass("glyphicon glyphicon-remove remove-report btn-sm");
         span.attr("data-id", yourTeam[i]._id);
-        if (localStorage.position == "admin" || localStorage.scoutCaptain == "true") reportIDDiv.append(span);
+        if (localStorage.position == "leader" || localStorage.position == "mentor" || localStorage.scoutCaptain == "true") reportIDDiv.append(span);
 
         viewFormDiv.append(reportIDDiv);
         $(".yourReportsView").append(viewFormDiv);
@@ -874,7 +874,7 @@ function loadAllMatchesTable(team){
             var span = $(document.createElement("span"));
             span.addClass("glyphicon glyphicon-remove remove-report is-table btn-sm");
             span.attr("data-id", reports[i]._id);
-            if (localStorage.position == "admin" || localStorage.scoutCaptain == "true") th.append(span);
+            if (localStorage.position == "leader" || localStorage.position == "mentor" || localStorage.scoutCaptain == "true") th.append(span);
             $("#first-matches-row").append(th);
             var isOdd = true;
             for (var j = 0; j < reports[i].data.length; j++){
