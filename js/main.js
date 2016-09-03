@@ -129,7 +129,7 @@ function standardizeTime(ts) {
 //     }
 // });
 
-if (localStorage.position != "admin" && localStorage.scoutCaptain != "true"){//settings are still secure on the server
+if (localStorage.position != "mentor" && localStorage.position != "leader" && localStorage.scoutCaptain != "true"){//settings are still secure on the server
 	$("a[href='settings.html']").hide();
 }
 
