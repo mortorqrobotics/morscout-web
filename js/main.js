@@ -47,11 +47,11 @@ function loadStorage(){
         localStorage.firstname = user.firstname;
         localStorage.lastname = user.lastname;
         localStorage.profpicpath = user.profpicpath;
-        localStorage.teamCode = user.current_team.id;
+        localStorage.teamCode = user.team;
         localStorage.teamName = team.name;
         localStorage.teamNumber = team.number;
-        localStorage.scoutCaptain = user.current_team.scoutCaptain;
-        localStorage.position = user.current_team.position;
+        localStorage.scoutCaptain = user.scoutCaptain;
+        localStorage.position = user.position;
         localStorage.username = user.username;
         localStorage.userID = user._id;
         localStorage.hasLoaded = "true";
