@@ -203,6 +203,7 @@
         var taskList = $("#task-list");
         taskList.empty();
         $.post("/showTasks", {scoutID: userID}, function(response){
+			console.log(response)
             var tasks = JSON.parse(response);
             for (var i = 0; i < tasks.assignments.length; i++){
                 var task = tasks.assignments[i];

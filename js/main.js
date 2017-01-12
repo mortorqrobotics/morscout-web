@@ -694,7 +694,7 @@ $(document).on("click", ".remove-report", function(){
     if (window.confirm("Are you sure?")){
         $.post("/deleteReport", {id: id}, function(response){
             if (response == "success"){
-                if (isTable) $("#viewMatches-tab").trigger("click");
+                if (isTable) $("#viewMatchesTable-tab").trigger("click");
                 else $("#view-tab").trigger("click");
 
             }
@@ -919,3 +919,15 @@ function loadAllMatchesTable(team){
     });
 
 }
+
+
+
+
+function loadDPCharts(team){
+    $.post("/getTeamReports", {teamNumber: team, reportContext: "match"}, function(response){
+        var reports = JSON.parse(response).yourTeam;
+        
+    });
+
+}
+
