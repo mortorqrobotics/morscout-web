@@ -844,9 +844,74 @@ function loadDataViewer(selector, reports) {
 
     }
 }
+
 function isDef(v){
     return (v !== null && typeof(v) != "undefined");
 }
+
+//Number of tables there are
+var graph = 0;
+	
+function draw_chart(port, moat, draw, rock, low, spy) {
+    // Load the Visualization API and the corechart package.
+    google.charts.load('current', {
+        'packages': ['corechart']
+    });
+
+    // Set a callback to run when the Google Visualization API is loaded.
+    google.charts.setOnLoadCallback(drawChart);
+
+    // Callback that creates and populates a data table,
+    // instantiates the bar chart, passes in the data and
+    // draws it.
+    function drawChart() {
+
+    // Create the data table.
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Start-Points');
+        data.addColumn('number', 'Times Crossed');
+        data.addRows([
+            ['Portcullis/CDF', port],
+            ['Moat/Ramparts', moat],
+            ['Drawbridge/Sally Port', draw],
+            ['Rock Wall/Rough Terrain', rock],
+            ['Low Bar', low],
+            ['Spy Box', spy]
+        ]);
+
+        // Set chart options
+        var chartWidth = 1000;
+
+		var agraph = $(document.createElement("div"));
+		agraph.prop("id", "chart_div" + graph);
+		agraph.prop("class", "full");
+		$("#viewMatchesGraph-form").append(agraph);
+			
+        //$("#chart_div" + graph)[0].style.paddingLeft = ((window.innerWidth / 2) - (chartWidth / 2)) + "px";
+		$("#chart_div" + graph)[0].style.paddingLeft = "15%"; //padding-left
+		//$("#chart_div" + graph)[0].style.paddingBottom = "1em";
+			
+        var options = {
+			'title': 'Start Point',
+			'width': chartWidth,
+			'backgroundColor': '#e9e9e9',
+            chartArea: {
+                width: "30%",
+                height: "50%"
+            },
+            'fontName': 'Exo 2'
+        };
+			
+        // Instantiate and draw our chart, passing in some options.
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div' + graph));
+
+        chart.draw(data, options);
+			
+		graph++;
+    }
+
+}
+
 function loadAllMatchesTable(team){
     $.post("/getTeamReports", {teamNumber: team, reportContext: "match"}, function(response){
         var reports = JSON.parse(response).yourTeam;
