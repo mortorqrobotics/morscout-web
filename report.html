@@ -220,7 +220,6 @@
     <script src="js/reportTable.js"></script>
     <script src="js/main.js" type="text/javascript"></script>
     <script>
-		
         function smoothScroll(id) {
             var aTag = $("#" + id);
             $('html,body').animate({
@@ -428,7 +427,7 @@
                 //$('#scout-form').hide();
             })
             $('#viewMatchesGraph-tab').click(function() {
-			    draw_chart(2,4,6,8,10,12);
+                draw_chart(2, 4, 6, 8, 10, 12);
                 $('#viewContainer').html('');
                 $('#viewMatchesGraph-tab').addClass("active");
                 $('#editStrategy-tab').removeClass("active");

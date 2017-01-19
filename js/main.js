@@ -40,8 +40,8 @@ function qs(variable) {
     }
 }
 
-function loadStorage(){
-    $.post("/getInfo", {}, function(response){
+function loadStorage() {
+    $.post("/getInfo", {}, function(response) {
         var user = JSON.parse(response).user;
         var team = JSON.parse(response).team;
         localStorage.firstname = user.firstname;
@@ -129,8 +129,8 @@ function standardizeTime(ts) {
 //     }
 // });
 
-if (localStorage.position != "mentor" && localStorage.position != "leader" && localStorage.scoutCaptain != "true"){//settings are still secure on the server
-	$("a[href='settings.html']").hide();
+if (localStorage.position != "mentor" && localStorage.position != "leader" && localStorage.scoutCaptain != "true") { //settings are still secure on the server
+    $("a[href='settings.html']").hide();
 }
 
 
@@ -362,10 +362,10 @@ function createNewDataPoint(dp, afterNum) {
     var dpNum = 1;
     if (wrappers.length != 0) {
         //dpNum = parseInt($(wrappers[wrappers.length - 1]).attr("data-id")) + 1 + "";
-        for (var i = 0; i < wrappers.length; i++){//only way it seems
+        for (var i = 0; i < wrappers.length; i++) { //only way it seems
             var wrapper = wrappers.eq(i);
             var wrapperNum = parseInt(wrapper.attr("data-id"));
-            if (wrapperNum > dpNum){
+            if (wrapperNum > dpNum) {
                 dpNum = wrapperNum;
             }
         }
@@ -401,12 +401,12 @@ function createNewDataPoint(dp, afterNum) {
         option.html(options[i].name);
         select.append(option);
     }
-    if(dp){
-        select.find(".select-option[value='"+dp.type+"']").eq(0).attr("selected", "true");
+    if (dp) {
+        select.find(".select-option[value='" + dp.type + "']").eq(0).attr("selected", "true");
     }
     var inputMain = $(document.createElement("input"));
     inputMain.attr("type", "text");
-    if(dp) inputMain.val(dp.name);
+    if (dp) inputMain.val(dp.name);
     inputMain.addClass("dp-box data-point-name");
     inputMain.attr("placeholder", "Data Point Name");
     var span = $(document.createElement("span"));
@@ -416,13 +416,12 @@ function createNewDataPoint(dp, afterNum) {
     spanPlus.attr("data-dpNum", dpNum);
     var div = $(document.createElement("div"));
     div.addClass("form-options");
-    if (dp && (dp.type == "radio" || dp.type == "dropdown")){
-        for (var i = 0; i < dp.options.length; i++){
+    if (dp && (dp.type == "radio" || dp.type == "dropdown")) {
+        for (var i = 0; i < dp.options.length; i++) {
             createDropdownInput(div, dp.options[i]);
         }
         createDropdownInput(div);
-    }
-    else if (dp && dp.type == "number"){
+    } else if (dp && dp.type == "number") {
         var input = $(document.createElement("input"));
         input.attr("type", "number");
         input.attr("placeholder", "start");
@@ -454,20 +453,20 @@ function createNewDataPoint(dp, afterNum) {
     divWrapper.append(spanPlus);
     divWrapper.append(div);
     divWrapper.append(spanPlus);
-    if (afterNum) divWrapper.insertAfter(".dp-wrapper[data-id='"+afterNum+"']");
+    if (afterNum) divWrapper.insertAfter(".dp-wrapper[data-id='" + afterNum + "']");
     else $("#form-holder").append(divWrapper)
 }
 
-function loadCurrentForm(dataPoints){
-    for (var i = 0; i < dataPoints.length; i++)(function(){
+function loadCurrentForm(dataPoints) {
+    for (var i = 0; i < dataPoints.length; i++)(function() {
         var dataPoint = dataPoints[i];
         createNewDataPoint(dataPoint);
     })();
 }
 
-function loadCurrentRegional(){
-    $.post("/getCurrentRegionalInfo", function(regionalInfo){
-        if (!regionalInfo.Errors){
+function loadCurrentRegional() {
+    $.post("/getCurrentRegionalInfo", function(regionalInfo) {
+        if (!regionalInfo.Errors) {
             localStorage.currentRegional = regionalInfo.key;
         }
     });
@@ -530,31 +529,35 @@ function getScoutFormValues(context) {
     sendReport(send);
 }
 
-function getScoutForm(context){
-    testConnection(function(exists){
-        if (exists){
-            $.post("/getScoutForm", {context: context}, function(response){
-                if (response != "fail"){
+function getScoutForm(context) {
+    testConnection(function(exists) {
+        if (exists) {
+            $.post("/getScoutForm", {
+                context: context
+            }, function(response) {
+                if (response != "fail") {
                     var scoutFormDPS = JSON.parse(response);
                     if (context == "match") localStorage.matchForm = response;
                     else if (context == "pit") localStorage.pitForm = response
                     synthesizeForm(scoutFormDPS);
-                }
-                else {
+                } else {
                     alert("Failed to retrieve scout form");
                 }
             });
-        }
-        else {
+        } else {
             if (context == "match") synthesizeForm(JSON.parse(localStorage.matchForm));
-            else if(context == "pit") synthesizeForm(JSON.parse(localStorage.pitForm));
+            else if (context == "pit") synthesizeForm(JSON.parse(localStorage.pitForm));
         }
     });
 }
 
-function loadForms(){
-    $.post("/getScoutForm", {context: "match"}, function(responseMatch){
-        $.post("/getScoutForm", {context: "pit"}, function(responsePit){
+function loadForms() {
+    $.post("/getScoutForm", {
+        context: "match"
+    }, function(responseMatch) {
+        $.post("/getScoutForm", {
+            context: "pit"
+        }, function(responsePit) {
             localStorage.matchForm = responseMatch;
             localStorage.pitForm = responsePit;
         });
@@ -562,11 +565,11 @@ function loadForms(){
 }
 loadForms();
 
-testConnection(function(exists){
-    if (exists){
-        if (localStorage.pendingReports){
+testConnection(function(exists) {
+    if (exists) {
+        if (localStorage.pendingReports) {
             var pendingReports = JSON.parse(localStorage.pendingReports);
-            for (var i = 0; i < pendingReports.length; i++)(function(){
+            for (var i = 0; i < pendingReports.length; i++)(function() {
                 sendReport(pendingReports[i]);
             })();
             localStorage.pendingReports = "[]";
@@ -574,9 +577,9 @@ testConnection(function(exists){
     }
 });
 
-function sendReport(send){
-    testConnection(function(exists){
-        if (exists){
+function sendReport(send) {
+    testConnection(function(exists) {
+        if (exists) {
             $.post("/submitReport", send, function(response) {
                 if (response == "success") {
                     $('#submit-match-report').html('Done!');
@@ -603,8 +606,7 @@ function sendReport(send){
                     alert("Invalid input. Failed to send form");
                 }
             });
-        }
-        else {
+        } else {
             $('#submit-match-report').html('Done!');
             $('#submit-match-report').prop('disabled', true);
             $('#submit-match-report').removeClass('button-hovered');
@@ -625,7 +627,7 @@ function sendReport(send){
                 $('#submit-match-report').removeClass('button-disabled');
             }, 2500);
             var pendingReports = [];
-            if (localStorage.pendingReports){
+            if (localStorage.pendingReports) {
                 pendingReports = JSON.parse(localStorage.pendingReports);
             }
             pendingReports.push(send);
@@ -634,20 +636,18 @@ function sendReport(send){
     });
 }
 
-function getAllReports(){
-    testConnection(function(exists){
-        if (exists){
-            $.post("/getAllReports", {}, function(response){
-                if (response != "fail"){
+function getAllReports() {
+    testConnection(function(exists) {
+        if (exists) {
+            $.post("/getAllReports", {}, function(response) {
+                if (response != "fail") {
                     localStorage.allReports = response;
                     //cb(JSON.parse(response));
-                }
-                else {
+                } else {
                     alert("Unable to get all reports");
                 }
             });
-        }
-        else {
+        } else {
             //cb(localStorage.allReports);
         }
     });
@@ -658,15 +658,15 @@ if (localStorage.userID) getAllReports();
 function addUserToDropdown(name, id) {
     var search = $('.nav-tbox');
     var li = $(document.createElement('li'));
-	li.attr("data-id", id);
+    li.attr("data-id", id);
     li.addClass('search-drop-list-item');
     li.text(name);
     $('.search-drop-items').append(li);
 }
 
 
-$(document).on("click", ".search-drop-list-item", function(){
-	location = "/profile.html?id=" + $(this).attr("data-id");
+$(document).on("click", ".search-drop-list-item", function() {
+    location = "/profile.html?id=" + $(this).attr("data-id");
 });
 
 $('.nav-tbox').keyup(function() {
@@ -688,17 +688,18 @@ $('.nav-tbox').keyup(function() {
     }
 });
 
-$(document).on("click", ".remove-report", function(){
+$(document).on("click", ".remove-report", function() {
     var id = $(this).attr("data-id");
     var isTable = $(this).hasClass("is-table");
-    if (window.confirm("Are you sure?")){
-        $.post("/deleteReport", {id: id}, function(response){
-            if (response == "success"){
+    if (window.confirm("Are you sure?")) {
+        $.post("/deleteReport", {
+            id: id
+        }, function(response) {
+            if (response == "success") {
                 if (isTable) $("#viewMatchesTable-tab").trigger("click");
                 else $("#view-tab").trigger("click");
 
-            }
-            else {
+            } else {
                 alert("Failed to delete report");
             }
         });
@@ -845,13 +846,13 @@ function loadDataViewer(selector, reports) {
     }
 }
 
-function isDef(v){
+function isDef(v) {
     return (v !== null && typeof(v) != "undefined");
 }
 
 //Number of tables there are
 var graph = 0;
-	
+
 function draw_chart(port, moat, draw, rock, low, spy) {
     // Load the Visualization API and the corechart package.
     google.charts.load('current', {
@@ -866,7 +867,7 @@ function draw_chart(port, moat, draw, rock, low, spy) {
     // draws it.
     function drawChart() {
 
-    // Create the data table.
+        // Create the data table.
         var data = new google.visualization.DataTable();
         data.addColumn('string', 'Start-Points');
         data.addColumn('number', 'Times Crossed');
@@ -882,38 +883,41 @@ function draw_chart(port, moat, draw, rock, low, spy) {
         // Set chart options
         var chartWidth = 1000;
 
-		var agraph = $(document.createElement("div"));
-		agraph.prop("id", "chart_div" + graph);
-		agraph.prop("class", "full");
-		$("#viewMatchesGraph-form").append(agraph);
-			
+        var agraph = $(document.createElement("div"));
+        agraph.prop("id", "chart_div" + graph);
+        agraph.prop("class", "full");
+        $("#viewMatchesGraph-form").append(agraph);
+
         //$("#chart_div" + graph)[0].style.paddingLeft = ((window.innerWidth / 2) - (chartWidth / 2)) + "px";
-		$("#chart_div" + graph)[0].style.paddingLeft = "15%"; //padding-left
-		//$("#chart_div" + graph)[0].style.paddingBottom = "1em";
-			
+        $("#chart_div" + graph)[0].style.paddingLeft = "15%"; //padding-left
+        //$("#chart_div" + graph)[0].style.paddingBottom = "1em";
+
         var options = {
-			'title': 'Start Point',
-			'width': chartWidth,
-			'backgroundColor': '#e9e9e9',
+            'title': 'Start Point',
+            'width': chartWidth,
+            'backgroundColor': '#e9e9e9',
             chartArea: {
                 width: "30%",
                 height: "50%"
             },
             'fontName': 'Exo 2'
         };
-			
+
         // Instantiate and draw our chart, passing in some options.
         var chart = new google.visualization.BarChart(document.getElementById('chart_div' + graph));
 
         chart.draw(data, options);
-			
-		graph++;
+
+        graph++;
     }
 
 }
 
-function loadAllMatchesTable(team){
-    $.post("/getTeamReports", {teamNumber: team, reportContext: "match"}, function(response){
+function loadAllMatchesTable(team) {
+    $.post("/getTeamReports", {
+        teamNumber: team,
+        reportContext: "match"
+    }, function(response) {
         var reports = JSON.parse(response).yourTeam;
         var allDataPoints = [];
         var table = $("#match-table");
@@ -929,7 +933,7 @@ function loadAllMatchesTable(team){
         reports.sort(function(a, b) {
             return a.match - b.match;
         });
-        for (var i = 0; i < reports.length; i++){
+        for (var i = 0; i < reports.length; i++) {
             var reportObj = {};
             reportObj.match = reports[i].match;
             reportObj.data = reports[i].data;
@@ -942,8 +946,8 @@ function loadAllMatchesTable(team){
             if (localStorage.position == "leader" || localStorage.position == "mentor" || localStorage.scoutCaptain == "true") th.append(span);
             $("#first-matches-row").append(th);
             var isOdd = true;
-            for (var j = 0; j < reports[i].data.length; j++){
-                if (isDef(reports[i].data[j].value) && allDataPoints.indexOf(reports[i].data[j].name) < 0){
+            for (var j = 0; j < reports[i].data.length; j++) {
+                if (isDef(reports[i].data[j].value) && allDataPoints.indexOf(reports[i].data[j].name) < 0) {
                     allDataPoints.push(reports[i].data[j].name);
                     var tr = $(document.createElement("tr"));
                     //tr.addClass(reports[i].data[j].name);
@@ -951,8 +955,7 @@ function loadAllMatchesTable(team){
                     if (isOdd) {
                         tr.addClass("odd-row");
                         isOdd = false;
-                    }
-                    else {
+                    } else {
                         isOdd = true;
                     }
                     var td = $(document.createElement("td"));
@@ -962,12 +965,12 @@ function loadAllMatchesTable(team){
                 }
             }
         }
-        for (var i = 0; i < allDataPoints.length; i++){
-            for (var j = 0; j < allReports.length; j++){
+        for (var i = 0; i < allDataPoints.length; i++) {
+            for (var j = 0; j < allReports.length; j++) {
                 var td = $(document.createElement("td"));
-                for (var k = 0; k < allReports[j].data.length; k++){
+                for (var k = 0; k < allReports[j].data.length; k++) {
                     var found = false;
-                    if (allReports[j].data[k].name == allDataPoints[i]){
+                    if (allReports[j].data[k].name == allDataPoints[i]) {
                         if (allReports[j].data[k].value.trim() == "") allReports[j].data[k].value = "N/A";
                         td.html(allReports[j].data[k].value);
                         $("tr[data-name='" + allReports[j].data[k].name + "']").append(td);
@@ -975,7 +978,7 @@ function loadAllMatchesTable(team){
                         break;
                     }
                 }
-                if (!found){
+                if (!found) {
                     td.html("--");
                 }
                 $("tr[data-name='" + allDataPoints[i] + "']").append(td);
@@ -988,11 +991,13 @@ function loadAllMatchesTable(team){
 
 
 
-function loadDPCharts(team){
-    $.post("/getTeamReports", {teamNumber: team, reportContext: "match"}, function(response){
+function loadDPCharts(team) {
+    $.post("/getTeamReports", {
+        teamNumber: team,
+        reportContext: "match"
+    }, function(response) {
         var reports = JSON.parse(response).yourTeam;
-        
+
     });
 
 }
-
