@@ -860,25 +860,27 @@ function draw_chart(port, moat, draw, rock, low, spy) {
     });
 
     // Set a callback to run when the Google Visualization API is loaded.
-    google.charts.setOnLoadCallback(drawChart);
+    google.charts.setOnLoadCallback(drawBarGraph);
 
     // Callback that creates and populates a data table,
     // instantiates the bar chart, passes in the data and
     // draws it.
-    function drawChart() {
+    function drawBarGraph(labels, values) {
+
+        var rows = []
+        for (var i = 0; i < labels.length; i++){
+            var row = []
+            row.append(labels[i])
+            row.append(values[i])
+            rows.append(row)
+        }
+
 
         // Create the data table.
         var data = new google.visualization.DataTable();
         data.addColumn('string', 'Start-Points');
         data.addColumn('number', 'Times Crossed');
-        data.addRows([
-            ['Portcullis/CDF', port],
-            ['Moat/Ramparts', moat],
-            ['Drawbridge/Sally Port', draw],
-            ['Rock Wall/Rough Terrain', rock],
-            ['Low Bar', low],
-            ['Spy Box', spy]
-        ]);
+        data.addRows(rows);
 
         // Set chart options
         var chartWidth = 1000;
@@ -989,15 +991,72 @@ function loadAllMatchesTable(team) {
 }
 
 
+function getDropdownInfo(cb){
+    var info = []
 
-
-function loadDPCharts(team) {
-    $.post("/getTeamReports", {
-        teamNumber: team,
-        reportContext: "match"
+    $.post("/getScoutForm", {
+        context: "match"
     }, function(response) {
-        var reports = JSON.parse(response).yourTeam;
+        if (response != "fail") {
+            var dps = JSON.parse(response);
+            for (var i = 0; i < dps.length; i++){
+                if (dps[i].type == "dropdown"){
+                    var obj = {}
+                    obj[dps[i].name] = dps[i].options
+                    info.push(obj)
+                }
+            }
+            cb(info)
+        }
+        else {
+            cb([])
+        }
+    })
+}
 
-    });
+
+function loadBar(team) {
+
+    var results = []
+    getDropdownInfo(function(info){
+        var key = "Start Point"
+        $.post("/getTeamReports", {
+            teamNumber: team,
+            reportContext: "match"
+        }, function(response) {
+            var reports = JSON.parse(response).yourTeam;
+            for (var i = 0; i < reports.length; i++){
+                for (var j = 0; j < reports[i].data.length; j++){
+                    if (reports[i].data[j].name == key){
+                        results.push(reports[i].data[j].value)
+                    }
+
+                }
+            }
+            console.log(JSON.stringify(info))
+            console.log(JSON.stringify(results))
+        });
+    })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 }
