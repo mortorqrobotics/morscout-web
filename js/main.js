@@ -851,35 +851,39 @@ function isDef(v) {
 }
 
 //Number of tables there are
-var graph = 0;
+var graph = 1;
 
-function draw_chart(port, moat, draw, rock, low, spy) {
+//function draw_chart(port, moat, draw, rock, low, spy) {
     // Load the Visualization API and the corechart package.
     google.charts.load('current', {
         'packages': ['corechart']
     });
 
     // Set a callback to run when the Google Visualization API is loaded.
-    google.charts.setOnLoadCallback(drawBarGraph);
+    //google.charts.setOnLoadCallback(drawBarGraph);
 
     // Callback that creates and populates a data table,
     // instantiates the bar chart, passes in the data and
     // draws it.
-    function drawBarGraph(labels, values) {
+    function drawBarGraph(labels, values, title) {
+
+        //$("#chart_div" + (graph - 1)).remove();
+
+        //console.log("#chart_div" + (graph - 1));
 
         var rows = []
         for (var i = 0; i < labels.length; i++){
             var row = []
-            row.append(labels[i])
-            row.append(values[i])
-            rows.append(row)
+            row.push(labels[i])
+            row.push(values[i])
+            rows.push(row)
         }
 
 
         // Create the data table.
         var data = new google.visualization.DataTable();
         data.addColumn('string', 'Start-Points');
-        data.addColumn('number', 'Times Crossed');
+        data.addColumn('number', 'Times');
         data.addRows(rows);
 
         // Set chart options
@@ -895,7 +899,7 @@ function draw_chart(port, moat, draw, rock, low, spy) {
         //$("#chart_div" + graph)[0].style.paddingBottom = "1em";
 
         var options = {
-            'title': 'Start Point',
+            'title': title,
             'width': chartWidth,
             'backgroundColor': '#e9e9e9',
             chartArea: {
@@ -911,9 +915,10 @@ function draw_chart(port, moat, draw, rock, low, spy) {
         chart.draw(data, options);
 
         graph++;
+
     }
 
-}
+//}
 
 function loadAllMatchesTable(team) {
     $.post("/getTeamReports", {
@@ -1019,7 +1024,9 @@ function loadBar(team) {
 
     var results = []
     getDropdownInfo(function(info){
-        var key = "Start Point"
+        var keys = ["Start Point", "Movement", "General Intake Speed", "General Shot Position", "General Intake Position", "End Game", "Disabled/Stuck", "Defense Stuck On"]
+        for (var i = 0; i < keys.length; i++) (function() {
+        var key = keys[i]
         $.post("/getTeamReports", {
             teamNumber: team,
             reportContext: "match"
@@ -1033,30 +1040,44 @@ function loadBar(team) {
 
                 }
             }
-            console.log(JSON.stringify(info))
+
+            //console.log(JSON.stringify(info))
             console.log(JSON.stringify(results))
+
+            var port = 0;
+            var moat = 0;
+            var draw = 0;
+            var rock = 0;
+            var low = 0;
+            var spy = 0;
+
+            for (var i = 0; i < results.length; i++){
+              if(results[i] == "Portcullis/CDF") {
+                port++;
+              } else if (results[i] == "Moat/Ramparts") {
+                moat++;
+              } else if (results[i] == "Drawbridge/Sally Port") {
+                draw++;
+              } else if (results[i] == "Rock Wall/Rough Terrain") {
+                rock++;
+              } else if (results[i] == "Low Bar") {
+                low++;
+              } else if (results[i] == "Spy Box") {
+                spy++;
+              }
+            }
+
+            console.log(key + ": " + port + ", " + moat + ", " + draw + ", " + rock + ", " + low + ", " + spy);
+
+            var labels = ["Portcullis/CDF", "Moat/Ramparts", "Drawbridge/Sally Port", "Rock Wall/Rough Terrain", "Low Bar", "Spy Box"];
+            var values = [port, moat, draw, rock, low, spy];
+
+            drawBarGraph(labels, values, key);
+
         });
+
+      })();
+
     })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 }
