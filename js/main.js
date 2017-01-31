@@ -1021,12 +1021,31 @@ function getDropdownInfo(cb){
 
 
 function loadBar(team) {
-
     var results = []
+    var options = 0
     getDropdownInfo(function(info){
         var keys = ["Start Point", "Movement", "General Intake Speed", "General Shot Position", "General Intake Position", "End Game", "Disabled/Stuck", "Defense Stuck On"]
         for (var i = 0; i < keys.length; i++) (function() {
-        var key = keys[i]
+        var key = keys[i];
+
+        if (key == "General Intake Speed") {
+          options = 2;
+        } else if (key ==  "General Shot Time" || key == "Disabled/Stuck") {
+          options = 3;
+        } else if (key == "Movement") {
+          options = 4;
+        } else if (key == "General Shot Position" || key == "End Game") {
+          options = 5;
+        } else if (key == "Start Point" || key == "General Intake Position" || key == "Defense Stuck On") {
+          options = 6;
+        }
+
+        var port = 0;
+        var moat = 0;
+        var draw = 0;
+        var rock = 0;
+        var low = 0;
+        var spy = 0;
         $.post("/getTeamReports", {
             teamNumber: team,
             reportContext: "match"
@@ -1041,35 +1060,96 @@ function loadBar(team) {
                 }
             }
 
-            //console.log(JSON.stringify(info))
-            console.log(JSON.stringify(results))
+            //console.log(JSON.stringify(info));
+            console.log(JSON.stringify(results));
 
-            var port = 0;
-            var moat = 0;
-            var draw = 0;
-            var rock = 0;
-            var low = 0;
-            var spy = 0;
-
+            //shhhhh... This is ok if you don't think about it
             for (var i = 0; i < results.length; i++){
-              if(results[i] == "Portcullis/CDF") {
-                port++;
-              } else if (results[i] == "Moat/Ramparts") {
-                moat++;
-              } else if (results[i] == "Drawbridge/Sally Port") {
-                draw++;
-              } else if (results[i] == "Rock Wall/Rough Terrain") {
-                rock++;
-              } else if (results[i] == "Low Bar") {
-                low++;
-              } else if (results[i] == "Spy Box") {
-                spy++;
+              /*
+              2: General Intake Speed,
+              3: General Shot Time, Disabled/Stuck
+              4: Movement,
+              5: General Shot Position, End Game
+              6: Start Point, General Intake Position, Defense Stuck On
+              */
+
+              if (options == 2) {
+                if(results[i] == "Fast") {
+                  port++;
+                } else if (results[i] == "Slow") {
+                  moat++;
+                }
+              } else if (options == 3) {
+
+                if(results[i] == "Portcullis/CDF") {
+                  port++;
+                } else if (results[i] == "Moat/Ramparts") {
+                  moat++;
+                } else if (results[i] == "Drawbridge/Sally Port") {
+                  draw++;
+                }
+              } else if (options = 4) {
+
+                if(results[i] == "Portcullis/CDF") {
+                  port++;
+                } else if (results[i] == "Moat/Ramparts") {
+                  moat++;
+                } else if (results[i] == "Drawbridge/Sally Port") {
+                  draw++;
+                } else if (results[i] == "Rock Wall/Rough Terrain") {
+                  rock++;
+                }
+              } else if (options = 5) {
+                if(results[i] == "Portcullis/CDF") {
+                  port++;
+                } else if (results[i] == "Moat/Ramparts") {
+                  moat++;
+                } else if (results[i] == "Drawbridge/Sally Port") {
+                  draw++;
+                } else if (results[i] == "Rock Wall/Rough Terrain") {
+                  rock++;
+                } else if (results[i] == "Low Bar") {
+                  low++;
+                }
+              } else if (options = 6) {
+
+                if(results[i] == "Portcullis/CDF") {
+                  port++;
+                } else if (results[i] == "Moat/Ramparts") {
+                  moat++;
+                } else if (results[i] == "Drawbridge/Sally Port") {
+                  draw++;
+                } else if (results[i] == "Rock Wall/Rough Terrain") {
+                  rock++;
+                } else if (results[i] == "Low Bar") {
+                  low++;
+                } else if (results[i] == "Spy Box") {
+                  spy++;
+                }
               }
             }
 
             console.log(key + ": " + port + ", " + moat + ", " + draw + ", " + rock + ", " + low + ", " + spy);
+            if (key == "Start Point") {
+              var labels = ["Portcullis/CDF", "Moat/Ramparts", "Drawbridge/Sally Port", "Rock Wall/Rough Terrain", "Low Bar", "Spy Box"]; //6
+            } else if (key == "Movement") {
+              var labels = ["No Movement", "Reach Defense", "Cross Defense", "Spy Box Movement"]; //4
+            } else if (key == "General Intake Speed") {
+              var labels = ["Fast", "Slow"]; //2
+            } else if (key == "General Shot Time") {
+              var labels = ["Fast", "Average", "Slow"]; //3
+            } else if (key == "General Shot Position") {
+              var labels = ["None", "Alignment Line", "Outer Works", "On/Near Batter", "Other"]; //5
+            } else if (key == "General Intake Position") {
+              var labels = ["None", "Neutral Zone", "Team Secret Passage", "Opponent Secret Passage", "Opponent Courtyard", "Team Courtyard"]; //6
+            } else if (key == "End Game") {
+              var labels = ["None", "Challenge", "Missed Challenge", "Scale", "Missed Scale"]; //5
+            } else if (key == "Disabled/Stuck") {
+              var labels = ["Never", "<30s", ">30s"]; //3
+            } else if (key == "Defense Stuck On") {
+              var labels = ["Never", "Moat/Ramparts", "Drawbridge/Sally Port", "Portcullis/CDF", "Rock Wall/Rough Terrain", "Low Bar"]; //6
+            }
 
-            var labels = ["Portcullis/CDF", "Moat/Ramparts", "Drawbridge/Sally Port", "Rock Wall/Rough Terrain", "Low Bar", "Spy Box"];
             var values = [port, moat, draw, rock, low, spy];
 
             drawBarGraph(labels, values, key);
