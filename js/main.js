@@ -854,69 +854,73 @@ function isDef(v) {
 var graph = 1;
 
 //function draw_chart(port, moat, draw, rock, low, spy) {
-    // Load the Visualization API and the corechart package.
-    google.charts.load('current', {
-        'packages': ['corechart']
-    });
+// Load the Visualization API and the corechart package.
+google.charts.load('current', {
+    'packages': ['corechart']
+});
 
-    // Set a callback to run when the Google Visualization API is loaded.
-    //google.charts.setOnLoadCallback(drawBarGraph);
+// Set a callback to run when the Google Visualization API is loaded.
+//google.charts.setOnLoadCallback(drawBarGraph);
 
-    // Callback that creates and populates a data table,
-    // instantiates the bar chart, passes in the data and
-    // draws it.
-    function drawBarGraph(labels, values, title) {
-
-        //$("#chart_div" + (graph - 1)).remove();
-
-        //console.log("#chart_div" + (graph - 1));
-
-        var rows = []
-        for (var i = 0; i < labels.length; i++){
-            var row = []
-            row.push(labels[i])
-            row.push(values[i])
-            rows.push(row)
-        }
+// Callback that creates and populates a data table,
+// instantiates the bar chart, passes in the data and
+// draws it.
 
 
-        // Create the data table.
-        var data = new google.visualization.DataTable();
-        data.addColumn('string', 'Start-Points');
-        data.addColumn('number', 'Times');
-        data.addRows(rows);
+function drawBarGraph(labels, values, title) {
 
-        // Set chart options
-        var chartWidth = 1000;
+    //$("#chart_div" + (graph - 1)).remove();
 
-        var agraph = $(document.createElement("div"));
-        agraph.prop("id", "chart_div" + graph);
-        agraph.prop("class", "full");
-        $("#viewMatchesGraph-form").append(agraph);
+    //console.log("#chart_div" + (graph - 1));
 
-        //$("#chart_div" + graph)[0].style.paddingLeft = ((window.innerWidth / 2) - (chartWidth / 2)) + "px";
-        $("#chart_div" + graph)[0].style.paddingLeft = "15%"; //padding-left
-        //$("#chart_div" + graph)[0].style.paddingBottom = "1em";
-
-        var options = {
-            'title': title,
-            'width': chartWidth,
-            'backgroundColor': '#e9e9e9',
-            chartArea: {
-                width: "30%",
-                height: "50%"
-            },
-            'fontName': 'Exo 2'
-        };
-
-        // Instantiate and draw our chart, passing in some options.
-        var chart = new google.visualization.BarChart(document.getElementById('chart_div' + graph));
-
-        chart.draw(data, options);
-
-        graph++;
-
+    var rows = [];
+    console.log(labels)
+    console.log(values)
+    console.log(title)
+    for (var i = 0; i <= labels.length; i++) {
+        var row = []
+        row.push(labels[i])
+        row.push(values[i])
+        rows.push(row)
     }
+
+    // Create the data table.
+    var data = new google.visualization.DataTable();
+    data.addColumn('string', 'Start-Points');
+    data.addColumn('number', 'Times');
+    data.addRows(rows);
+
+    // Set chart options
+    var chartWidth = 1000;
+
+    var agraph = $(document.createElement("div"));
+    agraph.prop("id", "chart_div" + graph);
+    agraph.prop("class", "full");
+    $("#viewMatchesGraph-form").append(agraph);
+
+    //$("#chart_div" + graph)[0].style.paddingLeft = ((window.innerWidth / 2) - (chartWidth / 2)) + "px";
+    $("#chart_div" + graph)[0].style.paddingLeft = "15%"; //padding-left
+    //$("#chart_div" + graph)[0].style.paddingBottom = "1em";
+
+    var options = {
+        'title': title,
+        'width': chartWidth,
+        'backgroundColor': '#e9e9e9',
+        chartArea: {
+            width: "30%",
+            height: "50%"
+        },
+        'fontName': 'Exo 2'
+    };
+
+    // Instantiate and draw our chart, passing in some options.
+    var chart = new google.visualization.BarChart(document.getElementById('chart_div' + graph));
+
+    chart.draw(data, options);
+
+    graph++;
+
+}
 
 //}
 
@@ -996,167 +1000,61 @@ function loadAllMatchesTable(team) {
 }
 
 
-function getDropdownInfo(cb){
-    var info = []
-
+function getDropdownInfo(cb) {
+    var info = {}
     $.post("/getScoutForm", {
         context: "match"
     }, function(response) {
         if (response != "fail") {
             var dps = JSON.parse(response);
-            for (var i = 0; i < dps.length; i++){
-                if (dps[i].type == "dropdown"){
-                    var obj = {}
-                    obj[dps[i].name] = dps[i].options
-                    info.push(obj)
+            for (var i = 0; i < dps.length; i++) {
+                if (dps[i].type == "dropdown") {
+                    info[dps[i].name] = dps[i].options
                 }
             }
             cb(info)
-        }
-        else {
-            cb([])
+        } else {
+            cb({})
         }
     })
 }
 
-
 function loadBar(team) {
     var results = []
     var options = 0
-    getDropdownInfo(function(info){
-        var keys = ["Start Point", "Movement", "General Intake Speed", "General Shot Position", "General Intake Position", "End Game", "Disabled/Stuck", "Defense Stuck On"]
-        for (var i = 0; i < keys.length; i++) (function() {
-        var key = keys[i];
-
-        if (key == "General Intake Speed") {
-          options = 2;
-        } else if (key ==  "General Shot Time" || key == "Disabled/Stuck") {
-          options = 3;
-        } else if (key == "Movement") {
-          options = 4;
-        } else if (key == "General Shot Position" || key == "End Game") {
-          options = 5;
-        } else if (key == "Start Point" || key == "General Intake Position" || key == "Defense Stuck On") {
-          options = 6;
-        }
-
-        var port = 0;
-        var moat = 0;
-        var draw = 0;
-        var rock = 0;
-        var low = 0;
-        var spy = 0;
+    getDropdownInfo(function(info) {
         $.post("/getTeamReports", {
             teamNumber: team,
             reportContext: "match"
         }, function(response) {
             var reports = JSON.parse(response).yourTeam;
-            for (var i = 0; i < reports.length; i++){
-                for (var j = 0; j < reports[i].data.length; j++){
-                    if (reports[i].data[j].name == key){
-                        results.push(reports[i].data[j].value)
+            var obj = {}
+            for (var key in info) {
+                var values = info[key]
+                var subObj = {}
+                for (var i = 0; i < values.length; i++) {
+                    subObj[values[i]] = 0;
+                }
+                for (var i = 0; i < reports.length; i++) {
+                    for (var j = 0; j < reports[i].data.length; j++) {
+                        if (reports[i].data[j].name == key) {
+                            subObj[reports[i].data[j].value] = subObj[reports[i].data[j].value] + 1
+                        }
                     }
-
                 }
+                obj[key] = subObj
             }
-
-            //console.log(JSON.stringify(info));
-            console.log(JSON.stringify(results));
-
-            //shhhhh... This is ok if you don't think about it
-            for (var i = 0; i < results.length; i++){
-              /*
-              2: General Intake Speed,
-              3: General Shot Time, Disabled/Stuck
-              4: Movement,
-              5: General Shot Position, End Game
-              6: Start Point, General Intake Position, Defense Stuck On
-              */
-
-              if (options == 2) {
-                if(results[i] == "Fast") {
-                  port++;
-                } else if (results[i] == "Slow") {
-                  moat++;
+            for (var title in obj) {
+                var labels = [];
+                var values = [];
+                var subObj = obj[title]
+                for (var label in subObj) {
+                    labels.push(label)
+                    values.push(subObj[label])
                 }
-              } else if (options == 3) {
-
-                if(results[i] == "Portcullis/CDF") {
-                  port++;
-                } else if (results[i] == "Moat/Ramparts") {
-                  moat++;
-                } else if (results[i] == "Drawbridge/Sally Port") {
-                  draw++;
-                }
-              } else if (options = 4) {
-
-                if(results[i] == "Portcullis/CDF") {
-                  port++;
-                } else if (results[i] == "Moat/Ramparts") {
-                  moat++;
-                } else if (results[i] == "Drawbridge/Sally Port") {
-                  draw++;
-                } else if (results[i] == "Rock Wall/Rough Terrain") {
-                  rock++;
-                }
-              } else if (options = 5) {
-                if(results[i] == "Portcullis/CDF") {
-                  port++;
-                } else if (results[i] == "Moat/Ramparts") {
-                  moat++;
-                } else if (results[i] == "Drawbridge/Sally Port") {
-                  draw++;
-                } else if (results[i] == "Rock Wall/Rough Terrain") {
-                  rock++;
-                } else if (results[i] == "Low Bar") {
-                  low++;
-                }
-              } else if (options = 6) {
-
-                if(results[i] == "Portcullis/CDF") {
-                  port++;
-                } else if (results[i] == "Moat/Ramparts") {
-                  moat++;
-                } else if (results[i] == "Drawbridge/Sally Port") {
-                  draw++;
-                } else if (results[i] == "Rock Wall/Rough Terrain") {
-                  rock++;
-                } else if (results[i] == "Low Bar") {
-                  low++;
-                } else if (results[i] == "Spy Box") {
-                  spy++;
-                }
-              }
+                drawBarGraph(labels, values, title);
             }
-
-            console.log(key + ": " + port + ", " + moat + ", " + draw + ", " + rock + ", " + low + ", " + spy);
-            if (key == "Start Point") {
-              var labels = ["Portcullis/CDF", "Moat/Ramparts", "Drawbridge/Sally Port", "Rock Wall/Rough Terrain", "Low Bar", "Spy Box"]; //6
-            } else if (key == "Movement") {
-              var labels = ["No Movement", "Reach Defense", "Cross Defense", "Spy Box Movement"]; //4
-            } else if (key == "General Intake Speed") {
-              var labels = ["Fast", "Slow"]; //2
-            } else if (key == "General Shot Time") {
-              var labels = ["Fast", "Average", "Slow"]; //3
-            } else if (key == "General Shot Position") {
-              var labels = ["None", "Alignment Line", "Outer Works", "On/Near Batter", "Other"]; //5
-            } else if (key == "General Intake Position") {
-              var labels = ["None", "Neutral Zone", "Team Secret Passage", "Opponent Secret Passage", "Opponent Courtyard", "Team Courtyard"]; //6
-            } else if (key == "End Game") {
-              var labels = ["None", "Challenge", "Missed Challenge", "Scale", "Missed Scale"]; //5
-            } else if (key == "Disabled/Stuck") {
-              var labels = ["Never", "<30s", ">30s"]; //3
-            } else if (key == "Defense Stuck On") {
-              var labels = ["Never", "Moat/Ramparts", "Drawbridge/Sally Port", "Portcullis/CDF", "Rock Wall/Rough Terrain", "Low Bar"]; //6
-            }
-
-            var values = [port, moat, draw, rock, low, spy];
-
-            drawBarGraph(labels, values, key);
-
         });
-
-      })();
 
     })
 
