@@ -210,9 +210,6 @@
                         var teamNumber = teams[i].team_number;
                         var teamName = teams[i].nickname;
                         var tr = $(document.createElement("tr"));
-                        tr.click(function(){
-                            console.log("hello");
-                        })
                         if (i % 2 == 0) tr.addClass("odd-row");
                         tr.attr("id", teamNumber);
                         var tdNumber = $(document.createElement("td"));
@@ -447,16 +444,15 @@
             $(this).removeClass('table-hover');
         });
 
-
-
-        $(document).on("click","tr:not(.first-row)", function(){
+        $("tr:not(.first-row)").on("click", function(){
             localStorage.pitTeam = $(this).children(":first").text();
 
             location = "reportTeam.html?" + getQS({
                 "team": $(this).find(".number").eq(0).html(),
                 "name": $(this).find(".name").eq(0).html()
             });
-        });
+        })
+
 
 
         $(document).on("keyup", "#search", function() {
