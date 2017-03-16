@@ -310,6 +310,14 @@
                             var tr = $(document.createElement("tr"));
                             if (i % 2 == 0) tr.addClass("odd-row");
                             tr.attr("id", teamNumber);
+                            tr.click(function(){
+                                localStorage.pitTeam = teamNumber;
+
+                                location = "reportTeam.html?" + getQS({
+                                    "team": teamNumber,
+                                    "name": teamName
+                                });
+                            })
                             var tdNumber = $(document.createElement("td"));
                             tdNumber.html(teamNumber);
                             tdNumber.addClass("number");
@@ -357,6 +365,14 @@
                                 var tr = $(document.createElement("tr"));
                                 if (i % 2 != 0) tr.addClass("odd-row");
                                 tr.attr("id", teamNumber);
+                                tr.click(function(){
+                                    localStorage.pitTeam = teamNumber;
+
+                                    location = "reportTeam.html?" + getQS({
+                                        "team": teamNumber,
+                                        "name": teamName
+                                    });
+                                })
                                 var tdNumber = $(document.createElement("td"));
                                 tdNumber.addClass("number");
                                 tdNumber.html(teamNumber)
@@ -410,6 +426,14 @@
                                 var tr = $(document.createElement("tr"));
                                 if (i % 2 != 0) tr.addClass("odd-row");
                                 tr.attr("id", teamNumber);
+                                tr.click(function(){
+                                    localStorage.pitTeam = teamNumber;
+
+                                    location = "reportTeam.html?" + getQS({
+                                        "team": teamNumber,
+                                        "name": teamName
+                                    });
+                                })
                                 var tdNumber = $(document.createElement("td"));
                                 tdNumber.addClass("number");
                                 tdNumber.html(teamNumber)
