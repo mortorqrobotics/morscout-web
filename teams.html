@@ -212,6 +212,14 @@
                         var tr = $(document.createElement("tr"));
                         if (i % 2 == 0) tr.addClass("odd-row");
                         tr.attr("id", teamNumber);
+                        tr.click(function(){
+                            localStorage.pitTeam = teamNumber;
+
+                            location = "reportTeam.html?" + getQS({
+                                "team": teamNumber,
+                                "name": teamName
+                            });
+                        })
                         var tdNumber = $(document.createElement("td"));
                         tdNumber.addClass("number");
                         tdNumber.html(teamNumber)
@@ -444,15 +452,15 @@
             $(this).removeClass('table-hover');
         });
 
-        $("tr:not(.first-row)").click(function(){
+
+        $(document).on("click","tr:not(.first-row)", function(){
             localStorage.pitTeam = $(this).children(":first").text();
 
             location = "reportTeam.html?" + getQS({
                 "team": $(this).find(".number").eq(0).html(),
                 "name": $(this).find(".name").eq(0).html()
             });
-        })
-
+        });
 
 
         $(document).on("keyup", "#search", function() {
