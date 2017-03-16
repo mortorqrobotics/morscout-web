@@ -444,7 +444,7 @@
             $(this).removeClass('table-hover');
         });
 
-        $("tr:not(.first-row)").on("click", function(){
+        $("tr:not(.first-row)").click(function(){
             localStorage.pitTeam = $(this).children(":first").text();
 
             location = "reportTeam.html?" + getQS({
