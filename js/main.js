@@ -1,3 +1,5 @@
+window.google=window.google||{charts:{load:function(a){}}};
+
 function parseJSON(str) {
     try {
         return JSON.parse(str);
