@@ -1,3 +1,10 @@
+window.google = window.google || {
+    charts: {
+        'load': function(){
+            //Do Nothing
+        }
+    }
+};
 function parseJSON(str) {
     try {
         return JSON.parse(str);
