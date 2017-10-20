@@ -30,15 +30,25 @@
             </div>
             <div class="collapse navbar-collapse" id="MorScoutNav">
                 <ul class="nav navbar-nav">
-                    <li><a href="matches.html" title="List of all matches">All Matches</a></li>
-                    <li><a href="teams.html" title="List of all teams">Team List</a></li>
-                    <li><a href="settings.html" title="Configure the settings">Settings</a></li>
+                    <li>
+                        <a href="matches.html" title="List of all matches">All Matches</a>
+                    </li>
+                    <li>
+                        <a href="teams.html" title="List of all teams">Team List</a>
+                    </li>
+                    <li>
+                        <a href="settings.html" title="Configure the settings">Settings</a>
+                    </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <!-- <li><a href="help.html" title="Need help?">Help</a></li>
                     <li><a href="feedback.html" title="Give team 1515 your feedback!">Feedback</a></li> -->
-			<li><a href="http://www.morteam.com"  title="MorTeam Link">MorTeam</a></li>
-                    <li><a href="profile.html" title="User Profile">Profile</a></li>
+                    <li>
+                        <a href="http://www.morteam.com" title="MorTeam Link">MorTeam</a>
+                    </li>
+                    <li>
+                        <a href="profile.html" title="User Profile">Profile</a>
+                    </li>
                     <li id="UserDropdown" class="dropdown">
                         <a id="logoutButton" href="login.html">Log out</a>
                     </li>
@@ -74,12 +84,22 @@
                 </div>
                 <div class="col-md-10 col-sm-12 col-xs-12">
                     <ul id="report-tabs" class="nav nav-tabs" hidden>
-                        <li id="scout-tab" class="active"><a href="javascript: void(0);">Scout</a></li>
-                        <li id="view-tab"><a href="javascript: void(0);">View Pit Reports</a></li>
-                        <li id="viewMatches-tab"><a href="javascript: void(0);">View Match Reports</a></li>
+                        <li id="scout-tab" class="active">
+                            <a href="javascript: void(0);">Scout</a>
+                        </li>
+                        <li id="view-tab">
+                            <a href="javascript: void(0);">View Pit Reports</a>
+                        </li>
+                        <li id="viewMatches-tab">
+                            <a href="javascript: void(0);">View Match Reports</a>
+                        </li>
                         <!-- <li id="gallery-tab"><a href="javascript: void(0);">Gallery</a></li> -->
-                        <li id="regional-tab"><a href="javascript: void(0);">View Event Awards</a></li>
-                        <li id="stats-tab"><a href="javascript: void(0);">View Team Stats</a></li>
+                        <li id="regional-tab">
+                            <a href="javascript: void(0);">View Event Awards</a>
+                        </li>
+                        <li id="stats-tab">
+                            <a href="javascript: void(0);">View Team Stats</a>
+                        </li>
 
                     </ul>
                 </div>
@@ -291,11 +311,11 @@
             </div>
 
             <div id="view-match-reports">
-              <h3 class="page-title">All Matches For This Team</h3>
-              <div id="match-table-holder">
-                <table class="matches-table" id="match-table">
-                  <tr id="first-matches-row">
-                    <!-- <th>Data Points</th>
+                <h3 class="page-title">All Matches For This Team</h3>
+                <div id="match-table-holder">
+                    <table class="matches-table" id="match-table">
+                        <tr id="first-matches-row">
+                            <!-- <th>Data Points</th>
                     <th>Match 1</th>
                     <th>Match 2</th>
                     <th>Match 3</th>
@@ -316,8 +336,8 @@
                     <th>Match 18</th>
                     <th>Match 19</th>
                     <th>Match 20</th> -->
-                  </tr>
-                  <!-- <tr class="odd-row">
+                        </tr>
+                        <!-- <tr class="odd-row">
                     <td>MovesMovesMovesMovesMovesMoves</td>
                     <td>True</td>
                     <td>True</td>
@@ -587,8 +607,8 @@
                     <td>True</td>
                     <td>True</td>
                   </tr> -->
-                </table>
-              </div>
+                    </table>
+                </div>
             </div>
 
             <div id="gallery">
@@ -639,7 +659,7 @@
                 return parseQS(url.substring(index + 1));
             }
         }
-        $(document).ready(function() {
+        $(document).ready(function () {
             $("#report-tabs").show();
             data = urlGet(String(location));
             if (data.name != undefined) {
@@ -652,28 +672,32 @@
 
             getScoutForm("pit");
 
-            $("#submit-match-report").on("click", function(){
+            $("#submit-match-report").on("click", function () {
                 getScoutFormValues("pit");
             });
 
             loadAllMatchesTable(data.team);
 
-            $.post("/getBAImageLinks", {teamNumber:data.team}, function(response){
+            $.post("/getBAImageLinks", {
+                teamNumber: data.team
+            }, function (response) {
                 var links = JSON.parse(response);
-                if (links.length != 0){
+                if (links.length != 0) {
                     $("#ba-img").attr("src", links[0]);
                     $("#ba-img").show();
                 }
             });
 
-            $.post("/getPastRegionalResults", {teamNumber: data.team}, function(response){
+            $.post("/getPastRegionalResults", {
+                teamNumber: data.team
+            }, function (response) {
                 var awards = JSON.parse(response);
                 $(".loading-results").hide();
                 var div = $("#view-regional-results");
                 div.empty();
                 var noAwards = 0;
-                for (var event in awards){
-                    if (awards[event].length > 0){
+                for (var event in awards) {
+                    if (awards[event].length > 0) {
                         var table = $(document.createElement("table"));
                         table.addClass("matches-table");
                         var tr = $(document.createElement("tr"));
@@ -681,7 +705,7 @@
                         th.html(event);
                         tr.append(th);
                         table.append(tr);
-                        for (var i = 0; i < awards[event].length; i++){
+                        for (var i = 0; i < awards[event].length; i++) {
                             var tr = $(document.createElement("tr"));
                             var td = $(document.createElement("td"));
                             td.html(awards[event][i]);
@@ -690,10 +714,9 @@
                         }
                         div.append(h3);
                         div.append(table);
-                    }
-                    else {
+                    } else {
                         noAwards++;
-                        if (noAwards == Object.keys(awards).length){
+                        if (noAwards == Object.keys(awards).length) {
                             var h3 = $(document.createElement("h3"));
                             h3.addClass("page-title");
                             h3.html("This team has won no awards this year");
@@ -705,7 +728,7 @@
 
             $.post("/getTeamInfo", {
                 teamNumber: data.team
-            }, function(response) {
+            }, function (response) {
                 var data = JSON.parse(response);
                 var website = data.website;
                 if (website.substring(0, 7) != "http://") website = "http://" + website;
@@ -720,7 +743,7 @@
 
             $.post("/getTeamPrevEventStats", {
                 teamNumber: data.team
-            }, function(response) {
+            }, function (response) {
                 var regionals = JSON.parse(response);
                 var statArea = $("#view-team-stats");
                 var regionalNames = Object.keys(regionals);
@@ -753,7 +776,7 @@
                         tr.append(td2);
                         table.append(tr);
                     }
-                    if (statNames.length != 0){
+                    if (statNames.length != 0) {
                         statArea.append(h3);
                         statArea.append(table);
                     }
@@ -768,12 +791,12 @@
         $('#gallery').hide();
         $('#view-regional-results').hide();
         $('#view-team-stats').hide();
-        $(document).ready(function() {
+        $(document).ready(function () {
 
             $('#view-form').hide();
             $('#viewMatches-form').hide();
 
-            $("select").change(function() {
+            $("select").change(function () {
                 var str = "";
                 str = $(this).find(":selected").text();
                 $(".out").text(str);
@@ -781,7 +804,7 @@
                     $('#otherDriveTrain').fadeIn(300).removeClass('hidden');
                 } else {
                     $('#otherDriveTrain').fadeOut(300)
-                    setTimeout(function() {
+                    setTimeout(function () {
                         $('#otherDriveTrain').addClass('hidden');
                     }, 300)
                 }
@@ -796,7 +819,7 @@
             var statsLoaded = false;
 
 
-            $('#scout-tab').click(function() {
+            $('#scout-tab').click(function () {
                 $('#view-pit-reports').hide();
                 $('#view-match-reports').hide();
                 $('#gallery').hide();
@@ -815,24 +838,30 @@
                     scoutLoaded = true;
                 }
             });
-            $('#view-tab').click(function() {
-                testConnection(function(exists){
-                    if (exists){
-                        $.post("/getTeamReports", {teamNumber: data.team, reportContext: "pit"}, function(response){
+            $('#view-tab').click(function () {
+                testConnection(function (exists) {
+                    if (exists) {
+                        $.post("/getTeamReports", {
+                            teamNumber: data.team,
+                            reportContext: "pit"
+                        }, function (response) {
                             var reports = JSON.parse(response);
                             loadDataViewer("#view-pit-reports", reports);
                         });
-                    }
-                    else {
+                    } else {
                         var allReports = JSON.parse(localStorage.allReports);
                         var relevantReports = [];
-                        relevantReports = allReports.filter(function(report){
-                            if (report.team == parseInt(data.team) && report.context == "pit"){
+                        relevantReports = allReports.filter(function (report) {
+                            if (report.team == parseInt(data.team) && report.context ==
+                                "pit") {
                                 return true;
                             }
                             return false;
                         });
-                        loadDataViewer("#view-pit-reports", {yourTeam: relevantReports, otherTeams: []});
+                        loadDataViewer("#view-pit-reports", {
+                            yourTeam: relevantReports,
+                            otherTeams: []
+                        });
                     }
                 });
                 $('#form-preview').hide();
@@ -853,7 +882,7 @@
                     pitLoaded = true;
                 }
             });
-            $('#viewMatches-tab').click(function() {
+            $('#viewMatches-tab').click(function () {
                 $('#view-pit-reports').hide();
                 $('#form-preview').hide();
                 $('.submit-match').hide();
@@ -872,7 +901,7 @@
                     matchLoaded = true;
                 }
             });
-            $('#gallery-tab').click(function() {
+            $('#gallery-tab').click(function () {
                 $('#view-pit-reports').hide();
                 $('#view-match-reports').hide();
                 $('#form-preview').hide();
@@ -891,7 +920,7 @@
                     galleryLoaded = true;
                 }
             });
-            $('#regional-tab').click(function() {
+            $('#regional-tab').click(function () {
                 $('#view-pit-reports').hide();
                 $('#view-match-reports').hide();
                 $('#gallery').hide();
@@ -910,7 +939,7 @@
                     regionalLoaded = true;
                 }
             });
-            $('#stats-tab').click(function() {
+            $('#stats-tab').click(function () {
                 $('#view-pit-reports').hide();
                 $('#view-match-reports').hide();
                 $('#gallery').hide();

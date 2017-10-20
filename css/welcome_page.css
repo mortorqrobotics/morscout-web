@@ -1,26 +1,29 @@
-.row{
+.row {
 	height: 700px;
 	float: left;
 	overflow: hidden;
 	width: 100%;
 }
+
 .odd-row {
 	background-color: #262626;
 	width: calc(100% + 15px);
 }
+
 .even-row {
 	background-color: #eeeeee;
 	width: calc(100% + 15px);
 }
 
-.odd-row-pic{
+.odd-row-pic {
 	margin-top: 125px;
 	width: 75em;
 	margin-left: -20em;
 	float: left;
 	box-shadow: -2px -2px 10px black;
 }
-.even-row-pic{
+
+.even-row-pic {
 	margin-top: 125px;
 	width: 75em;
 	margin-right: -20em;
@@ -28,31 +31,31 @@
 	box-shadow: 0px -2px 10px black;
 }
 
-.odd-row-text{
+.odd-row-text {
 	color: black;
 	margin: 0px 100px 0px 600px;
 	text-align: center;
 	font-family: 'Exo 2', sans-serif;
 	font-size: 19px;
 	position: relative;
-  top: 50%;
-  transform: translateY(-50%);
-  -webkit-transform: translateY(-50%);
+	top: 50%;
+	transform: translateY(-50%);
+	-webkit-transform: translateY(-50%);
 }
-.even-row-text{
+
+.even-row-text {
 	color: black;
 	margin: 0px 600px 0px 100px;
 	text-align: center;
 	font-family: 'Exo 2', sans-serif;
 	font-size: 19px;
 	position: relative;
-  top: 50%;
-  transform: translateY(-50%);
-  -webkit-transform: translateY(-50%);
-
+	top: 50%;
+	transform: translateY(-50%);
+	-webkit-transform: translateY(-50%);
 }
 
-.row-title{
+.row-title {
 	display: block;
 	font-size: 60px;
 	padding-bottom: 15px;

@@ -1,148 +1,181 @@
 @font-face {
-    font-family: 'Exo 2';
-    src: url('../fonts/Exo_2/Exo2-ExtraLight.ttf')  format('truetype');
- }
- @font-face {
-    font-family: 'Exo 2';
-    src: url('../fonts/Exo_2/Exo2-Regular.ttf')  format('truetype');
-    font-weight: bold;
- }
-.hidden  {
-    display: none; /* hides elements under class "hidden" (not to be changed)  */
+	font-family: 'Exo 2';
+	src: url('../fonts/Exo_2/Exo2-ExtraLight.ttf') format('truetype');
 }
 
-#dropdown-holder{
-    margin: 2em;
+@font-face {
+	font-family: 'Exo 2';
+	src: url('../fonts/Exo_2/Exo2-Regular.ttf') format('truetype');
+	font-weight: bold;
 }
 
-*{
-	margin: 0; /* removes default margins of HTML elements (not to be changed) */
-	padding:0; /* removes default paddings of HTML elements (not to be changed) */
-	border: 0; /* removes default borders of HTML elements (not to be changed) */
-	-webkit-border-radius: 0px; /* sharp angles for text boxes in safari (not to be changed) */
+.hidden {
+	display: none;
+	/* hides elements under class "hidden" (not to be changed)  */
 }
 
+#dropdown-holder {
+	margin: 2em;
+}
 
-h2{
+* {
+	margin: 0;
+	/* removes default margins of HTML elements (not to be changed) */
+	padding: 0;
+	/* removes default paddings of HTML elements (not to be changed) */
+	border: 0;
+	/* removes default borders of HTML elements (not to be changed) */
+	-webkit-border-radius: 0px;
+	/* sharp angles for text boxes in safari (not to be changed) */
+}
 
+h2 {
 	text-align: center;
 	font-family: 'Exo 2', sans-serif;
-
 }
 
-#lastname{
-	height:2.2em;
-	width: 11.15em;
-	text-align: center;
-	font-size: 2.2em;
-	border-bottom: none;
-}
-#teamnumber{
-	height:2.2em;
-	width: 11.15em;
-	text-align: center;
-	font-size: 2.2em;
-	border-bottom: none;
-}
-#teamname{
-	height:2.2em;
+#lastname {
+	height: 2.2em;
 	width: 11.15em;
 	text-align: center;
 	font-size: 2.2em;
 	border-bottom: none;
 }
 
-#teamcode{
-	height:2.2em;
+#teamnumber {
+	height: 2.2em;
 	width: 11.15em;
 	text-align: center;
 	font-size: 2.2em;
 	border-bottom: none;
 }
-#teamcode-create{
-	height:2.2em;
+
+#teamname {
+	height: 2.2em;
+	width: 11.15em;
+	text-align: center;
+	font-size: 2.2em;
+	border-bottom: none;
+}
+
+#teamcode {
+	height: 2.2em;
+	width: 11.15em;
+	text-align: center;
+	font-size: 2.2em;
+	border-bottom: none;
+}
+
+#teamcode-create {
+	height: 2.2em;
 	width: 11.15em;
 	text-align: center;
 	font-size: 2.2em;
 }
 
-html{
-
-}
+html {}
 
 body {
-    background: #E9E9E9; /* background color */
-	font-size: 100%; /* makes default px size of elements equal to 1em (not to be changed) */
+	background: #E9E9E9;
+	/* background color */
+	font-size: 100%;
+	/* makes default px size of elements equal to 1em (not to be changed) */
 }
 
+
 /* NAVIGATION BAR STYLES */
-#morscout{
+
+#morscout {
 	pointer-events: none;
 }
 
 .navbar-default .container-fluid {
-  background-color: #FFC547; /* color of nav bar */
-  font-family: 'Open Sans', sans-serif; /* font of nav bar links */
-  width: 100%; /* width of nav bar (not to be changed) */
+	background-color: #FFC547;
+	/* color of nav bar */
+	font-family: 'Open Sans', sans-serif;
+	/* font of nav bar links */
+	width: 100%;
+	/* width of nav bar (not to be changed) */
 }
 
-.navbar-default{
-	border: 0; /* removes thin white line at bottom of the nav bar (not to be changed) */
+.navbar-default {
+	border: 0;
+	/* removes thin white line at bottom of the nav bar (not to be changed) */
 }
 
 .navbar-default a:not(#nameD):not(#view-prof):not(#logout) {
-  text-transform: uppercase; /* changes every link in the nav bar to upper-case except for user profile dropdown menu */
-  font-size: 1.1em; /* size of nav bar links except for user profile dropdown menu */
+	text-transform: uppercase;
+	/* changes every link in the nav bar to upper-case except for user profile dropdown menu */
+	font-size: 1.1em;
+	/* size of nav bar links except for user profile dropdown menu */
 }
 
 .navbar-default a {
-  font-size: 1.3em; /* user profile dropdown menu font size */
-  font-weight: bold; /* user profile dropdown menu font weight */
+	font-size: 1.3em;
+	/* user profile dropdown menu font size */
+	font-weight: bold;
+	/* user profile dropdown menu font weight */
 }
 
-.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-header > a:hover  {
-	color: white; /* color of hovered links in nav bar */
+.navbar-default .navbar-nav>li>a:hover,
+.navbar-default .navbar-header>a:hover {
+	color: white;
+	/* color of hovered links in nav bar */
 }
 
-.navbar-default .navbar-nav > li > a, .navbar-default .navbar-header > a{
-	color: black; /* color of un-hovered links in nav bar */
+.navbar-default .navbar-nav>li>a,
+.navbar-default .navbar-header>a {
+	color: black;
+	/* color of un-hovered links in nav bar */
 }
 
-.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
-color: black; /* color of text of selected link in nav bar */
-background-color: orange; /* color of background of selected link in nav bar */
+.navbar-default .navbar-nav>.active>a,
+.navbar-default .navbar-nav>.active>a:hover,
+.navbar-default .navbar-nav>.active>a:focus {
+	color: black;
+	/* color of text of selected link in nav bar */
+	background-color: orange;
+	/* color of background of selected link in nav bar */
 }
 
 .navbar-default div.navbar-collapse {
-    border-top: 0; /* removes thin white line above hamburger menu (not to be changed) */
+	border-top: 0;
+	/* removes thin white line above hamburger menu (not to be changed) */
 }
 
-.navbar-nav li{
-	text-align: center; /* sets horizontal aligns of links in the hamburger menu */
+.navbar-nav li {
+	text-align: center;
+	/* sets horizontal aligns of links in the hamburger menu */
 }
 
-#toggle-button{
-	background-color: black; /* sets background color for background of hamburger menu toggle button */
-	border:0; /* removes border of hamburger menu toggle button (most likely not to be changed) */
-	border-radius: 0; /* gives hamburger menu toggle button sharp corners */
+#toggle-button {
+	background-color: black;
+	/* sets background color for background of hamburger menu toggle button */
+	border: 0;
+	/* removes border of hamburger menu toggle button (most likely not to be changed) */
+	border-radius: 0;
+	/* gives hamburger menu toggle button sharp corners */
 }
 
-#toggle-button:hover{
-	background-color: #EE7600; /* gives background color to hovered hamburger menu toggle button*/
-	border:0; /* removes border of hamburger menu toggle button when hovered (most likely not to be changed) */
+#toggle-button:hover {
+	background-color: #EE7600;
+	/* gives background color to hovered hamburger menu toggle button*/
+	border: 0;
+	/* removes border of hamburger menu toggle button when hovered (most likely not to be changed) */
 }
 
 .navbar-default .navbar-toggle .icon-bar {
-    background-color: #FFC547; /* sets color of the foreground(I know, it's weird) of the hamburger menu toggle button */
+	background-color: #FFC547;
+	/* sets color of the foreground(I know, it's weird) of the hamburger menu toggle button */
 }
 
-.search-drop-list-item{
-  width: 17em;
-  position: relative;
-  margin-right: 0;
+.search-drop-list-item {
+	width: 17em;
+	position: relative;
+	margin-right: 0;
 }
 
-.search-drop{
+.search-drop {
 	position: absolute;
 	width: auto;
 	height: auto;
@@ -150,9 +183,9 @@ background-color: orange; /* color of background of selected link in nav bar */
 	display: none;
 	box-shadow: 1px 1px 12px -7px black;
 	border: 1px solid #c9c9c9;
-
 }
-.search-drop > ul > li{
+
+.search-drop>ul>li {
 	list-style: none;
 	height: auto;
 	font-size: 15px;
@@ -160,30 +193,32 @@ background-color: orange; /* color of background of selected link in nav bar */
 	cursor: pointer;
 	border-bottom: 1px solid #c9c9c9;
 }
-.search-drop > ul > li:hover{
+
+.search-drop>ul>li:hover {
 	background-color: #ffcc80;
 }
 
 .nav-tbox {
-  margin-top: 0.5em;
-  width: 17em;
-  height: 2em;
-  /*border: 1px solid black;*/
-  border-radius: 5px;
-  padding: 0.5em;
-  font-size: 16px;
-  background-color: #eeeeee;
+	margin-top: 0.5em;
+	width: 17em;
+	height: 2em;
+	/*border: 1px solid black;*/
+	border-radius: 5px;
+	padding: 0.5em;
+	font-size: 16px;
+	background-color: #eeeeee;
 	position: relative;
 }
 
 .nav-tbox::-webkit-input-placeholder {
-  color: #A8A8A8 !important;
+	color: #A8A8A8 !important;
 }
 
 
+/* NAVBAR STYLES FOR MOBILE */
 
-	/* NAVBAR STYLES FOR MOBILE */
-	  /*
+
+/*
 		.navbar {
 			min-height:38px;
 		}
@@ -206,261 +241,356 @@ background-color: orange; /* color of background of selected link in nav bar */
 			padding-top: 15px;
 		}
 	  */
-	/* END OF NAVBAR STYLES FOR MOBILE */
+
+
+/* END OF NAVBAR STYLES FOR MOBILE */
+
 
 /* END OF NAVIGATION BAR STYLES */
 
+
 /* WELCOME PAGE STYLES */
 
-.main-welcome  {
-	margin-top: 20vh; /* sets welcome message distance from top of page  */
-	font-family: 'Exo 2', sans-serif; /* sets welcome message font */
+.main-welcome {
+	margin-top: 20vh;
+	/* sets welcome message distance from top of page  */
+	font-family: 'Exo 2', sans-serif;
+	/* sets welcome message font */
 	font-weight: 400;
 }
-.row-title-index{
+
+.row-title-index {
 	float: center;
 }
 
 .main-welcome h1 {
-	color: #ff8900; /* sets large "MorScout" text color to #FFC547 */
-	font-size: 8em; /* sets font size of large "MorScout" text */
-	text-align: center; /* horizontal alignment of large "MorScout" text */
+	color: #ff8900;
+	/* sets large "MorScout" text color to #FFC547 */
+	font-size: 8em;
+	/* sets font size of large "MorScout" text */
+	text-align: center;
+	/* horizontal alignment of large "MorScout" text */
 }
 
-.main-welcome h3, #form-holder h2, #form-preview h2, .container h2 {
-  text-align:center; /* horizontal alignment of small "Welcome to MorScout" text */
-  color: black; /* sets font color of small "Welcome to MorScout" text */
-  max-width: 15em;
-  margin-left: auto;
-  margin-right: auto;
+.main-welcome h3,
+#form-holder h2,
+#form-preview h2,
+.container h2 {
+	text-align: center;
+	/* horizontal alignment of small "Welcome to MorScout" text */
+	color: black;
+	/* sets font color of small "Welcome to MorScout" text */
+	max-width: 15em;
+	margin-left: auto;
+	margin-right: auto;
 }
+
 
 /* END OF WELCOME PAGE STYLES */
 
+
 /* GENERAL STYLES */
 
-#form-preview{
-    font-family: 'Exo 2', sans-serif;
+#form-preview {
+	font-family: 'Exo 2', sans-serif;
 }
 
 .page-title {
-	font-family: 'Exo 2', sans-serif; /* font of page title */
-	color: black; /* font color of page title */
-	margin-top: 5em; /* distance of page title from top */
-	text-align: center !important; /* aligns page title to center */
+	font-family: 'Exo 2', sans-serif;
+	/* font of page title */
+	color: black;
+	/* font color of page title */
+	margin-top: 5em;
+	/* distance of page title from top */
+	text-align: center !important;
+	/* aligns page title to center */
 }
 
-#loading{
-	width: 100%; /* width of loading message */
-	position: fixed; /* position of loading message is static (not to be changed) */
-	top: 45%; /* distance from top of loading message */
-	text-align: center; /* horizontal alignment of loading message */
-	color: black; /* text color of loading message */
-	font-family: 'Exo 2', sans-serif; /* font of loading message */
+#loading {
+	width: 100%;
+	/* width of loading message */
+	position: fixed;
+	/* position of loading message is static (not to be changed) */
+	top: 45%;
+	/* distance from top of loading message */
+	text-align: center;
+	/* horizontal alignment of loading message */
+	color: black;
+	/* text color of loading message */
+	font-family: 'Exo 2', sans-serif;
+	/* font of loading message */
 }
+
 .roww {
-    font-family: 'Exo 2', sans-serif;
+	font-family: 'Exo 2', sans-serif;
 }
-.normal-text p{
-	color: black; /* color of text for writing anything which isn't of any special section */
-	margin: 1em; /* margin for writing anything which isn't of any special section */
-	font-size: 1.8em; /* font size for writing anything which isn't of any special section */
+
+.normal-text p {
+	color: black;
+	/* color of text for writing anything which isn't of any special section */
+	margin: 1em;
+	/* margin for writing anything which isn't of any special section */
+	font-size: 1.8em;
+	/* font size for writing anything which isn't of any special section */
 }
-.normal-text{
-	margin-top: 7em; /* distance of general writing from top of page */
+
+.normal-text {
+	margin-top: 7em;
+	/* distance of general writing from top of page */
 }
-.QApair{
-	margin: 1em; /* margin of question and answer pair on help page */
-	margin-bottom: 3em; /* bottom margin of question and answer pair on help page */
-	border: 0.1em solid black; /* border of question and answer pair on help page */
+
+.QApair {
+	margin: 1em;
+	/* margin of question and answer pair on help page */
+	margin-bottom: 3em;
+	/* bottom margin of question and answer pair on help page */
+	border: 0.1em solid black;
+	/* border of question and answer pair on help page */
 	max-width: 55em;
 	margin-left: auto;
 	margin-right: auto;
-
 }
-#help-container{
+
+#help-container {
 	margin: 1em;
 }
-.q{
+
+.q {
 	font-weight: bold;
 	color: #EE7600 !important;
 }
 
-#team-search{
+#team-search {
 	margin-top: 1em;
 	margin-bottom: 0;
 }
-.delete{
+
+.delete {
 	background-color: red;
 	color: white;
 	padding: 0.2em;
 	display: inline-block;
 	margin-left: .7em;
 }
-.delete:hover{
+
+.delete:hover {
 	background-color: #B80000;
 	color: #CCCCCC;
 }
-.noDataMsg{
+
+.noDataMsg {
 	font-size: 3.6em;
 	font-family: 'Exo 2', sans-serif;
 	color: black;
 }
-.pitScouted{
+
+.pitScouted {
 	background-color: #FFC547 !important;
 	color: black;
 }
+
 .underline {
-  text-decoration: underline;
+	text-decoration: underline;
 }
+
+
 /* END OF GENERAL STYLES */
+
 
 /* TABLE STYLES */
 
-table, th, td {
-	 /* collapses cell borders (not to be changed) */
-	font-size: 1.4em; /* sets font size of text in table cells */
-	text-align: center; /* horizontal alignment of text in table cells */
-    /*background-color: white;*/
+table,
+th,
+td {
+	/* collapses cell borders (not to be changed) */
+	font-size: 1.4em;
+	/* sets font size of text in table cells */
+	text-align: center;
+	/* horizontal alignment of text in table cells */
+	/*background-color: white;*/
 }
 
 table {
-     border: 1px solid black;
-     border-collapse: collapse;
+	border: 1px solid black;
+	border-collapse: collapse;
 }
 
-th, td {
-     border: 1px solid black;
-     border-collapse: collapse;
+th,
+td {
+	border: 1px solid black;
+	border-collapse: collapse;
 }
 
-th,td {
-    padding: .3em; /* padding(distance of text from borders) of table cells (not to be changed) */
+th,
+td {
+	padding: .3em;
+	/* padding(distance of text from borders) of table cells (not to be changed) */
 }
 
-.matches-table, .teams-table{
-	color: black; /* color of text in all matches and all teams tables */
-	width: 90%; /* width of all matches table */
-	margin: 1.4em auto; /* margin of all matches and all teams table */
-	margin-bottom: 2em; /* distance of tables from bottom of page */
+.matches-table,
+.teams-table {
+	color: black;
+	/* color of text in all matches and all teams tables */
+	width: 90%;
+	/* width of all matches table */
+	margin: 1.4em auto;
+	/* margin of all matches and all teams table */
+	margin-bottom: 2em;
+	/* distance of tables from bottom of page */
 	font-family: 'Exo 2', sans-serif !important;
 }
 
-.teams-table{
-	width: 30em; /* to override the width from the ^ previous styles for the all teams table */
+.teams-table {
+	width: 30em;
+	/* to override the width from the ^ previous styles for the all teams table */
 }
 
-.report-table{
-	margin-top: 2.2em; /* top margin of report screen table */
-	margin-bottom: 1em; /* bottom margin of report screen table */
-	color: #CCCCCC; /* text color of report screen table */
-	width: 90%; /* width of report screen table */
-	margin-left: auto; /* auto aligns report screen table */
-	margin-right: auto; /* auto aligns report screen table */
-	height:12.3em;
+.report-table {
+	margin-top: 2.2em;
+	/* top margin of report screen table */
+	margin-bottom: 1em;
+	/* bottom margin of report screen table */
+	color: #CCCCCC;
+	/* text color of report screen table */
+	width: 90%;
+	/* width of report screen table */
+	margin-left: auto;
+	/* auto aligns report screen table */
+	margin-right: auto;
+	/* auto aligns report screen table */
+	height: 12.3em;
 	min-width: 20em;
 	max-width: 35em;
 }
 
 .odd-row {
-	/*background-color: /*#FFC547*/; /* background color of odd rows in tables */
-    background-color: #cccccc !important;
+	/*background-color: /*#FFC547*/
+	;
+	/* background color of odd rows in tables */
+	background-color: #cccccc !important;
 }
 
-.current-match{
-	background-color: #FFC547 !important; /* background-color of current match row in matches table */
-	color: black !important; /* text color of current match row */
-	line-height: 6vh; /* height of current match row */
+.current-match {
+	background-color: #FFC547 !important;
+	/* background-color of current match row in matches table */
+	color: black !important;
+	/* text color of current match row */
+	line-height: 6vh;
+	/* height of current match row */
 }
 
 .current-match:hover {
-	background-color: #EE7600; /* background color of current match row when hovered */
+	background-color: #EE7600;
+	/* background color of current match row when hovered */
 }
 
-
-#r1, #r2, #r3{
+#r1,
+#r2,
+#r3 {
 	background-color: #ff0000;
 	color: #CCCCCC;
 	opacity: 0.4;
 }
+
 #rh {
 	background-color: #ff0000;
 	color: #CCCCCC;
 	opacity: 0.6;
 }
-#b1, #b2, #b3{
+
+#b1,
+#b2,
+#b3 {
 	background-color: #007dff;
 	color: #CCCCCC;
 	opacity: 0.4;
 }
+
 #bh {
 	background-color: #007dff;
 	color: #CCCCCC;
 	opacity: 0.6;
 }
 
-.redTeamHeader{
+.redTeamHeader {
 	background-color: #ff0000;
 	color: #CCCCCC;
 	opacity: 0.6;
 }
-.blueTeamHeader{
+
+.blueTeamHeader {
 	background-color: #007dff;
 	color: #CCCCCC;
 	opacity: 0.6;
 }
-.table-hover > th, .table-hover > td {
+
+.table-hover>th,
+.table-hover>td {
 	background-color: #C0C0C0 !important;
-	color: black !important; /* color of text when any row is hovered over */
-	cursor: pointer !important; /* changes cursor to shape of hand when hovering over rows (not to be changed) */
+	color: black !important;
+	/* color of text when any row is hovered over */
+	cursor: pointer !important;
+	/* changes cursor to shape of hand when hovering over rows (not to be changed) */
 }
-.table-head{
+
+.table-head {
 	background-color: #303030 !important;
 	white-space: nowrap;
 }
 
-.redTeamHighlight{
-	background-color: #B80000 ;
+.redTeamHighlight {
+	background-color: #B80000;
 	color: #CCCCCC;
 }
-.blueTeamHighlight{
+
+.blueTeamHighlight {
 	background-color: #0029A3;
 	color: #CCCCCC;
 }
-.frenemyTeamHighlight{
+
+.frenemyTeamHighlight {
 	background-color: #b84dff;
-    /*opacity: 0.5;*/
+	/*opacity: 0.5;*/
 	color: #CCCCCC;
 }
-.allyTeamHighlight{
+
+.allyTeamHighlight {
 	background-color: #009933;
-    /*opacity: 0.5;*/
+	/*opacity: 0.5;*/
 	color: #CCCCCC;
 }
-.enemyTeamHighlight{
+
+.enemyTeamHighlight {
 	background-color: #ff4d4d;
-    /*opacity: 0.5;*/
+	/*opacity: 0.5;*/
 	color: #CCCCCC;
 }
-.selfTeamHighlight{
+
+.selfTeamHighlight {
 	background-color: #ffa64d;
-    /*opacity: 0.5;*/
+	/*opacity: 0.5;*/
 	color: black;
 }
 
 
-
 /* END OF TABLE STYLES */
 
+
 /* JON WROTE ALL OF THIS AND HE IS THE BEST WRITER. */
+
+
 /* I APPROVE -FARBOD */
+
 
 /* LOGIN PAGE STYLES */
 
 #login-form {
-	font-family: 'Open Sans', sans-serif; /* font for login form */
-	font-weight: 300; /* font thickness for login form */
-	text-align: center; /* horizontal alignment of the whole login form */
+	font-family: 'Open Sans', sans-serif;
+	/* font for login form */
+	font-weight: 300;
+	/* font thickness for login form */
+	text-align: center;
+	/* horizontal alignment of the whole login form */
 }
 
 #signup-form {
@@ -470,13 +600,13 @@ th,td {
 }
 
 .btn-primary.regional-dropdown {
-    color: black !important;
-    background-color: #FFC547 !important;
-    border-color: #FFC547 !important;
+	color: black !important;
+	background-color: #FFC547 !important;
+	border-color: #FFC547 !important;
 }
 
 #year-box {
-    margin-bottom: 0.6em;
+	margin-bottom: 0.6em;
 }
 
 #createteam-form {
@@ -486,70 +616,86 @@ th,td {
 }
 
 #login-button {
-	height:2.2em; /* button height */
-	width: 12.3em; /* button width */
-	color: black; /* text color of button */
-	text-align: center; /* horizontal alignment of text of button */
-	font-size: 2em; /* font size of button */
-	background-color: #FFC547; /* background color of button */
-	margin-top:.3em; /* top margin of button */
+	height: 2.2em;
+	/* button height */
+	width: 12.3em;
+	/* button width */
+	color: black;
+	/* text color of button */
+	text-align: center;
+	/* horizontal alignment of text of button */
+	font-size: 2em;
+	/* font size of button */
+	background-color: #FFC547;
+	/* background color of button */
+	margin-top: .3em;
+	/* top margin of button */
 }
 
-hr{
-    border-color: #FFC547;
+hr {
+	border-color: #FFC547;
 }
+
 #signup-button {
-	height:2.2em;
+	height: 2.2em;
 	width: 12.3em;
 	color: black;
 	text-align: center;
 	font-size: 2em;
 	background-color: #FFC547;
-	margin-top:1.0em;
+	margin-top: 1.0em;
 }
-
-
 
 #createteam-button {
-	height:2.2em;
+	height: 2.2em;
 	width: 12.3em;
 	color: black;
 	text-align: center;
 	font-size: 2em;
 	background-color: #FFC547;
-	margin-top:.0em;
-}s
+	margin-top: .0em;
+}
 
-.check {
-
- /* NOTICE: PLEASE DO NOT CHANGE ANY STYLES FOR THIS ELEMENT, IT WAS CAREFULLY DESIGNED TO CENTER IN THE FORM */
-
-
-	color: black; /* text color of "remember me" text */
-	margin-top: .4em; /* top margin of "remember me" text */
-	margin-left: auto; /* to center "remember me" text */
-	margin-right: auto; /* to center "remember me" text */
-	width:25.7em;
-	text-align: left; /* horizontal alignment of "remember me" text */
+s .check {
+	/* NOTICE: PLEASE DO NOT CHANGE ANY STYLES FOR THIS ELEMENT, IT WAS CAREFULLY DESIGNED TO CENTER IN THE FORM */
+	color: black;
+	/* text color of "remember me" text */
+	margin-top: .4em;
+	/* top margin of "remember me" text */
+	margin-left: auto;
+	/* to center "remember me" text */
+	margin-right: auto;
+	/* to center "remember me" text */
+	width: 25.7em;
+	text-align: left;
+	/* horizontal alignment of "remember me" text */
 	font-family: "Exo 2", sans-serif;
 }
 
-#check-box{
-	height:1.2em; /* height of square check box */
-	width: 1.2em; /* width of square check box */
-	border:none; /* removes border of check box (not to be changed) */
+#check-box {
+	height: 1.2em;
+	/* height of square check box */
+	width: 1.2em;
+	/* width of square check box */
+	border: none;
+	/* removes border of check box (not to be changed) */
 }
 
-
-#username{
-	height:2.2em; /* height of username text box */
-	width: 11.15em; /* width of username text box */
-	text-align: center; /* horizontal alignment of text in username text box */
-	font-size: 2.2em; /* font size of text in username text box */
-	border-bottom: none; /* removes bottom border of username text box to create effect of connected text boxes (not to be changed) */
+#username {
+	height: 2.2em;
+	/* height of username text box */
+	width: 11.15em;
+	/* width of username text box */
+	text-align: center;
+	/* horizontal alignment of text in username text box */
+	font-size: 2.2em;
+	/* font size of text in username text box */
+	border-bottom: none;
+	/* removes bottom border of username text box to create effect of connected text boxes (not to be changed) */
 }
-#firstname{
-	height:2.2em;
+
+#firstname {
+	height: 2.2em;
 	width: 11.15em;
 	text-align: center;
 	font-size: 2.2em;
@@ -557,62 +703,79 @@ hr{
 	margin-top: 10px;
 }
 
-#password{
-	height:2.2em; /* height of password text box */
-	width: 11.15em; /* width of password text box */
-	text-align: center; /* horizontal alignment of text(dots) in password text box*/
-	font-size: 2.2em; /* font size of text(dots) in password text box */
+#password {
+	height: 2.2em;
+	/* height of password text box */
+	width: 11.15em;
+	/* width of password text box */
+	text-align: center;
+	/* horizontal alignment of text(dots) in password text box*/
+	font-size: 2.2em;
+	/* font size of text(dots) in password text box */
 }
-#password-signup{
-	height:2.2em;
+
+#password-signup {
+	height: 2.2em;
 	width: 11.15em;
 	text-align: center;
 	font-size: 2.2em;
-    border-bottom: none;
+	border-bottom: none;
 }
 
-#confirm-password-signup{
-	height:2.2em;
+#confirm-password-signup {
+	height: 2.2em;
 	width: 11.15em;
 	text-align: center;
 	font-size: 2.2em;
 }
 
 ::-webkit-input-placeholder {
-    color: rgb(229 , 148 , 0); /* color for place holder text */
-	opacity:0.8; /* opacity of place holder text */
+	color: rgb(229, 148, 0);
+	/* color for place holder text */
+	opacity: 0.8;
+	/* opacity of place holder text */
 }
+
 :-moz-placeholder {
-   color: rgb(229 , 148 , 0);
-   opacity:0.8;
+	color: rgb(229, 148, 0);
+	opacity: 0.8;
 }
+
 ::-moz-placeholder {
-   color: rgb(229 , 148 , 0);
-   opacity:0.8;
+	color: rgb(229, 148, 0);
+	opacity: 0.8;
 }
+
 :-ms-input-placeholder {
-   color: rgb(229 , 148 , 0);
-   opacity:0.8;
+	color: rgb(229, 148, 0);
+	opacity: 0.8;
 }
 
 input:focus {
-    outline-width: 0; /* removes default browser borders when text box is in focus (not to be changed) */
+	outline-width: 0;
+	/* removes default browser borders when text box is in focus (not to be changed) */
 }
 
-.login-wrapper{
-	margin-top: 30vh; /* distance of login form from top of page (most likely not to be changed) */
-	color: black; /* color of [typed] text in username and password text boxes */
-	background-color: #e9e9e9; /* background color of login form */
+.login-wrapper {
+	margin-top: 30vh;
+	/* distance of login form from top of page (most likely not to be changed) */
+	color: black;
+	/* color of [typed] text in username and password text boxes */
+	background-color: #e9e9e9;
+	/* background color of login form */
 }
 
-.login-wrapper input{
-	border: .1em solid #FFC547; /* border width, style, and color of text boxes and login button */
-	background-color: #e9e9e9; /* background color of username and password text boxes */
+.login-wrapper input {
+	border: .1em solid #FFC547;
+	/* border width, style, and color of text boxes and login button */
+	background-color: #e9e9e9;
+	/* background color of username and password text boxes */
 }
 
 #login-button:hover {
 	background-color:
 }
+
 
 /* END OF LOGIN PAGE STYLES */
 
@@ -620,66 +783,96 @@ input:focus {
 /* REPORT SCREEN STYLES */
 
 .report h2 {
-	display: inline; /* makes "Match # - time" text display on one line (not to be changed) */
-	color: black; /* color of "Match # - time" text */
-	font-family: 'Exo 2', sans-serif; /* font of "Match # - time" text */
-
+	display: inline;
+	/* makes "Match # - time" text display on one line (not to be changed) */
+	color: black;
+	/* color of "Match # - time" text */
+	font-family: 'Exo 2', sans-serif;
+	/* font of "Match # - time" text */
 }
 
-.report{
-	margin-top: 7em; /* distance of report screen contents from top of page */
-	text-align: center; /* horizontal alignment of text in report screen */
-    font-family: 'Exo 2', sans-serif;
+.report {
+	margin-top: 7em;
+	/* distance of report screen contents from top of page */
+	text-align: center;
+	/* horizontal alignment of text in report screen */
+	font-family: 'Exo 2', sans-serif;
 }
+
 body {
-    font-family: 'Exo 2', sans-serif;
+	font-family: 'Exo 2', sans-serif;
 }
 
-#report-title{
-	margin-left: 0.2em; /* left margin of title of report page */
-	margin-top: 0; /* overrides .page-title class top margin to not have a huge top margin (not to be changed) */
-	text-align: left; /* horizontal alignment of title of report page */
+#report-title {
+	margin-left: 0.2em;
+	/* left margin of title of report page */
+	margin-top: 0;
+	/* overrides .page-title class top margin to not have a huge top margin (not to be changed) */
+	text-align: left;
+	/* horizontal alignment of title of report page */
 }
 
-.report-area{
-	margin: 0em; /* margin for report boxes */
-	width: 100%; /* width of report boxes */
+.report-area {
+	margin: 0em;
+	/* margin for report boxes */
+	width: 100%;
+	/* width of report boxes */
 	max-width: 18em;
-	height: 8.1em ; /* height of report boxes */
-	font-size: 2em; /* font size of report boxes */
-	background-color: #C0C0C0; /* background color of report boxes */
-	padding: 0.2em; /* padding(distance of wall of box to text) of report boxes */
-	margin-top: 1.45em; /* top margin of report boxes */
-	margin-bottom: 0.5em; /* bottom margin for report boxes */
+	height: 8.1em;
+	/* height of report boxes */
+	font-size: 2em;
+	/* font size of report boxes */
+	background-color: #C0C0C0;
+	/* background color of report boxes */
+	padding: 0.2em;
+	/* padding(distance of wall of box to text) of report boxes */
+	margin-top: 1.45em;
+	/* top margin of report boxes */
+	margin-bottom: 0.5em;
+	/* bottom margin for report boxes */
 	color: black;
 }
-#team-report-area{
-	width: 20em; /* width of report text box in all teams page */
-	display: block; /* for centering element (not to be changed) */
-	margin-left: auto; /* for centering element (not to be changed) */
-	margin-right: auto; /* for centering element (not to be changed) */
-	margin-bottom: 30em; /* bottom margin of report text box in all teams page  */
+
+#team-report-area {
+	width: 20em;
+	/* width of report text box in all teams page */
+	display: block;
+	/* for centering element (not to be changed) */
+	margin-left: auto;
+	/* for centering element (not to be changed) */
+	margin-right: auto;
+	/* for centering element (not to be changed) */
+	margin-bottom: 30em;
+	/* bottom margin of report text box in all teams page  */
 }
+
 .report-area::-webkit-input-placeholder {
-	 color: gray; /* place holder text color of report boxes */
-	opacity:0.8; /* place holder text opacity of report boxes */
+	color: gray;
+	/* place holder text color of report boxes */
+	opacity: 0.8;
+	/* place holder text opacity of report boxes */
 }
+
 .report-area:-moz-placeholder {
-	 color: gray;
-	opacity:0.8;
+	color: gray;
+	opacity: 0.8;
 }
+
 .report-area::-moz-placeholder {
-	 color: gray;
-	opacity:0.8;
+	color: gray;
+	opacity: 0.8;
 }
+
 .report-area:-ms-input-placeholder {
-	 color: gray;
-	opacity:0.8;
+	color: gray;
+	opacity: 0.8;
 }
-#report-instruction{
+
+#report-instruction {
 	display: block;
 }
-.scout-div{
+
+.scout-div {
 	color: black;
 	text-align: left;
 	margin-bottom: 3em;
@@ -688,34 +881,41 @@ body {
 	font-family: 'Exo 2', sans-serif;
 	margin-top: 3em;
 	padding: 0.7em;
-
 	/* background-color: #B0C4DE; */
 }
-.fixed-col-table{
+
+.fixed-col-table {
 	overflow-x: scroll;
 }
-.scout-div p{
+
+.scout-div p {
 	margin-left: .3em;
 	font-size: 1.9em !important;
 }
-.scout-div h3{
+
+.scout-div h3 {
 	margin: 0;
 	margin-bottom: .2em;
 	font-size: 2.7em !important;
 }
-.report-check{
+
+.report-check {
 	margin: 0.3em !important;
 	font-size: 2em;
 }
-#report-text, .report-text{
+
+#report-text,
+.report-text {
 	font-size: 2em !important;
 	display: inline;
 	margin: 0.3em;
 	font-weight: normal;
 	margin-bottom: 0.5em;
-    color: black;
+	color: black;
 }
-#report-box-small, .report-box-small{
+
+#report-box-small,
+.report-box-small {
 	margin: .3em;
 	width: 2.5em;
 	font-size: 1.6em;
@@ -728,7 +928,8 @@ body {
 	text-align: center;
 	height: 1.5em;
 }
-#report-box-large{
+
+#report-box-large {
 	margin: .3em;
 	width: 5em;
 	font-size: 1.6em;
@@ -741,7 +942,8 @@ body {
 	text-align: center;
 	height: 1.5em;
 }
-.select1 select{
+
+.select1 select {
 	margin: .3em;
 	width: 7em;
 	font-size: 1.6em;
@@ -756,149 +958,145 @@ body {
 	padding-left: .3em;
 }
 
-.select1{
+.select1 {
 	display: inline;
 	overflow: hidden;
 	padding-bottom: 5px;
 	padding-top: 5px;
 }
-#updown{
+
+#updown {
 	padding-right: 5px;
 }
-.scout-div-title{
+
+.scout-div-title {
 	border-bottom: 1px solid gray;
 	padding-bottom: 0.33em;
 	margin-top: 1em !important;
 	font-weight: bold !important;
-    color: black;
+	color: black;
 }
 
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+	-webkit-appearance: none;
+	margin: 0;
 }
+
 input[type='number'] {
-    -moz-appearance:textfield;
+	-moz-appearance: textfield;
 }
 
 label {
-    display: inline-block;
-    cursor: pointer;
-    position: relative;
-    padding-left: 25px;
-    margin-right: 15px;
-    color: orange;
+	display: inline-block;
+	cursor: pointer;
+	position: relative;
+	padding-left: 25px;
+	margin-right: 15px;
+	color: orange;
 }
+
 input[type=checkbox] {
-    display: none;
+	display: none;
 }
+
 input[type=radio] {
-    display: none;
+	display: none;
 }
+
 label:before {
-    border-radius: 3px;
+	border-radius: 3px;
 }
+
 .radio label:before {
-    border-radius: 1em;
+	border-radius: 1em;
 }
-input[type=radio]:checked + label:before {
+
+input[type=radio]:checked+label:before {
 	position: absolute;
-    content: "\2022";
-    font-size: 2.3em;
-    color: orange;
-    text-align: center;
-    line-height: .130em;
-    bottom: 0.05em;
+	content: "\2022";
+	font-size: 2.3em;
+	color: orange;
+	text-align: center;
+	line-height: .130em;
+	bottom: 0.05em;
 }
-input[type=checkbox]:checked + label:before {
+
+input[type=checkbox]:checked+label:before {
 	position: absolute;
-    content: "\2713";
-    font-size: 15px;
-    color: orange;
-    text-align: center;
-    line-height: 15px;
-    bottom: 0.15em;
+	content: "\2713";
+	font-size: 15px;
+	color: orange;
+	text-align: center;
+	line-height: 15px;
+	bottom: 0.15em;
 }
+
 label:before {
-    content: "";
-    display: inline-block;
-
-    width: 16px;
-    height: 16px;
-
-    margin-right: 10px;
-    position: absolute;
-    left: 0;
-    bottom: .1em;
-    background-color: #b9b9b9;
+	content: "";
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+	margin-right: 10px;
+	position: absolute;
+	left: 0;
+	bottom: .1em;
+	background-color: #b9b9b9;
 }
-.selectdiv{
-	width:7em;
-	border:1px solid #FFC547;
-	height:1.6em;
-	background:url(http://i59.tinypic.com/2uz5v0g.jpg) no-repeat right center;
-	border-radius:0;
-	cursor:pointer;
+
+.selectdiv {
+	width: 7em;
+	border: 1px solid #FFC547;
+	height: 1.6em;
+	background: url(http://i59.tinypic.com/2uz5v0g.jpg) no-repeat right center;
+	border-radius: 0;
+	cursor: pointer;
 	background-color: #333333;
 	color: black;
 	font-size: 1.6em;
 	font-family: 'Exo 2', sans-serif;
 	display: inline-block;
 	margin-bottom: .3em;
-	}
-.selectdiv:hover, .selectdiv:focus {
-	width:7em;
-	border:1px solid #FFC547;
-	height:1.6em;
+}
+
+.selectdiv:hover,
+.selectdiv:focus {
+	width: 7em;
+	border: 1px solid #FFC547;
+	height: 1.6em;
 	background: url(http://i59.tinypic.com/2uz5v0g.jpg) no-repeat right;
-	border-radius:0;
-	cursor:pointer;
+	border-radius: 0;
+	cursor: pointer;
 	color: black;
 	background-color: #333333;
 	font-size: 1.6em;
-	}
-.selectdiv div{
-	z-index:-1;
-	border:0px solid #000;
-	height:23px;
-	overflow:hidden;
-	padding:1px 0px 0px 5px;
-	cursor:pointer;
+}
 
-	}
-.selectboxdiv{
- 	height: 23px;
-    left: 9.5em;
-    margin-top: 0;
-    position: absolute;
-    width: 7em;
-    z-index: 2;
+.selectdiv div {
+	z-index: -1;
+	border: 0px solid #000;
+	height: 23px;
+	overflow: hidden;
+	padding: 1px 0px 0px 5px;
+	cursor: pointer;
+}
+
+.selectboxdiv {
+	height: 23px;
+	left: 9.5em;
+	margin-top: 0;
+	position: absolute;
+	width: 7em;
+	z-index: 2;
 	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
 	filter: alpha(opacity=0);
 	-khtml-opacity: 0;
 	-moz-opacity: 0;
 	opacity: 0;
-	cursor:pointer;
+	cursor: pointer;
 }
 
-
-
-.button{
-	font-size: 3em;
-	padding-left: .2em;
-	padding-right: .2em;
-	margin-bottom: 1em;
-	margin-top: 0.5em;
-	border-radius: .2em;
-	background-color: #FFC547;
-	color: black;
-	font-family: 'Exo 2', sans-serif;
-	padding-top: 0.1em;
-	padding-bottom: 0.1em;
-	border-radius: 0;
-}
-.button-disabled{
+.button {
 	font-size: 3em;
 	padding-left: .2em;
 	padding-right: .2em;
@@ -913,7 +1111,22 @@ label:before {
 	border-radius: 0;
 }
 
-.add-minus-button{
+.button-disabled {
+	font-size: 3em;
+	padding-left: .2em;
+	padding-right: .2em;
+	margin-bottom: 1em;
+	margin-top: 0.5em;
+	border-radius: .2em;
+	background-color: #FFC547;
+	color: black;
+	font-family: 'Exo 2', sans-serif;
+	padding-top: 0.1em;
+	padding-bottom: 0.1em;
+	border-radius: 0;
+}
+
+.add-minus-button {
 	font-size: 1.8em;
 	padding-left: .2em;
 	padding-right: .2em;
@@ -921,7 +1134,7 @@ label:before {
 	background-color: #FFC547;
 	color: black;
 	font-family: 'Exo 2', sans-serif;
-	padding-top:0px;
+	padding-top: 0px;
 	padding-bottom: 0px;
 	width: 1.5em;
 	margin: .1em;
@@ -929,28 +1142,31 @@ label:before {
 	border-radius: 0;
 }
 
-.submit-match{
+.submit-match {
 	text-align: right;
 	margin-right: 5em;
 	width: 100%;
 }
 
-#report-tabs a{
+#report-tabs a {
 	font-size: 2em;
 	color: black;
 	font-family: 'Exo 2', sans-serif;
 }
-#report-tabs a:hover{
+
+#report-tabs a:hover {
 	border-radius: 0;
 	color: black;
 }
+
 .creator-dropdown {
-    height: 30px;
-    font-size: 20px;
-    background-color: #FFC547;
-    margin: 0px 7px 7px 0px;
+	height: 30px;
+	font-size: 20px;
+	background-color: #FFC547;
+	margin: 0px 7px 7px 0px;
 }
-#report-tabs .active a{
+
+#report-tabs .active a {
 	font-size: 2em;
 	color: black;
 	font-family: 'Exo 2', sans-serif;
@@ -960,163 +1176,222 @@ label:before {
 	border-right: none;
 	border-radius: 0;
 }
-#report-tabs{
+
+#report-tabs {
 	border-bottom: solid 1px gray;
 	margin-top: 3em;
 }
 
-.view-title{
+.view-title {
 	border-bottom: none;
 }
 
-#view-table{
+#view-table {
 	width: 100%;
 }
-.viewMatchInTeam{
+
+.viewMatchInTeam {
 	display: inline;
 	border: 1px;
 	border-collapse: separate;
 }
-.fixed-col{
+
+.fixed-col {
 	position: absolute;
-	width:18em;
-	left:0;
+	width: 18em;
+	left: 0;
 	background-color: #FFC547;
 }
-.fixed-col-table{
+
+.fixed-col-table {
 	margin-left: 32.9em;
-	width:100% !important;
+	width: 100% !important;
 }
-.viewMatchInTeam > td{
+
+.viewMatchInTeam>td {
 	white-space: nowrap;
 }
-.reg-col{
 
-}
-#viewMatches-form{
-	width:73%;
+.reg-col {}
+
+#viewMatches-form {
+	width: 73%;
 	text-align: center;
 }
 
 #viewContainer {
-    text-align: center;
-    float: center;
+	text-align: center;
+	float: center;
 }
 
-.reportID{
+.reportID {
 	font-family: 'Exo 2', sans-serif;
 	color: black;
 	margin-bottom: 0em;
 	font-size: 2em;
 	margin-top: 1em;
 }
+
+
 /* END OF REPORT SCREEN STYLES */
+
 
 /* SYNC PAGE STYLES */
 
-.sync{
+.sync {
 	position: fixed;
 	width: 100%;
 	text-align: center;
 	top: 45%;
 }
 
+
 /* END OF SYNC PAGE STYLES */
+
 
 /* SETTINGS SCREEN STYLES */
 
-.settings-option{
-	margin-top: 4em; /* top margin of each settings option */
-	margin-bottom: 4em; /* bottom margin of each settings option */
-	color: black; /* color of text in settings */
-	font-family: 'Exo 2', sans-serif; /* font of text in settings */
-	display: block; /* to make elements appear on new line (not to be changed) */
-	text-align: center; /* horizontal alignment of each setting in its respective column */
-	margin-left: -1.2vw; /* to move the settings to the left (not to be changed) */
+.settings-option {
+	margin-top: 4em;
+	/* top margin of each settings option */
+	margin-bottom: 4em;
+	/* bottom margin of each settings option */
+	color: black;
+	/* color of text in settings */
+	font-family: 'Exo 2', sans-serif;
+	/* font of text in settings */
+	display: block;
+	/* to make elements appear on new line (not to be changed) */
+	text-align: center;
+	/* horizontal alignment of each setting in its respective column */
+	margin-left: -1.2vw;
+	/* to move the settings to the left (not to be changed) */
 }
+
 .settings-box::-webkit-input-placeholder {
-    color: gray; /* color of place holder text in settings text boxes */
-	opacity:0.8; /* opacity of place holder text in settings text boxes */
-	font-weight: bold; /* weight of place holder text in settings text boxes */
+	color: gray;
+	/* color of place holder text in settings text boxes */
+	opacity: 0.8;
+	/* opacity of place holder text in settings text boxes */
+	font-weight: bold;
+	/* weight of place holder text in settings text boxes */
 }
+
 .settings-box:-moz-placeholder {
-   color: gray;
-   opacity:0.8;
-   font-weight: bold;
+	color: gray;
+	opacity: 0.8;
+	font-weight: bold;
 }
+
 .settings-box::-moz-placeholder {
-   color: gray;
-   opacity:0.8;
-   font-weight: bold;
+	color: gray;
+	opacity: 0.8;
+	font-weight: bold;
 }
+
 .settings-box:-ms-input-placeholder {
-   color: gray;
-   opacity:0.8;
-   font-weight: bold;
+	color: gray;
+	opacity: 0.8;
+	font-weight: bold;
 }
 
-.settings-list > .text-input{
-	color: black; /* color of [typed] text in text boxes */
-	width: 9.5em; /* width of text box */
-	height: 2em; /* height of text box */
-	margin-top: .5em; /* top margin of text box */
-	font-size: 2em; /* font size of text in text box */
-	font-weight: bold; /* font weight of text in text box */
-	background-color: #C0C0C0; /* background color of text box */
-	padding: .2em; /* padding(distance of border of text box to text) of text box */
+.settings-list>.text-input {
+	color: black;
+	/* color of [typed] text in text boxes */
+	width: 9.5em;
+	/* width of text box */
+	height: 2em;
+	/* height of text box */
+	margin-top: .5em;
+	/* top margin of text box */
+	font-size: 2em;
+	/* font size of text in text box */
+	font-weight: bold;
+	/* font weight of text in text box */
+	background-color: #C0C0C0;
+	/* background color of text box */
+	padding: .2em;
+	/* padding(distance of border of text box to text) of text box */
 }
 
-.text-input{
-	color: black; /* color of [typed] text in text boxes */
-	width: 14em; /* width of text box */
-	height: 2em; /* height of text box */
-	margin-top: .5em; /* top margin of text box */
-	font-size: 2em; /* font size of text in text box */
-	font-weight: bold; /* font weight of text in text box */
-	background-color: #C0C0C0; /* background color of text box */
-	padding: .2em; /* padding(distance of border of text box to text) of text box */
+.text-input {
+	color: black;
+	/* color of [typed] text in text boxes */
+	width: 14em;
+	/* width of text box */
+	height: 2em;
+	/* height of text box */
+	margin-top: .5em;
+	/* top margin of text box */
+	font-size: 2em;
+	/* font size of text in text box */
+	font-weight: bold;
+	/* font weight of text in text box */
+	background-color: #C0C0C0;
+	/* background color of text box */
+	padding: .2em;
+	/* padding(distance of border of text box to text) of text box */
 }
 
-.settings-list > .button-input{
-	color: black; /* color of text in button */
-	width: 4em; /* width of button */
-	height: 2em; /* height of button */
-	margin-top: .5em; /* top margin of button */
-	font-size: 2em; /* font size of button */
-	font-weight: bold; /* font weight of button */
-	background-color: #FFC547 !important; /* background color of button */
+.settings-list>.button-input {
+	color: black;
+	/* color of text in button */
+	width: 4em;
+	/* width of button */
+	height: 2em;
+	/* height of button */
+	margin-top: .5em;
+	/* top margin of button */
+	font-size: 2em;
+	/* font size of button */
+	font-weight: bold;
+	/* font weight of button */
+	background-color: #FFC547 !important;
+	/* background color of button */
 }
 
-.button:hover{
-	background-color: #EE7600 !important; /* background color of button when hovered */
+.button:hover {
+	background-color: #EE7600 !important;
+	/* background color of button when hovered */
 	border-color: #EE7600 !important;
-	cursor: pointer; /* changes cursor to hand (not to be changed) */
+	cursor: pointer;
+	/* changes cursor to hand (not to be changed) */
 }
 
-.button-hovered-report{
-	background-color: #C0C0C0 !important; /* background color of hovered table cell in report table */
-	cursor: pointer; /* changes cursor to hand (not to be changed) */
-	color: black !important; /* text color of hovered table cell in report table */
-}
-.button-selected-report{
-	background-color: white !important; /* background color of hovered table cell in report table */
-	cursor: pointer; /* changes cursor to hand (not to be changed) */
-	color: black !important; /* text color of hovered table cell in report table */
+.button-hovered-report {
+	background-color: #C0C0C0 !important;
+	/* background color of hovered table cell in report table */
+	cursor: pointer;
+	/* changes cursor to hand (not to be changed) */
+	color: black !important;
+	/* text color of hovered table cell in report table */
 }
 
-#settings-grid{
-margin-top: 4em; /* distance of grid of settings from top of page */
+.button-selected-report {
+	background-color: white !important;
+	/* background color of hovered table cell in report table */
+	cursor: pointer;
+	/* changes cursor to hand (not to be changed) */
+	color: black !important;
+	/* text color of hovered table cell in report table */
 }
+
+#settings-grid {
+	margin-top: 4em;
+	/* distance of grid of settings from top of page */
+}
+
 
 /* END OF SETTINGS SCREEN STYLES */
 
+
 /* FEEDBACK PAGE STYLES */
 
-#feedback-form{
+#feedback-form {
 	margin: 3em;
 }
 
-#feedback-name{
+#feedback-name {
 	font-size: 3em;
 	font-family: 'Exo 2', sans-serif;
 	padding: 3px;
@@ -1129,27 +1404,33 @@ margin-top: 4em; /* distance of grid of settings from top of page */
 }
 
 #feedback-name::-webkit-input-placeholder {
-    color: gray; /* color of place holder text in settings text boxes */
-	opacity:0.8; /* opacity of place holder text in settings text boxes */
-	font-weight: bold; /* weight of place holder text in settings text boxes */
-}
-#feedback-name:-moz-placeholder {
-   color: gray;
-   opacity:0.8;
-   font-weight: bold;
-}
-#feedback-name::-moz-placeholder {
-   color: gray;
-   opacity:0.8;
-   font-weight: bold;
-}
-#feedback-name:-ms-input-placeholder {
-   color: gray;
-   opacity:0.8;
-   font-weight: bold;
+	color: gray;
+	/* color of place holder text in settings text boxes */
+	opacity: 0.8;
+	/* opacity of place holder text in settings text boxes */
+	font-weight: bold;
+	/* weight of place holder text in settings text boxes */
 }
 
-#feedback-box{
+#feedback-name:-moz-placeholder {
+	color: gray;
+	opacity: 0.8;
+	font-weight: bold;
+}
+
+#feedback-name::-moz-placeholder {
+	color: gray;
+	opacity: 0.8;
+	font-weight: bold;
+}
+
+#feedback-name:-ms-input-placeholder {
+	color: gray;
+	opacity: 0.8;
+	font-weight: bold;
+}
+
+#feedback-box {
 	font-size: 3em;
 	font-family: 'Exo 2', sans-serif;
 	padding: 3px;
@@ -1158,50 +1439,63 @@ margin-top: 4em; /* distance of grid of settings from top of page */
 	margin-top: 0.2em;
 	margin-bottom: 0.2em;
 	max-width: 18em;
-	height:7em;
-	width:95%;
+	height: 7em;
+	width: 95%;
 }
 
 #feedback-box::-webkit-input-placeholder {
-    color: gray; /* color of place holder text in settings text boxes */
-	opacity:0.8; /* opacity of place holder text in settings text boxes */
-	font-weight: bold; /* weight of place holder text in settings text boxes */
+	color: gray;
+	/* color of place holder text in settings text boxes */
+	opacity: 0.8;
+	/* opacity of place holder text in settings text boxes */
+	font-weight: bold;
+	/* weight of place holder text in settings text boxes */
 }
+
 #feedback-box:-moz-placeholder {
-   color: gray;
-   opacity:0.8;
-   font-weight: bold;
+	color: gray;
+	opacity: 0.8;
+	font-weight: bold;
 }
+
 #feedback-box::-moz-placeholder {
-   color: gray;
-   opacity:0.8;
-   font-weight: bold;
+	color: gray;
+	opacity: 0.8;
+	font-weight: bold;
 }
+
 #feedback-box:-ms-input-placeholder {
-   color: gray;
-   opacity:0.8;
-   font-weight: bold;
+	color: gray;
+	opacity: 0.8;
+	font-weight: bold;
 }
+
 
 /* END OF FEEDBACK PAGE STYLES */
 
+
 /* STYLES FOR SMALLER SCREENS */
 
-@media screen and (max-width: 420px){
+@media screen and (max-width: 420px) {
 	.main-welcome h1 {
-		font-size: 19vw; /* scaling font size for "MorScout" text */
+		font-size: 19vw;
+		/* scaling font size for "MorScout" text */
 	}
 	.main-welcome h3 {
-		font-size: 6vw; /* scaling font size for "Welcome to MorScout" text */
+		font-size: 6vw;
+		/* scaling font size for "Welcome to MorScout" text */
 	}
-	#report-title{
-		text-align: center; /* horizontal alignment of title of report page */
+	#report-title {
+		text-align: center;
+		/* horizontal alignment of title of report page */
 	}
-	#team-report-area{
-		width: 90%; /* scaling width for report box in all teams page */
+	#team-report-area {
+		width: 90%;
+		/* scaling width for report box in all teams page */
 	}
-
 }
+
+
 /*
 @media screen and (max-width: 623px){
 
@@ -1210,56 +1504,64 @@ margin-top: 4em; /* distance of grid of settings from top of page */
 		line-height: 4vh; /* larger scaling line height for text in all matches table for easier match selecting on small screens
 	}
 */
+
+
 }
-@media screen and (max-width: 991px){
-	.scout-div{
+@media screen and (max-width: 991px) {
+	.scout-div {
 		margin-bottom: 0 !important;
 	}
 }
-
-@media screen and (max-width: 456px){
-	.teams-table{
-		width: 90% !important; /* scaling width for all teams table */
+@media screen and (max-width: 456px) {
+	.teams-table {
+		width: 90% !important;
+		/* scaling width for all teams table */
 	}
-	.scout-div{
+
+	.scout-div {
 		font-size: 2.5vw;
 	}
-	label:before{
+
+	label:before {
 		width: 5vw;
 		height: 5vw;
 	}
-	input[type=checkbox]:checked + label:before {
-	    content: "\2713";
-	    font-size: 5vw;
-	    text-align: center;
-	    line-height: 4.5vw;
+
+	input[type=checkbox]:checked+label:before {
+		content: "\2713";
+		font-size: 5vw;
+		text-align: center;
+		line-height: 4.5vw;
 	}
-	input[type=radio]:checked + label:before {
-	    line-height: 2vw;
+
+	input[type=radio]:checked+label:before {
+		line-height: 2vw;
 	}
-	.report-area{
-		width: 94%; /* width of report boxes */
+
+	.report-area {
+		width: 94%;
+		/* width of report boxes */
 	}
-	.submit-match{
+
+	.submit-match {
 		text-align: right;
 		margin-right: 5em;
 		width: 94%;
 	}
-	.report-radio-check{
-		padding-left:1.3em !important;
+
+	.report-radio-check {
+		padding-left: 1.3em !important;
 	}
 }
+
 /*input[type=checkbox]:checked {
   color: orange;
 }*/
-
 @media only screen (height: 736px) and (width: 414px) {
 	/* insert here css styles that apply to iPhone 6 plus */
 }
-
-@media screen and (max-width: 1199px){
-	.QApair{
-
-	}
+@media screen and (max-width: 1199px) {
+	.QApair {}
 }
+
 /* END OF STYLES FOR SMALLER SCREENS */

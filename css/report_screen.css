@@ -1,73 +1,103 @@
 .report h2 {
-	display: inline; /* makes "Match # - time" text display on one line (not to be changed) */
-	color: black; /* color of "Match # - time" text */
-	font-family: 'Exo 2', sans-serif; /* font of "Match # - time" text */
-
+	display: inline;
+	/* makes "Match # - time" text display on one line (not to be changed) */
+	color: black;
+	/* color of "Match # - time" text */
+	font-family: 'Exo 2', sans-serif;
+	/* font of "Match # - time" text */
 }
 
-.report{
-	margin-top: 7em; /* distance of report screen contents from top of page */
-	text-align: center; /* horizontal alignment of text in report screen */
+.report {
+	margin-top: 7em;
+	/* distance of report screen contents from top of page */
+	text-align: center;
+	/* horizontal alignment of text in report screen */
 }
 
-#matches-table, .matches-table{
-  width: auto;
+#matches-table,
+.matches-table {
+	width: auto;
 }
 
 #match-table {
 	border: 1px;
 	border-collapse: separate;
-  width: auto;
-  overflow-x:scroll;
-  width:80em;
-  display:block;
-}
-
-#report-title{
-	margin-left: 0.2em; /* left margin of title of report page */
-	margin-top: 0; /* overrides .page-title class top margin to not have a huge top margin (not to be changed) */
-	text-align: left; /* horizontal alignment of title of report page */
-}
-
-.report-area{
-	margin: 0em; /* margin for report boxes */
-	width: 100%; /* width of report boxes */
-	max-width: 18em;
-	height: 8.1em ; /* height of report boxes */
-	font-size: 2em; /* font size of report boxes */
-	background-color: #C0C0C0; /* background color of report boxes */
-	padding: 0.2em; /* padding(distance of wall of box to text) of report boxes */
-	margin-top: 1.45em; /* top margin of report boxes */
-	margin-bottom: 0.5em; /* bottom margin for report boxes */
-	color: black;
-}
-#team-report-area{
-	width: 20em; /* width of report text box in all teams page */
-	display: block; /* for centering element (not to be changed) */
-	margin-left: auto; /* for centering element (not to be changed) */
-	margin-right: auto; /* for centering element (not to be changed) */
-	margin-bottom: 30em; /* bottom margin of report text box in all teams page  */
-}
-.report-area::-webkit-input-placeholder {
-	 color: gray; /* place holder text color of report boxes */
-	opacity:0.8; /* place holder text opacity of report boxes */
-}
-.report-area:-moz-placeholder {
-	 color: gray;
-	opacity:0.8;
-}
-.report-area::-moz-placeholder {
-	 color: gray;
-	opacity:0.8;
-}
-.report-area:-ms-input-placeholder {
-	 color: gray;
-	opacity:0.8;
-}
-#report-instruction{
+	width: auto;
+	overflow-x: scroll;
+	width: 80em;
 	display: block;
 }
-.scout-div{
+
+#report-title {
+	margin-left: 0.2em;
+	/* left margin of title of report page */
+	margin-top: 0;
+	/* overrides .page-title class top margin to not have a huge top margin (not to be changed) */
+	text-align: left;
+	/* horizontal alignment of title of report page */
+}
+
+.report-area {
+	margin: 0em;
+	/* margin for report boxes */
+	width: 100%;
+	/* width of report boxes */
+	max-width: 18em;
+	height: 8.1em;
+	/* height of report boxes */
+	font-size: 2em;
+	/* font size of report boxes */
+	background-color: #C0C0C0;
+	/* background color of report boxes */
+	padding: 0.2em;
+	/* padding(distance of wall of box to text) of report boxes */
+	margin-top: 1.45em;
+	/* top margin of report boxes */
+	margin-bottom: 0.5em;
+	/* bottom margin for report boxes */
+	color: black;
+}
+
+#team-report-area {
+	width: 20em;
+	/* width of report text box in all teams page */
+	display: block;
+	/* for centering element (not to be changed) */
+	margin-left: auto;
+	/* for centering element (not to be changed) */
+	margin-right: auto;
+	/* for centering element (not to be changed) */
+	margin-bottom: 30em;
+	/* bottom margin of report text box in all teams page  */
+}
+
+.report-area::-webkit-input-placeholder {
+	color: gray;
+	/* place holder text color of report boxes */
+	opacity: 0.8;
+	/* place holder text opacity of report boxes */
+}
+
+.report-area:-moz-placeholder {
+	color: gray;
+	opacity: 0.8;
+}
+
+.report-area::-moz-placeholder {
+	color: gray;
+	opacity: 0.8;
+}
+
+.report-area:-ms-input-placeholder {
+	color: gray;
+	opacity: 0.8;
+}
+
+#report-instruction {
+	display: block;
+}
+
+.scout-div {
 	color: black;
 	text-align: left;
 	margin-bottom: 3em;
@@ -76,33 +106,39 @@
 	font-family: 'Exo 2', sans-serif;
 	margin-top: 3em;
 	padding: 0.7em;
-
 	/* background-color: #B0C4DE; */
 }
-.fixed-col-table{
+
+.fixed-col-table {
 	overflow-x: scroll;
 }
-.scout-div p{
+
+.scout-div p {
 	margin-left: .3em;
 	font-size: 1.9em !important;
 }
-.scout-div h3{
+
+.scout-div h3 {
 	margin: 0;
 	margin-bottom: .2em;
 	font-size: 2.7em !important;
 }
-.report-check{
+
+.report-check {
 	margin: 0.3em !important;
 	font-size: 2em;
 }
-#report-text, .report-text{
+
+#report-text,
+.report-text {
 	font-size: 2em !important;
 	display: inline;
 	margin: 0.3em;
 	font-weight: normal;
 	margin-bottom: 0.5em;
 }
-#report-box-small{
+
+#report-box-small {
 	margin: .3em;
 	width: 2.5em;
 	font-size: 1.6em;
@@ -115,7 +151,8 @@
 	text-align: center;
 	height: 1.5em;
 }
-#report-box-large{
+
+#report-box-large {
 	margin: .3em;
 	width: 5em;
 	font-size: 1.6em;
@@ -128,7 +165,8 @@
 	text-align: center;
 	height: 1.5em;
 }
-.select1 select{
+
+.select1 select {
 	margin: .3em;
 	width: 7em;
 	font-size: 1.6em;
@@ -143,16 +181,18 @@
 	padding-left: .3em;
 }
 
-.select1{
+.select1 {
 	display: inline;
 	overflow: hidden;
 	padding-bottom: 5px;
 	padding-top: 5px;
 }
-#updown{
+
+#updown {
 	padding-right: 5px;
 }
-.scout-div-title{
+
+.scout-div-title {
 	border-bottom: 1px solid gray;
 	padding-bottom: 0.33em;
 	margin-top: 1em !important;
@@ -161,127 +201,123 @@
 
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+	-webkit-appearance: none;
+	margin: 0;
 }
+
 input[type='number'] {
-    -moz-appearance:textfield;
+	-moz-appearance: textfield;
 }
 
 label {
-    display: inline-block;
-    cursor: pointer;
-    position: relative;
-    padding-left: 25px;
-    margin-right: 15px;
+	display: inline-block;
+	cursor: pointer;
+	position: relative;
+	padding-left: 25px;
+	margin-right: 15px;
 }
+
 input[type=checkbox] {
-    display: none;
+	display: none;
 }
+
 input[type=radio] {
-    display: none;
+	display: none;
 }
+
 label:before {
-    border-radius: 3px;
+	border-radius: 3px;
 }
+
 .radio label:before {
-    border-radius: 1em;
+	border-radius: 1em;
 }
-input[type=radio]:checked + label:before {
+
+input[type=radio]:checked+label:before {
 	position: absolute;
-    content: "\2022";
-    font-size: 2.3em;
-    color: #ffc547;
-    text-align: center;
-    line-height: .130em;
-    bottom: 0.05em;
+	content: "\2022";
+	font-size: 2.3em;
+	color: #ffc547;
+	text-align: center;
+	line-height: .130em;
+	bottom: 0.05em;
 }
-input[type=checkbox]:checked + label:before {
+
+input[type=checkbox]:checked+label:before {
 	position: absolute;
-    content: "\2714";
-    font-size: 15px;
-    color: #ffc547;
-    text-align: center;
-    line-height: 15px;
-    bottom: 0.15em;
+	content: "\2714";
+	font-size: 15px;
+	color: #ffc547;
+	text-align: center;
+	line-height: 15px;
+	bottom: 0.15em;
 }
+
 label:before {
-    content: "";
-    display: inline-block;
-
-    width: 16px;
-    height: 16px;
-
-    margin-right: 10px;
-    position: absolute;
-    left: 0;
-    bottom: .1em;
-    background-color: #a9a9a9;
+	content: "";
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+	margin-right: 10px;
+	position: absolute;
+	left: 0;
+	bottom: .1em;
+	background-color: #a9a9a9;
 }
-.selectdiv{
-	width:7em;
-	border:1px solid #FFC547;
-	height:1.6em;
-	background:url(http://i59.tinypic.com/2uz5v0g.jpg) no-repeat right center;
-	border-radius:0;
-	cursor:pointer;
+
+.selectdiv {
+	width: 7em;
+	border: 1px solid #FFC547;
+	height: 1.6em;
+	background: url(http://i59.tinypic.com/2uz5v0g.jpg) no-repeat right center;
+	border-radius: 0;
+	cursor: pointer;
 	background-color: #333333;
 	color: black;
 	font-size: 1.6em;
 	font-family: 'Exo 2', sans-serif;
 	display: inline-block;
 	margin-bottom: .3em;
-	}
-.selectdiv:hover, .selectdiv:focus {
-	width:7em;
-	border:1px solid #FFC547;
-	height:1.6em;
+}
+
+.selectdiv:hover,
+.selectdiv:focus {
+	width: 7em;
+	border: 1px solid #FFC547;
+	height: 1.6em;
 	background: url(http://i59.tinypic.com/2uz5v0g.jpg) no-repeat right;
-	border-radius:0;
-	cursor:pointer;
+	border-radius: 0;
+	cursor: pointer;
 	color: black;
 	background-color: #333333;
 	font-size: 1.6em;
-	}
-.selectdiv div{
-	z-index:-1;
-	border:0px solid #000;
-	height:23px;
-	overflow:hidden;
-	padding:1px 0px 0px 5px;
-	cursor:pointer;
+}
 
-	}
-.selectboxdiv{
- 	height: 23px;
-    left: 9.5em;
-    margin-top: 0;
-    position: absolute;
-    width: 7em;
-    z-index: 2;
+.selectdiv div {
+	z-index: -1;
+	border: 0px solid #000;
+	height: 23px;
+	overflow: hidden;
+	padding: 1px 0px 0px 5px;
+	cursor: pointer;
+}
+
+.selectboxdiv {
+	height: 23px;
+	left: 9.5em;
+	margin-top: 0;
+	position: absolute;
+	width: 7em;
+	z-index: 2;
 	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
 	filter: alpha(opacity=0);
 	-khtml-opacity: 0;
 	-moz-opacity: 0;
 	opacity: 0;
-	cursor:pointer;
+	cursor: pointer;
 }
 
-.button{
-	font-size: 3em;
-	padding-left: .2em;
-	padding-right: .2em;
-	margin-bottom: 1em;
-	margin-top: 0.5em;
-	border-radius: .2em;
-	background-color: #FFC547;
-	color: black;
-	font-family: 'Exo 2', sans-serif;
-	padding-top: 0.1em;
-	padding-bottom: 0.1em;
-	border-radius: 0;
-}
-.button-disabled{
+.button {
 	font-size: 3em;
 	padding-left: .2em;
 	padding-right: .2em;
@@ -296,7 +332,22 @@ label:before {
 	border-radius: 0;
 }
 
-.add-minus-button{
+.button-disabled {
+	font-size: 3em;
+	padding-left: .2em;
+	padding-right: .2em;
+	margin-bottom: 1em;
+	margin-top: 0.5em;
+	border-radius: .2em;
+	background-color: #FFC547;
+	color: black;
+	font-family: 'Exo 2', sans-serif;
+	padding-top: 0.1em;
+	padding-bottom: 0.1em;
+	border-radius: 0;
+}
+
+.add-minus-button {
 	font-size: 1.8em;
 	padding-left: .2em;
 	padding-right: .2em;
@@ -304,7 +355,7 @@ label:before {
 	background-color: #FFC547;
 	color: black;
 	font-family: 'Exo 2', sans-serif;
-	padding-top:0px;
+	padding-top: 0px;
 	padding-bottom: 0px;
 	width: 1.5em;
 	margin: .1em;
@@ -312,24 +363,24 @@ label:before {
 	border-radius: 0;
 }
 
-.submit-match{
+.submit-match {
 	text-align: right;
 	margin-right: 5em;
 	width: 100%;
 }
 
-
-
-#report-tabs a{
+#report-tabs a {
 	font-size: 2em;
 	color: black;
 	font-family: 'Exo 2', sans-serif;
 }
-#report-tabs a:hover{
+
+#report-tabs a:hover {
 	border-radius: 0;
 	color: black;
 }
-#report-tabs .active a{
+
+#report-tabs .active a {
 	font-size: 2em;
 	color: black;
 	font-family: 'Exo 2', sans-serif;
@@ -339,46 +390,51 @@ label:before {
 	border-right: none;
 	border-radius: 0;
 }
-#report-tabs{
+
+#report-tabs {
 	border-bottom: solid 1px gray;
 	margin-top: 3em;
 	/*padding-left: 30em;*/
 }
 
-.view-title{
+.view-title {
 	border-bottom: none;
 }
 
-#view-table{
+#view-table {
 	width: 100%;
 }
-.viewMatchInTeam{
+
+.viewMatchInTeam {
 	display: inline;
 	border: 1px;
 	border-collapse: separate;
 }
-.fixed-col{
+
+.fixed-col {
 	position: absolute;
-	width:18em;
-	left:0;
+	width: 18em;
+	left: 0;
 	background-color: #E9E9E9;
 }
-.fixed-col-table{
+
+.fixed-col-table {
 	margin-left: 32.9em;
-	width:100% !important;
+	width: 100% !important;
 }
-.viewMatchInTeam > td{
+
+.viewMatchInTeam>td {
 	white-space: nowrap;
 }
-.reg-col{
 
-}
-#viewMatches-form{
-	width:73%;
+.reg-col {}
+
+#viewMatches-form {
+	width: 73%;
 	text-align: center;
 }
 
-.reportID{
+.reportID {
 	font-family: 'Exo 2', sans-serif;
 	color: black;
 	margin-bottom: 0em;
@@ -393,7 +449,7 @@ label:before {
 	text-align: center;
 }
 
-#strategy-box{
+#strategy-box {
 	font-size: 3em;
 	font-family: 'Exo 2', sans-serif;
 	padding: 0.2em;
@@ -402,36 +458,42 @@ label:before {
 	margin-top: 0.5em;
 	margin-bottom: 2em;
 	max-width: 18em;
-	height:7em;
-	width:95%;
+	height: 7em;
+	width: 95%;
 }
 
 #strategy-box::-webkit-input-placeholder {
-    color: gray; /* color of place holder text in settings text boxes */
-	opacity:0.8; /* opacity of place holder text in settings text boxes */
-	font-weight: bold; /* weight of place holder text in settings text boxes */
+	color: gray;
+	/* color of place holder text in settings text boxes */
+	opacity: 0.8;
+	/* opacity of place holder text in settings text boxes */
+	font-weight: bold;
+	/* weight of place holder text in settings text boxes */
 }
+
 #strategy-box:-moz-placeholder {
-   color: gray;
-   opacity:0.8;
-   font-weight: bold;
+	color: gray;
+	opacity: 0.8;
+	font-weight: bold;
 }
+
 #strategy-box::-moz-placeholder {
-   color: gray;
-   opacity:0.8;
-   font-weight: bold;
+	color: gray;
+	opacity: 0.8;
+	font-weight: bold;
 }
+
 #strategy-box:-ms-input-placeholder {
-   color: gray;
-   opacity:0.8;
-   font-weight: bold;
+	color: gray;
+	opacity: 0.8;
+	font-weight: bold;
 }
 
 #update-button {
 	margin-top: 0em;
 }
 
-#strategy-heading{
+#strategy-heading {
 	border-bottom: 1px solid gray;
 	padding-bottom: 0.33em;
 	margin-top: 1em !important;

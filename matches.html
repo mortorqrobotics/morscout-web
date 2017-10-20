@@ -29,22 +29,32 @@
             </div>
             <div class="collapse navbar-collapse" id="MorScoutNav">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="matches.html" title="List of all matches">All Matches</a></li>
-                    <li><a href="teams.html" title="List of all teams">Team List</a></li>
-                    <li><a href="settings.html" title="Configure the settings">Settings</a></li>
+                    <li class="active">
+                        <a href="matches.html" title="List of all matches">All Matches</a>
+                    </li>
+                    <li>
+                        <a href="teams.html" title="List of all teams">Team List</a>
+                    </li>
+                    <li>
+                        <a href="settings.html" title="Configure the settings">Settings</a>
+                    </li>
                 </ul>
                 <div class='user-search nav navbar-nav'>
-                  <input type="text" placeholder="search teammates" class="nav-tbox"></input>
-                  <div class="search-drop">
-                    <ul class="search-drop-items">
-                    </ul>
-                  </div>
+                    <input type="text" placeholder="search teammates" class="nav-tbox"></input>
+                    <div class="search-drop">
+                        <ul class="search-drop-items">
+                        </ul>
+                    </div>
                 </div>
                 <ul class="nav navbar-nav navbar-right">
                     <!-- <li><a href="help.html" title="Need help?">Help</a></li>
                     <li><a href="feedback.html" title="Give team 1515 your feedback!">Feedback</a></li> -->
-			<li><a href="http://www.morteam.com"  title="MorTeam Link">MorTeam</a></li>
-                    <li><a href="profile.html"  title="User Profile">Profile</a></li>
+                    <li>
+                        <a href="http://www.morteam.com" title="MorTeam Link">MorTeam</a>
+                    </li>
+                    <li>
+                        <a href="profile.html" title="User Profile">Profile</a>
+                    </li>
                     <li id="UserDropdown" class="dropdown">
                         <a id="logoutButton" href="login.html">Log out</a>
                     </li>
@@ -56,25 +66,26 @@
     <div class="page-title">
         <div class="container">
             <h1>All Matches</h1>
-            <input type="text" id="search" class="settings-box text-input" placeholder="search.."></input><div id="legend-wrapper">
-              <div class="matches-legend">
-                <div class="row">
-                  <div class="legend-color legend-row-item" id="legend-green"></div>
-                  <h6 class="legend-row-item" id="text-green">Future Allies</h6>
+            <input type="text" id="search" class="settings-box text-input" placeholder="search.."></input>
+            <div id="legend-wrapper">
+                <div class="matches-legend">
+                    <div class="row">
+                        <div class="legend-color legend-row-item" id="legend-green"></div>
+                        <h6 class="legend-row-item" id="text-green">Future Allies</h6>
+                    </div>
+                    <div class="row">
+                        <div class="legend-color legend-row-item" id="legend-red"></div>
+                        <h6 class="legend-row-item" id="text-red">Future Enemies</h6>
+                    </div>
+                    <div class="row">
+                        <div class="legend-color legend-row-item" id="legend-purple"></div>
+                        <h6 class="legend-row-item" id="text-purple">Future Allies and Enemies</h6>
+                    </div>
+                    <div class="row">
+                        <div class="legend-color legend-row-item" id="legend-orange"></div>
+                        <h6 class="legend-row-item" id="text-orange">Your Team</h6>
+                    </div>
                 </div>
-                <div class="row">
-                  <div class="legend-color legend-row-item" id="legend-red"></div>
-                  <h6 class="legend-row-item" id="text-red">Future Enemies</h6>
-                </div>
-                <div class="row">
-                  <div class="legend-color legend-row-item" id="legend-purple"></div>
-                  <h6 class="legend-row-item" id="text-purple">Future Allies and Enemies</h6>
-                </div>
-                <div class="row">
-                  <div class="legend-color legend-row-item" id="legend-orange"></div>
-                  <h6 class="legend-row-item" id="text-orange">Your Team</h6>
-                </div>
-              </div>
             </div>
             <table class="matches-table">
                 <tr id="first-row">
@@ -82,7 +93,7 @@
                     <th>Time</th>
                     <th>Progress</th>
                     <th colspan="3" class="redTeamHeader">Red Teams</th>
-                    <th colspan="3"  class="blueTeamHeader">Blue Teams</th>
+                    <th colspan="3" class="blueTeamHeader">Blue Teams</th>
                 </tr>
             </table>
         </div>
@@ -95,22 +106,21 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="js/main.js" type="text/javascript"></script>
     <script>
-
-        function loadMatches(str){
+        function loadMatches(str) {
             var matches = JSON.parse(str);
             matches.sort(function (a, b) {
-              if (a.time > b.time) {
-                return 1;
-              }
-              if (a.time < b.time) {
-                return -1;
-              }
-              return 0;
+                if (a.time > b.time) {
+                    return 1;
+                }
+                if (a.time < b.time) {
+                    return -1;
+                }
+                return 0;
             });
             var matchesTable = $(".matches-table");
             $("#loading").hide();
             for (var i = 0; i < matches.length; i++) {
-                if (matches[i].comp_level == "qm"){
+                if (matches[i].comp_level == "qm") {
                     var matchNumber = matches[i].match_number;
                     var time = standardizeTime(matches[i].time);
                     var progress = matches[i].progress + " of 6"; //change later obv
@@ -120,13 +130,13 @@
                     var redAlliance = matches[i].alliances.red.teams;
                     var allTeams = redAlliance.concat(blueAlliance);
                     var tr = $(document.createElement("tr"));
-                    tr.mouseenter(function(){
+                    tr.mouseenter(function () {
                         $(this).addClass("table-hover");
                     });
-                    tr.mouseleave(function(){
+                    tr.mouseleave(function () {
                         $(this).removeClass("table-hover");
                     });
-                    tr.click(function(){
+                    tr.click(function () {
                         var subtds = $(this).find("td");
                         //var newURL = "report.html/?match=" + matchNumber + "&regional=" + regional + "&r1=" + redAlliance[0] + "&r2=" + redAlliance[1] + "&r3=" + redAlliance[2] + "&b1=" + blueAlliance[0] + "&b2=" + blueAlliance[1] + "&b3=" + blueAlliance[2];//no work
                         var newURL = "report.html?match=" + subtds.eq(0).html();
@@ -152,38 +162,36 @@
                         td.addClass("matchesTableHide")
                         tds.push(td);
                     }
-                    for (var j = 0; j < 6; j++){
+                    for (var j = 0; j < 6; j++) {
                         var currentTeamNumber = allTeams[j].substring(3);
-                        if (currentTeamNumber == localStorage.teamNumber){
+                        if (currentTeamNumber == localStorage.teamNumber) {
                             tds[j].addClass("selfTeamHighlight");
-                        }
-                        else {
+                        } else {
                             var ally = false;
                             var enemy = false;
-                            for (var k = 0; k < matches.length; k++){
+                            for (var k = 0; k < matches.length; k++) {
                                 var currentMatch = matches[k];
-                                if (currentMatch.match_number > matchNumber){
+                                if (currentMatch.match_number > matchNumber) {
                                     var selfRed = ~currentMatch.alliances.red.teams.indexOf("frc" + localStorage.teamNumber);
                                     var selfBlue = ~currentMatch.alliances.blue.teams.indexOf("frc" + localStorage.teamNumber);
                                     var otherRed = ~currentMatch.alliances.red.teams.indexOf("frc" + currentTeamNumber);
-                                    var otherBlue = ~currentMatch.alliances.blue.teams.indexOf("frc" + currentTeamNumber);
-                                    if((selfRed && otherRed) || (selfBlue && otherBlue)) {
+                                    var otherBlue = ~currentMatch.alliances.blue.teams.indexOf("frc" +
+                                        currentTeamNumber);
+                                    if ((selfRed && otherRed) || (selfBlue && otherBlue)) {
                                         ally = true;
                                     }
-                                    if((selfRed && otherBlue) || (selfBlue && otherRed)) {
+                                    if ((selfRed && otherBlue) || (selfBlue && otherRed)) {
                                         enemy = true;
                                     }
                                 }
                             }
-                            if(ally && enemy) {
+                            if (ally && enemy) {
                                 tds[j].addClass("frenemyTeamHighlight");
                                 //tds[j].attr("style" , "color: purple;");
-                            }
-                            else if(ally) {
+                            } else if (ally) {
                                 tds[j].addClass("allyTeamHighlight");
                                 //tds[j].attr("style" , "color: green;");
-                            }
-                            else if(enemy) {
+                            } else if (enemy) {
                                 tds[j].addClass("enemyTeamHighlight");
                                 //tds[j].attr("style" , "color: red;");
                             }
@@ -195,73 +203,74 @@
                 }
             }
         }
+
         function getMatches(cb) {
             var startTime = Date.now();
             var matchesStored = [];
             if (localStorage.allMatches) matchesStored = JSON.parse(localStorage.allMatches);
-            if (!localStorage.allMatches || (localStorage.currentRegional != matchesStored[0].key.split("_")[0])){
-                $.post("/getMatchesForCurrentRegional", {}, function(response) {
+            if (!localStorage.allMatches || (localStorage.currentRegional != matchesStored[0].key.split("_")[0])) {
+                $.post("/getMatchesForCurrentRegional", {}, function (response) {
                     var matches = JSON.parse(response);
-                    var matchCount = matches.filter(function(match){
-                        if (match.comp_level == "qm"){
+                    var matchCount = matches.filter(function (match) {
+                        if (match.comp_level == "qm") {
                             return true;
                         }
                         return false;
                     }).length;
                     localStorage.numMatches = matchCount;
                     localStorage.allMatches = response;
-                    console.log("Slow: " + ((Date.now() - startTime)/1000));;
+                    console.log("Slow: " + ((Date.now() - startTime) / 1000));;
                     cb(response);
                 });
-            }
-            else {
+            } else {
                 var matchesStored = JSON.parse(localStorage.allMatches);
-                testConnection(function(exists){
-                    if (exists){
-                        $.post("/getProgressForMatches", {matchesLength: localStorage.numMatches}, function(response) {
+                testConnection(function (exists) {
+                    if (exists) {
+                        $.post("/getProgressForMatches", {
+                            matchesLength: localStorage.numMatches
+                        }, function (response) {
                             var matches = JSON.parse(localStorage.allMatches);
                             localStorage.progress = response;
                             var progress = JSON.parse(response);
-                            for (var i = 0; i < matches.length; i++){
+                            for (var i = 0; i < matches.length; i++) {
                                 matches[i].progress = progress[matches[i].match_number];
                             }
                             localStorage.allMatches = JSON.stringify(matches);
                             localStorage.numMatches = matches.length;
-                            console.log("Fast: " + ((Date.now() - startTime)/1000));
+                            console.log("Fast: " + ((Date.now() - startTime) / 1000));
                             cb(localStorage.allMatches);
                         });
-                    }
-                    else {
+                    } else {
                         var matches = JSON.parse(localStorage.allMatches);
                         var progress = JSON.parse(localStorage.progress);
-                        for (var i = 0; i < matches.length; i++){
+                        for (var i = 0; i < matches.length; i++) {
                             matches[i].progress = progress[matches[i].match_number];
                         }
                         localStorage.allMatches = JSON.stringify(matches);
                         localStorage.numMatches = matches.length;
-                        console.log("Fast: " + ((Date.now() - startTime)/1000));
+                        console.log("Fast: " + ((Date.now() - startTime) / 1000));
                         cb(localStorage.allMatches);
                     }
                 });
             }
         }
-        $('#search').keyup(function() {
+        $('#search').keyup(function () {
             var rows = $('.matches-table tr');
-    		$('tr').removeClass('odd_row');
-    	    var val = $.trim($(this).val()).replace(/ +/g, ' ').toLowerCase();
-    	    if(val==""){
-    	    	//$("tr:odd").addClass("odd-row");
-    	    }
-    	    rows.show().filter(function() {
-    	        var text = $(this).text().replace(/\s+/g, ' ').toLowerCase();
-    	        return !~text.indexOf(val);
-    	    }).hide();
-    	    $("#first-row").show();
-    	});
+            $('tr').removeClass('odd_row');
+            var val = $.trim($(this).val()).replace(/ +/g, ' ').toLowerCase();
+            if (val == "") {
+                //$("tr:odd").addClass("odd-row");
+            }
+            rows.show().filter(function () {
+                var text = $(this).text().replace(/\s+/g, ' ').toLowerCase();
+                return !~text.indexOf(val);
+            }).hide();
+            $("#first-row").show();
+        });
 
 
 
-        getMatches(function(matches){
+        getMatches(function (matches) {
             loadMatches(matches);
         });
     </script>

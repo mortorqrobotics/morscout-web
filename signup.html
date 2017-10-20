@@ -85,15 +85,13 @@
                         lastName: lastName,
                         teamCode: teamCode,
                         password: password
-                    }, function(responseText) {
+                    }, function (responseText) {
                         if (responseText != "fail" && responseText != "team does not exist") {
                             alert("Your username is " + responseText.username);
                             location = "/login.html";
-                        }
-                        else if (responseText == "team does not exist"){
+                        } else if (responseText == "team does not exist") {
                             alert("No team with that team code");
-                        }
-                        else {
+                        } else {
                             alert("Error");
                         }
                     });
@@ -105,7 +103,7 @@
             }
         }
 
-        $("#signup-form").submit(function(e) {
+        $("#signup-form").submit(function (e) {
             e.preventDefault();
             submitSignupForm();
             return false;

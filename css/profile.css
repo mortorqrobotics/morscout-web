@@ -1,9 +1,9 @@
-.left-bar{
+.left-bar {
 	background-color: #FFC547;
 	width: 25em;
 	height: calc(100% - 3em);
 	position: fixed;
-	top:4em;
+	top: 4em;
 	overflow-y: auto;
 	z-index: 87;
 	-webkit-overflow-scrolling: touch;
@@ -16,7 +16,7 @@
 	font-size: 3em;
 }
 
-.profile-pic{
+.profile-pic {
 	margin: 2.4em 5.4em 0em 5.4em;
 	width: 15em;
 	height: 15em;
@@ -34,7 +34,6 @@
 	position: relative;
 	padding-top: 1em;
 	padding-bottom: 1em;
-
 }
 
 .assignments li {
@@ -45,7 +44,7 @@
 	width: auto;
 	text-align: center;
 	margin-left: 0em;
-	margin-right:10em;
+	margin-right: 10em;
 	/*margin-right: 5px;*/
 	margin-top: 7em;
 	height: auto;
@@ -63,7 +62,7 @@
 	padding-top: 5em;
 }
 
-#left-bar-button{
+#left-bar-button {
 	font-size: 2em;
 	padding-left: 1em;
 	padding-right: 1em;
@@ -79,7 +78,7 @@
 	text-align: center;
 }
 
-#left-bar-button:hover{
+#left-bar-button:hover {
 	color: white;
 }
 
@@ -102,7 +101,7 @@
 }
 
 #assign-task-box::-webkit-input-placeholder {
-  color: grey !important;
+	color: grey !important;
 }
 
 #assign-button {
@@ -129,8 +128,7 @@
 .task-heading {
 	margin-top: 1em;
 	margin-left: 20em;
-	font-size:2em;
-
+	font-size: 2em;
 }
 
 .task-inline {
@@ -142,19 +140,19 @@
 }
 
 .task-dropdown {
-    height: 1.6em;
-    font-size: 1.5em;
-    background-color: #FFC547;
-    margin: 0px 7px 7px 1em;
+	height: 1.6em;
+	font-size: 1.5em;
+	background-color: #FFC547;
+	margin: 0px 7px 7px 1em;
 }
 
 .profile-div-title {
 	margin-left: 0em;
 	font-size: 2.5em;
-	font-size:2em;
+	font-size: 2em;
 }
 
-#first-word{
+#first-word {
 	margin-left: 12em;
 }
 
@@ -168,5 +166,5 @@
 }
 
 .profile-li-font:before {
-	color:#FFC547;
+	color: #FFC547;
 }

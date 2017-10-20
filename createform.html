@@ -33,25 +33,35 @@
             </div>
             <div class="collapse navbar-collapse" id="MorScoutNav">
                 <ul class="nav navbar-nav">
-                    <li><a href="matches.html" title="List of all matches">All Matches</a></li>
-                    <li><a href="teams.html" title="List of all teams">Team List</a></li>
-                    <li><a href="settings.html" title="Configure the settings">Settings</a></li>
+                    <li>
+                        <a href="matches.html" title="List of all matches">All Matches</a>
+                    </li>
+                    <li>
+                        <a href="teams.html" title="List of all teams">Team List</a>
+                    </li>
+                    <li>
+                        <a href="settings.html" title="Configure the settings">Settings</a>
+                    </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <!-- <li><a href="help.html" title="Need help?">Help</a></li>
                     <li><a href="feedback.html" title="Give team 1515 your feedback!">Feedback</a></li> -->
-			<li><a href="http://www.morteam.com"  title="MorTeam Link">MorTeam</a></li>
-                    <li><a href="profile.html"  title="User Profile">Profile</a></li>
+                    <li>
+                        <a href="http://www.morteam.com" title="MorTeam Link">MorTeam</a>
+                    </li>
+                    <li>
+                        <a href="profile.html" title="User Profile">Profile</a>
+                    </li>
                     <li id="UserDropdown" class="dropdown">
                         <a id="logoutButton" href="login.html">Log out</a>
                     </li>
                 </ul>
                 <div class='user-search nav navbar-nav'>
-                  <input type="text" placeholder="search teammates" class="nav-tbox"></input>
-                  <div class="search-drop">
-                    <ul class="search-drop-items">
-                    </ul>
-                  </div>
+                    <input type="text" placeholder="search teammates" class="nav-tbox"></input>
+                    <div class="search-drop">
+                        <ul class="search-drop-items">
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
@@ -66,14 +76,17 @@
 
     <div class="formcreator">
         <div class="container">
-            <div class="roww" id="form-holder"> <!--TODO-->
+            <div class="roww" id="form-holder">
+                <!--TODO-->
                 <h2>Create Scouting Form</h2>
 
                 <div class="radio form-choice">
                     <input class="report-check" type="radio" name="ft" id="match-form" value="match" checked="true">
-                    <label id="report-text" for="match-form" class="report-radio-check">Match Form</label><br/>
+                    <label id="report-text" for="match-form" class="report-radio-check">Match Form</label>
+                    <br/>
                     <input class="report-check" type="radio" name="ft" id="pit-form" value="pit">
-                    <label id="report-text" for="pit-form" class="report-radio-check">Pit Form</label><br/>
+                    <label id="report-text" for="pit-form" class="report-radio-check">Pit Form</label>
+                    <br/>
                 </div>
                 <br>
                 <!-- <select required class='creator_dropdown'>
@@ -100,7 +113,7 @@
       <div id="form_options">
    </div> -->
 
-            <!-- <div class="formbutton">
+                <!-- <div class="formbutton">
               <input type="button" class="formmakerbutton" id="formbutton" value="Add Data Point">
             </div> -->
 
@@ -126,143 +139,146 @@
             <script src="js/main.js" type="text/javascript"></script>
 
             <script>
-            $(document).ready(function(){
+                $(document).ready(function () {
 
-                $(".form-choice").on("change", function(){
-                    $(".dp-wrapper").remove();
-                    var formType = $('input:radio[name=ft]:checked').val();
-                    if (formType == "match") loadCurrentForm(JSON.parse(localStorage.matchForm));
-                    else loadCurrentForm(JSON.parse(localStorage.pitForm));
-                });
+                    $(".form-choice").on("change", function () {
+                        $(".dp-wrapper").remove();
+                        var formType = $('input:radio[name=ft]:checked').val();
+                        if (formType == "match") loadCurrentForm(JSON.parse(localStorage.matchForm));
+                        else loadCurrentForm(JSON.parse(localStorage.pitForm));
+                    });
 
-                // $("#formbutton").on("click", function() {
-                //     createNewDataPoint();
-                // });
+                    // $("#formbutton").on("click", function() {
+                    //     createNewDataPoint();
+                    // });
 
-                $(document).on("click", ".insert-dp", function(){
-                    createNewDataPoint(null, parseInt($(this).attr("data-dpNum")));
-                });
+                    $(document).on("click", ".insert-dp", function () {
+                        createNewDataPoint(null, parseInt($(this).attr("data-dpNum")));
+                    });
 
-                if (localStorage.matchForm != "[]") loadCurrentForm(JSON.parse(localStorage.matchForm));
-                else createNewDataPoint();
+                    if (localStorage.matchForm != "[]") loadCurrentForm(JSON.parse(localStorage.matchForm));
+                    else createNewDataPoint();
 
-                $("#sendformbutton").on("click", function(){
-                    var formType = $('input:radio[name=ft]:checked').val();
-                    //var allDataPoints = JSON.parse(localStorage.allDataPoints);
-                    if (allDataPoints && allDataPoints.length != 0 && formType){
-                        $.post("/setScoutForm", {"dataPoints": allDataPoints, "context": formType}, function(response){
-                            if (response == "success") {
-                                localStorage.removeItem("allDataPoints");
-                                alert("Success");
-                                loadForms();
-                            }
-                            else {
-                                alert("Failed to send form");
-                            }
+                    $("#sendformbutton").on("click", function () {
+                        var formType = $('input:radio[name=ft]:checked').val();
+                        //var allDataPoints = JSON.parse(localStorage.allDataPoints);
+                        if (allDataPoints && allDataPoints.length != 0 && formType) {
+                            $.post("/setScoutForm", {
+                                "dataPoints": allDataPoints,
+                                "context": formType
+                            }, function (response) {
+                                if (response == "success") {
+                                    localStorage.removeItem("allDataPoints");
+                                    alert("Success");
+                                    loadForms();
+                                } else {
+                                    alert("Failed to send form");
+                                }
+                            });
+                        } else {
+                            alert("Field missing or invalid input");
+                        }
+                    });
+
+                    $(document).on("click", ".remove-dp", function () {
+                        var id = $(this).attr("data-id");
+                        $(".dp-wrapper[data-id='" + id + "']").hide('slow', function () {
+                            $(".dp-wrapper[data-id='" + id + "']").remove();
                         });
-                    }
-                    else {
-                        alert("Field missing or invalid input");
-                    }
-                });
+                    });
 
-              $(document).on("click", ".remove-dp", function() {
-                    var id = $(this).attr("data-id");
-                    $(".dp-wrapper[data-id='" + id + "']").hide('slow', function() {
-                        $(".dp-wrapper[data-id='" + id + "']").remove();
+
+
+                    $("#submitformbutton").on("click", function () {
+                        var wrappers = $("#form-holder").find(".dp-wrapper");
+                        var dataPoints = [];
+                        var pointsValid = true;
+                        if (wrappers.length == 0) pointsValid = false;
+                        for (var i = 0; i < wrappers.length; i++) {
+                            var dp = $(wrappers[i]);
+                            var dataPointInfo = {};
+                            var dpType = dp.find(".creator-dropdown").eq(0).val();
+                            var dpName = dp.find(".data-point-name").eq(0).val();
+                            if ($.trim(dpName) != "" && $.trim(dpType) != "") {
+                                dataPointInfo.name = dpName;
+                                dataPointInfo.type = dpType;
+                                if (dpType == "radio" || dpType == "dropdown") {
+                                    var options = [];
+                                    var optionBoxes = dp.find(".option-box");
+                                    for (var j = 0; j < optionBoxes.length; j++) {
+                                        var box = $(optionBoxes[j]);
+                                        if ($.trim(box.val()) != "") {
+                                            options.push(box.val());
+                                        }
+                                    }
+                                    dataPointInfo.options = options;
+                                } else if (dpType == "number") {
+                                    var start = dp.find(".start-box").eq(0).val();
+                                    var min = dp.find(".min-box").eq(0).val();
+                                    var max = dp.find(".max-box").eq(0).val();
+                                    if (areNumbers([start, min, max]) && (parseInt(min) <= parseInt(max)) &&
+                                        (parseInt(start) >= parseInt(min))) {
+                                        dataPointInfo.start = parseInt(start);
+                                        dataPointInfo.min = parseInt(min);
+                                        dataPointInfo.max = parseInt(max);
+                                    } else {
+                                        pointsValid = false;
+                                        break;
+                                    }
+                                } else {
+                                    //use later?
+                                }
+                                dataPoints.push(dataPointInfo);
+                            } else {
+                                pointsValid = false;
+                                break;
+                            }
+                        }
+                        if (pointsValid && ($('input:radio[name=ft]:checked').val() == "match" || $(
+                                'input:radio[name=ft]:checked').val() == "pit")) {
+                            //alert("Success");
+                            $("#sendformbutton").show();
+                            allDataPoints = dataPoints;
+                            localStorage.allDataPoints = JSON.stringify(dataPoints);
+                            synthesizeForm(dataPoints);
+                            //dataPoints is an array of all information
+                        } else {
+                            alert("Field missing or invalid input");
+                        }
+                    });
+
+                    $(document).on("change", ".creator-dropdown", function () {
+                        var id = $(this).attr("data-id");
+                        var options = $(".form-options[data-id='" + id + "']");
+                        options.empty();
+                        var type = $(this).val();
+                        if (type == "radio" || type == "dropdown") {
+                            createDropdownInput(options);
+                        } else if (type == "number") {
+                            var input = $(document.createElement("input"));
+                            input.attr("type", "number");
+                            input.attr("placeholder", "start");
+                            input.addClass('start-box');
+                            options.append(input);
+
+                            var input = $(document.createElement("input"));
+                            input.attr("type", "number");
+                            input.attr("placeholder", "min");
+                            input.addClass('min-box');
+                            options.append(input);
+
+                            var input = $(document.createElement("input"));
+                            input.attr("type", "number");
+                            input.attr("placeholder", "max");
+                            input.addClass('max-box');
+                            options.append(input);
+                        } else {
+                            //use later?
+                        }
+
+
                     });
                 });
-
-
-
-                $("#submitformbutton").on("click", function() {
-                    var wrappers = $("#form-holder").find(".dp-wrapper");
-                    var dataPoints = [];
-                    var pointsValid = true;
-                    if (wrappers.length == 0) pointsValid = false;
-                    for (var i = 0; i < wrappers.length; i++) {
-                        var dp = $(wrappers[i]);
-                        var dataPointInfo = {};
-                        var dpType = dp.find(".creator-dropdown").eq(0).val();
-                        var dpName = dp.find(".data-point-name").eq(0).val();
-                        if ($.trim(dpName) != "" && $.trim(dpType) != "") {
-                            dataPointInfo.name = dpName;
-                            dataPointInfo.type = dpType;
-                            if (dpType == "radio" || dpType == "dropdown") {
-                                var options = [];
-                                var optionBoxes = dp.find(".option-box");
-                                for (var j = 0; j < optionBoxes.length; j++) {
-                                    var box = $(optionBoxes[j]);
-                                    if ($.trim(box.val()) != "") {
-                                        options.push(box.val());
-                                    }
-                                }
-                                dataPointInfo.options = options;
-                            } else if (dpType == "number") {
-                                var start = dp.find(".start-box").eq(0).val();
-                                var min = dp.find(".min-box").eq(0).val();
-                                var max = dp.find(".max-box").eq(0).val();
-                                if (areNumbers([start, min, max]) && (parseInt(min) <= parseInt(max)) && (parseInt(start) >= parseInt(min))) {
-                                    dataPointInfo.start = parseInt(start);
-                                    dataPointInfo.min = parseInt(min);
-                                    dataPointInfo.max = parseInt(max);
-                                } else {
-                                    pointsValid = false;
-                                    break;
-                                }
-                            } else {
-                                //use later?
-                            }
-                            dataPoints.push(dataPointInfo);
-                        } else {
-                            pointsValid = false;
-                            break;
-                        }
-                    }
-                    if (pointsValid && ($('input:radio[name=ft]:checked').val() == "match" || $('input:radio[name=ft]:checked').val() == "pit")) {
-                        //alert("Success");
-                        $("#sendformbutton").show();
-                        allDataPoints = dataPoints;
-                        localStorage.allDataPoints = JSON.stringify(dataPoints);
-                        synthesizeForm(dataPoints);
-                        //dataPoints is an array of all information
-                    } else {
-                        alert("Field missing or invalid input");
-                    }
-                });
-
-                $(document).on("change", ".creator-dropdown", function() {
-                    var id = $(this).attr("data-id");
-                    var options = $(".form-options[data-id='" + id + "']");
-                    options.empty();
-                    var type = $(this).val();
-                    if (type == "radio" || type == "dropdown") {
-                        createDropdownInput(options);
-                    } else if (type == "number") {
-                        var input = $(document.createElement("input"));
-                        input.attr("type", "number");
-                        input.attr("placeholder", "start");
-                        input.addClass('start-box');
-                        options.append(input);
-
-                        var input = $(document.createElement("input"));
-                        input.attr("type", "number");
-                        input.attr("placeholder", "min");
-                        input.addClass('min-box');
-                        options.append(input);
-
-                        var input = $(document.createElement("input"));
-                        input.attr("type", "number");
-                        input.attr("placeholder", "max");
-                        input.addClass('max-box');
-                        options.append(input);
-                    } else {
-                        //use later?
-                    }
-
-
-                });
-            });
             </script>
 
 </body>

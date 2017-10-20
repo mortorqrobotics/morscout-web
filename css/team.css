@@ -1,27 +1,14 @@
-#scout-form {
+#scout-form {}
 
-}
+#view-pit-reports {}
 
-#view-pit-reports {
+#view-match-reports {}
 
-}
+#gallery {}
 
-#view-match-reports {
+#view-regional-results {}
 
-}
-
-#gallery {
-
-}
-
-#view-regional-results {
-
-}
-
-#view-team-stats {
-
-}
-
+#view-team-stats {}
 
 .subtitle {
   font-family: 'Exo 2', sans-serif;
@@ -34,18 +21,20 @@
   margin-top: 1.5em;
 }
 
-#matches-table, .matches-table{
+#matches-table,
+.matches-table {
   width: auto;
 }
 
 #match-table {
-	border: 1px;
-	border-collapse: separate;
+  border: 1px;
+  border-collapse: separate;
   width: auto;
-  overflow-x:scroll;
-  width:80em;
-  display:block;
+  overflow-x: scroll;
+  width: 80em;
+  display: block;
 }
+
 #match-table-holder {
   height: 10em;
 }

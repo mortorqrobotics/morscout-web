@@ -4,11 +4,13 @@
     font-weight: 400;
     text-align: center;
 }
+
 .formcreator h1 {
     color: black;
     text-align: center;
     margin-bottom: 40px;
 }
+
 #formbutton {
     font-family: 'Exo 2', sans-serif;
     position: absolute;
@@ -20,9 +22,11 @@
     padding: 2px 5px 2px 5px;
     text-align: center;
 }
+
 #formbutton:hover {
     background-color: dark#FFC547;
 }
+
 #submitformbutton {
     font-family: 'Exo 2', sans-serif;
     position: absolute;
@@ -35,6 +39,7 @@
     position: fixed !important;
     /*float: right;*/
 }
+
 #sendformbutton {
     font-family: 'Exo 2', sans-serif;
     /*position: absolute;*/
@@ -46,18 +51,23 @@
     padding: 2px 5px 2px 5px;
     /*float: center;*/
 }
-#submitformbutton:hover, #sendformbutton:hover {
+
+#submitformbutton:hover,
+#sendformbutton:hover {
     background-color: dark#FFC547;
 }
+
 .creator-dropdown {
     height: 30px;
     font-size: 20px;
     background-color: #FFC547;
     margin: 0px 7px 7px 0px;
 }
+
 .dp-wrapper {
     margin-bottom: 45px;
 }
+
 .formmakerbutton {
     font-size: 3em;
     padding-left: .2em;
@@ -73,18 +83,30 @@
     border-radius: 0;
     position: fixed !important;
 }
-.remove-dp, .remove-task, .remove-report {
+
+.remove-dp,
+.remove-task,
+.remove-report {
     color: black;
 }
+
 .insert-dp:hover {
     color: green;
     cursor: pointer;
 }
-.remove-dp:hover, .remove-task:hover, .remove-report:hover {
+
+.remove-dp:hover,
+.remove-task:hover,
+.remove-report:hover {
     color: red;
     cursor: pointer;
 }
-.option-box, .dp-box, .start-box, .min-box, .max-box {
+
+.option-box,
+.dp-box,
+.start-box,
+.min-box,
+.max-box {
     font-family: 'Open Sans', sans-serif;
     font-weight: 300;
     text-align: center;
@@ -94,9 +116,11 @@
     font-size: 20px;
     color: black;
 }
+
 .data-point-name {
     color: black;
 }
+
 #add-data-point-button {
     height: 22px;
     width: 123px;
@@ -108,8 +132,8 @@
 }
 
 .full {
-	height: auto;
-	margin-bottom: 1em;
-	display: inline-block !important;
-	width: 100%;
+    height: auto;
+    margin-bottom: 1em;
+    display: inline-block !important;
+    width: 100%;
 }

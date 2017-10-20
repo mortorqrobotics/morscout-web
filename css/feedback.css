@@ -1,8 +1,8 @@
-#feedback-form{
+#feedback-form {
 	margin: 3em;
 }
 
-#feedback-name{
+#feedback-name {
 	font-size: 3em;
 	font-family: 'Exo 2', sans-serif;
 	padding: 3px;
@@ -15,27 +15,33 @@
 }
 
 #feedback-name::-webkit-input-placeholder {
-    color: gray; /* color of place holder text in settings text boxes */
-	opacity:0.8; /* opacity of place holder text in settings text boxes */
-	font-weight: bold; /* weight of place holder text in settings text boxes */
-}
-#feedback-name:-moz-placeholder {
-   color: gray;
-   opacity:0.8;
-   font-weight: bold;
-}
-#feedback-name::-moz-placeholder {
-   color: gray;
-   opacity:0.8;
-   font-weight: bold;
-}
-#feedback-name:-ms-input-placeholder {
-   color: gray;
-   opacity:0.8;
-   font-weight: bold;
+	color: gray;
+	/* color of place holder text in settings text boxes */
+	opacity: 0.8;
+	/* opacity of place holder text in settings text boxes */
+	font-weight: bold;
+	/* weight of place holder text in settings text boxes */
 }
 
-#feedback-box{
+#feedback-name:-moz-placeholder {
+	color: gray;
+	opacity: 0.8;
+	font-weight: bold;
+}
+
+#feedback-name::-moz-placeholder {
+	color: gray;
+	opacity: 0.8;
+	font-weight: bold;
+}
+
+#feedback-name:-ms-input-placeholder {
+	color: gray;
+	opacity: 0.8;
+	font-weight: bold;
+}
+
+#feedback-box {
 	font-size: 3em;
 	font-family: 'Exo 2', sans-serif;
 	padding: 3px;
@@ -44,27 +50,33 @@
 	margin-top: 0.2em;
 	margin-bottom: 0.2em;
 	max-width: 18em;
-	height:7em;
-	width:95%;
+	height: 7em;
+	width: 95%;
 }
 
 #feedback-box::-webkit-input-placeholder {
-    color: gray; /* color of place holder text in settings text boxes */
-	opacity:0.8; /* opacity of place holder text in settings text boxes */
-	font-weight: bold; /* weight of place holder text in settings text boxes */
+	color: gray;
+	/* color of place holder text in settings text boxes */
+	opacity: 0.8;
+	/* opacity of place holder text in settings text boxes */
+	font-weight: bold;
+	/* weight of place holder text in settings text boxes */
 }
+
 #feedback-box:-moz-placeholder {
-   color: gray;
-   opacity:0.8;
-   font-weight: bold;
+	color: gray;
+	opacity: 0.8;
+	font-weight: bold;
 }
+
 #feedback-box::-moz-placeholder {
-   color: gray;
-   opacity:0.8;
-   font-weight: bold;
+	color: gray;
+	opacity: 0.8;
+	font-weight: bold;
 }
+
 #feedback-box:-ms-input-placeholder {
-   color: gray;
-   opacity:0.8;
-   font-weight: bold;
+	color: gray;
+	opacity: 0.8;
+	font-weight: bold;
 }
