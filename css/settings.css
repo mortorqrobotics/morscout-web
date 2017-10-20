@@ -1,163 +1,208 @@
-.settings-option{
-	margin-top: 4em; /* top margin of each settings option */
-	margin-bottom: 4em; /* bottom margin of each settings option */
-	color: black; /* color of text in settings */
-	font-family: 'Exo 2', sans-serif; /* font of text in settings */
-	display: block; /* to make elements appear on new line (not to be changed) */
-	text-align: center; /* horizontal alignment of each setting in its respective column */
-	margin-left: -1.2vw; /* to move the settings to the left (not to be changed) */
+	.settings-option {
+	margin-top: 4em;
+	/* top margin of each settings option */
+	margin-bottom: 4em;
+	/* bottom margin of each settings option */
+	color: black;
+	/* color of text in settings */
+	font-family: 'Exo 2', sans-serif;
+	/* font of text in settings */
+	display: block;
+	/* to make elements appear on new line (not to be changed) */
+	text-align: center;
+	/* horizontal alignment of each setting in its respective column */
+	margin-left: -1.2vw;
+	/* to move the settings to the left (not to be changed) */
 }
+
 .settings-box::-webkit-input-placeholder {
-    color: gray; /* color of place holder text in settings text boxes */
-	opacity:0.8; /* opacity of place holder text in settings text boxes */
-	font-weight: bold; /* weight of place holder text in settings text boxes */
+	color: gray;
+	/* color of place holder text in settings text boxes */
+	opacity: 0.8;
+	/* opacity of place holder text in settings text boxes */
+	font-weight: bold;
+	/* weight of place holder text in settings text boxes */
 }
+
 .settings-box:-moz-placeholder {
-   color: gray;
-   opacity:0.8;
-   font-weight: bold;
+	color: gray;
+	opacity: 0.8;
+	font-weight: bold;
 }
+
 .settings-box::-moz-placeholder {
-   color: gray;
-   opacity:0.8;
-   font-weight: bold;
+	color: gray;
+	opacity: 0.8;
+	font-weight: bold;
 }
+
 .settings-box:-ms-input-placeholder {
-   color: gray;
-   opacity:0.8;
-   font-weight: bold;
+	color: gray;
+	opacity: 0.8;
+	font-weight: bold;
 }
 
-.settings-list > .text-input{
-	color: black; /* color of [typed] text in text boxes */
-	width: 9.5em; /* width of text box */
-	height: 2em; /* height of text box */
-	margin-top: .5em; /* top margin of text box */
-	font-size: 2em; /* font size of text in text box */
-	font-weight: bold; /* font weight of text in text box */
-	background-color: #C0C0C0; /* background color of text box */
-	padding: .2em; /* padding(distance of border of text box to text) of text box */
+.settings-list>.text-input {
+	color: black;
+	/* color of [typed] text in text boxes */
+	width: 9.5em;
+	/* width of text box */
+	height: 2em;
+	/* height of text box */
+	margin-top: .5em;
+	/* top margin of text box */
+	font-size: 2em;
+	/* font size of text in text box */
+	font-weight: bold;
+	/* font weight of text in text box */
+	background-color: #C0C0C0;
+	/* background color of text box */
+	padding: .2em;
+	/* padding(distance of border of text box to text) of text box */
 }
 
-.text-input{
-	color: black; /* color of [typed] text in text boxes */
-	width: 14em; /* width of text box */
-	height: 2em; /* height of text box */
-	margin-top: .5em; /* top margin of text box */
-	font-size: 2em; /* font size of text in text box */
-	font-weight: bold; /* font weight of text in text box */
-	background-color: #C0C0C0; /* background color of text box */
-	padding: .2em; /* padding(distance of border of text box to text) of text box */
+.text-input {
+	color: black;
+	/* color of [typed] text in text boxes */
+	width: 14em;
+	/* width of text box */
+	height: 2em;
+	/* height of text box */
+	margin-top: .5em;
+	/* top margin of text box */
+	font-size: 2em;
+	/* font size of text in text box */
+	font-weight: bold;
+	/* font weight of text in text box */
+	background-color: #C0C0C0;
+	/* background color of text box */
+	padding: .2em;
+	/* padding(distance of border of text box to text) of text box */
 }
 
-.settings-list > .button-input{
-	color: black; /* color of text in button */
-	width: 4em; /* width of button */
-	height: 2em; /* height of button */
-	margin-top: .5em; /* top margin of button */
-	font-size: 2em; /* font size of button */
-	font-weight: bold; /* font weight of button */
-	background-color: gray; /* background color of button */
+.settings-list>.button-input {
+	color: black;
+	/* color of text in button */
+	width: 4em;
+	/* width of button */
+	height: 2em;
+	/* height of button */
+	margin-top: .5em;
+	/* top margin of button */
+	font-size: 2em;
+	/* font size of button */
+	font-weight: bold;
+	/* font weight of button */
+	background-color: gray;
+	/* background color of button */
 }
 
-.button:hover{
-	background-color: #EE7600 !important; /* background color of button when hovered */
+.button:hover {
+	background-color: #EE7600 !important;
+	/* background color of button when hovered */
 	border-color: #EE7600 !important;
-	cursor: pointer; /* changes cursor to hand (not to be changed) */
+	cursor: pointer;
+	/* changes cursor to hand (not to be changed) */
 }
 
-.button-hovered-report{
-	background-color: #C0C0C0 !important; /* background color of hovered table cell in report table */
-	cursor: pointer; /* changes cursor to hand (not to be changed) */
-	color: black; /* text color of hovered table cell in report table */
-}
-.button-selected-report{
-	background-color: white !important; /* background color of hovered table cell in report table */
-	cursor: pointer; /* changes cursor to hand (not to be changed) */
-	color: black; /* text color of hovered table cell in report table */
+.button-hovered-report {
+	background-color: #C0C0C0 !important;
+	/* background color of hovered table cell in report table */
+	cursor: pointer;
+	/* changes cursor to hand (not to be changed) */
+	color: black;
+	/* text color of hovered table cell in report table */
 }
 
-#settings-grid{
-margin-top: 4em; /* distance of grid of settings from top of page */
+.button-selected-report {
+	background-color: white !important;
+	/* background color of hovered table cell in report table */
+	cursor: pointer;
+	/* changes cursor to hand (not to be changed) */
+	color: black;
+	/* text color of hovered table cell in report table */
 }
 
-.dropdown-menu{
+#settings-grid {
+	margin-top: 4em;
+	/* distance of grid of settings from top of page */
+}
+
+.dropdown-menu {
 	text-align: center;
 }
 
-.dropdown{
+.dropdown {
 	text-align: center !important;
 }
 
+
 /* legend stuff begins */
+
 .matches-legend {
-  text-align: left;
-  border: 1px solid black;
-  width: 30em;
-  padding-left: 5em;
-	margin-left: 120em;
-	margin-top: -10em;
+	text-align: left;
+	border: 1px solid black;
+	width: 30em;
+	padding-left: 5em;
+	margin-left: 78em;
+	margin-top: -11.5em;
 	position: fixed;
-	height:13em;
+	height: 13em;
 }
 
-
 #legend-green {
-  background-color: #009933;
+	background-color: #009933;
 }
 
 #legend-red {
-  background-color: #ff4d4d;
-
+	background-color: #ff4d4d;
 }
 
 #legend-purple {
-  background-color: #b84dff;
-
+	background-color: #b84dff;
 }
 
 #legend-orange {
-  background-color: #ffa64d;
-
+	background-color: #ffa64d;
 }
 
 .legend-color {
-  width: 4em;
-  height: 2em;
-  margin-right: 2em;
-  margin-top: 1em;
+	width: 4em;
+	height: 2em;
+	margin-right: 2em;
+	margin-top: 1em;
 }
 
 .legend-row-item {
-  /*display: inline-block;*/
+	/*display: inline-block;*/
 }
 
-#text-red{
+#text-red {
 	position: fixed;
 	top: 8.6em;
 	padding-left: 4.2em;
 }
 
-#text-green{
+#text-green {
 	position: fixed;
 	top: 6.1em;
 	padding-left: 4.2em;
 }
 
-#text-orange{
+#text-orange {
 	position: fixed;
 	top: 13.6em;
 	padding-left: 4.2em;
 }
 
-#text-purple{
+#text-purple {
 	position: fixed;
 	top: 11.1em;
 	padding-left: 4.2em;
 }
 
 @media screen and (max-width: 1858px) {
-	.matches-legend{
+	.matches-legend {
 		display: none;
 	}
-/* legend stuff ends */
+	/* legend stuff ends */
