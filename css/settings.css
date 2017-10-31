@@ -142,11 +142,13 @@
 .matches-legend {
 	text-align: left;
 	border: 1px solid black;
+	background-color: #E9E9E9;
 	width: 30em;
 	padding-left: 5em;
 	margin-left: 78em;
 	margin-top: -11.5em;
 	position: fixed;
+	z-index: 1;
 	height: 13em;
 }
 
