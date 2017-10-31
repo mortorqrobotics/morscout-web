@@ -203,8 +203,8 @@
 	padding-left: 4.2em;
 }
 
-/* @media screen and (max-width: 1858px) {
+@media screen and (max-width: 1199px) {
 	.matches-legend {
 		display: none;
-	} */
+	}
 	/* legend stuff ends */
