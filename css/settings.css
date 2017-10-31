@@ -179,30 +179,30 @@
 
 #text-red {
 	position: fixed;
-	top: 8.6em;
+	top: 7.3em;
 	padding-left: 4.2em;
 }
 
 #text-green {
 	position: fixed;
-	top: 6.1em;
+	top: 4.8em;
 	padding-left: 4.2em;
 }
 
 #text-orange {
 	position: fixed;
-	top: 13.6em;
+	top: 12.3em;
 	padding-left: 4.2em;
 }
 
 #text-purple {
 	position: fixed;
-	top: 11.1em;
+	top: 9.8em;
 	padding-left: 4.2em;
 }
 
-@media screen and (max-width: 1858px) {
+/* @media screen and (max-width: 1858px) {
 	.matches-legend {
 		display: none;
-	}
+	} */
 	/* legend stuff ends */
