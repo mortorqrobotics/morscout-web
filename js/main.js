@@ -123,7 +123,7 @@ function standardizeTime(ts) {
 // $.post("/validateUser", { //to change logout/login button
 //     userID: localStorage.userID
 // }, function(response) {
-//     if (response != "success") {
+//     if (response != "OK") {
 //         localStorage.clear();
 //         $("#logoutButton").html("Log in");
 //         $("#logoutButton").attr("href", "http://morteam.com/login");
@@ -144,7 +144,7 @@ if (localStorage.position != "mentor" && localStorage.position != "leader" && lo
 $("#logoutButton").on("click", function() {
     localStorage.clear();
     $.post("/logout", {}, function(response) { //don't make get
-        if (response == "success") {
+        if (response == "OK") {
             location = "login.html";
         }
     });
@@ -542,7 +542,7 @@ function getScoutForm(context) {
             $.post("/getScoutForm", {
                 context: context
             }, function(response) {
-                if (response != "fail") {
+                if (response != "Bad Request") {
                     var scoutFormDPS = JSON.parse(response);
                     if (context == "match") localStorage.matchForm = response;
                     else if (context == "pit") localStorage.pitForm = response
@@ -588,7 +588,7 @@ function sendReport(send) {
     testConnection(function(exists) {
         if (exists) {
             $.post("/submitReport", send, function(response) {
-                if (response == "success") {
+                if (response == "OK") {
                     $('#submit-match-report').html('Done!');
                     $('#submit-match-report').prop('disabled', true);
                     $('#submit-match-report').removeClass('button-hovered');
@@ -647,7 +647,8 @@ function getAllReports() {
     testConnection(function(exists) {
         if (exists) {
             $.post("/getAllReports", {}, function(response) {
-                if (response != "fail") {
+                console.log(response);
+                if (response != "Bad Request") {
                     localStorage.allReports = response;
                     //cb(JSON.parse(response));
                 } else {
@@ -702,7 +703,7 @@ $(document).on("click", ".remove-report", function() {
         $.post("/deleteReport", {
             id: id
         }, function(response) {
-            if (response == "success") {
+            if (response == "OK") {
                 if (isTable) $("#viewMatchesTable-tab").trigger("click");
                 else $("#view-tab").trigger("click");
 
@@ -1012,7 +1013,7 @@ function getDropdownInfo(cb) {
     $.post("/getScoutForm", {
         context: "match"
     }, function(response) {
-        if (response != "fail") {
+        if (response != "Bad Request") {
             var dps = JSON.parse(response);
             for (var i = 0; i < dps.length; i++) {
                 if (dps[i].type == "dropdown") {
