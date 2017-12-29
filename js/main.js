@@ -22,7 +22,7 @@ function getQS(obj) {
 }
 
 function testConnection(next) {
-    var file = "/favicon.ico";
+    var file = "/testConnection";
     jQuery.ajaxSetup({
         async: true
     });
