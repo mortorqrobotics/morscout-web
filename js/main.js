@@ -1,6 +1,6 @@
 window.google = window.google || {
     charts: {
-        'load': function(){
+        'load': function () {
             //Do Nothing
         }
     }
@@ -22,16 +22,16 @@ function getQS(obj) {
 }
 
 function testConnection(next) {
-    var file = "/favicon.ico";
+    var file = "/testConnection";
     jQuery.ajaxSetup({
         async: true
     });
     r = Math.round(Math.random() * 10000);
     $.get(file, {
         subins: r
-    }, function(d) {
+    }, function (d) {
         next(true);
-    }).error(function() {
+    }).error(function () {
         next(false);
     });
 }
@@ -48,7 +48,7 @@ function qs(variable) {
 }
 
 function loadStorage() {
-    $.post("/getInfo", {}, function(response) {
+    $.post("/getInfo", {}).done(function (response) {
         var user = JSON.parse(response).user;
         var team = JSON.parse(response).team;
         localStorage.firstname = user.firstname;
@@ -62,6 +62,8 @@ function loadStorage() {
         localStorage.username = user.username;
         localStorage.userID = user._id;
         localStorage.hasLoaded = "true";
+    }).fail(function (res) {
+        throw new Error(res);
     });
 }
 loadStorage();
@@ -75,14 +77,14 @@ function parseQS(str) {
     }
     return obj;
 }
-Array.prototype.last = function() {
+Array.prototype.last = function () {
     return this[this.length - 1];
 };
 
 function request(type, url, data, responsecb) {
     var xhr = new XMLHttpRequest() || new ActiveXObject("Microsoft.XMLHTTP");;
     xhr.open(type, url, true);
-    xhr.onreadystatechange = function() {
+    xhr.onreadystatechange = function () {
         if (xhr.readyState == 4 && xhr.status == 200) {
             responsecb(xhr.responseText);
         }
@@ -120,10 +122,10 @@ function standardizeTime(ts) {
 
 
 
-// $.post("/validateUser", { //to change logout/login button
+// $.file("/validateUser", { //to change logout/login button
 //     userID: localStorage.userID
 // }, function(response) {
-//     if (response != "OK") {
+//     if (response != "success") {
 //         localStorage.clear();
 //         $("#logoutButton").html("Log in");
 //         $("#logoutButton").attr("href", "http://morteam.com/login");
@@ -141,17 +143,19 @@ if (localStorage.position != "mentor" && localStorage.position != "leader" && lo
 }
 
 
-$("#logoutButton").on("click", function() {
+$("#logoutButton").on("click", function () {
     localStorage.clear();
-    $.post("/logout", {}, function(response) { //don't make get
-        if (response == "OK") {
+    $.file("/logout", {}, function (response) { //don't make get
+        if (response == "success") {
             location = "login.html";
         }
     });
 });
 
-$.post("/getTeammatesInfo", {}, function(response) {
+$.post("/getTeammatesInfo", {}).done(function (response) {
     localStorage.teammates = JSON.stringify(response);
+}).fail(function (res) {
+    throw new Error(res);
 });
 
 
@@ -162,7 +166,7 @@ function synthesizeForm(dataPoints) {
     var colHolder = $(document.createElement('div'));
     colHolder.addClass('col-md-12');
     form.append(colHolder);
-    for (var index = 0; index < dataPoints.length; index++)(function() {
+    for (var index = 0; index < dataPoints.length; index++)(function () {
         var i = index;
         var dataPoint = dataPoints[i];
         var dpName = dataPoint.name;
@@ -251,7 +255,7 @@ function synthesizeForm(dataPoints) {
             inputBox.attr("min", min);
             inputBox.attr("max", max);
             inputBox.val(start);
-            inputBox.keyup(function() {
+            inputBox.keyup(function () {
                 if (parseInt($(this).val()) < parseInt($(this).attr("min")) || $(this).val().indexOf(".") > -1) {
                     $(this).val($(this).attr("min"));
                 } else if (parseInt($(this).val()) > parseInt($(this).attr("max"))) {
@@ -266,7 +270,7 @@ function synthesizeForm(dataPoints) {
             inputSubtract.addClass("button add-minus-button");
             inputSubtract.attr("id", dpName);
             inputSubtract.val("-");
-            inputSubtract.click(function() {
+            inputSubtract.click(function () {
                 var inpBox = $(this).parent().find(".inp-val-box").eq(0);
                 if (parseInt(inpBox.val()) > parseInt(inpBox.attr("min"))) {
                     inpBox.val(parseInt(inpBox.val()) - 1);
@@ -278,7 +282,7 @@ function synthesizeForm(dataPoints) {
             inputAdd.attr("id", dpName);
             inputAdd.addClass("button add-minus-button");
             inputAdd.val("+");
-            inputAdd.click(function() {
+            inputAdd.click(function () {
                 var inpBox = $(this).parent().find(".inp-val-box").eq(0);
                 if (parseInt(inpBox.val()) < parseInt(inpBox.attr("max"))) {
                     inpBox.val(parseInt(inpBox.val()) + 1);
@@ -350,7 +354,7 @@ function createDropdownInput(textboxHolder, name) {
     input.addClass("option-box");
     textboxHolder.append(input);
     var added = false;
-    input.keyup(function() {
+    input.keyup(function () {
         if ($.trim(input.val()) != "") {
             if (!added) {
                 createDropdownInput(textboxHolder);
@@ -465,17 +469,19 @@ function createNewDataPoint(dp, afterNum) {
 }
 
 function loadCurrentForm(dataPoints) {
-    for (var i = 0; i < dataPoints.length; i++)(function() {
+    for (var i = 0; i < dataPoints.length; i++)(function () {
         var dataPoint = dataPoints[i];
         createNewDataPoint(dataPoint);
     })();
 }
 
 function loadCurrentRegional() {
-    $.post("/getCurrentRegionalInfo", function(regionalInfo) {
+    $.post("/getCurrentRegionalInfo").done(function (regionalInfo) {
         if (!regionalInfo.Errors) {
             localStorage.currentRegional = regionalInfo.key;
         }
+    }).fail(function (res) {
+        throw new Error(res);
     });
 }
 loadCurrentRegional();
@@ -537,19 +543,17 @@ function getScoutFormValues(context) {
 }
 
 function getScoutForm(context) {
-    testConnection(function(exists) {
+    testConnection(function (exists) {
         if (exists) {
             $.post("/getScoutForm", {
                 context: context
-            }, function(response) {
-                if (response != "Bad Request") {
-                    var scoutFormDPS = JSON.parse(response);
-                    if (context == "match") localStorage.matchForm = response;
-                    else if (context == "pit") localStorage.pitForm = response
-                    synthesizeForm(scoutFormDPS);
-                } else {
-                    alert("Failed to retrieve scout form");
-                }
+            }).done(function (response) {
+                var scoutFormDPS = JSON.parse(response);
+                if (context == "match") localStorage.matchForm = response;
+                else if (context == "pit") localStorage.pitForm = response
+                synthesizeForm(scoutFormDPS);
+            }).fail(function () {
+                alert("Failed to retrieve scout form");
             });
         } else {
             if (context == "match") synthesizeForm(JSON.parse(localStorage.matchForm));
@@ -561,22 +565,26 @@ function getScoutForm(context) {
 function loadForms() {
     $.post("/getScoutForm", {
         context: "match"
-    }, function(responseMatch) {
+    }).done(function (responseMatch) {
         $.post("/getScoutForm", {
             context: "pit"
-        }, function(responsePit) {
+        }).done(function (responsePit) {
             localStorage.matchForm = responseMatch;
             localStorage.pitForm = responsePit;
+        }).fail(function (res) {
+            throw new Error(res);
         });
+    }).fail(function (res) {
+        throw new Error(res);
     });
 }
 loadForms();
 
-testConnection(function(exists) {
+testConnection(function (exists) {
     if (exists) {
         if (localStorage.pendingReports) {
             var pendingReports = JSON.parse(localStorage.pendingReports);
-            for (var i = 0; i < pendingReports.length; i++)(function() {
+            for (var i = 0; i < pendingReports.length; i++)(function () {
                 sendReport(pendingReports[i]);
             })();
             localStorage.pendingReports = "[]";
@@ -585,33 +593,31 @@ testConnection(function(exists) {
 });
 
 function sendReport(send) {
-    testConnection(function(exists) {
+    testConnection(function (exists) {
         if (exists) {
-            $.post("/submitReport", send, function(response) {
-                if (response == "OK") {
-                    $('#submit-match-report').html('Done!');
-                    $('#submit-match-report').prop('disabled', true);
-                    $('#submit-match-report').removeClass('button-hovered');
-                    $('#submit-match-report').removeClass('button');
-                    $('#submit-match-report').addClass('button-disabled');
+            $.post("/submitReport", send).done(function (response) {
+                $('#submit-match-report').html('Done!');
+                $('#submit-match-report').prop('disabled', true);
+                $('#submit-match-report').removeClass('button-hovered');
+                $('#submit-match-report').removeClass('button');
+                $('#submit-match-report').addClass('button-disabled');
+                $('#submit-match-report').css({
+                    "background-color": "#e9e9e9",
+                    "color": "black"
+                });
+                setTimeout(function () {
+                    $('#submit-match-report').html('Submit');
+                    $('#submit-match-report').prop('disabled', false);
                     $('#submit-match-report').css({
-                        "background-color": "#e9e9e9",
+                        "background-color": "orange",
                         "color": "black"
                     });
-                    setTimeout(function() {
-                        $('#submit-match-report').html('Submit');
-                        $('#submit-match-report').prop('disabled', false);
-                        $('#submit-match-report').css({
-                            "background-color": "orange",
-                            "color": "black"
-                        });
-                        $('#submit-match-report').addClass('button');
-                        $('#submit-match-report').removeClass('button-disabled');
-                    }, 2500);
-                    getAllReports();
-                } else {
-                    alert("Invalid input. Failed to send form");
-                }
+                    $('#submit-match-report').addClass('button');
+                    $('#submit-match-report').removeClass('button-disabled');
+                }, 2500);
+                getAllReports();
+            }).fail(function () {
+                alert("Invalid input. Failed to send form");
             });
         } else {
             $('#submit-match-report').html('Done!');
@@ -623,7 +629,7 @@ function sendReport(send) {
                 "background-color": "#e9e9e9",
                 "color": "black"
             });
-            setTimeout(function() {
+            setTimeout(function () {
                 $('#submit-match-report').html('Submit');
                 $('#submit-match-report').prop('disabled', false);
                 $('#submit-match-report').css({
@@ -644,16 +650,13 @@ function sendReport(send) {
 }
 
 function getAllReports() {
-    testConnection(function(exists) {
+    testConnection(function (exists) {
         if (exists) {
-            $.post("/getAllReports", {}, function(response) {
-                console.log(response);
-                if (response != "Bad Request") {
-                    localStorage.allReports = response;
-                    //cb(JSON.parse(response));
-                } else {
-                    alert("Unable to get all reports");
-                }
+            $.post("/getAllReports", {}).done(function (response) {
+                localStorage.allReports = response;
+                //cb(JSON.parse(response));
+            }).fail(function () {
+                alert("Unable to get all reports");
             });
         } else {
             //cb(localStorage.allReports);
@@ -673,22 +676,22 @@ function addUserToDropdown(name, id) {
 }
 
 
-$(document).on("click", ".search-drop-list-item", function() {
+$(document).on("click", ".search-drop-list-item", function () {
     location = "/profile.html?id=" + $(this).attr("data-id");
 });
 
-$('.nav-tbox').keyup(function() {
+$('.nav-tbox').keyup(function () {
     var search = $('.nav-tbox');
     $('.search-drop-items').empty();
     if ($.trim(search.val()) != "") {
         var text = $(this).val().toLowerCase();
         var teammates = JSON.parse(JSON.parse(localStorage.teammates)); //fix server
-        var filteredTeammates = teammates.filter(function(user) {
+        var filteredTeammates = teammates.filter(function (user) {
             return ~(user.firstname.toLowerCase() + " " + user.lastname.toLowerCase() + " " + user.username.toLowerCase()).indexOf(text);
         });
         if (filteredTeammates.length != 0) $(".search-drop").show();
         else $(".search-drop").hide();
-        filteredTeammates.forEach(function(user) {
+        filteredTeammates.forEach(function (user) {
             addUserToDropdown(user.firstname + " " + user.lastname, user._id);
         });
     } else {
@@ -696,20 +699,17 @@ $('.nav-tbox').keyup(function() {
     }
 });
 
-$(document).on("click", ".remove-report", function() {
+$(document).on("click", ".remove-report", function () {
     var id = $(this).attr("data-id");
     var isTable = $(this).hasClass("is-table");
     if (window.confirm("Are you sure?")) {
         $.post("/deleteReport", {
             id: id
-        }, function(response) {
-            if (response == "OK") {
-                if (isTable) $("#viewMatchesTable-tab").trigger("click");
-                else $("#view-tab").trigger("click");
-
-            } else {
-                alert("Failed to delete report");
-            }
+        }).done(function (response) {
+            if (isTable) $("#viewMatchesTable-tab").trigger("click");
+            else $("#view-tab").trigger("click");
+        }).fail(function () {
+            alert("Failed to delete report");
         });
     }
 });
@@ -855,7 +855,7 @@ function loadDataViewer(selector, reports) {
 }
 
 function isDef(v) {
-    return (v !== null && typeof(v) != "undefined");
+    return (v !== null && typeof (v) != "undefined");
 }
 
 //Number of tables there are
@@ -936,7 +936,7 @@ function loadAllMatchesTable(team) {
     $.post("/getTeamReports", {
         teamNumber: team,
         reportContext: "match"
-    }, function(response) {
+    }).done(function (response) {
         var reports = JSON.parse(response).yourTeam;
         var allDataPoints = [];
         var table = $("#match-table");
@@ -949,7 +949,7 @@ function loadAllMatchesTable(team) {
         table.append(tr);
         $("#first-matches-row").append(th);
         var allReports = [];
-        reports.sort(function(a, b) {
+        reports.sort(function (a, b) {
             return a.match - b.match;
         });
         for (var i = 0; i < reports.length; i++) {
@@ -1003,6 +1003,8 @@ function loadAllMatchesTable(team) {
                 $("tr[data-name='" + allDataPoints[i] + "']").append(td);
             }
         }
+    }).fail(function(res) {
+        throw new Error(res);
     });
 
 }
@@ -1012,8 +1014,7 @@ function getDropdownInfo(cb) {
     var info = {}
     $.post("/getScoutForm", {
         context: "match"
-    }, function(response) {
-        if (response != "Bad Request") {
+    }).done(function (response) {
             var dps = JSON.parse(response);
             for (var i = 0; i < dps.length; i++) {
                 if (dps[i].type == "dropdown") {
@@ -1021,20 +1022,19 @@ function getDropdownInfo(cb) {
                 }
             }
             cb(info)
-        } else {
-            cb({})
-        }
-    })
+    }).fail(function(res) {
+        cb({});
+    });
 }
 
 function loadBar(team) {
     var results = []
     var options = 0
-    getDropdownInfo(function(info) {
+    getDropdownInfo(function (info) {
         $.post("/getTeamReports", {
             teamNumber: team,
             reportContext: "match"
-        }, function(response) {
+        }).done(function (response) {
             var reports = JSON.parse(response).yourTeam;
             var obj = {}
             for (var key in info) {
@@ -1062,8 +1062,22 @@ function loadBar(team) {
                 }
                 drawBarGraph(labels, values, title);
             }
+        }).fail(function(res) {
+            throw new Error(res);
         });
 
     })
 
+}
+
+
+/*
+    Service Worker to make MorScout available offline
+*/
+console.log('adding Service worker');
+if (window.location.protocol == 'HTTPS' && 'serviceWorker' in navigator) {
+    window.addEventListener('load', function () {
+        navigator.serviceWorker.register('/js/sw.js');
+        console.log('service worker added');
+    });
 }

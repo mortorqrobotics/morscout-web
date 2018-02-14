@@ -166,14 +166,12 @@
                             $.post("/setScoutForm", {
                                 "dataPoints": allDataPoints,
                                 "context": formType
-                            }, function (response) {
-                                if (response == "success" || response == "OK") {
-                                    localStorage.removeItem("allDataPoints");
-                                    alert("Success");
-                                    loadForms();
-                                } else {
-                                    alert("Failed to send form");
-                                }
+                            }).done(function (response) {
+                                localStorage.removeItem("allDataPoints");
+                                alert("Success");
+                                loadForms();
+                            }).fail(function(response){
+                                alert("Failed to send form");
                             });
                         } else {
                             alert("Field missing or invalid input");
@@ -235,7 +233,7 @@
                             }
                         }
                         if (pointsValid && ($('input:radio[name=ft]:checked').val() == "match" || $(
-                                'input:radio[name=ft]:checked').val() == "pit")) {
+                            'input:radio[name=ft]:checked').val() == "pit")) {
                             //alert("Success");
                             $("#sendformbutton").show();
                             allDataPoints = dataPoints;
