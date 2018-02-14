@@ -72,13 +72,11 @@
                     teamName: teamName,
                     teamNumber: teamNumber,
                     teamCode: teamCode,
-                }, function (responseText) {
-                    if (responseText == "success") {
+                }).done(function (responseText) {
                         alert("Team successfully created");
                         location = "/signup.html";
-                    } else {
-                        alert(responseText);
-                    }
+                }).fail(function(responseText){
+                    alert(responseText);
                 });
             } else {
                 alert("Missing field in form");

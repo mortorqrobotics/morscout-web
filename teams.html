@@ -96,18 +96,18 @@
                 if (exists) {
                     $.post("/getScoutForm", {
                         context: "match"
-                    }, function (responseMatches) {
+                    }).done(function (responseMatches) {
                         $.post("/getScoutForm", {
                             context: "pit"
-                        }, function (responsePit) {
-                            if (responseMatches != "fail" && responsePit != "fail") {
-                                localStorage.pitForm = responsePit;
-                                localStorage.matchForm = responseMatches;
-                                cb(JSON.parse(responseMatches).concat(JSON.parse(responsePit)));
-                            } else {
-                                cb([]);
-                            }
+                        }).done(function (responsePit) {
+                            localStorage.pitForm = responsePit;
+                            localStorage.matchForm = responseMatches;
+                            cb(JSON.parse(responseMatches).concat(JSON.parse(responsePit)));
+                        }).fail(function (res) {
+                            cb([]);
                         });
+                    }).fail(function (res) {
+                        cb([]);
                     });
                 } else {
                     cb(JSON.parse(localStorage.matchForm).concat(JSON.parse(localStorage.pitForm)));
@@ -119,9 +119,11 @@
         function getProgress(cb) {
             testConnection(function (exists) {
                 if (exists) {
-                    $.post("/getProgressForPit", {}, function (response) {
+                    $.post("/getProgressForPit", {}).done(function (response) {
                         localStorage.progessPit = response;
                         cb(JSON.parse(response));
+                    }).fail(function (res) {
+                        throw new Error(res);
                     });
                 } else {
                     cb(JSON.parse(localStorage.progressPit));
@@ -168,13 +170,11 @@
         function getAllTeams(cb) {
             testConnection(function (exists) {
                 if (exists || (localStorage.allTeams && localStorage.allTeams)) {
-                    $.post("/getTeamListForRegional", {}, function (response) {
-                        if (response != "fail") {
-                            localStorage.allTeams = response;
-                            cb(JSON.parse(response));
-                        } else {
-                            alert("Failed to retrieve team list");
-                        }
+                    $.post("/getTeamListForRegional", {}).done(function (response) {
+                        localStorage.allTeams = response;
+                        cb(JSON.parse(response));
+                    }).fail(function (res) {
+                        alert("Failed to retrieve team list");
                     });
                 } else {
                     cb(JSON.parse(localStorage.allTeams));
@@ -247,15 +247,13 @@
         function getOPRSort(cb) {
             testConnection(function (exists) {
                 if (exists) {
-                    $.post("/getOPRSort", {}, function (response) {
-                        if (response != "fail") {
-                            localStorage.oprSort = response;
-                            cb(JSON.parse(response));
-                        } else {
-                            alert("Failed to retrieve OPR stats");
-                            localStorage.rankSort = "[]";
-                            cb([]);
-                        }
+                    $.post("/getOPRSort", {}).done(function (response) {
+                        localStorage.oprSort = response;
+                        cb(JSON.parse(response));
+                    }).fail(function () {
+                        alert("Failed to retrieve OPR stats");
+                        localStorage.rankSort = "[]";
+                        cb([]);
                     });
                 } else {
                     cb(JSON.parse(localStorage.oprSort));
@@ -266,15 +264,13 @@
         function getRankingSort(cb) {
             testConnection(function (exists) {
                 if (exists) {
-                    $.post("/getRankingsForRegional", {}, function (response) {
-                        if (response != "fail") {
-                            localStorage.rankSort = response;
-                            cb(JSON.parse(response));
-                        } else {
-                            alert("Failed to retrieve rankings");
-                            localStorage.rankSort = "[]";
-                            cb([]);
-                        }
+                    $.post("/getRankingsForRegional", {}).done(function (response) {
+                        localStorage.rankSort = response;
+                        cb(JSON.parse(response));
+                    }).fail(function () {
+                        alert("Failed to retrieve rankings");
+                        localStorage.rankSort = "[]";
+                        cb([]);
                     });
                 } else {
                     cb(JSON.parse(localStorage.rankSort));
@@ -399,60 +395,58 @@
         function loadByDataPoint(dpName) {
             $.post("/getSortedTeamAvgs", {
                 sortBy: dpName
-            }, function (response) {
-                if (typeof (JSON.parse(response)) == "object") {
-                    var teams = JSON.parse(response);
-                    var table = $(".teams-table");
-                    table.empty();
-                    var firstRow = $(document.createElement("tr"));
-                    firstRow.addClass("first-row");
-                    var th1 = $(document.createElement("th"));
-                    th1.html("Team #");
-                    var th2 = $(document.createElement("th"));
-                    th2.html("Name");
-                    var th3 = $(document.createElement("th"));
-                    th3.html("Average");
-                    firstRow.append(th1);
-                    firstRow.append(th2);
-                    firstRow.append(th3);
-                    table.append(firstRow);
-                    $("#loading").hide();
-                    for (var i = 0; i < teams.length; i++) {
-                        var teamNumber = parseFloat(teams[i].key);
-                        var dpValue = parseFloat(teams[i].value);
-                        for (var j = 0; j < allTeams.length; j++) {
-                            if (allTeams[j].team_number == teamNumber) {
-                                var teamName = allTeams[j].nickname;
-                                var tr = $(document.createElement("tr"));
-                                if (i % 2 != 0) tr.addClass("odd-row");
-                                tr.attr("id", teamNumber);
-                                tr.click(function () {
-                                    localStorage.pitTeam = teamNumber;
+            }).done(function (response) {
+                var teams = JSON.parse(response);
+                var table = $(".teams-table");
+                table.empty();
+                var firstRow = $(document.createElement("tr"));
+                firstRow.addClass("first-row");
+                var th1 = $(document.createElement("th"));
+                th1.html("Team #");
+                var th2 = $(document.createElement("th"));
+                th2.html("Name");
+                var th3 = $(document.createElement("th"));
+                th3.html("Average");
+                firstRow.append(th1);
+                firstRow.append(th2);
+                firstRow.append(th3);
+                table.append(firstRow);
+                $("#loading").hide();
+                for (var i = 0; i < teams.length; i++) {
+                    var teamNumber = parseFloat(teams[i].key);
+                    var dpValue = parseFloat(teams[i].value);
+                    for (var j = 0; j < allTeams.length; j++) {
+                        if (allTeams[j].team_number == teamNumber) {
+                            var teamName = allTeams[j].nickname;
+                            var tr = $(document.createElement("tr"));
+                            if (i % 2 != 0) tr.addClass("odd-row");
+                            tr.attr("id", teamNumber);
+                            tr.click(function () {
+                                localStorage.pitTeam = teamNumber;
 
-                                    location = "reportTeam.html?" + getQS({
-                                        "team": teamNumber,
-                                        "name": teamName
-                                    });
-                                })
-                                var tdNumber = $(document.createElement("td"));
-                                tdNumber.addClass("number");
-                                tdNumber.html(teamNumber)
-                                var tdName = $(document.createElement("td"));
-                                tdName.addClass("name");
-                                tdName.html(teamName);
-                                var tdValue = $(document.createElement("td"));
-                                tdValue.html(dpValue);
-                                tr.append(tdNumber);
-                                tr.append(tdName);
-                                tr.append(tdValue);
-                                table.append(tr);
-                                break;
-                            }
+                                location = "reportTeam.html?" + getQS({
+                                    "team": teamNumber,
+                                    "name": teamName
+                                });
+                            })
+                            var tdNumber = $(document.createElement("td"));
+                            tdNumber.addClass("number");
+                            tdNumber.html(teamNumber)
+                            var tdName = $(document.createElement("td"));
+                            tdName.addClass("name");
+                            tdName.html(teamName);
+                            var tdValue = $(document.createElement("td"));
+                            tdValue.html(dpValue);
+                            tr.append(tdNumber);
+                            tr.append(tdName);
+                            tr.append(tdValue);
+                            table.append(tr);
+                            break;
                         }
                     }
-                } else {
-                    alert("Failed to retrieve team list");
                 }
+            }).fail(function () {
+                alert("Failed to retrieve team list");
             });
         }
         $(document).on("change", ".sort-drop", function () {

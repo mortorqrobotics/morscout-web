@@ -150,29 +150,29 @@
         $(document).ready(function () {
 
             var currentRegional = "";
-            $.post("/getCurrentRegionalInfo", function (regionalInfo) {
+            $.post("/getCurrentRegionalInfo").done(function (regionalInfo) {
                 if (!regionalInfo.Errors) {
                     $("#year-box").val(regionalInfo.year);
                     $(".regional-dropdown").html(regionalInfo.name + " " + regionalInfo.year +
                         " <span class='caret'></span>");
                     currentRegional = regionalInfo.key;
                 }
+            }).fail(function (res) {
+                throw new Error(res);
             });
 
-            $.post("/getDataStatus", function (status) {
-                if (status != "fail") {
-                    if (status == "false") {
-                        $("#public-option").attr("checked", "true");
-                    }
-                } else {
-                    alert("Failed to get data status");
+            $.post("/getDataStatus").done(function (status) {
+                if (status == "false") {
+                    $("#public-option").attr("checked", "true");
                 }
+            }).fail(function (res) {
+                alert("Failed to get data status");
             });
 
             function setYear(year) {
                 $.post("/getRegionalsForTeam", {
                     year: year
-                }, function (response) {
+                }).done(function (response) {
                     $(".regional-options").empty();
                     for (var i = 0; i < response.length; i++) {
                         var li = $(document.createElement("li"));
@@ -184,19 +184,19 @@
                         li.append(a);
                         $(".regional-options").append(li);
                     }
+                }).fail(function (res) {
+                    throw new Error(res);
                 });
             }
 
             function setRegional(year) {
                 $.post("/chooseCurrentRegional", {
                     eventCode: currentRegional
-                }, function (response) {
-                    if (response == "success") {
-                        localStorage.currentRegional = currentRegional;
-                        alert("Regional successfully selected.");
-                    } else {
-                        alert("Failed to select regional.");
-                    }
+                }).done(function (response) {
+                    localStorage.currentRegional = currentRegional;
+                    alert("Regional successfully selected.");
+                }).fail(function (res) {
+                    alert("Failed to select regional.");
                 });
             }
 
@@ -218,12 +218,10 @@
                 }
                 $.post("/setDataStatus", {
                     status: status
-                }, function (response) {
-                    if (response == "success") {
-                        alert("Success");
-                    } else {
-                        alert("Failed to set data status");
-                    }
+                }).done(function (response) {
+                    alert("Success");
+                }).fail(function (res) {
+                    alert("Failed to set data status");
                 });
             });
 

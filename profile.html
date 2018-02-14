@@ -163,8 +163,10 @@
             $("#sc-div").show();
             $.post("/getSC", {
                 userID: userID
-            }, function (response) {
-                $("#sc").prop("checked", (response == "true"));
+            }).done(function (response) {
+                $("#sc").prop("checked", true);
+            }).fail(function () {
+                $("#sc").prop("checked", false);
             });
         }
 
@@ -176,9 +178,9 @@
                 $.post("/setSC", {
                     isSC: send,
                     userID: userID
-                }, function (response) {
-                    if (response == "fail") alert("Failed to set status");
-                });
+                }).fail(function (response) {
+                    alert("Failed to set status");
+                })
             } else {
                 $(this).prop("checked", !isChecked);
             }
@@ -187,7 +189,7 @@
 
         $.post("/getUserStats", {
             userID: userID
-        }, function (response) {
+        }).done(function (response) {
             var stats = JSON.parse(response);
             id = "matches-scouted-label"
             $("#teams-scouted-label").html(stats.teamsScouted);
@@ -234,7 +236,6 @@
             $.post("/showTasks", {
                 scoutID: userID
             }, function (response) {
-                console.log(response)
                 var tasks = JSON.parse(response);
                 for (var i = 0; i < tasks.assignments.length; i++) {
                     var task = tasks.assignments[i];
@@ -261,14 +262,12 @@
             var id = $(this).attr("data-id");
             $.post("/removeTask", {
                 id: id
-            }, function (response) {
-                if (response == "success") {
-                    $(".task-item[data-id='" + id + "']").hide('slow', function () {
-                        $(".task-item[data-id='" + id + "']").remove();
-                    });
-                } else {
-                    alert("Failed to remove task");
-                }
+            }).done(function (response) {
+                $(".task-item[data-id='" + id + "']").hide('slow', function () {
+                    $(".task-item[data-id='" + id + "']").remove();
+                });
+            }).fail(function (res) {
+                alert("Failed to remove task");
             });
         });
     </script>
