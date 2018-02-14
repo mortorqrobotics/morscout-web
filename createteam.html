@@ -73,7 +73,7 @@
                     teamNumber: teamNumber,
                     teamCode: teamCode,
                 }, function (responseText) {
-                    if (responseText == "success") {
+                    if (responseText == "success" || responseText == "OK") {
                         alert("Team successfully created");
                         location = "/signup.html";
                     } else {

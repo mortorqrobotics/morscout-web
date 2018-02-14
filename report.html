@@ -325,7 +325,7 @@
                     match: match,
                     strategy: strategy
                 }, function(response) {
-                    if (response == "success") {
+                    if (response == "success" || response == "OK") {
                         alert("Success");
                         loadStrategy();
                     } else {

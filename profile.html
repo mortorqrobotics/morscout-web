@@ -262,7 +262,7 @@
             $.post("/removeTask", {
                 id: id
             }, function (response) {
-                if (response == "success") {
+                if (response == "success" || response == "OK") {
                     $(".task-item[data-id='" + id + "']").hide('slow', function () {
                         $(".task-item[data-id='" + id + "']").remove();
                     });

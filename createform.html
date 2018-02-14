@@ -167,7 +167,7 @@
                                 "dataPoints": allDataPoints,
                                 "context": formType
                             }, function (response) {
-                                if (response == "success") {
+                                if (response == "success" || response == "OK") {
                                     localStorage.removeItem("allDataPoints");
                                     alert("Success");
                                     loadForms();
