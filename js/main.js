@@ -789,6 +789,10 @@ function loadDataViewer(selector, reports) {
                 key.html(dp.name);
                 var value = $(document.createElement("td"));
                 if (dp.value == "") dp.value = "N/A";
+                if (dp.value == "true" || dp.value == "false") {
+                    value.css("background-color", dp.value == "true" ? "green" : "red");
+                    dp.value = "";
+                }
                 value.html(dp.value);
                 tr.append(key);
                 tr.append(value);
@@ -844,6 +848,10 @@ function loadDataViewer(selector, reports) {
                 key.html(dp.name);
                 var value = $(document.createElement("td"));
                 if (dp.value == "") dp.value = "N/A";
+                if (dp.value == "true" || dp.value == "false") {
+                    value.css("background-color", dp.value == "true" ? "green" : "red");
+                    dp.value = "";
+                }
                 value.html(dp.value);
                 tr.append(key);
                 tr.append(value);
