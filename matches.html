@@ -209,7 +209,8 @@
             var matchesStored = [];
             if (localStorage.allMatches) matchesStored = JSON.parse(localStorage.allMatches);
             if (!localStorage.allMatches || (localStorage.currentRegional != matchesStored[0].key.split("_")[0])) {
-                $.post("/getMatchesForCurrentRegional", {}, function (response) {
+                $.post("/getMatchesForCurrentRegional", {})
+                .done(function (response) {
                     var matches = JSON.parse(response);
                     var matchCount = matches.filter(function (match) {
                         if (match.comp_level == "qm") {
@@ -221,6 +222,8 @@
                     localStorage.allMatches = response;
                     console.log("Slow: " + ((Date.now() - startTime) / 1000));;
                     cb(response);
+                }).fail(function(response){
+                    throw new Error(response);
                 });
             } else {
                 var matchesStored = JSON.parse(localStorage.allMatches);
@@ -228,7 +231,7 @@
                     if (exists) {
                         $.post("/getProgressForMatches", {
                             matchesLength: localStorage.numMatches
-                        }, function (response) {
+                        }).done(function (response) {
                             var matches = JSON.parse(localStorage.allMatches);
                             localStorage.progress = response;
                             var progress = JSON.parse(response);
@@ -239,6 +242,8 @@
                             localStorage.numMatches = matches.length;
                             console.log("Fast: " + ((Date.now() - startTime) / 1000));
                             cb(localStorage.allMatches);
+                        }).fail(function(response){
+                            throw new Error(response);
                         });
                     } else {
                         var matches = JSON.parse(localStorage.allMatches);

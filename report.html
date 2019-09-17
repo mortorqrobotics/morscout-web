@@ -29,15 +29,25 @@
             </div>
             <div class="collapse navbar-collapse" id="MorScoutNav">
                 <ul class="nav navbar-nav">
-                    <li><a href="matches.html" title="List of all matches">All Matches</a></li>
-                    <li><a href="teams.html" title="List of all teams">Team List</a></li>
-                    <li><a href="settings.html" title="Configure the settings">Settings</a></li>
+                    <li>
+                        <a href="matches.html" title="List of all matches">All Matches</a>
+                    </li>
+                    <li>
+                        <a href="teams.html" title="List of all teams">Team List</a>
+                    </li>
+                    <li>
+                        <a href="settings.html" title="Configure the settings">Settings</a>
+                    </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <!-- <li><a href="help.html" title="Need help?">Help</a></li>
     			<li><a href="feedback.html" title="Give team 1515 your feedback!">Feedback</a></li> -->
-                    <li><a href="http://www.morteam.com" title="MorTeam Link">MorTeam</a></li>
-                    <li><a href="profile.html" title="User Profile">Profile</a></li>
+                    <li>
+                        <a href="http://www.morteam.com" title="MorTeam Link">MorTeam</a>
+                    </li>
+                    <li>
+                        <a href="profile.html" title="User Profile">Profile</a>
+                    </li>
                     <li id="UserDropdown" class="dropdown">
                         <a id="logoutButton" href="login.html">Log out</a>
                     </li>
@@ -66,51 +76,61 @@
                 <div class="col-md-2 col-sm-0 col-xs-0"></div>
                 <div class="col-md-8 col-sm-12 col-xs-12">
                     <h3 id="strategy-heading">Strategy</h1>
-            <div id="strategy-holder">
-              <h3 class="orange" id="strategy-text">None</h3>
+                        <div id="strategy-holder">
+                            <h3 class="orange" id="strategy-text">None</h3>
+                        </div>
+                </div>
+                <div class="col-md-2 col-sm-0 col-xs-0"></div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <table class="report-table">
+                        <tr>
+                            <th id="rh">Red Teams</th>
+                            <th id="bh">Blue Teams</th>
+                        </tr>
+                        <tr>
+                            <td id="r1"></td>
+                            <td id="b1"></td>
+                        </tr>
+                        <tr>
+                            <td id="r2"></td>
+                            <td id="b2"></td>
+                        </tr>
+                        <tr>
+                            <td id="r3"></td>
+                            <td id="b3"></td>
+                        </tr>
+                    </table>
                 </div>
             </div>
-            <div class="col-md-2 col-sm-0 col-xs-0"></div>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                <table class="report-table">
-                    <tr>
-                        <th id="rh">Red Teams</th>
-                        <th id="bh">Blue Teams</th>
-                    </tr>
-                    <tr>
-                        <td id="r1"></td>
-                        <td id="b1"></td>
-                    </tr>
-                    <tr>
-                        <td id="r2"></td>
-                        <td id="b2"></td>
-                    </tr>
-                    <tr>
-                        <td id="r3"></td>
-                        <td id="b3"></td>
-                    </tr>
-                </table>
+            <div class="row">
+                <div class="col-md-1 col-sm-0 col-xs-0">
+                </div>
+                <div class="col-md-10 col-sm-12 col-xs-12">
+                    <ul id="report-tabs" class="nav nav-tabs" hidden>
+                        <li id="scout-tab" class="active">
+                            <a href="javascript: void(0);">Scout</a>
+                        </li>
+                        <li id="view-tab">
+                            <a href="javascript: void(0);">View</a>
+                        </li>
+                        <li id="viewMatchesTable-tab">
+                            <a href="javascript: void(0);">All Matches Table</a>
+                        </li>
+                        <li id="viewMatchesGraph-tab">
+                            <a href="javascript: void(0);">All Matches Graphs</a>
+                        </li>
+                        <li id="editStrategy-tab">
+                            <a href="javascript: void(0);">Edit Strategy</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-1 col-sm-0 col-xs-0">
+                </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-md-1 col-sm-0 col-xs-0">
-            </div>
-            <div class="col-md-10 col-sm-12 col-xs-12">
-                <ul id="report-tabs" class="nav nav-tabs" hidden>
-                    <li id="scout-tab" class="active"><a href="javascript: void(0);">Scout</a></li>
-                    <li id="view-tab"><a href="javascript: void(0);">View</a></li>
-                    <li id="viewMatchesTable-tab"><a href="javascript: void(0);">All Matches Table</a></li>
-                    <li id="viewMatchesGraph-tab"><a href="javascript: void(0);">All Matches Graphs</a></li>
-                    <li id="editStrategy-tab"><a href="javascript: void(0);">Edit Strategy</a></li>
-                </ul>
-            </div>
-            <div class="col-md-1 col-sm-0 col-xs-0">
-            </div>
-        </div>
-        <div id="form-preview" class="row">
-            <!-- <div class="col-md-1 col-sm-0 col-xs-0">
+            <div id="form-preview" class="row">
+                <!-- <div class="col-md-1 col-sm-0 col-xs-0">
     			</div>
     			<div class="col-md-5 col-sm-6 col-xs-12">
     			<div class="scout-div">
@@ -180,26 +200,26 @@
     			</div>
     			<div class="col-md-1 col-sm-0 col-xs-0">
     			</div> -->
-        </div>
-        <div class="submit-match">
-            <button id="submit-match-report" class="button">Submit</button>
-        </div>
-        <div id="viewContainer"></div>
-        <div id="viewMatches-form" class="row">
+            </div>
+            <div class="submit-match">
+                <button id="submit-match-report" class="button">Submit</button>
+            </div>
+            <div id="viewContainer"></div>
+            <div id="viewMatches-form" class="row">
+                <div class="col-md-1 col-sm-0 col-xs-0">
+                </div>
+                <div class="col-md-10 col-sm-12 col-xs-12">
+                    <h3 class="page-title">All Matches For This Team</h3>
+                    <table class="matches-table" id="match-table">
+                        <tr id="first-matches-row"></tr>
+                    </table>
+                </div>
+            </div>
+            <div id="viewMatchesGraph-form" hidden="true" class="row" style="text-align: center;">
+            </div>
             <div class="col-md-1 col-sm-0 col-xs-0">
             </div>
-            <div class="col-md-10 col-sm-12 col-xs-12">
-                <h3 class="page-title">All Matches For This Team</h3>
-                <table class="matches-table" id="match-table">
-                    <tr id="first-matches-row"></tr>
-                </table>
-            </div>
         </div>
-        <div id="viewMatchesGraph-form" hidden="true" class="row" style="text-align: center;">
-        </div>
-        <div class="col-md-1 col-sm-0 col-xs-0">
-        </div>
-    </div>
     </div>
     <div id="editStrategy-form" class="row">
         <div class="col-md-1 col-sm-0 col-xs-0"></div>
@@ -227,7 +247,7 @@
             }, 300);
         }
 
-        $(document).ready(function() {
+        $(document).ready(function () {
             currentMatch = parseInt(qs("match"));
 
             getScoutForm("match");
@@ -241,16 +261,14 @@
             $("#report-match-num").html(qs("match"));
 
             function getMatchInfo(cb) {
-                testConnection(function(exists) {
+                testConnection(function (exists) {
                     if (exists) {
                         $.post("/getMatchInfo", {
                             match: qs("match")
-                        }, function(response) {
-                            if (response != "fail") {
-                                cb(JSON.parse(response));
-                            } else {
-                                alert("Unable to retrieve match info");
-                            }
+                        }).done(function (response) {
+                            cb(JSON.parse(response));
+                        }).fail(function () {
+                            alert("Unable to retrieve match info");
                         });
                     } else {
                         var matches = JSON.parse(localStorage.allMatches);
@@ -264,7 +282,7 @@
                 });
             }
 
-            getMatchInfo(function(match) {
+            getMatchInfo(function (match) {
                 $("#report-match-time").html(standardizeTime(match.time));
                 var redAlliance = match.alliances.red.teams;
                 var blueAlliance = match.alliances.blue.teams;
@@ -286,7 +304,7 @@
             });
 
             function loadStrategy() {
-                getStrategies(function(strategies) {
+                getStrategies(function (strategies) {
                     var found = false;
                     for (var i = 0; i < strategies.length; i++) {
                         if (strategies[i].matchNumber == parseInt(qs("match"))) {
@@ -303,41 +321,39 @@
             }
 
             function getStrategies(cb) {
-                testConnection(function(exists) {
+                testConnection(function (exists) {
                     if (exists) {
-                        $.post("/getAllMatchStrategies", {}, function(response) {
-                            if (response != "fail") {
+                        $.post("/getAllMatchStrategies", {})
+                            .done(function (response) {
                                 localStorage.strategies = response;
                                 cb(JSON.parse(response));
-                            } else {
+                            }).fail(function (res) {
                                 alert("Failed to get match strategies");
-                            }
-                        });
+                            });
                     } else {
                         cb(JSON.parse(localStorage.strategies));
                     }
                 });
             }
-            $("#update-button").on("click", function() {
+            $("#update-button").on("click", function () {
                 var strategy = $("#strategy-box").val();
                 var match = qs("match");
                 $.post("/setMatchStrategy", {
                     match: match,
                     strategy: strategy
-                }, function(response) {
-                    if (response == "success" || response == "OK") {
-                        alert("Success");
-                        loadStrategy();
-                    } else {
-                        alert("Failed to set strategy");
-                    }
+                }).done(function (response) {
+                    alert("Success");
+                    loadStrategy();
+
+                }).fail(function (res) {
+                    alert("Failed to set strategy");
                 });
             });
 
-            $('.report-table td').hover(function() {
+            $('.report-table td').hover(function () {
                 $(this).toggleClass('button-hovered-report')
             });
-            $('.report-table td').click(function() {
+            $('.report-table td').click(function () {
                 currentTeam = $(this).html();
                 loadAllMatchesTable(currentTeam);
                 $(".report-table td").removeClass("button-selected-report");
@@ -348,7 +364,7 @@
                 $('#scout-tab').trigger("click");
                 smoothScroll('b3');
             });
-            $('#view-tab').click(function() {
+            $('#view-tab').click(function () {
                 $('#view-tab').addClass("active");
                 $('#scout-tab').removeClass('active');
                 $('#viewMatchesTable-tab').removeClass('active');
@@ -361,19 +377,21 @@
                 //$('#scout-form').hide();
                 $(".view-form").show();
                 $('#submit-match-report').hide();
-                testConnection(function(exists) {
+                testConnection(function (exists) {
                     if (exists) {
                         $.post("/getMatchReports", {
                             team: currentTeam,
                             match: currentMatch
-                        }, function(response) {
+                        }.done(function (response) {
                             var reports = JSON.parse(response);
                             loadDataViewer("#viewContainer", reports);
+                        })).fail(function (res) {
+                            throw new Error(res);
                         });
                     } else {
                         var allReports = JSON.parse(localStorage.allReports);
                         var relevantReports = [];
-                        relevantReports = allReports.filter(function(report) {
+                        relevantReports = allReports.filter(function (report) {
                             if (report.team == parseInt(currentTeam) && report.match == parseInt(currentMatch)) {
                                 return true;
                             }
@@ -387,7 +405,7 @@
                 });
             });
             $('#submit-match-report').hide();
-            $('#scout-tab').click(function() {
+            $('#scout-tab').click(function () {
                 $('#scout-tab').addClass("active");
                 $('#viewMatchesGraph-tab').removeClass("active");
                 $('#view-tab').removeClass('active');
@@ -410,7 +428,7 @@
                 $('#viewContainer').html('');
                 $('#submit-match-report').show();
             });
-            $('#viewMatchesTable-tab').click(function() {
+            $('#viewMatchesTable-tab').click(function () {
                 $('#viewContainer').html('');
                 loadAllMatchesTable(currentTeam);
                 $('#viewMatchesTable-tab').addClass("active");
@@ -426,7 +444,7 @@
                 $('#submit-match-report').hide();
                 //$('#scout-form').hide();
             })
-            $('#viewMatchesGraph-tab').click(function() {
+            $('#viewMatchesGraph-tab').click(function () {
                 $("#viewMatchesGraph-form").empty();
                 // draw_chart(2, 4, 6, 8, 10, 12);
                 loadBar(currentTeam)
@@ -444,7 +462,7 @@
                 $('#submit-match-report').hide();
 
             })
-            $('#editStrategy-tab').click(function() {
+            $('#editStrategy-tab').click(function () {
                 $('#viewContainer').html('');
                 $('#editStrategy-tab').addClass("active");
                 $('#viewMatchesGraph-tab').removeClass("active");
@@ -461,7 +479,7 @@
 
             })
 
-            $('#submit-match-report').click(function() {
+            $('#submit-match-report').click(function () {
 
                 // 		$('#submit-match-report').html('Done!');
                 // 		$('#submit-match-report').prop('disabled', true);
